@@ -2,6 +2,7 @@ import { Text, Button, Stack, Divider, Section, Card } from "@/components/ui";
 import { SignalsTable } from "@/components/SignalsTable";
 import { SignalCards } from "@/components/SignalCards";
 import { PipelineAnimation } from "@/components/PipelineAnimation";
+import { ChannelsSection } from "@/components/ChannelsSection";
 import { tokens } from "@/lib/tokens";
 
 function Header() {
@@ -141,6 +142,7 @@ function HeroSection() {
   );
 }
 
+/* Hidden for now
 function ProblemSection() {
   return (
     <Section contained>
@@ -168,6 +170,7 @@ function ProblemSection() {
     </Section>
   );
 }
+*/
 
 function RequirementsSection() {
   const criteria = [
@@ -185,10 +188,10 @@ function RequirementsSection() {
       <Stack gap={3} style={{ marginBottom: tokens.spacing[8] }}>
         <Stack direction="horizontal" gap={4} align="center">
           <Divider orientation="horizontal" length="48px" color="default" />
-          <Text variant="label" color="muted">WHO WE WORK WITH</Text>
+          <Text variant="label" color="muted">THE FIT</Text>
         </Stack>
         <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
-          Client Requirements
+          We work with growth-stage B2B.
         </Text>
         <Text variant="body" color="secondary" style={{ fontSize: "15px", marginTop: tokens.spacing[2] }}>
           If this sounds like your business, we should talk.
@@ -212,6 +215,104 @@ function RequirementsSection() {
   );
 }
 
+function MethodSection() {
+  const stages = [
+    {
+      num: "01",
+      title: "Your Market",
+      description: "We start with who you sell to. Industry, company size, buying patterns, decision-makers. Your ICP becomes the filter for everything downstream.",
+    },
+    {
+      num: "02",
+      title: "Signal Detection",
+      description: "We build pipelines that monitor for buying signals specific to your market — hiring patterns, funding events, tech changes, expansion signals.",
+    },
+    {
+      num: "03",
+      title: "Campaign Execution",
+      description: "Signals trigger multi-channel sequences. Personalized messaging across email, LinkedIn, and direct mail — timed to the moment.",
+    },
+    {
+      num: "04",
+      title: "Meetings Booked",
+      description: "Qualified prospects respond. We handle the back-and-forth and book directly to your calendar.",
+    },
+    {
+      num: "05",
+      title: "Pipeline & Revenue",
+      description: "Every meeting, every deal, every dollar — tracked back to the signal that started it. You see exactly what's working.",
+    },
+  ];
+
+  return (
+    <Section contained>
+      <SectionHeader label="THE METHOD" title="We start with your market." />
+      <Text variant="body" color="secondary" style={{ maxWidth: "600px", fontSize: "15px", marginBottom: tokens.spacing[8], marginTop: `-${tokens.spacing[4]}` }}>
+        We don&#39;t start with a list. We start with your market — and build backward from there.
+      </Text>
+
+      <div style={{ position: "relative" }}>
+        {/* Connecting line */}
+        <div
+          style={{
+            position: "absolute",
+            left: "19px",
+            top: "40px",
+            bottom: "40px",
+            width: "2px",
+            background: `linear-gradient(to bottom, ${tokens.colors.border.subtle}, ${tokens.colors.accent.primary}40, ${tokens.colors.border.subtle})`,
+          }}
+        />
+
+        <Stack gap={4}>
+          {stages.map((stage, i) => (
+            <div
+              key={stage.num}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "40px 1fr",
+                gap: tokens.spacing[5],
+                alignItems: "flex-start",
+              }}
+            >
+              {/* Number node */}
+              <div
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: "50%",
+                  background: tokens.colors.bg.elevated,
+                  border: `1px solid ${tokens.colors.border.default}`,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "13px",
+                  fontWeight: 600,
+                  color: i === stages.length - 1 ? tokens.colors.accent.primary : tokens.colors.fg.muted,
+                  fontFamily: tokens.typography.fonts.mono,
+                  position: "relative",
+                  zIndex: 1,
+                }}
+              >
+                {stage.num}
+              </div>
+
+              {/* Content */}
+              <Card padding="md" style={{ flex: 1 }}>
+                <Stack gap={2}>
+                  <Text variant="title" as="h3" style={{ fontSize: "17px" }}>{stage.title}</Text>
+                  <Text variant="body" color="secondary" style={{ fontSize: "14px", lineHeight: 1.6 }}>{stage.description}</Text>
+                </Stack>
+              </Card>
+            </div>
+          ))}
+        </Stack>
+      </div>
+    </Section>
+  );
+}
+
+/* Hidden for now - keeping the old version
 function HowItWorksSection() {
   const steps = [
     { num: "01", title: "Signal Detection", description: "We build custom data pipelines that monitor public and proprietary sources for buying signals specific to your vertical." },
@@ -222,7 +323,7 @@ function HowItWorksSection() {
 
   return (
     <Section contained>
-      <SectionHeader label="HOW IT WORKS" title="Signals in, revenue out." />
+      <SectionHeader label="HOW WE WORK" title="Signals in, revenue out." />
       <div
         style={{
           display: "grid",
@@ -243,16 +344,16 @@ function HowItWorksSection() {
     </Section>
   );
 }
+*/
 
-function HowWeWorkSection() {
+function ImpactSection() {
   return (
     <Section contained>
-      <SectionHeader label="HOW WE WORK" title="Full visibility. No black box." />
+      <SectionHeader label="THE RESULTS" title="We deliver revenue impact." />
       <Stack gap={6}>
         <Text variant="body" color="secondary" style={{ maxWidth: "560px", fontSize: "15px" }}>
           Every client gets a live dashboard tracking the metrics that matter —
           revenue attributed, meetings booked, cost per meeting, and pipeline generated.
-          You see exactly what&#39;s working and what we&#39;re doing about what isn&#39;t.
         </Text>
         <HeroMetrics />
       </Stack>
@@ -263,7 +364,7 @@ function HowWeWorkSection() {
 function SignalsSection() {
   return (
     <Section contained id="signals">
-      <SectionHeader label="THE ENGINE" title="Signals that produce pipeline." />
+      <SectionHeader label="THE ENGINE" title="We detect the signals that matter." />
       <SignalsTable />
     </Section>
   );
@@ -278,7 +379,7 @@ function SignalCardsSection() {
           <Text variant="label" color="muted">THE ENGINE</Text>
         </Stack>
         <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
-          Signals that produce pipeline.
+          We detect the signals that matter.
         </Text>
         <Text variant="body" color="secondary" style={{ maxWidth: "640px", fontSize: "15px", marginTop: tokens.spacing[2] }}>
           We monitor public data for behavioral inflection points — moments when a company&#39;s
@@ -300,10 +401,10 @@ function CTASection() {
             as="h2"
             style={{ fontSize: "clamp(28px, 4vw, 40px)" }}
           >
-            Your next 50 customers already exist.
+            We look forward to hearing from you.
           </Text>
           <Text variant="body" color="muted" style={{ maxWidth: "480px" }}>
-            Let us help you reach them.
+            Let&#39;s build your pipeline.
           </Text>
           <div style={{ paddingTop: tokens.spacing[4] }}>
             <Button variant="primary" size="lg">REQUEST ACCESS</Button>
@@ -345,11 +446,11 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <ProblemSection />
-        <HowItWorksSection />
-        <HowWeWorkSection />
+        <MethodSection />
+        <ChannelsSection />
         <SignalsSection />
         <SignalCardsSection />
+        <ImpactSection />
         <RequirementsSection />
         <CTASection />
       </main>
