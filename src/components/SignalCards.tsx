@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useMemo, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { tokens } from "@/lib/tokens";
-import { Text, Card } from "@/components/ui";
+import { Text } from "@/components/ui";
 import signalsData from "@/data/signals.json";
 
 interface Signal {
@@ -29,96 +29,100 @@ const verticals = [
   "Professional Services",
 ] as const;
 
-function SignalCard({ signal }: { signal: Signal }) {
+function SignalCard({ signal, index }: { signal: Signal; index: number }) {
   return (
-    <Card
-      padding="none"
+    <div
       style={{
-        minWidth: 340,
-        maxWidth: 340,
-        flexShrink: 0,
+        background: tokens.colors.bg.secondary,
+        border: `1px solid ${tokens.colors.border.subtle}`,
+        borderRadius: tokens.radii.lg,
+        padding: "32px",
         display: "flex",
         flexDirection: "column",
+        gap: "20px",
+        height: "100%",
       }}
     >
+      {/* Signal type label */}
       <div
         style={{
-          padding: tokens.spacing[6],
           display: "flex",
-          flexDirection: "column",
-          gap: tokens.spacing[4],
-          flex: 1,
+          alignItems: "center",
+          gap: "12px",
         }}
       >
-        {/* Signal name — small uppercase label */}
+        <div
+          style={{
+            width: 28,
+            height: 28,
+            borderRadius: "6px",
+            background: tokens.colors.bg.elevated,
+            border: `1px solid ${tokens.colors.border.default}`,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            fontSize: "12px",
+            fontWeight: 600,
+            color: tokens.colors.fg.muted,
+            fontFamily: tokens.typography.fonts.mono,
+          }}
+        >
+          {String(index + 1).padStart(2, "0")}
+        </div>
         <Text
           variant="label"
           color="muted"
           as="div"
-          style={{ fontSize: "10px", letterSpacing: "0.08em" }}
+          style={{ fontSize: "11px", letterSpacing: "0.08em" }}
         >
-          {signal.name}
+          {signal.name.toUpperCase()}
         </Text>
-
-        {/* Example — main headline, largest text */}
-        <Text
-          variant="body"
-          as="div"
-          style={{
-            fontSize: "15px",
-            lineHeight: 1.45,
-            fontWeight: 500,
-            color: tokens.colors.fg.primary,
-            flex: 1,
-          }}
-        >
-          {signal.example}
-        </Text>
-
-        {/* Divider + bridge */}
-        <div>
-          <div
-            style={{
-              height: 1,
-              background: tokens.colors.border.subtle,
-              marginBottom: tokens.spacing[3],
-            }}
-          />
-          <Text
-            variant="caption"
-            color="secondary"
-            as="div"
-            style={{ fontSize: "12px", lineHeight: 1.4 }}
-          >
-            {signal.bridge}
-          </Text>
-        </div>
       </div>
-    </Card>
+
+      {/* Example — the main content */}
+      <Text
+        variant="body"
+        as="div"
+        style={{
+          fontSize: "20px",
+          lineHeight: 1.4,
+          fontWeight: 500,
+          color: tokens.colors.fg.primary,
+          flex: 1,
+        }}
+      >
+        {signal.example}
+      </Text>
+
+      {/* Bridge — why this matters */}
+      <div
+        style={{
+          paddingTop: "16px",
+          borderTop: `1px solid ${tokens.colors.border.subtle}`,
+        }}
+      >
+        <Text
+          variant="caption"
+          color="secondary"
+          as="div"
+          style={{ fontSize: "14px", lineHeight: 1.5 }}
+        >
+          {signal.bridge}
+        </Text>
+      </div>
+    </div>
   );
 }
 
 export function SignalCards() {
-  const scrollRef = useRef<HTMLDivElement>(null);
   const [activeVertical, setActiveVertical] = useState<string>(verticals[0]);
 
   const filtered = useMemo(() => {
     return signals.filter((s) => s.verticals.includes(activeVertical));
   }, [activeVertical]);
 
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({ left: 0 });
-    }
-  }, [activeVertical]);
-
-  const scroll = (direction: "left" | "right") => {
-    if (!scrollRef.current) return;
-    scrollRef.current.scrollBy({
-      left: direction === "left" ? -360 : 360,
-      behavior: "smooth",
-    });
-  };
+  // Show first 6 signals in a grid
+  const displayedSignals = filtered.slice(0, 6);
 
   return (
     <div>
@@ -127,8 +131,9 @@ export function SignalCards() {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: tokens.spacing[3],
-          marginBottom: tokens.spacing[6],
+          gap: "10px",
+          rowGap: "10px",
+          marginBottom: "40px",
           flexWrap: "wrap",
         }}
       >
@@ -136,7 +141,7 @@ export function SignalCards() {
           variant="caption"
           color="muted"
           as="span"
-          style={{ fontSize: "12px", flexShrink: 0 }}
+          style={{ fontSize: "13px", flexShrink: 0, marginRight: "8px" }}
         >
           Selling to:
         </Text>
@@ -146,14 +151,16 @@ export function SignalCards() {
             onClick={() => setActiveVertical(v)}
             style={{
               fontFamily: tokens.typography.fonts.mono,
-              fontSize: "11px",
-              padding: "5px 14px",
+              fontSize: "12px",
+              padding: "8px 16px",
               borderRadius: tokens.radii.full,
-              border: `1px solid ${activeVertical === v ? tokens.colors.border.strong : tokens.colors.border.subtle}`,
-              background: activeVertical === v ? tokens.colors.bg.elevated : "transparent",
-              color: activeVertical === v ? tokens.colors.fg.primary : tokens.colors.fg.muted,
+              border: `1px solid ${activeVertical === v ? tokens.colors.fg.primary : tokens.colors.border.subtle}`,
+              background: activeVertical === v ? tokens.colors.fg.primary : "transparent",
+              color: activeVertical === v ? tokens.colors.bg.primary : tokens.colors.fg.muted,
               cursor: "pointer",
               whiteSpace: "nowrap",
+              fontWeight: activeVertical === v ? 600 : 400,
+              transition: "all 0.15s ease",
             }}
           >
             {v}
@@ -161,59 +168,32 @@ export function SignalCards() {
         ))}
       </div>
 
-      {/* Cards carousel */}
-      <div style={{ position: "relative", margin: "0 -24px", padding: "0 24px" }}>
+      {/* Cards grid */}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: "20px",
+        }}
+      >
+        {displayedSignals.map((signal, i) => (
+          <SignalCard key={`${signal.name}-${i}`} signal={signal} index={i} />
+        ))}
+      </div>
+
+      {/* Show more indicator */}
+      {filtered.length > 6 && (
         <div
-          ref={scrollRef}
           style={{
-            display: "flex",
-            alignItems: "stretch",
-            gap: tokens.spacing[4],
-            overflowX: "auto",
-            scrollSnapType: "x mandatory",
-            scrollbarWidth: "none",
-            paddingBottom: tokens.spacing[2],
+            marginTop: "24px",
+            textAlign: "center",
           }}
         >
-          {filtered.map((signal, i) => (
-            <div key={`${signal.name}-${i}`} style={{ scrollSnapAlign: "start", display: "flex" }}>
-              <SignalCard signal={signal} />
-            </div>
-          ))}
+          <Text variant="caption" color="muted" style={{ fontSize: "13px" }}>
+            +{filtered.length - 6} more signals for {activeVertical}
+          </Text>
         </div>
-
-        {filtered.length > 3 && (
-          <>
-            {(["left", "right"] as const).map((dir) => (
-              <button
-                key={dir}
-                onClick={() => scroll(dir)}
-                style={{
-                  position: "absolute",
-                  [dir === "left" ? "left" : "right"]: 0,
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  width: 40,
-                  height: 40,
-                  borderRadius: "50%",
-                  background: tokens.colors.bg.elevated,
-                  border: `1px solid ${tokens.colors.border.default}`,
-                  color: tokens.colors.fg.secondary,
-                  cursor: "pointer",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "18px",
-                }}
-              >
-                {dir === "left" ? "←" : "→"}
-              </button>
-            ))}
-          </>
-        )}
-
-        <style>{`div::-webkit-scrollbar { display: none; }`}</style>
-      </div>
+      )}
     </div>
   );
 }
