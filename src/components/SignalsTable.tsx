@@ -28,7 +28,7 @@ type Vertical = (typeof verticals)[number];
 
 
 const cellStyle = {
-  padding: `${tokens.spacing[5]} ${tokens.spacing[4]}`,
+  padding: `${tokens.spacing[5]} ${tokens.spacing[6]}`,
   borderBottom: `1px solid ${tokens.colors.border.subtle}`,
 };
 
@@ -42,12 +42,21 @@ const thStyle = {
   textTransform: "uppercase" as const,
 };
 
-function TableRow({ signal, index, isHovered, onHover, onLeave }: {
+// Generate a pseudo-random timestamp based on signal name and vertical
+function getTimestamp(signalName: string, vertical: string): string {
+  const timestamps = ["12m ago", "34m ago", "1h ago", "2h ago", "4h ago", "6h ago", "Yesterday", "2d ago", "3d ago"];
+  // Simple hash to get consistent but different values per signal+vertical combo
+  const hash = (signalName + vertical).split("").reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return timestamps[hash % timestamps.length];
+}
+
+function TableRow({ signal, index, isHovered, onHover, onLeave, vertical }: {
   signal: Signal;
   index: number;
   isHovered: boolean;
   onHover: () => void;
   onLeave: () => void;
+  vertical: string;
 }) {
   return (
     <tr
@@ -60,9 +69,21 @@ function TableRow({ signal, index, isHovered, onHover, onLeave }: {
       }}
     >
       <td style={cellStyle}>
-        <Text variant="label" color="muted" style={{ fontSize: "11px" }}>
-          {signal.name.toUpperCase()}
-        </Text>
+        <Stack direction="horizontal" gap={2} align="center">
+          <div
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: "50%",
+              background: tokens.colors.accent.success,
+              boxShadow: `0 0 6px ${tokens.colors.accent.success}`,
+              flexShrink: 0,
+            }}
+          />
+          <Text variant="label" color="muted" style={{ fontSize: "11px" }}>
+            {signal.name.toUpperCase()}
+          </Text>
+        </Stack>
       </td>
       <td style={cellStyle}>
         <Stack gap={1}>
@@ -73,6 +94,11 @@ function TableRow({ signal, index, isHovered, onHover, onLeave }: {
             {signal.bridge}
           </Text>
         </Stack>
+      </td>
+      <td style={{ ...cellStyle, textAlign: "right", width: "100px" }}>
+        <Text variant="caption" color="muted" style={{ fontSize: "12px", fontFamily: tokens.typography.fonts.mono }}>
+          {getTimestamp(signal.name, vertical)}
+        </Text>
       </td>
     </tr>
   );
@@ -123,32 +149,17 @@ export function SignalsTable() {
   }, [activeVertical]);
 
   return (
-    <div
-      style={{
-        background: tokens.colors.bg.primary,
-        border: `1px solid ${tokens.colors.border.subtle}`,
-        borderRadius: tokens.radii.lg,
-        overflow: "hidden",
-      }}
-    >
+    <div>
+      {/* Vertical tabs with LIVE indicator */}
       <div
         style={{
-          padding: `${tokens.spacing[6]} ${tokens.spacing[6]} ${tokens.spacing[4]}`,
-          borderBottom: `1px solid ${tokens.colors.border.subtle}`,
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: tokens.spacing[4],
         }}
       >
-        <Text variant="body" color="muted" style={{ marginBottom: tokens.spacing[6] }}>
-          Every vertical has signals. Select yours to see what we detect.
-        </Text>
-
-        <div
-          style={{
-            display: "flex",
-            gap: tokens.spacing[1],
-            borderBottom: `1px solid ${tokens.colors.border.subtle}`,
-            marginLeft: `-${tokens.spacing[2]}`,
-          }}
-        >
+        <div style={{ display: "flex", gap: tokens.spacing[1] }}>
           {verticals.map((vertical) => (
             <VerticalTab
               key={vertical}
@@ -158,23 +169,67 @@ export function SignalsTable() {
             />
           ))}
         </div>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: tokens.spacing[2],
+            padding: `${tokens.spacing[2]} ${tokens.spacing[3]}`,
+            background: `${tokens.colors.accent.success}15`,
+            borderRadius: tokens.radii.md,
+            border: `1px solid ${tokens.colors.accent.success}30`,
+          }}
+        >
+          <div
+            style={{
+              width: 6,
+              height: 6,
+              borderRadius: "50%",
+              background: tokens.colors.accent.success,
+              boxShadow: `0 0 8px ${tokens.colors.accent.success}`,
+              animation: "pulse 2s infinite",
+            }}
+          />
+          <span
+            style={{
+              fontFamily: tokens.typography.fonts.mono,
+              fontSize: "11px",
+              fontWeight: 500,
+              letterSpacing: "0.05em",
+              color: tokens.colors.accent.success,
+            }}
+          >
+            LIVE
+          </span>
+        </div>
       </div>
 
-      <div style={{ overflowX: "auto" }}>
+      {/* Table container */}
+      <div
+        style={{
+          background: tokens.colors.bg.primary,
+          border: `1px solid ${tokens.colors.border.subtle}`,
+          borderRadius: tokens.radii.lg,
+          overflow: "hidden",
+        }}
+      >
+        <div style={{ overflowX: "auto" }}>
         <table
           style={{
             width: "100%",
             borderCollapse: "collapse",
-            tableLayout: "fixed",
           }}
         >
           <thead>
             <tr style={{ borderBottom: `1px solid ${tokens.colors.border.default}` }}>
-              <th style={{ ...thStyle, width: "180px", textAlign: "left" }}>
+              <th style={{ ...thStyle, width: "200px", textAlign: "left" }}>
                 Signal
               </th>
               <th style={{ ...thStyle, textAlign: "left" }}>
                 What We See → Why It Matters
+              </th>
+              <th style={{ ...thStyle, width: "100px", textAlign: "right" }}>
+                Detected
               </th>
             </tr>
           </thead>
@@ -187,27 +242,29 @@ export function SignalsTable() {
                 isHovered={hoveredRow === i}
                 onHover={() => setHoveredRow(i)}
                 onLeave={() => setHoveredRow(null)}
+                vertical={activeVertical}
               />
             ))}
           </tbody>
         </table>
       </div>
 
-      <div
-        style={{
-          padding: `${tokens.spacing[4]} ${tokens.spacing[6]}`,
-          borderTop: `1px solid ${tokens.colors.border.subtle}`,
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <Text variant="caption" color="muted">
-          {filteredSignals.length} signals for {activeVertical}
-        </Text>
-        <Text variant="caption" color="muted">
-          +{signals.filter((s) => s.verticals.includes(activeVertical)).length - filteredSignals.length} more
-        </Text>
+        <div
+          style={{
+            padding: `${tokens.spacing[4]} ${tokens.spacing[6]}`,
+            borderTop: `1px solid ${tokens.colors.border.subtle}`,
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <Text variant="caption" color="muted">
+            {filteredSignals.length} signals for {activeVertical}
+          </Text>
+          <Text variant="caption" color="muted">
+            +{signals.filter((s) => s.verticals.includes(activeVertical)).length - filteredSignals.length} more
+          </Text>
+        </div>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ const channels = [
     label: "Mail",
     title: "Programmatic Direct Mail",
     description:
-      "Every piece is generated from signal data — variable text, personalized URLs, QR codes that route to custom landing pages. Delivery confirmation and scan analytics tracked back to each recipient.",
+      "Every piece is generated from signal data — variable text, personalized URLs, QR codes that route to custom landing pages. Delivery confirmation and scan analytics tracked back to each recipient. Physical mail cuts through the noise.",
     tags: ["VARIABLE DATA", "PERSONALIZED URLS", "QR TRACKING", "DELIVERY ANALYTICS", "SIGNAL-TRIGGERED"],
   },
   {
@@ -18,7 +18,7 @@ const channels = [
     label: "Email",
     title: "Isolated Sending Infrastructure",
     description:
-      "Single-tenant email clusters with dedicated IPs. Your deliverability is never affected by another engagement. Full authentication, ongoing warmup, and real-time inbox monitoring.",
+      "Single-tenant email clusters with dedicated IPs. Your deliverability is never affected by another client's engagement. Full authentication, ongoing warmup, and real-time inbox placement monitoring. Built for volume without compromise.",
     tags: ["DEDICATED IPS", "SINGLE-TENANT", "SPF/DKIM/DMARC", "WARMUP", "INBOX MONITORING"],
   },
   {
@@ -26,8 +26,8 @@ const channels = [
     label: "Social",
     title: "Automated LinkedIn Sequences",
     description:
-      "Connection requests, messages, and follow-ups sequenced with conditional logic. Which message fires depends on profile data, response behavior, and signal type. Activity synced to your CRM.",
-    tags: ["AUTOMATED SEQUENCES", "CONDITIONAL BRANCHING", "PROFILE TARGETING", "CRM SYNC"],
+      "Connection requests, messages, and follow-ups sequenced with conditional logic. Which message fires depends on profile data, response behavior, and signal type. Activity synced to your CRM in real time. Multi-touch without the manual work.",
+    tags: ["AUTOMATED SEQUENCES", "CONDITIONAL BRANCHING", "PROFILE TARGETING", "CRM SYNC", "REAL-TIME SYNC"],
   },
 ];
 
@@ -50,7 +50,7 @@ export function ChannelsSection() {
           <Text variant="label" color="muted">THE CHANNELS</Text>
         </Stack>
         <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
-          We reach them when it matters.
+          We reach them where they are.
         </Text>
         <Text variant="body" color="secondary" style={{ fontSize: "15px", maxWidth: "560px" }}>
           Each channel is infrastructure we&apos;ve built — not tools we use. Signal data flows through, personalized messages flow out.
@@ -98,7 +98,9 @@ export function ChannelsSection() {
           border: `1px solid ${tokens.colors.border.subtle}`,
           borderRadius: tokens.radii.lg,
           padding: "48px",
-          minHeight: "320px",
+          height: "360px",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         {/* Number */}
@@ -148,6 +150,7 @@ export function ChannelsSection() {
             display: "flex",
             flexWrap: "wrap",
             gap: "10px",
+            marginTop: "auto",
           }}
         >
           {channel.tags.map((tag) => (

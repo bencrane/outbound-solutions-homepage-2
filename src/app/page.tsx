@@ -3,6 +3,7 @@ import { SignalsTable } from "@/components/SignalsTable";
 import { SignalCards } from "@/components/SignalCards";
 import { PipelineAnimation } from "@/components/PipelineAnimation";
 import { ChannelsSection } from "@/components/ChannelsSection";
+import { FitCarousel } from "@/components/FitCarousel";
 import { tokens } from "@/lib/tokens";
 
 function Header() {
@@ -57,31 +58,31 @@ function HeroMetrics() {
       >
         <Stack direction="horizontal" gap={2} align="center">
           <div style={{ width: 6, height: 6, borderRadius: "50%", background: tokens.colors.accent.success, boxShadow: `0 0 8px ${tokens.colors.accent.success}` }} />
-          <Text variant="label" color="muted" style={{ fontSize: "11px" }}>ACTIVE ENGAGEMENT</Text>
+          <Text variant="label" color="muted" style={{ fontSize: "11px" }}>CLIENT DASHBOARD</Text>
         </Stack>
         <Text variant="caption" color="muted" style={{ fontSize: "12px" }}>Last 90 days</Text>
       </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <div style={{ padding: tokens.spacing[5], borderBottom: `1px solid ${tokens.colors.border.subtle}`, borderRight: `1px solid ${tokens.colors.border.subtle}` }}>
+        <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderBottom: `1px solid ${tokens.colors.border.subtle}`, borderRight: `1px solid ${tokens.colors.border.subtle}` }}>
           <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>REVENUE ATTRIBUTED</Text>
           <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>$184k</Text>
-          <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[1] }}>+$62k this month</Text>
+          <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[2] }}>+$62k this month</Text>
         </div>
-        <div style={{ padding: tokens.spacing[5], borderBottom: `1px solid ${tokens.colors.border.subtle}` }}>
+        <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderBottom: `1px solid ${tokens.colors.border.subtle}` }}>
           <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>MEETINGS ATTENDED</Text>
           <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>38</Text>
-          <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[1] }}>14 this month</Text>
+          <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[2] }}>14 this month</Text>
         </div>
-        <div style={{ padding: tokens.spacing[5], borderRight: `1px solid ${tokens.colors.border.subtle}` }}>
+        <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderRight: `1px solid ${tokens.colors.border.subtle}` }}>
           <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>COST PER MEETING</Text>
           <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>$127</Text>
-          <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[1] }}>&darr; from $203</Text>
+          <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[2] }}>&darr; from $203</Text>
         </div>
-        <div style={{ padding: tokens.spacing[5] }}>
+        <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}` }}>
           <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>PIPELINE</Text>
           <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>$412k</Text>
-          <Text variant="caption" color="muted" style={{ fontSize: "12px", marginTop: tokens.spacing[1] }}>18 deals open</Text>
+          <Text variant="caption" color="muted" style={{ fontSize: "12px", marginTop: tokens.spacing[2] }}>18 deals open</Text>
         </div>
       </div>
     </div>
@@ -173,16 +174,6 @@ function ProblemSection() {
 */
 
 function RequirementsSection() {
-  const criteria = [
-    { label: "$3M+ revenue", quote: "You're past the figuring-it-out phase" },
-    { label: "5+ on the sales team", quote: "You've already hired for growth" },
-    { label: "B2B only", quote: "Consumer brands, we can't help you" },
-    { label: "Complex sales cycle", quote: "Your deals don't close on a demo" },
-    { label: "Multiple decision-makers", quote: "Nobody signs off alone" },
-    { label: "$30K+ ACV", quote: "You don't discount to close" },
-    { label: "$50K+ existing ad spend", quote: "You don't just hope for new business" },
-  ];
-
   return (
     <Section contained>
       <Stack gap={3} style={{ marginBottom: tokens.spacing[8] }}>
@@ -197,20 +188,93 @@ function RequirementsSection() {
           If this sounds like your business, we should talk.
         </Text>
       </Stack>
-      <Stack gap={3}>
-        {criteria.map((item) => (
-          <Card key={item.label} padding="md">
-            <Stack direction="horizontal" gap={4} align="center" style={{ justifyContent: "space-between" }}>
-              <Text variant="title" as="div" style={{ fontSize: "16px" }}>{item.label}</Text>
-              {item.quote && (
-                <Text variant="body" color="muted" style={{ fontSize: "14px", fontStyle: "italic" }}>
-                  &ldquo;{item.quote}&rdquo;
+      <FitCarousel />
+    </Section>
+  );
+}
+
+function InsightSection() {
+  const enrichedCustomers = [
+    {
+      name: "Meridian Logistics",
+      domain: "meridianlogistics.com",
+      attributes: [
+        { label: "Buyer Title", value: "VP of Operations" },
+        { label: "Headcount", value: "127 employees" },
+        { label: "Tech Stack", value: "Salesforce, NetSuite" },
+        { label: "Recent Signal", value: "UCC-1 filed — $180K equipment" },
+      ],
+    },
+    {
+      name: "Apex Industrial",
+      domain: "apexindustrial.io",
+      attributes: [
+        { label: "Buyer Title", value: "Director of Procurement" },
+        { label: "Headcount", value: "89 employees" },
+        { label: "Tech Stack", value: "HubSpot, QuickBooks" },
+        { label: "Recent Signal", value: "Commercial build permit filed" },
+      ],
+    },
+    {
+      name: "Northline Supply",
+      domain: "northlinesupply.com",
+      attributes: [
+        { label: "Buyer Title", value: "COO" },
+        { label: "Headcount", value: "203 employees" },
+        { label: "Tech Stack", value: "Dynamics 365" },
+        { label: "Recent Signal", value: "New VP Ops hired 3 weeks ago" },
+      ],
+    },
+  ];
+
+  return (
+    <Section contained>
+      <SectionHeader label="THE INSIGHT" title="We start with your best-fit customers." />
+      <Text variant="body" color="secondary" style={{ maxWidth: "600px", fontSize: "15px", marginBottom: tokens.spacing[8], marginTop: `-${tokens.spacing[4]}` }}>
+        Most outbound starts with a purchased list. We start with your actual customers — enriched to reveal what made them buy.
+      </Text>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gap: tokens.spacing[4],
+        }}
+      >
+        {enrichedCustomers.map((customer) => (
+          <Card key={customer.name} padding="md">
+            <Stack gap={4}>
+              <div>
+                <Text variant="title" as="div" style={{ fontSize: "15px", marginBottom: "2px" }}>
+                  {customer.name}
                 </Text>
-              )}
+                <Text variant="caption" color="muted" style={{ fontSize: "12px", fontFamily: tokens.typography.fonts.mono }}>
+                  {customer.domain}
+                </Text>
+              </div>
+              <div
+                style={{
+                  borderTop: `1px solid ${tokens.colors.border.subtle}`,
+                  paddingTop: tokens.spacing[3],
+                }}
+              >
+                <Stack gap={2}>
+                  {customer.attributes.map((attr) => (
+                    <div key={attr.label} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
+                      <Text variant="caption" color="muted" style={{ fontSize: "11px" }}>
+                        {attr.label}
+                      </Text>
+                      <Text variant="body" style={{ fontSize: "12px", textAlign: "right" }}>
+                        {attr.value}
+                      </Text>
+                    </div>
+                  ))}
+                </Stack>
+              </div>
             </Stack>
           </Card>
         ))}
-      </Stack>
+      </div>
     </Section>
   );
 }
@@ -219,36 +283,36 @@ function MethodSection() {
   const stages = [
     {
       num: "01",
-      title: "Your Market",
-      description: "We start with who you sell to. Industry, company size, buying patterns, decision-makers. Your ICP becomes the filter for everything downstream.",
+      title: "Enrich Your Customer Data",
+      description: "We take your existing customers and enrich every record — job titles, tenure, company size, industry, location. Your actual buyers become the foundation.",
     },
     {
       num: "02",
-      title: "Signal Detection",
-      description: "We build pipelines that monitor for buying signals specific to your market — hiring patterns, funding events, tech changes, expansion signals.",
+      title: "Analyze for Patterns",
+      description: "AI analyzes your enriched customer list to find what your best buyers have in common — titles, industries, company profiles, and the outliers that matter.",
     },
     {
       num: "03",
-      title: "Campaign Execution",
-      description: "Signals trigger multi-channel sequences. Personalized messaging across email, LinkedIn, and direct mail — timed to the moment.",
+      title: "Pull the Full Universe",
+      description: "We pull every company that matches your criteria — even weird outlier industries. Data is cheap. We cast a wide net and filter down.",
     },
     {
       num: "04",
-      title: "Meetings Booked",
-      description: "Qualified prospects respond. We handle the back-and-forth and book directly to your calendar.",
+      title: "Score Every Company",
+      description: "Each company is AI-scored against your actual customers as ground truth. If a real customer would fail the filter, the filter is wrong.",
     },
     {
       num: "05",
-      title: "Pipeline & Revenue",
-      description: "Every meeting, every deal, every dollar — tracked back to the signal that started it. You see exactly what's working.",
+      title: "Build Your TAM",
+      description: "You get a clean list of companies that genuinely fit — scored, ranked, and ready. Not 100% coverage with garbage. 80% coverage with quality.",
     },
   ];
 
   return (
     <Section contained>
-      <SectionHeader label="THE METHOD" title="We start with your market." />
+      <SectionHeader label="THE METHOD" title="We map your total addressable market." />
       <Text variant="body" color="secondary" style={{ maxWidth: "600px", fontSize: "15px", marginBottom: tokens.spacing[8], marginTop: `-${tokens.spacing[4]}` }}>
-        We don&#39;t start with a list. We start with your market — and build backward from there.
+        Your actual customers tell us who else to reach. We enrich, analyze, and build your TAM from the ground up.
       </Text>
 
       <div style={{ position: "relative" }}>
@@ -365,6 +429,9 @@ function SignalsSection() {
   return (
     <Section contained id="signals">
       <SectionHeader label="THE ENGINE" title="We detect the signals that matter." />
+      <Text variant="body" color="secondary" style={{ maxWidth: "640px", fontSize: "15px", marginBottom: tokens.spacing[8], marginTop: `-${tokens.spacing[4]}` }}>
+        We monitor public data for behavioral inflection points — moments when a company&#39;s circumstances change faster than their vendor relationships.
+      </Text>
       <SignalsTable />
     </Section>
   );
@@ -404,7 +471,7 @@ function CTASection() {
             We look forward to hearing from you.
           </Text>
           <Text variant="body" color="muted" style={{ maxWidth: "480px" }}>
-            Let&#39;s build your pipeline.
+            Let&#39;s get results.
           </Text>
           <div style={{ paddingTop: tokens.spacing[4] }}>
             <Button variant="primary" size="lg">REQUEST ACCESS</Button>
@@ -446,10 +513,11 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
+        <InsightSection />
         <MethodSection />
-        <ChannelsSection />
         <SignalsSection />
-        <SignalCardsSection />
+        <ChannelsSection />
+        {/* <SignalCardsSection /> */}
         <ImpactSection />
         <RequirementsSection />
         <CTASection />
