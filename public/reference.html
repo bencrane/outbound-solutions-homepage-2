@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outbound Solutions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #e8e8e8;
+    --dim: #555;
+    --green: #4a8c6f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'IBM Plex Mono', monospace;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+  }
+
+  .grid-bg {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  section { position: relative; z-index: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 24px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .logo { font-size: 13px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; }
+  .logo span { color: var(--dim); font-weight: 300; }
+
+  .nav-right { display: flex; align-items: center; gap: 32px; }
+
+  .nav-link {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--dim); text-decoration: none; transition: color 0.3s;
+  }
+  .nav-link:hover { color: var(--white); }
+
+  .nav-cta {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--black); background: var(--white);
+    padding: 10px 24px; text-decoration: none; transition: all 0.3s;
+  }
+  .nav-cta:hover { background: #888; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 160px 48px 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--dim); margin-bottom: 48px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .hero-label::before { content: ''; width: 32px; height: 1px; background: var(--dim); }
+
+  .hero h1 {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: clamp(44px, 5.5vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 32px;
+  }
+
+  .hero-sub {
+    font-size: 14px; line-height: 1.8; color: var(--dim);
+    max-width: 420px; font-weight: 300;
+  }
+
+  .hero-cta-row { margin-top: 48px; }
+
+  .btn-primary {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--black); background: var(--white);
+    padding: 16px 40px; text-decoration: none;
+    transition: all 0.3s; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: #888; }
+
+  /* Hero dashboard */
+  .hero-dash {
+    background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 3px; overflow: hidden;
+  }
+
+  .hero-dash-topbar {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .hero-dash-topbar-left { display: flex; align-items: center; gap: 10px; }
+
+  .hd-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 2s infinite; }
+
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+  .hd-title { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--dim); }
+  .hd-date { font-size: 10px; color: var(--dim); font-weight: 300; }
+
+  .hero-dash-metrics { display: grid; grid-template-columns: 1fr 1fr; }
+
+  .hd-metric {
+    padding: 24px 20px;
+    border-right: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+  .hd-metric:nth-child(2n) { border-right: none; }
+  .hd-metric:nth-child(n+3) { border-bottom: none; }
+
+  .hd-metric-label { font-size: 8px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); margin-bottom: 10px; }
+  .hd-metric-value { font-family: 'Instrument Serif', serif; font-size: 30px; font-weight: 400; letter-spacing: -1px; line-height: 1; margin-bottom: 6px; }
+  .hd-metric-delta { font-size: 9px; color: var(--dim); font-weight: 300; }
+  .hd-metric-delta.up { color: var(--green); }
+
+  /* SECTION UTILITIES */
+  .section-label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--dim); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::before { content: ''; width: 32px; height: 1px; background: var(--dim); }
+
+  .section-headline {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 400; line-height: 1.15; letter-spacing: -1px;
+    margin-bottom: 56px; max-width: 600px;
+  }
+
+  .section-sub {
+    font-size: 13px; color: var(--dim); font-weight: 300;
+    margin-bottom: 40px; line-height: 1.6; max-width: 520px;
+  }
+
+  /* THE WORLD */
+  .world {
+    padding: 100px 48px 120px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .world-inner {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .world-text {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(22px, 2.5vw, 30px);
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+
+  .world-text span { color: var(--dim); }
+
+  /* STACK */
+  .stack {
+    padding: 120px 48px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .stack-inner { max-width: 1200px; margin: 0 auto; }
+
+  .stack-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+
+  .stack-card {
+    padding: 48px 40px;
+    background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(255,255,255,0.04);
+    transition: background 0.3s;
+  }
+  .stack-card:hover { background: rgba(255,255,255,0.025); }
+
+  .stack-card-num { font-size: 10px; letter-spacing: 1.5px; color: var(--dim); margin-bottom: 24px; }
+
+  .stack-card-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 26px; font-weight: 400; letter-spacing: -0.3px;
+    margin-bottom: 16px; line-height: 1.2;
+  }
+
+  .stack-card-desc {
+    font-size: 13px; line-height: 1.7; color: var(--dim);
+    font-weight: 300; margin-bottom: 24px; max-width: 400px;
+  }
+
+  .stack-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .stack-tag {
+    font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--dim); padding: 5px 12px;
+    border: 1px solid rgba(255,255,255,0.06); border-radius: 2px;
+  }
+
+  /* SIGNALS — reframed as "where we operate" */
+  .signals {
+    padding: 120px 48px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .signals-inner { max-width: 1200px; margin: 0 auto; }
+
+  .signal-tabs { display: flex; gap: 0; margin-bottom: 0; flex-wrap: wrap; }
+
+  .signal-tab {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 1px;
+    color: var(--dim); background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(255,255,255,0.04);
+    border-bottom: none;
+    padding: 16px 28px; cursor: pointer; transition: all 0.3s;
+    display: flex; flex-direction: column; gap: 4px;
+  }
+
+  .signal-tab:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+
+  .signal-tab.active {
+    color: var(--white);
+    background: rgba(255,255,255,0.04);
+    border-color: rgba(255,255,255,0.08);
+  }
+
+  .signal-tab-client {
+    font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  }
+
+  .signal-tab-market {
+    font-size: 9px; letter-spacing: 0.5px; color: var(--dim); font-weight: 300;
+    text-transform: none;
+  }
+
+  .signal-table {
+    background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(255,255,255,0.05);
+    overflow: hidden;
+  }
+
+  .signal-table-context {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .signal-table-context-text {
+    font-size: 12px; color: var(--dim); font-weight: 300;
+  }
+
+  .signal-table-context-text strong {
+    color: var(--white); font-weight: 400;
+  }
+
+  .signal-table-context-live {
+    font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase;
+    color: var(--green); display: flex; align-items: center; gap: 8px;
+  }
+
+  .signal-table-context-live::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--green); animation: blink 2s infinite;
+  }
+
+  .signal-table-header {
+    display: grid;
+    grid-template-columns: 120px 1fr 120px 100px;
+    gap: 16px; padding: 14px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .signal-table-header span {
+    font-size: 9px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--dim);
+  }
+
+  .signal-table-body { min-height: 280px; }
+
+  .signal-table-group { display: none; }
+  .signal-table-group.active { display: block; }
+
+  .signal-table-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 120px 100px;
+    gap: 16px; padding: 16px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.025);
+    align-items: center;
+    opacity: 0; animation: fadeRow 0.35s forwards;
+  }
+
+  .signal-table-row:last-child { border-bottom: none; }
+  .signal-table-row:nth-child(1) { animation-delay: 0.05s; }
+  .signal-table-row:nth-child(2) { animation-delay: 0.1s; }
+  .signal-table-row:nth-child(3) { animation-delay: 0.15s; }
+  .signal-table-row:nth-child(4) { animation-delay: 0.2s; }
+  .signal-table-row:nth-child(5) { animation-delay: 0.25s; }
+
+  @keyframes fadeRow { to { opacity: 1; } }
+
+  .str-type { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim); }
+  .str-signal { font-size: 13px; font-weight: 300; color: var(--white); line-height: 1.5; }
+  .str-source { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--dim); }
+  .str-status { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; text-align: right; color: var(--dim); }
+
+  .str-status.live {
+    color: var(--white);
+    display: flex; align-items: center; justify-content: flex-end; gap: 8px;
+  }
+  .str-status.live::before {
+    content: ''; width: 6px; height: 6px;
+    background: var(--white); border-radius: 50%; animation: blink 2s infinite;
+  }
+
+  /* QUALIFYING STRIP */
+  .qualifying {
+    padding: 80px 48px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .qualifying-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: start; gap: 60px;
+  }
+
+  .qualifying-left { max-width: 460px; }
+
+  .qualifying-left h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 400; line-height: 1.15; letter-spacing: -1px; margin-bottom: 24px;
+  }
+
+  .qualifying-left p {
+    font-size: 14px; line-height: 1.8; color: var(--dim); font-weight: 300;
+  }
+
+  .qualifying-criteria {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    min-width: 400px;
+  }
+
+  .qual-item {
+    padding: 24px;
+    background: rgba(255,255,255,0.015);
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .qual-value {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px; font-weight: 400; letter-spacing: -0.5px;
+    margin-bottom: 6px;
+  }
+
+  .qual-label {
+    font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--dim);
+  }
+
+  /* CTA */
+  .final-cta {
+    padding: 160px 48px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    text-align: center;
+  }
+
+  .final-cta-inner { max-width: 600px; margin: 0 auto; }
+
+  .final-cta h2 {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 400; line-height: 1.1; letter-spacing: -1px; margin-bottom: 24px;
+  }
+
+  .final-cta p { font-size: 14px; color: var(--dim); font-weight: 300; line-height: 1.7; margin-bottom: 48px; }
+
+  /* FOOTER */
+  footer {
+    padding: 48px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer-left { font-size: 11px; color: var(--dim); letter-spacing: 1px; }
+  .footer-right { display: flex; gap: 24px; }
+  .footer-right a { font-size: 11px; color: var(--dim); text-decoration: none; letter-spacing: 1px; transition: color 0.3s; }
+  .footer-right a:hover { color: var(--white); }
+
+  /* RESPONSIVE */
+  @media (max-width: 1000px) {
+    .hero { grid-template-columns: 1fr; gap: 48px; }
+    .qualifying-inner { flex-direction: column; }
+    .qualifying-criteria { min-width: unset; }
+    .signal-table-header, .signal-table-row { grid-template-columns: 100px 1fr 100px; }
+    .str-source { display: none; }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .hero { padding: 140px 24px 80px; }
+    .world, .signals, .stack, .qualifying, .final-cta { padding: 80px 24px; }
+    .stack-grid { grid-template-columns: 1fr; }
+    .qualifying-criteria { grid-template-columns: 1fr; }
+    .signal-table-header { display: none; }
+    .signal-table-row { grid-template-columns: 1fr; gap: 6px; }
+    .str-source { display: none; }
+    .str-status { text-align: left; justify-content: flex-start; }
+    .signal-tabs { gap: 2px; }
+    .signal-tab { padding: 12px 16px; }
+    footer { flex-direction: column; gap: 24px; text-align: center; }
+    .nav-right .nav-link { display: none; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="grid-bg"></div>
+
+<nav>
+  <div class="logo">OUTBOUND<span>SOLUTIONS</span></div>
+  <div class="nav-right">
+    <a href="#stack" class="nav-link">Infrastructure</a>
+    <a href="#markets" class="nav-link">Markets</a>
+    <a href="#apply" class="nav-cta">Apply</a>
+  </div>
+</nav>
+
+<!-- ==================== HERO ==================== -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-label">Outbound Solutions</div>
+    <h1>GTM that gets results.</h1>
+    <p class="hero-sub">Pipeline engineering for B2B companies. We've built the data infrastructure, signal detection, and sending systems to run outbound across cold email, direct mail, and LinkedIn — and produce measurable revenue.</p>
+    <div class="hero-cta-row">
+      <a href="#apply" class="btn-primary">Request access</a>
+    </div>
+  </div>
+  <div class="hero-dash">
+    <div class="hero-dash-topbar">
+      <div class="hero-dash-topbar-left">
+        <div class="hd-dot"></div>
+        <div class="hd-title">Active engagement</div>
+      </div>
+      <div class="hd-date">Last 90 days</div>
+    </div>
+    <div class="hero-dash-metrics">
+      <div class="hd-metric">
+        <div class="hd-metric-label">Revenue attributed</div>
+        <div class="hd-metric-value">$184k</div>
+        <div class="hd-metric-delta up">+$62k this month</div>
+      </div>
+      <div class="hd-metric">
+        <div class="hd-metric-label">Meetings attended</div>
+        <div class="hd-metric-value">38</div>
+        <div class="hd-metric-delta up">14 this month</div>
+      </div>
+      <div class="hd-metric">
+        <div class="hd-metric-label">Cost per meeting</div>
+        <div class="hd-metric-value">$127</div>
+        <div class="hd-metric-delta up">↓ from $203</div>
+      </div>
+      <div class="hd-metric">
+        <div class="hd-metric-label">Pipeline</div>
+        <div class="hd-metric-value">$412k</div>
+        <div class="hd-metric-delta">18 deals open</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== THE WORLD ==================== -->
+<section class="world">
+  <div class="world-inner reveal">
+    <p class="world-text">
+      Most outbound is dead before a single message is sent. The list is wrong. <span>Not because your team failed — because identifying who to reach and when to reach them is an engineering problem, and most companies try to solve it with headcount.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ==================== STACK ==================== -->
+<section class="stack" id="stack">
+  <div class="stack-inner">
+    <div class="section-label">What we've built</div>
+    <div class="section-headline">How we produce pipeline.</div>
+
+    <div class="stack-grid">
+      <div class="stack-card reveal">
+        <div class="stack-card-num">01</div>
+        <div class="stack-card-title">Signal pipelines</div>
+        <div class="stack-card-desc">Custom data pipelines pulling from federal databases, state licensing records, regulatory filings, permit data, and industry feeds. Signals are scored, enriched, and qualified before anything is sent.</div>
+        <div class="stack-tags">
+          <span class="stack-tag">FMCSA</span>
+          <span class="stack-tag">OSHA</span>
+          <span class="stack-tag">State licensing</span>
+          <span class="stack-tag">County permits</span>
+          <span class="stack-tag">UCC filings</span>
+          <span class="stack-tag">SAM.gov</span>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-card-num">02</div>
+        <div class="stack-card-title">Sending infrastructure</div>
+        <div class="stack-card-desc">Isolated, single-tenant email clusters with dedicated IPs. Your deliverability is never affected by another engagement. Programmatic direct mail triggered by signal data through API.</div>
+        <div class="stack-tags">
+          <span class="stack-tag">Dedicated IPs</span>
+          <span class="stack-tag">Single-tenant</span>
+          <span class="stack-tag">Custom domains</span>
+          <span class="stack-tag">Deliverability monitoring</span>
+          <span class="stack-tag">Programmatic mail</span>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-card-num">03</div>
+        <div class="stack-card-title">Multichannel orchestration</div>
+        <div class="stack-card-desc">Email, LinkedIn, and direct mail sequenced together with conditional logic. Which channel fires depends on signal type, prospect behavior, and timing. One system, not three campaigns.</div>
+        <div class="stack-tags">
+          <span class="stack-tag">Conditional routing</span>
+          <span class="stack-tag">Signal-triggered</span>
+          <span class="stack-tag">Cross-channel</span>
+          <span class="stack-tag">Behavioral triggers</span>
+        </div>
+      </div>
+
+      <div class="stack-card reveal">
+        <div class="stack-card-num">04</div>
+        <div class="stack-card-title">Measurement & attribution</div>
+        <div class="stack-card-desc">Every touch tracked back to pipeline and revenue. You see which signal, which channel, and which campaign produced each meeting and each deal. No black box.</div>
+        <div class="stack-tags">
+          <span class="stack-tag">Revenue attribution</span>
+          <span class="stack-tag">Channel tracking</span>
+          <span class="stack-tag">Signal-to-deal mapping</span>
+          <span class="stack-tag">Real-time reporting</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SIGNALS / WHERE WE OPERATE ==================== -->
+<section class="signals" id="markets">
+  <div class="signals-inner">
+    <div class="section-label">Where we operate</div>
+    <div class="section-headline">Markets we've already instrumented.</div>
+    <div class="section-sub">Select your industry to see the signals our systems detect in your prospects' market.</div>
+
+    <div class="signal-tabs">
+      <div class="signal-tab active" data-tab="insurance">
+        <span class="signal-tab-client">Insurance</span>
+        <span class="signal-tab-market">→ Trucking carriers</span>
+      </div>
+      <div class="signal-tab" data-tab="staffing">
+        <span class="signal-tab-client">Staffing</span>
+        <span class="signal-tab-market">→ Logistics companies</span>
+      </div>
+      <div class="signal-tab" data-tab="lending">
+        <span class="signal-tab-client">Lending</span>
+        <span class="signal-tab-market">→ General contractors</span>
+      </div>
+      <div class="signal-tab" data-tab="saas">
+        <span class="signal-tab-client">SaaS</span>
+        <span class="signal-tab-market">→ Equipment rental / Architecture</span>
+      </div>
+      <div class="signal-tab" data-tab="recruiting">
+        <span class="signal-tab-client">Recruiting</span>
+        <span class="signal-tab-market">→ Tech & defense</span>
+      </div>
+      <div class="signal-tab" data-tab="consulting">
+        <span class="signal-tab-client">Consulting</span>
+        <span class="signal-tab-market">→ Manufacturing</span>
+      </div>
+    </div>
+
+    <div class="signal-table">
+      <div class="signal-table-context" id="signal-context">
+        <div class="signal-table-context-text">Showing signals for <strong>insurance</strong> companies reaching <strong>trucking carriers</strong></div>
+        <div class="signal-table-context-live">Live</div>
+      </div>
+      <div class="signal-table-header">
+        <span>Type</span>
+        <span>Signal</span>
+        <span>Source</span>
+        <span style="text-align:right">Status</span>
+      </div>
+      <div class="signal-table-body">
+
+        <div class="signal-table-group active" data-group="insurance" data-client="insurance" data-market="trucking carriers">
+          <div class="signal-table-row"><div class="str-type">Safety</div><div class="str-signal">Carrier in IL — BASIC percentiles improved YoY, top 15% for fleet size</div><div class="str-source">FMCSA</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Growth</div><div class="str-signal">Carrier in MO — power unit count up 40%, no coverage update filed</div><div class="str-source">FMCSA census</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Compliance</div><div class="str-signal">Carrier in OH — zero out-of-service orders, 4.2yr authority age</div><div class="str-source">FMCSA</div><div class="str-status">Monitoring</div></div>
+          <div class="signal-table-row"><div class="str-type">Authority</div><div class="str-signal">Carrier in WI — 5-year authority milestone, clean crash BASIC</div><div class="str-source">FMCSA</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Exposure</div><div class="str-signal">Carrier in IN — fleet grew from 18 to 31 units, same policy on file</div><div class="str-source">FMCSA + filings</div><div class="str-status live">Active</div></div>
+        </div>
+
+        <div class="signal-table-group" data-group="staffing" data-client="staffing" data-market="logistics companies">
+          <div class="signal-table-row"><div class="str-type">Attrition</div><div class="str-signal">Carrier in TX — net loss of 12 drivers in 60 days, fleet size stable</div><div class="str-source">FMCSA census</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Growth</div><div class="str-signal">Carrier in GA — 8 new power units added, driver count unchanged</div><div class="str-source">FMCSA census</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Compliance</div><div class="str-signal">Carrier in OH — DOT audit failure, 48 units affected, driver shortage likely</div><div class="str-source">FMCSA</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Seasonal</div><div class="str-signal">Reefer carriers in FL — peak season approaching, headcount flat YoY</div><div class="str-source">FMCSA + BLS</div><div class="str-status">Monitoring</div></div>
+          <div class="signal-table-row"><div class="str-type">Expansion</div><div class="str-signal">Carrier in IL — new authority granted in 3 additional states</div><div class="str-source">FMCSA</div><div class="str-status">Monitoring</div></div>
+        </div>
+
+        <div class="signal-table-group" data-group="lending" data-client="lending" data-market="general contractors">
+          <div class="signal-table-row"><div class="str-type">Permits</div><div class="str-signal">GC in FL — 12 new permits pulled, no bonding capacity increase on file</div><div class="str-source">County permits</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Growth</div><div class="str-signal">GC in TX — permit volume up 3x QoQ, same surety bond amount</div><div class="str-source">County permits</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Licensing</div><div class="str-signal">Subcontractor in AZ — upgraded license classification, larger project eligibility</div><div class="str-source">State licensing</div><div class="str-status">Monitoring</div></div>
+          <div class="signal-table-row"><div class="str-type">Awards</div><div class="str-signal">GC in CA — awarded public works contract, $4.2M, bonding gap likely</div><div class="str-source">Public bids</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Equipment</div><div class="str-signal">Contractor in NV — 6 equipment liens filed in 30 days</div><div class="str-source">UCC filings</div><div class="str-status live">Active</div></div>
+        </div>
+
+        <div class="signal-table-group" data-group="saas" data-client="SaaS" data-market="equipment rental & architecture firms">
+          <div class="signal-table-row"><div class="str-type">Utilization</div><div class="str-signal">Equipment rental co in GA — fleet utilization dropped below 58%</div><div class="str-source">Industry data</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Licensing</div><div class="str-signal">Architecture firm in TX — 3 new state licenses issued in 90 days</div><div class="str-source">State licensing</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Headcount</div><div class="str-signal">Architecture firm in CO — 5 new hires, no PM software on stack</div><div class="str-source">LinkedIn + tech</div><div class="str-status">Monitoring</div></div>
+          <div class="signal-table-row"><div class="str-type">Fleet</div><div class="str-signal">Rental co in AL — fleet size up 25%, utilization data stale 90+ days</div><div class="str-source">Industry data</div><div class="str-status">Monitoring</div></div>
+          <div class="signal-table-row"><div class="str-type">Growth</div><div class="str-signal">Architecture firm in WA — revenue doubled, still on legacy project tools</div><div class="str-source">Filings + tech</div><div class="str-status live">Active</div></div>
+        </div>
+
+        <div class="signal-table-group" data-group="recruiting" data-client="recruiting" data-market="tech & defense companies">
+          <div class="signal-table-row"><div class="str-type">Hiring surge</div><div class="str-signal">Tech co in SF — 8 identical SWE roles posted same day</div><div class="str-source">Job boards</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Funding</div><div class="str-signal">Startup in NYC — Series B closed, 12 roles posted within a week</div><div class="str-source">Crunchbase + jobs</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Attrition</div><div class="str-signal">Fintech in Austin — 4 senior engineers left in 30 days per LinkedIn</div><div class="str-source">LinkedIn</div><div class="str-status">Monitoring</div></div>
+          <div class="signal-table-row"><div class="str-type">Expansion</div><div class="str-signal">SaaS co in Denver — opened new office, 15+ roles across 3 departments</div><div class="str-source">Job boards + press</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Contract</div><div class="str-signal">Defense contractor in VA — $18M award, immediate staffing need implied</div><div class="str-source">SAM.gov</div><div class="str-status live">Active</div></div>
+        </div>
+
+        <div class="signal-table-group" data-group="consulting" data-client="consulting" data-market="manufacturers">
+          <div class="signal-table-row"><div class="str-type">Citation</div><div class="str-signal">Manufacturer in MI — first OSHA citation issued, no prior violations</div><div class="str-source">OSHA</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Regulatory</div><div class="str-signal">Food processor in PA — FDA warning letter, 30-day response window</div><div class="str-source">FDA</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Compliance</div><div class="str-signal">Chemical plant in LA — EPA consent order, remediation plan required</div><div class="str-source">EPA</div><div class="str-status live">Active</div></div>
+          <div class="signal-table-row"><div class="str-type">Audit</div><div class="str-signal">Manufacturer in OH — failed ISO re-certification, 6-month window</div><div class="str-source">Cert databases</div><div class="str-status">Monitoring</div></div>
+          <div class="signal-table-row"><div class="str-type">Leadership</div><div class="str-signal">Plant in TN — new VP of Operations hired, compliance gaps likely</div><div class="str-source">LinkedIn</div><div class="str-status">Monitoring</div></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== QUALIFYING ==================== -->
+<section class="qualifying">
+  <div class="qualifying-inner">
+    <div class="qualifying-left reveal">
+      <h2>Who we work with.</h2>
+      <p>We take a limited number of engagements at a time. The infrastructure has to be buildable for your market, and the economics need to work for both sides.</p>
+    </div>
+    <div class="qualifying-criteria reveal">
+      <div class="qual-item">
+        <div class="qual-value">$30k+</div>
+        <div class="qual-label">Average contract value</div>
+      </div>
+      <div class="qual-item">
+        <div class="qual-value">5+</div>
+        <div class="qual-label">Sales team size</div>
+      </div>
+      <div class="qual-item">
+        <div class="qual-value">B2B</div>
+        <div class="qual-label">Defined vertical market</div>
+      </div>
+      <div class="qual-item">
+        <div class="qual-value">$2M+</div>
+        <div class="qual-label">Annual revenue</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="final-cta" id="apply">
+  <div class="final-cta-inner reveal">
+    <h2>Tell us who you sell to.</h2>
+    <p>We'll tell you what signals exist in your market and whether we can build around them.</p>
+    <a href="#" class="btn-primary">Apply now</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">© 2026 OUTBOUND SOLUTIONS</div>
+  <div class="footer-right">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+  </div>
+</footer>
+
+<script>
+  // Tab switching with context update
+  const tabs = document.querySelectorAll('.signal-tab');
+  const groups = document.querySelectorAll('.signal-table-group');
+  const contextEl = document.querySelector('.signal-table-context-text');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      groups.forEach(g => {
+        g.classList.remove('active');
+        if (g.dataset.group === target) {
+          g.classList.add('active');
+          // Update context bar
+          const client = g.dataset.client;
+          const market = g.dataset.market;
+          contextEl.innerHTML = `Showing signals for <strong>${client}</strong> companies reaching <strong>${market}</strong>`;
+          // Re-trigger row animations
+          const rows = g.querySelectorAll('.signal-table-row');
+          rows.forEach((row, i) => {
+            row.style.animation = 'none';
+            row.offsetHeight;
+            row.style.animation = '';
+            row.style.animationDelay = (i * 0.05) + 's';
+          });
+        }
+      });
+    });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -417,45 +417,59 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
           ))}
         </div>
 
-        {/* Content */}
-        <div style={{ padding: "32px 40px" }}>
+        {/* Content — fixed container, no layout shift between tabs */}
+        <div
+          style={{
+            margin: "0 40px 40px",
+            border: "1px solid #1b2332",
+            borderRadius: 10,
+            overflow: "hidden",
+            minHeight: 420,
+          }}
+        >
           {tab === "overview" && (
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 32,
-              }}
-            >
-              <div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+              <div style={{ padding: "24px 28px", borderRight: "1px solid #1b2332" }}>
                 <Section title="Contact Information">
                   <Field label="Officer 1" value={c.contact1} />
                   <Field label="Officer 2" value={c.contact2} />
                   <Field label="Phone" value={c.phone} />
                   <Field label="Email" value={c.email} />
-                  <Field label="Street" value={c.street} />
-                  <Field label="City, State" value={`${c.city}, ${c.state} ${c.zip || ""}`} />
                 </Section>
               </div>
-
-              <div>
+              <div style={{ padding: "24px 28px" }}>
                 <Section title="Fleet Details">
                   <Field label="Power Units" value={c.power_units} />
                   <Field label="Drivers" value={c.drivers} />
                   <Field label="Annual Mileage" value={c.mileage?.toLocaleString()} />
                   <Field label="Hazmat" value={c.hazmat ? "Yes" : "No"} highlight={c.hazmat ? "#fbbf24" : null} />
-                  <Field
-                    label="Safety Rating"
-                    value={c.safety_rating === "S" ? "Satisfactory" : "Unrated"}
-                    highlight={c.safety_rating === "S" ? "#22c55e" : null}
-                  />
                 </Section>
+              </div>
+              <div style={{ padding: "0 28px 24px", borderRight: "1px solid #1b2332", borderTop: "1px solid #1b2332" }}>
+                <div style={{ paddingTop: 24 }}>
+                  <Section title="Address">
+                    <Field label="Street" value={c.street} />
+                    <Field label="City, State" value={`${c.city}, ${c.state} ${c.zip || ""}`} />
+                  </Section>
+                </div>
+              </div>
+              <div style={{ padding: "0 28px 24px", borderTop: "1px solid #1b2332" }}>
+                <div style={{ paddingTop: 24 }}>
+                  <Section title="Safety & Coverage">
+                    <Field
+                      label="Safety Rating"
+                      value={c.safety_rating === "S" ? "Satisfactory" : "Unrated"}
+                      highlight={c.safety_rating === "S" ? "#22c55e" : null}
+                    />
+                    <Field label="Max Coverage" value={formatCoverage(c.coverage_amount)} highlight="#e6edf3" />
+                  </Section>
+                </div>
               </div>
             </div>
           )}
 
           {tab === "insurance history" && (
-            <div style={{ maxWidth: 600 }}>
+            <div style={{ padding: "24px 28px" }}>
               <Section title={`${c.num_insurers ?? 0} insurers on record`}>
                 {c.insurers && c.insurers.length > 0 ? (
                   c.insurers.map((ins, i) => (
@@ -465,7 +479,7 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
                         display: "flex",
                         justifyContent: "space-between",
                         alignItems: "center",
-                        padding: "12px 16px",
+                        padding: "12px 0",
                         borderBottom: "1px solid #1b2332",
                       }}
                     >
@@ -476,7 +490,7 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
                     </div>
                   ))
                 ) : (
-                  <div style={{ fontSize: 13, color: "#6b7280", padding: "16px" }}>
+                  <div style={{ fontSize: 13, color: "#6b7280", padding: "16px 0" }}>
                     No insurance history available
                   </div>
                 )}
@@ -486,58 +500,70 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
 
           {tab === "policies" && (
             <div>
-              <Section title="Policy Timeline">
-                {c.policies && c.policies.length > 0 ? (
-                  <table style={{ width: "100%", borderCollapse: "collapse" }}>
-                    <thead>
-                      <tr>
-                        {["Insurer", "Type", "Effective", "Cancelled", "Method"].map((h) => (
-                          <th
-                            key={h}
-                            style={{
-                              padding: "12px 16px",
-                              textAlign: "left",
-                              fontSize: 10,
-                              fontWeight: 600,
-                              color: "#6b7280",
-                              letterSpacing: "0.08em",
-                              borderBottom: "1px solid #1b2332",
-                              textTransform: "uppercase",
-                            }}
-                          >
-                            {h}
-                          </th>
-                        ))}
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {c.policies.map((p, i) => (
-                        <tr key={i}>
-                          <td style={{ padding: "12px 16px", fontSize: 13, color: "#e6edf3", borderBottom: "1px solid #1b2332" }}>
-                            {p.insurer}
-                          </td>
-                          <td style={{ padding: "12px 16px", fontSize: 12, color: "#9ca3af", borderBottom: "1px solid #1b2332" }}>
-                            {p.type}
-                          </td>
-                          <td style={{ padding: "12px 16px", fontSize: 12, color: "#9ca3af", borderBottom: "1px solid #1b2332" }}>
-                            {p.effective}
-                          </td>
-                          <td style={{ padding: "12px 16px", fontSize: 12, color: "#9ca3af", borderBottom: "1px solid #1b2332" }}>
-                            {p.cancelled}
-                          </td>
-                          <td style={{ padding: "12px 16px", fontSize: 11, color: "#6b7280", borderBottom: "1px solid #1b2332" }}>
-                            {p.method}
-                          </td>
-                        </tr>
+              <div style={{ padding: "24px 28px 0" }}>
+                <div
+                  style={{
+                    fontSize: 10,
+                    fontWeight: 600,
+                    color: "#6b7280",
+                    letterSpacing: "0.1em",
+                    marginBottom: 16,
+                    textTransform: "uppercase",
+                  }}
+                >
+                  Policy Timeline
+                </div>
+              </div>
+              {c.policies && c.policies.length > 0 ? (
+                <table style={{ width: "100%", borderCollapse: "collapse" }}>
+                  <thead>
+                    <tr>
+                      {["Insurer", "Type", "Effective", "Cancelled", "Method"].map((h) => (
+                        <th
+                          key={h}
+                          style={{
+                            padding: "12px 28px",
+                            textAlign: "left",
+                            fontSize: 10,
+                            fontWeight: 600,
+                            color: "#6b7280",
+                            letterSpacing: "0.08em",
+                            borderBottom: "1px solid #1b2332",
+                            textTransform: "uppercase",
+                          }}
+                        >
+                          {h}
+                        </th>
                       ))}
-                    </tbody>
-                  </table>
-                ) : (
-                  <div style={{ fontSize: 13, color: "#6b7280", padding: "16px" }}>
-                    No policy records available
-                  </div>
-                )}
-              </Section>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {c.policies.map((p, i) => (
+                      <tr key={i}>
+                        <td style={{ padding: "12px 28px", fontSize: 13, color: "#e6edf3", borderBottom: "1px solid #1b2332" }}>
+                          {p.insurer}
+                        </td>
+                        <td style={{ padding: "12px 28px", fontSize: 12, color: "#9ca3af", borderBottom: "1px solid #1b2332" }}>
+                          {p.type}
+                        </td>
+                        <td style={{ padding: "12px 28px", fontSize: 12, color: "#9ca3af", borderBottom: "1px solid #1b2332" }}>
+                          {p.effective}
+                        </td>
+                        <td style={{ padding: "12px 28px", fontSize: 12, color: "#9ca3af", borderBottom: "1px solid #1b2332" }}>
+                          {p.cancelled}
+                        </td>
+                        <td style={{ padding: "12px 28px", fontSize: 11, color: "#6b7280", borderBottom: "1px solid #1b2332" }}>
+                          {p.method}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              ) : (
+                <div style={{ fontSize: 13, color: "#6b7280", padding: "0 28px 24px" }}>
+                  No policy records available
+                </div>
+              )}
             </div>
           )}
         </div>

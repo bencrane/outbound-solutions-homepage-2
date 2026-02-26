@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Postcard Front</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:wght@0,700;0,900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #d6d1cb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 32px;
+  }
+
+  .card {
+    width: 864px;
+    height: 576px;
+    background: #0a1628;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.1);
+    position: relative;
+    color: #f8f9fa;
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Gold/green top bar */
+  .topbar {
+    height: 4px;
+    background: linear-gradient(90deg, #c5963e, #00d4aa, #c5963e);
+    flex-shrink: 0;
+  }
+
+  /* Glow */
+  .card::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 450px; height: 450px;
+    background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  .inner {
+    flex: 1;
+    padding: 28px 40px 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Row 1: Logo + Badge */
+  .row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 28px;
+  }
+
+  .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 19px;
+    letter-spacing: -0.5px;
+  }
+  .logo span { color: #00d4aa; }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(197,150,62,0.12);
+    border: 1px solid rgba(197,150,62,0.3);
+    padding: 6px 13px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #c5963e;
+  }
+
+  /* Row 2: Main content — takes remaining space */
+  .row-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #00d4aa;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 1.12;
+    letter-spacing: -0.8px;
+  }
+  h1 em { font-style: normal; color: #00d4aa; }
+
+  .sub {
+    font-size: 14px;
+    color: #c4d0dc;
+    line-height: 1.5;
+    max-width: 500px;
+  }
+  .sub strong { color: #f8f9fa; font-weight: 700; }
+
+  /* Row 3: Bottom bar — gift + url */
+  .row-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .gift {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .gift-icon { font-size: 20px; }
+
+  .gift-text {
+    font-size: 13px;
+    color: #c4d0dc;
+    line-height: 1.35;
+  }
+  .gift-text strong { color: #f8f9fa; font-weight: 700; }
+
+  .url-side {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .url-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #8899aa;
+  }
+
+  .url-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 10px 16px;
+  }
+
+  .url-box .arrow {
+    color: #00d4aa;
+    font-size: 16px;
+    font-weight: 800;
+  }
+
+  .url-box .url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .url-box .url span { color: #00d4aa; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="topbar"></div>
+  <div class="inner">
+
+    <div class="row-top">
+      <div class="logo">With<span>Coverage</span></div>
+      <div class="badge">★ Top 15% Safety</div>
+    </div>
+
+    <div class="row-main">
+      <div class="eyebrow">Congratulations, Midwest Express Freight</div>
+      <h1>Your safety record puts you in the <em>top 15%</em> of carriers your size.</h1>
+      <div class="sub">In honor of your fleet's performance, <strong>dinner is on us</strong>. Claim your complimentary $50 restaurant gift card — on the house.</div>
+    </div>
+
+    <div class="row-bottom">
+      <div class="gift">
+        <div class="gift-icon">🍽️</div>
+        <div class="gift-text"><strong>$50 gift card</strong> · A local spot near Springfield, IL</div>
+      </div>
+      <div class="url-side">
+        <div class="url-label">Claim yours →</div>
+        <div class="url-box">
+          <div class="url">withcoverage.com/<span>3847291</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

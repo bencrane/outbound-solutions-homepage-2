@@ -1,0 +1,452 @@
+[
+    {
+      "name": "Driver Attrition",
+      "example": "FL carrier driver count down 18% in 90 days, no fleet reduction filed",
+      "bridge": "Staffing and insurance gaps follow",
+      "verticals": ["Trucking"]
+    },
+    {
+      "name": "Authority Milestone",
+      "example": "New authority filed in 3 states (CA, AZ, NV) — first interstate expansion",
+      "bridge": "Scaling carrier needs new vendors fast",
+      "verticals": ["Trucking"]
+    },
+    {
+      "name": "Safety Score Deterioration",
+      "example": "Unsafe Driving BASIC jumped from 42% to 71% in 6 months",
+      "bridge": "Compliance overhaul and insurance re-rating incoming",
+      "verticals": ["Trucking"]
+    },
+    {
+      "name": "Insurance Lapse",
+      "example": "BIPD coverage lapsed 14 days ago, no replacement filing on record",
+      "bridge": "Authority revocation risk — needs a new policy now",
+      "verticals": ["Trucking"]
+    },
+    {
+      "name": "Fleet Size Change",
+      "example": "Power units increased from 12 to 38 in 90 days",
+      "bridge": "More trucks means more drivers, fuel, insurance, maintenance",
+      "verticals": ["Trucking"]
+    },
+    {
+      "name": "New Carrier Authority",
+      "example": "New MC authority granted last week, 0 inspections — greenfield carrier",
+      "bridge": "Needs 13 vendors on day one",
+      "verticals": ["Trucking"]
+    },
+    {
+      "name": "Crash Spike",
+      "example": "3 DOT-reportable crashes in 60 days vs. 1 in prior 12 months",
+      "bridge": "Insurance re-rating and compliance scrutiny ahead",
+      "verticals": ["Trucking"]
+    },
+    {
+      "name": "Out-of-Service Rate Spike",
+      "example": "Vehicle OOS rate hit 34% across last 8 inspections — national avg is 21%",
+      "bridge": "Maintenance or compliance failure — needs help now",
+      "verticals": ["Trucking"]
+    },
+    {
+      "name": "Permit Volume Spike",
+      "example": "Carrier pulled 47 trip permits in March vs. 12 avg",
+      "bridge": "New contract or route expansion underway",
+      "verticals": ["Trucking"]
+    },
+    {
+      "name": "Oversize/Overweight Permits",
+      "example": "First-time OS/OW permits filed in 3 states — entering heavy haul",
+      "bridge": "Higher-value loads, higher-risk operations",
+      "verticals": ["Trucking"]
+    },
+    {
+      "name": "Commercial Build Permit",
+      "example": "15,000 sqft commercial build permit filed in industrial zone",
+      "bridge": "New facility means new vendors across the board",
+      "verticals": ["Construction", "Commercial Real Estate", "Manufacturing"]
+    },
+    {
+      "name": "Renovation Surge",
+      "example": "4 permits filed in 60 days: electrical, plumbing, HVAC, structural",
+      "bridge": "Major upgrade — repositioning or expanding capacity",
+      "verticals": ["Construction", "Commercial Real Estate", "Hospitality", "Restaurants"]
+    },
+    {
+      "name": "Solar / EV Install Permit",
+      "example": "Commercial solar array permit filed — 200kW system, $340K estimated value",
+      "bridge": "Infrastructure investment signals growth mindset",
+      "verticals": ["Construction", "Commercial Real Estate", "Manufacturing"]
+    },
+    {
+      "name": "Contractor Activity Spike",
+      "example": "Contractor pulled 23 permits in Q1 vs. 8 avg — pipeline is loaded",
+      "bridge": "Growing fast, likely needs labor and capital",
+      "verticals": ["Construction"]
+    },
+    {
+      "name": "New Address Permit",
+      "example": "Known HVAC company filing first permit at new address 40 miles from HQ",
+      "bridge": "Expanding territory — new market entry",
+      "verticals": ["Construction"]
+    },
+    {
+      "name": "Demolition Permit",
+      "example": "Demo permit for 8,000 sqft retail space in downtown Austin",
+      "bridge": "Redevelopment pipeline incoming",
+      "verticals": ["Construction", "Commercial Real Estate"]
+    },
+    {
+      "name": "Revenue Acceleration",
+      "example": "Card revenue growth 42% above seasonal baseline — breakout trajectory",
+      "bridge": "Ready to buy, hire, or borrow",
+      "verticals": ["SMB", "Ecommerce", "Restaurants", "Hospitality", "Consumer Goods"]
+    },
+    {
+      "name": "Revenue Decline",
+      "example": "12-month avg card revenue down 28% YoY, transaction count stable",
+      "bridge": "Margin compression — open to cost optimization",
+      "verticals": ["SMB", "Ecommerce", "Restaurants", "Hospitality", "Consumer Goods"]
+    },
+    {
+      "name": "New Location Detected",
+      "example": "Second location in Austin showing first card transactions this month",
+      "bridge": "Physical expansion confirmed — needs infrastructure",
+      "verticals": ["SMB", "Restaurants", "Hospitality", "Consumer Goods"]
+    },
+    {
+      "name": "Transaction Volume Surge",
+      "example": "Monthly transactions up 3x in 90 days, unique customers doubled",
+      "bridge": "Operational capacity is about to be strained",
+      "verticals": ["SMB", "Ecommerce", "Restaurants", "Consumer Goods"]
+    },
+    {
+      "name": "Seasonal Pre-Ramp",
+      "example": "Landscaping co. revenue peaks Jun–Sep every year — it's March",
+      "bridge": "Outreach window before they're slammed",
+      "verticals": ["SMB", "Restaurants", "Hospitality", "Construction"]
+    },
+    {
+      "name": "Business Closure Risk",
+      "example": "Active LLC but 0 card revenue for 6 months, website down, no reviews",
+      "bridge": "Ghost business — clean your pipeline",
+      "verticals": ["SMB", "Restaurants", "Hospitality"]
+    },
+    {
+      "name": "Payment Processor Change",
+      "example": "Average transaction size shifted from $22 to $67 overnight",
+      "bridge": "New infrastructure — open to new vendors",
+      "verticals": ["SMB", "Ecommerce", "Restaurants"]
+    },
+    {
+      "name": "Multi-Location Growth",
+      "example": "3 new business locations showing transactions in last 120 days",
+      "bridge": "Franchise or chain scaling — needs everything at volume",
+      "verticals": ["SMB", "Restaurants", "Hospitality", "Consumer Goods"]
+    },
+    {
+      "name": "New Entity Formation",
+      "example": "LLC formed 3 weeks ago in Delaware with registered agent in TX",
+      "bridge": "New venture — needs vendors across the board",
+      "verticals": ["SMB", "Construction", "Trucking", "Professional Services", "Healthcare"]
+    },
+    {
+      "name": "DBA / Trade Name Filed",
+      "example": "Existing logistics LLC filed DBA 'FastFreight Express'",
+      "bridge": "New brand or service line launching",
+      "verticals": ["SMB", "Trucking", "Restaurants", "Hospitality"]
+    },
+    {
+      "name": "Foreign Qualification",
+      "example": "TX-based company filed foreign qualification in FL, GA, NC",
+      "bridge": "Multi-state expansion confirmed",
+      "verticals": ["SMB", "Trucking", "Construction", "Professional Services", "Healthcare"]
+    },
+    {
+      "name": "Agent / Officer Change",
+      "example": "CEO replaced on annual report filing — new name, same entity",
+      "bridge": "New leadership, new vendor relationships",
+      "verticals": ["SMB", "Software", "Manufacturing", "Professional Services"]
+    },
+    {
+      "name": "Reinstatement After Dissolution",
+      "example": "LLC reinstated after 14 months dissolved — back on the registry",
+      "bridge": "Back in business, starting from scratch on vendors",
+      "verticals": ["SMB"]
+    },
+    {
+      "name": "New UCC Lien Filed",
+      "example": "UCC-1 filed by equipment finance co. — $200K+ asset acquisition likely",
+      "bridge": "Capital being deployed — business is investing",
+      "verticals": ["SMB", "Construction", "Trucking", "Manufacturing"]
+    },
+    {
+      "name": "UCC Termination",
+      "example": "3-year equipment lien terminated — debt fully paid off",
+      "bridge": "Refinance or new lender acquisition window open",
+      "verticals": ["SMB", "Construction", "Trucking", "Manufacturing"]
+    },
+    {
+      "name": "OSHA Inspection Spike",
+      "example": "2 OSHA inspections in 90 days with serious citations issued",
+      "bridge": "Compliance overhaul needed — budget unlocking",
+      "verticals": ["Construction", "Trucking", "Manufacturing"]
+    },
+    {
+      "name": "OSHA Penalty Issued",
+      "example": "$45K in OSHA penalties for fall protection violations",
+      "bridge": "Safety budget just got unlocked",
+      "verticals": ["Construction", "Trucking", "Manufacturing"]
+    },
+    {
+      "name": "Hiring Surge",
+      "example": "Posted 12 roles in 2 weeks after 0 for 6 months",
+      "bridge": "Scaling fast, buying everything",
+      "verticals": ["Software", "SMB", "Healthcare", "Professional Services", "Manufacturing"]
+    },
+    {
+      "name": "Leadership Role Posted",
+      "example": "VP of Operations posted — role open for 3 days",
+      "bridge": "New decision-maker incoming — vendor review follows",
+      "verticals": ["Software", "SMB", "Healthcare", "Manufacturing"]
+    },
+    {
+      "name": "Layoff Signal",
+      "example": "40 active listings pulled in 1 week, no new posts",
+      "bridge": "Restructuring — cost optimization vendors get the call",
+      "verticals": ["Software", "SMB", "Manufacturing"]
+    },
+    {
+      "name": "Tech Stack Adoption",
+      "example": "First job posting mentioning Snowflake — new data infrastructure",
+      "bridge": "New tool means new budget, new integrations needed",
+      "verticals": ["Software"]
+    },
+    {
+      "name": "Tech Stack Abandonment",
+      "example": "Stopped mentioning Salesforce in job postings after 2 years",
+      "bridge": "CRM migration likely — replacement vendor window",
+      "verticals": ["Software"]
+    },
+    {
+      "name": "Funding Announced",
+      "example": "Series B announced at $18M — hiring, tooling, expansion ahead",
+      "bridge": "Budget just got unlocked across every department",
+      "verticals": ["Software"]
+    },
+    {
+      "name": "Acquisition / Merger",
+      "example": "Acquired competitor with 200 employees — integration underway",
+      "bridge": "Every vendor relationship gets reviewed",
+      "verticals": ["Software", "SMB", "Manufacturing", "Healthcare"]
+    },
+    {
+      "name": "Executive Departure",
+      "example": "CTO departed after 4 years — tech stack and vendor review window open",
+      "bridge": "Vendor relationships back on the table",
+      "verticals": ["Software", "SMB", "Manufacturing", "Professional Services"]
+    },
+    {
+      "name": "Regulatory Action",
+      "example": "EPA consent decree issued — $2M remediation required",
+      "bridge": "Compliance spend and consulting needs spike",
+      "verticals": ["Construction", "Trucking", "Manufacturing", "Healthcare"]
+    },
+    {
+      "name": "Commercial Lease Filed",
+      "example": "10-year lease recorded for 25,000 sqft warehouse",
+      "bridge": "Major operational expansion committed",
+      "verticals": ["SMB", "Construction", "Commercial Real Estate", "Manufacturing"]
+    },
+    {
+      "name": "Property Tax Assessment Change",
+      "example": "Commercial property assessment up 40% — major improvements completed",
+      "bridge": "Facility investment done — operational scaling next",
+      "verticals": ["Commercial Real Estate", "Manufacturing"]
+    },
+    {
+      "name": "New License Application",
+      "example": "Liquor license application filed for new address — restaurant or bar opening",
+      "bridge": "New venue needs insurance, staffing, POS, payroll",
+      "verticals": ["Restaurants", "Hospitality"]
+    },
+    {
+      "name": "License Renewal Lapse",
+      "example": "Health department license expired 45 days ago, no renewal filed",
+      "bridge": "Operational risk — closure or compliance crisis",
+      "verticals": ["Restaurants", "Hospitality", "Healthcare"]
+    },
+    {
+      "name": "SEC Filing Event",
+      "example": "Form D filed — private placement underway, growth capital incoming",
+      "bridge": "Pre-announcement funding signal",
+      "verticals": ["Software"]
+    },
+    {
+      "name": "Government Contract Award",
+      "example": "$3.2M DOD contract awarded — guaranteed revenue for 3 years",
+      "bridge": "Capacity expansion needed to fulfill",
+      "verticals": ["Construction", "Manufacturing", "Trucking", "Professional Services"]
+    },
+    {
+      "name": "Bankruptcy Filing",
+      "example": "Chapter 11 filed — restructuring with intent to continue operations",
+      "bridge": "New vendor relationships forming under new structure",
+      "verticals": ["SMB", "Trucking", "Construction", "Manufacturing", "Restaurants"]
+    },
+    {
+      "name": "Active Litigation",
+      "example": "Named defendant in $5M breach of contract suit — filed last month",
+      "bridge": "Legal spend rising, risk posture shifting",
+      "verticals": ["SMB", "Software", "Construction", "Manufacturing"]
+    },
+    {
+      "name": "Ad Spend Increase",
+      "example": "LinkedIn ad spend up 4x in 30 days — first Google ads appeared",
+      "bridge": "Growth mode — investing in acquisition",
+      "verticals": ["Software", "Ecommerce", "Consumer Goods"]
+    },
+    {
+      "name": "Platform Migration",
+      "example": "Shopify store migrated to BigCommerce — new app stack needed",
+      "bridge": "Entire vendor ecosystem in flux",
+      "verticals": ["Ecommerce", "Consumer Goods"]
+    },
+    {
+      "name": "Ecommerce Revenue Spike",
+      "example": "Estimated monthly sales jumped from $40K to $180K in one quarter",
+      "bridge": "Outgrowing current infrastructure",
+      "verticals": ["Ecommerce", "Consumer Goods"]
+    },
+    {
+      "name": "New Practice License",
+      "example": "New medical practice license issued — internal medicine, solo practitioner",
+      "bridge": "New practice needs EHR, billing, staffing, insurance credentialing",
+      "verticals": ["Healthcare"]
+    },
+    {
+      "name": "CMS Certification Change",
+      "example": "Facility gained Medicare/Medicaid certification — new patient pool accessible",
+      "bridge": "Revenue stream unlocked — scaling to meet demand",
+      "verticals": ["Healthcare"]
+    },
+    {
+      "name": "Healthcare Facility Permit",
+      "example": "Permit filed for 12,000 sqft medical office buildout",
+      "bridge": "New or expanding practice — needs equipment, staff, systems",
+      "verticals": ["Healthcare", "Construction"]
+    },
+    {
+      "name": "HIPAA Violation",
+      "example": "OCR settlement for $180K — data breach affecting 12,000 patients",
+      "bridge": "Compliance remediation and IT security spend incoming",
+      "verticals": ["Healthcare"]
+    },
+    {
+      "name": "Provider Headcount Change",
+      "example": "NPI registry shows 4 new providers added in 60 days — was stable for 2 years",
+      "bridge": "Practice scaling — operational infrastructure needs to catch up",
+      "verticals": ["Healthcare"]
+    },
+    {
+      "name": "Health Inspection Failure",
+      "example": "Critical violations on health inspection — score dropped from 96 to 71",
+      "bridge": "Remediation required — compliance and consulting spend ahead",
+      "verticals": ["Restaurants", "Hospitality"]
+    },
+    {
+      "name": "Hotel / Lodging Permit",
+      "example": "Short-term rental permit filed — 8-unit property converting to boutique hotel",
+      "bridge": "New hospitality operation needs PMS, staffing, insurance, linens",
+      "verticals": ["Hospitality", "Commercial Real Estate"]
+    },
+    {
+      "name": "Zoning Change Approved",
+      "example": "Parcel rezoned from residential to mixed-use commercial — development eligible",
+      "bridge": "New development pipeline opening up",
+      "verticals": ["Commercial Real Estate", "Construction"]
+    },
+    {
+      "name": "Building Sale Recorded",
+      "example": "$4.2M commercial property sale recorded — new owner, new plans",
+      "bridge": "Ownership change triggers vendor reset",
+      "verticals": ["Commercial Real Estate"]
+    },
+    {
+      "name": "Vacancy Rate Spike",
+      "example": "Office building occupancy dropped from 89% to 62% in 6 months",
+      "bridge": "Repositioning or tenant acquisition push coming",
+      "verticals": ["Commercial Real Estate"]
+    },
+    {
+      "name": "Manufacturing Equipment Filing",
+      "example": "UCC filing on $1.2M CNC machining center — production capacity expanding",
+      "bridge": "Capex deployed — hiring and maintenance follow",
+      "verticals": ["Manufacturing"]
+    },
+    {
+      "name": "EPA Violation",
+      "example": "Clean Water Act violation — discharge permit exceedance at main facility",
+      "bridge": "Environmental compliance spend unlocking",
+      "verticals": ["Manufacturing"]
+    },
+    {
+      "name": "Product Recall",
+      "example": "CPSC recall issued — 45,000 units affected, replacement program required",
+      "bridge": "Supply chain, legal, and PR spend all spike",
+      "verticals": ["Manufacturing", "Consumer Goods"]
+    },
+    {
+      "name": "New Retail Distribution",
+      "example": "Brand first appeared on Target.com — previously DTC only",
+      "bridge": "Channel expansion — logistics, packaging, staffing needs change",
+      "verticals": ["Consumer Goods", "Ecommerce"]
+    },
+    {
+      "name": "Amazon Seller Rank Spike",
+      "example": "Best Seller Rank jumped from 45,000 to 800 in 30 days — breakout product",
+      "bridge": "Inventory, fulfillment, and cash flow pressure building",
+      "verticals": ["Consumer Goods", "Ecommerce"]
+    },
+    {
+      "name": "New Trademark Filed",
+      "example": "Trademark application filed for new brand name — product line expansion",
+      "bridge": "New brand launching — marketing, packaging, distribution ahead",
+      "verticals": ["Consumer Goods", "SMB"]
+    },
+    {
+      "name": "New Office Lease",
+      "example": "Professional services firm signed 5-year lease on 8,000 sqft — doubling footprint",
+      "bridge": "Physical expansion means headcount growth is committed",
+      "verticals": ["Professional Services", "Commercial Real Estate"]
+    },
+    {
+      "name": "Partner / Principal Change",
+      "example": "Named partner departed — firm filing amended with state bar",
+      "bridge": "Leadership transition — client relationships in flux",
+      "verticals": ["Professional Services"]
+    },
+    {
+      "name": "New State Bar / CPA License",
+      "example": "New CPA firm license issued — 3 partners, first year of operations",
+      "bridge": "New firm needs every operational vendor from scratch",
+      "verticals": ["Professional Services"]
+    },
+    {
+      "name": "Malpractice Filing",
+      "example": "Medical malpractice suit filed — $2.5M claim against surgical group",
+      "bridge": "Insurance, legal, and risk management spend incoming",
+      "verticals": ["Healthcare", "Professional Services"]
+    },
+    {
+      "name": "Food Service Permit",
+      "example": "New food service establishment permit — fast-casual concept, 3,200 sqft",
+      "bridge": "New restaurant opening — needs everything from POS to payroll",
+      "verticals": ["Restaurants"]
+    },
+    {
+      "name": "Multi-Unit Franchise Filing",
+      "example": "FDD amendment shows 12 new franchise agreements signed in Q1",
+      "bridge": "Franchise scaling — each unit needs local vendors",
+      "verticals": ["Restaurants", "Hospitality", "Consumer Goods"]
+    }
+  ]

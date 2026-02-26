@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WithCoverage — Postcard V3 (Congratulatory)</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --accent: #00d4aa;
+    --white: #f8f9fa;
+    --gray: #8899aa;
+    --light-gray: #c4d0dc;
+    --bg: #d6d1cb;
+    --warm-bg: #faf7f2;
+    --gold: #c5963e;
+    --gold-light: #f7f0e0;
+    --gold-border: #e2d1a8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .page-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+
+  .page-subtitle {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    max-width: 560px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #999;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+
+  .label:first-of-type { margin-top: 0; }
+
+  .annotation {
+    font-size: 11px;
+    color: #aaa;
+    text-align: center;
+    max-width: 520px;
+    line-height: 1.5;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  /* ===== POSTCARD 6x9 ===== */
+  .postcard {
+    width: 864px;
+    height: 576px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  /* ---- FRONT ---- */
+  .front {
+    background: var(--navy);
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Subtle radial glow */
+  .front::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  /* Gold accent line top */
+  .front::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--accent), var(--gold));
+  }
+
+  .front-inner {
+    padding: 36px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+
+  .front-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .front-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--white);
+    letter-spacing: -0.5px;
+  }
+  .front-logo span { color: var(--accent); }
+
+  .front-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(197,150,62,0.12);
+    border: 1px solid rgba(197,150,62,0.3);
+    padding: 7px 14px;
+    border-radius: 100px;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+  }
+
+  .front-badge .star { font-size: 14px; }
+
+  .front-middle {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 620px;
+  }
+
+  .front-eyebrow {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+
+  .front-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 28px;
+    line-height: 1.12;
+    letter-spacing: -1px;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .front-headline .company-name {
+    color: var(--accent);
+  }
+
+  .front-sub {
+    font-size: 14px;
+    color: var(--light-gray);
+    line-height: 1.5;
+    max-width: 480px;
+  }
+
+  .front-sub strong {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .front-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .front-gift-teaser {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 10px 16px;
+  }
+
+  .gift-emoji { font-size: 24px; }
+
+  .gift-teaser-text {
+    font-size: 12px;
+    color: var(--light-gray);
+    line-height: 1.4;
+  }
+
+  .gift-teaser-text strong {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  .front-url-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .front-url-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gray);
+  }
+
+  .front-url {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 10px 16px;
+  }
+
+  .front-url .arrow {
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 800;
+  }
+
+  .front-url .url-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: -0.3px;
+  }
+
+  .front-url .url-text .dot-num {
+    color: var(--accent);
+  }
+
+  /* ---- BACK ---- */
+  .back {
+    background: var(--warm-bg);
+    height: 100%;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    position: relative;
+  }
+
+  .back::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--gold), var(--accent), var(--gold));
+  }
+
+  .back-left {
+    padding: 40px 36px 40px 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #e4dfd6;
+  }
+
+  .back-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 17px;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+  }
+  .back-logo span { color: var(--accent); }
+
+  .back-carrier-box {
+    background: white;
+    border: 1px solid #e8e3d9;
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+
+  .back-carrier-label {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #bbb;
+    margin-bottom: 6px;
+  }
+
+  .back-carrier-name {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .back-carrier-details {
+    font-size: 11px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .back-body {
+    font-size: 12.5px;
+    color: #555;
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+
+  .back-body strong { color: #333; }
+
+  /* Gift card callout */
+  .back-gift-box {
+    background: var(--gold-light);
+    border: 1.5px solid var(--gold-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .back-gift-icon {
+    font-size: 28px;
+    flex-shrink: 0;
+  }
+
+  .back-gift-text {
+    font-size: 12px;
+    color: #6b5a3e;
+    line-height: 1.5;
+  }
+
+  .back-gift-text strong {
+    color: #4a3d28;
+    font-weight: 800;
+  }
+
+  /* QR + URL */
+  .back-cta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 14px 18px;
+  }
+
+  .back-cta .qr-box {
+    width: 56px;
+    height: 56px;
+    background: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 7px;
+    color: #ccc;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .back-cta-text .cta-line {
+    font-size: 11px;
+    color: var(--light-gray);
+  }
+
+  .back-cta-text .cta-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  /* Back right - mailing */
+  .back-right {
+    padding: 40px 44px 40px 36px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .postage-area {
+    width: 68px;
+    height: 48px;
+    border: 1.5px dashed #ccc;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    font-size: 7px;
+    color: #bbb;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .mailing-address {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #444;
+    font-weight: 500;
+  }
+
+  .mailing-address .name {
+    font-weight: 800;
+    font-size: 14px;
+    color: #222;
+  }
+
+  .return-address {
+    font-size: 9px;
+    color: #aaa;
+    line-height: 1.6;
+  }
+
+  .back-barcode {
+    display: flex;
+    gap: 1px;
+    align-items: flex-end;
+  }
+
+  .back-barcode .bar {
+    width: 1.2px;
+    background: #bbb;
+    border-radius: 0.5px;
+  }
+
+  /* ===== MOBILE LANDING PAGE ===== */
+  .phone-frame {
+    width: 375px;
+    background: var(--navy);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 20px 60px rgba(0,0,0,0.15);
+    position: relative;
+  }
+
+  .phone-frame::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(0,212,170,0.06) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .phone-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--white);
+    position: relative;
+    z-index: 1;
+  }
+
+  .phone-url-bar {
+    margin: 0 16px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phone-url-bar .lock { font-size: 11px; color: var(--accent); }
+
+  .phone-url-bar .url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--light-gray);
+  }
+
+  .lp {
+    padding: 0 24px 36px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .lp-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 17px;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+  .lp-logo span { color: var(--accent); }
+
+  /* Congrats banner */
+  .lp-congrats {
+    background: linear-gradient(135deg, rgba(197,150,62,0.1) 0%, rgba(0,212,170,0.08) 100%);
+    border: 1px solid rgba(197,150,62,0.2);
+    border-radius: 14px;
+    padding: 24px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .lp-congrats-emoji { font-size: 36px; margin-bottom: 10px; }
+
+  .lp-congrats-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 20px;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 8px;
+    letter-spacing: -0.3px;
+  }
+
+  .lp-congrats-headline .name { color: var(--accent); }
+
+  .lp-congrats-sub {
+    font-size: 13px;
+    color: var(--light-gray);
+    line-height: 1.5;
+  }
+
+  .lp-congrats-sub strong { color: var(--white); font-weight: 700; }
+
+  /* Safety rank badge */
+  .lp-rank {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .lp-rank-label {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .lp-rank-number {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 48px;
+    color: var(--white);
+    letter-spacing: -2px;
+    line-height: 1;
+  }
+
+  .lp-rank-number span { color: var(--accent); font-size: 28px; }
+
+  .lp-rank-context {
+    font-size: 12px;
+    color: var(--gray);
+    margin-top: 6px;
+  }
+
+  .lp-rank-context strong { color: var(--light-gray); }
+
+  /* Fleet stats row */
+  .lp-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .lp-stat {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 10px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+
+  .lp-stat-val {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--white);
+  }
+
+  .lp-stat-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  /* Gift card block */
+  .lp-gift {
+    background: linear-gradient(135deg, rgba(197,150,62,0.15) 0%, rgba(197,150,62,0.05) 100%);
+    border: 1px solid rgba(197,150,62,0.25);
+    border-radius: 14px;
+    padding: 24px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .lp-gift-emoji { font-size: 32px; margin-bottom: 8px; }
+
+  .lp-gift-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .lp-gift-sub {
+    font-size: 12px;
+    color: var(--light-gray);
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .lp-gift-restaurant {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+
+  /* Email capture */
+  .lp-capture {
+    margin-bottom: 16px;
+  }
+
+  .lp-capture-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--light-gray);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .lp-email-row {
+    display: flex;
+    gap: 8px;
+  }
+
+  .lp-email-input {
+    flex: 1;
+    padding: 14px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+  }
+
+  .lp-email-input::placeholder { color: var(--gray); }
+
+  .lp-claim-btn {
+    padding: 14px 20px;
+    background: var(--accent);
+    color: var(--navy);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .lp-fine-print {
+    font-size: 10px;
+    color: var(--gray);
+    text-align: center;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  /* Trust */
+  .lp-trust {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .lp-trust-item { text-align: center; }
+
+  .lp-trust-val {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--white);
+  }
+
+  .lp-trust-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .postcard { width: 100%; height: auto; aspect-ratio: 3/2; }
+    .back { grid-template-columns: 1fr; }
+    .back-right { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">WithCoverage — Postcard V3</div>
+<div class="page-subtitle">Congratulatory angle. "In honor of your safety record, dinner's on us." Email capture to claim gift card. Selling happens over email.</div>
+
+<!-- ===== POSTCARD FRONT ===== -->
+<div class="label">Postcard Front (6×9)</div>
+<div class="annotation">Feels like recognition, not a sales pitch. Their name + a celebration.</div>
+
+<div class="postcard front">
+  <div class="front-inner">
+    <div class="front-top">
+      <div class="front-logo">With<span>Coverage</span></div>
+      <div class="front-badge"><span class="star">★</span> Top 15% Safety</div>
+    </div>
+
+    <div class="front-middle">
+      <div class="front-eyebrow">Congratulations, Midwest Express Freight</div>
+      <div class="front-headline">Your safety record puts you in the <span class="company-name">top 15%</span> of carriers your size.</div>
+      <div class="front-sub">In honor of your fleet's performance, <strong>dinner is on us</strong>. Claim your complimentary restaurant gift card — on the house.</div>
+    </div>
+
+    <div class="front-bottom">
+      <div class="front-gift-teaser">
+        <div class="gift-emoji">🍽️</div>
+        <div class="gift-teaser-text">
+          <strong>$50 restaurant gift card</strong><br>
+          A local spot near Springfield, IL
+        </div>
+      </div>
+      <div class="front-url-block">
+        <div class="front-url-label">Claim yours</div>
+        <div class="front-url">
+          <div class="arrow">→</div>
+          <div class="url-text">withcoverage.com/<span class="dot-num">3847291</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== POSTCARD BACK ===== -->
+<div class="label">Postcard Back</div>
+<div class="annotation">Carrier details + gift card context + QR code. Clean, not salesy.</div>
+
+<div class="postcard back">
+  <div class="back-left">
+    <div>
+      <div class="back-logo">With<span>Coverage</span></div>
+
+      <div class="back-carrier-box">
+        <div class="back-carrier-label">Your Fleet</div>
+        <div class="back-carrier-name">Midwest Express Freight LLC</div>
+        <div class="back-carrier-details">
+          DOT #3847291 &nbsp;·&nbsp; MC #1284750<br>
+          23 Power Units &nbsp;·&nbsp; 28 Drivers &nbsp;·&nbsp; Springfield, IL
+        </div>
+      </div>
+
+      <div class="back-body">
+        We reviewed public FMCSA data for <strong>2,400+ carriers with 15–30 power units</strong> in the Midwest. Your fleet's safety record and compliance history rank in the <strong>top 15%</strong>.<br><br>
+        Carriers with your profile often qualify for <strong>preferred commercial coverage rates</strong> — but most never find out. We think that's worth celebrating.
+      </div>
+
+      <div class="back-gift-box">
+        <div class="back-gift-icon">🎁</div>
+        <div class="back-gift-text">
+          <strong>Claim your $50 restaurant gift card.</strong><br>
+          Visit your personalized page and enter your email. No strings. Just a thank you for running a safe fleet.
+        </div>
+      </div>
+    </div>
+
+    <div class="back-cta">
+      <div class="qr-box">QR<br>Code</div>
+      <div class="back-cta-text">
+        <div class="cta-line">Claim your gift card:</div>
+        <div class="cta-url">withcoverage.com/3847291</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="back-right">
+    <div>
+      <div class="return-address">
+        WithCoverage, Inc.<br>
+        15 W 26th St, Floor 4<br>
+        New York, NY 10010
+      </div>
+    </div>
+
+    <div class="mailing-address">
+      <div class="name">Midwest Express Freight LLC</div>
+      2847 Commerce Drive<br>
+      Springfield, IL 62704
+    </div>
+
+    <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-end;">
+      <div class="postage-area">Postage</div>
+      <div class="back-barcode">
+        <div class="bar" style="height:12px"></div>
+        <div class="bar" style="height:7px"></div>
+        <div class="bar" style="height:12px"></div>
+        <div class="bar" style="height:5px"></div>
+        <div class="bar" style="height:12px"></div>
+        <div class="bar" style="height:9px"></div>
+        <div class="bar" style="height:5px"></div>
+        <div class="bar" style="height:12px"></div>
+        <div class="bar" style="height:7px"></div>
+        <div class="bar" style="height:12px"></div>
+        <div class="bar" style="height:5px"></div>
+        <div class="bar" style="height:9px"></div>
+        <div class="bar" style="height:12px"></div>
+        <div class="bar" style="height:7px"></div>
+        <div class="bar" style="height:5px"></div>
+        <div class="bar" style="height:12px"></div>
+        <div class="bar" style="height:9px"></div>
+        <div class="bar" style="height:5px"></div>
+        <div class="bar" style="height:12px"></div>
+        <div class="bar" style="height:7px"></div>
+        <div class="bar" style="height:12px"></div>
+        <div class="bar" style="height:5px"></div>
+        <div class="bar" style="height:9px"></div>
+        <div class="bar" style="height:12px"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="width:100%;max-width:864px;height:1px;background:rgba(0,0,0,0.08);margin:24px 0;"></div>
+
+<!-- ===== MOBILE LANDING PAGE ===== -->
+<div class="label">Landing Page — Mobile</div>
+<div class="annotation">Confirms their ranking. Shows local restaurant. Email = claim. No selling on this page.</div>
+
+<div class="phone-frame">
+  <div class="phone-status">
+    <div style="font-weight:700;">9:41</div>
+    <div style="font-size:11px;">●●●● WiFi 🔋</div>
+  </div>
+
+  <div class="phone-url-bar">
+    <div class="lock">🔒</div>
+    <div class="url">withcoverage.com/3847291</div>
+  </div>
+
+  <div class="lp">
+    <div class="lp-logo">With<span>Coverage</span></div>
+
+    <!-- Congrats -->
+    <div class="lp-congrats">
+      <div class="lp-congrats-emoji">🏆</div>
+      <div class="lp-congrats-headline">Congrats, <span class="name">Midwest Express Freight</span></div>
+      <div class="lp-congrats-sub">Your fleet's safety and compliance record ranks in the <strong>top 15%</strong> of similarly-sized carriers in the Midwest.</div>
+    </div>
+
+    <!-- Rank -->
+    <div class="lp-rank">
+      <div class="lp-rank-label">Your Safety Ranking</div>
+      <div class="lp-rank-number">Top 15<span>%</span></div>
+      <div class="lp-rank-context">out of <strong>2,400+</strong> carriers with 15–30 units in IL, IN, MO, WI</div>
+    </div>
+
+    <!-- Stats -->
+    <div class="lp-stats">
+      <div class="lp-stat">
+        <div class="lp-stat-val">23</div>
+        <div class="lp-stat-label">Units</div>
+      </div>
+      <div class="lp-stat">
+        <div class="lp-stat-val">28</div>
+        <div class="lp-stat-label">Drivers</div>
+      </div>
+      <div class="lp-stat">
+        <div class="lp-stat-val">4.2yr</div>
+        <div class="lp-stat-label">Authority</div>
+      </div>
+    </div>
+
+    <!-- Gift card -->
+    <div class="lp-gift">
+      <div class="lp-gift-emoji">🍽️</div>
+      <div class="lp-gift-headline">Dinner's on us</div>
+      <div class="lp-gift-sub">In honor of your fleet's track record, enjoy a complimentary meal at a local favorite.</div>
+      <div class="lp-gift-restaurant">🍴 Obed & Isaac's — Springfield, IL</div>
+    </div>
+
+    <!-- Email capture -->
+    <div class="lp-capture">
+      <div class="lp-capture-label">Enter your email to claim your $50 gift card</div>
+      <div class="lp-email-row">
+        <input type="email" class="lp-email-input" placeholder="you@company.com">
+        <button class="lp-claim-btn">Claim</button>
+      </div>
+    </div>
+
+    <div class="lp-fine-print">
+      One per company. Gift card delivered via email within 24 hours.<br>
+      No purchase or commitment required.
+    </div>
+
+    <!-- Trust -->
+    <div class="lp-trust">
+      <div class="lp-trust-item">
+        <div class="lp-trust-val">$43M+</div>
+        <div class="lp-trust-label">Raised</div>
+      </div>
+      <div class="lp-trust-item">
+        <div class="lp-trust-val">500+</div>
+        <div class="lp-trust-label">Clients</div>
+      </div>
+      <div class="lp-trust-item">
+        <div class="lp-trust-val">Sequoia</div>
+        <div class="lp-trust-label">Backed</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

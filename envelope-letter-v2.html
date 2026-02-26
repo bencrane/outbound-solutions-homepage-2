@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WithCoverage — Direct Mail V2</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:wght@700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --accent: #00d4aa;
+    --accent-glow: rgba(0,212,170,0.12);
+    --white: #f8f9fa;
+    --gray: #8899aa;
+    --light-gray: #c4d0dc;
+    --bg: #d6d1cb;
+    --gold: #f0c94b;
+    --gold-dim: #d4af37;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .page-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    letter-spacing: -0.5px;
+    margin-bottom: 4px;
+  }
+
+  .page-subtitle {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    max-width: 520px;
+    line-height: 1.5;
+    margin-bottom: 16px;
+  }
+
+  .label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: #999;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 12px;
+  }
+
+  .label:first-of-type { margin-top: 0; }
+
+  .annotation {
+    font-size: 11px;
+    color: #aaa;
+    text-align: center;
+    max-width: 520px;
+    line-height: 1.5;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  /* ===== ENVELOPE ===== */
+  .envelope {
+    width: 890px;
+    height: 380px;
+    background: #fafaf7;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.008) 2px, rgba(0,0,0,0.008) 4px);
+  }
+
+  .envelope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.04), transparent);
+  }
+
+  .env-return {
+    position: absolute;
+    top: 28px;
+    left: 36px;
+    font-size: 11px;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  .env-return .env-brand {
+    font-weight: 700;
+    font-size: 12px;
+    color: #333;
+    margin-bottom: 2px;
+  }
+
+  .env-window-bottom {
+    position: absolute;
+    bottom: 52px;
+    left: 36px;
+    width: 360px;
+    height: 108px;
+    background: rgba(240,245,250,0.5);
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 14px 20px;
+  }
+
+  .env-window-bottom .recipient-name {
+    font-weight: 800;
+    font-size: 14px;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 1px;
+  }
+
+  .env-window-bottom .recipient-detail {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .env-window-bottom .recipient-dot {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 4px;
+  }
+
+  .env-postage {
+    position: absolute;
+    top: 28px;
+    right: 36px;
+    width: 72px;
+    height: 52px;
+    border: 1.5px dashed #ccc;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: #bbb;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  /* Teaser line on envelope */
+  .env-teaser {
+    position: absolute;
+    bottom: 180px;
+    right: 36px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #555;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .env-teaser em {
+    font-style: normal;
+    color: var(--navy);
+    font-weight: 800;
+  }
+
+  .env-barcode {
+    position: absolute;
+    bottom: 20px;
+    left: 36px;
+    display: flex;
+    gap: 1px;
+    align-items: flex-end;
+  }
+
+  .env-barcode .bar {
+    width: 1.5px;
+    background: #bbb;
+    border-radius: 0.5px;
+  }
+
+  /* ===== LETTER ===== */
+  .letter {
+    width: 680px;
+    min-height: 880px;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 16px 48px rgba(0,0,0,0.1);
+    padding: 56px 60px;
+    position: relative;
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.005) 2px, rgba(0,0,0,0.005) 4px);
+  }
+
+  .letter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #111;
+  }
+
+  .letter-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+  .letter-logo span { color: var(--accent); }
+
+  .letter-header-right {
+    text-align: right;
+    font-size: 11px;
+    color: #888;
+    line-height: 1.6;
+  }
+
+  .letter-recipient {
+    margin-bottom: 32px;
+  }
+
+  .letter-recipient .to-label {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #aaa;
+    margin-bottom: 6px;
+  }
+
+  .letter-recipient .to-company {
+    font-weight: 800;
+    font-size: 15px;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .letter-recipient .to-address {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .letter-recipient .to-dot {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+    color: #333;
+    margin-top: 4px;
+  }
+
+  .letter-subject {
+    background: #f4f6f8;
+    border-left: 3px solid var(--navy);
+    padding: 14px 18px;
+    margin-bottom: 28px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .letter-subject .subject-label {
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 4px;
+  }
+
+  .letter-body {
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.75;
+    margin-bottom: 28px;
+  }
+
+  .letter-body p { margin-bottom: 16px; }
+  .letter-body strong { color: #111; font-weight: 700; }
+
+  /* Fleet data - visible */
+  .letter-data-box {
+    background: var(--navy);
+    border-radius: 10px;
+    padding: 28px;
+    margin-bottom: 28px;
+    color: var(--white);
+  }
+
+  .ldb-header {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .ldb-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .ldb-stat { text-align: center; }
+
+  .ldb-stat-val {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--white);
+  }
+
+  .ldb-stat-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--gray);
+    margin-top: 2px;
+  }
+
+  .ldb-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.08);
+    margin-bottom: 16px;
+  }
+
+  /* HIDDEN savings - the hook */
+  .ldb-savings-hidden {
+    text-align: center;
+    position: relative;
+  }
+
+  .ldb-savings-hidden-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
+
+  .ldb-hidden-amount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .ldb-hidden-block {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .ldb-blur-char {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 32px;
+    color: var(--accent);
+    filter: blur(8px);
+    user-select: none;
+    letter-spacing: -1px;
+  }
+
+  .ldb-dollar {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 32px;
+    color: var(--accent);
+    letter-spacing: -1px;
+  }
+
+  .ldb-hidden-note {
+    font-size: 11px;
+    color: var(--gray);
+    margin-top: 8px;
+  }
+
+  .ldb-hidden-note em {
+    font-style: normal;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* GUESS + GIFT CARD CTA */
+  .letter-guess-cta {
+    background: linear-gradient(135deg, #fdf8e8 0%, #faf3d6 100%);
+    border: 2px solid var(--gold);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .guess-icon {
+    width: 72px;
+    height: 72px;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dim) 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 32px;
+  }
+
+  .guess-text {
+    flex: 1;
+  }
+
+  .guess-headline {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 18px;
+    color: var(--navy);
+    margin-bottom: 6px;
+    letter-spacing: -0.3px;
+  }
+
+  .guess-desc {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+  }
+
+  .guess-desc strong {
+    color: var(--navy);
+  }
+
+  /* QR / URL CTA */
+  .letter-cta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #f4f6f8;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+
+  .letter-cta .qr-box {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 8px;
+    color: #bbb;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .letter-cta-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .letter-cta-text .cta-main {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .letter-cta-text .cta-url {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.3px;
+  }
+
+  .letter-cta-text .cta-or {
+    font-size: 12px;
+    color: #999;
+  }
+
+  .letter-cta-text .cta-phone {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .letter-signoff {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .letter-signature {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .letter-sig-title {
+    font-size: 12px;
+    color: #888;
+  }
+
+  .letter-footer {
+    margin-top: 32px;
+    padding-top: 16px;
+    border-top: 1px solid #e8e8e8;
+    font-size: 10px;
+    color: #bbb;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 920px) {
+    .envelope { width: 100%; height: auto; aspect-ratio: 2.35/1; }
+    .letter { width: 100%; }
+    .ldb-grid { grid-template-columns: repeat(2, 1fr); }
+    .letter-guess-cta { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">WithCoverage — Direct Mail V2</div>
+<div class="page-subtitle">Savings hidden on the letter. "Guess your savings" mechanic drives to landing page. $100 gift card for booking a review.</div>
+
+<!-- ===== ENVELOPE ===== -->
+<div class="label">Envelope — Front</div>
+<div class="annotation">Same official look. Added teaser line visible on envelope face.</div>
+
+<div class="envelope">
+  <div class="env-return">
+    <div class="env-brand">WithCoverage, Inc.</div>
+    15 W 26th St, Floor 4<br>
+    New York, NY 10010
+  </div>
+
+  <div class="env-postage">Presort<br>Std</div>
+
+  <div class="env-teaser">
+    Coverage review enclosed for<br>
+    <em>DOT #3847291</em>
+  </div>
+
+  <div class="env-window-bottom">
+    <div class="recipient-name">Midwest Express Freight LLC</div>
+    <div class="recipient-detail">
+      2847 Commerce Drive<br>
+      Springfield, IL 62704
+    </div>
+    <div class="recipient-dot">DOT #3847291 &nbsp;·&nbsp; MC #1284750</div>
+  </div>
+
+  <div class="env-barcode">
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:8px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:6px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:10px"></div>
+    <div class="bar" style="height:6px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:8px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:6px"></div>
+    <div class="bar" style="height:10px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:8px"></div>
+    <div class="bar" style="height:6px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:10px"></div>
+    <div class="bar" style="height:6px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:8px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:6px"></div>
+    <div class="bar" style="height:10px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:6px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:8px"></div>
+    <div class="bar" style="height:10px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:6px"></div>
+    <div class="bar" style="height:8px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:10px"></div>
+    <div class="bar" style="height:6px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:8px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:6px"></div>
+    <div class="bar" style="height:10px"></div>
+    <div class="bar" style="height:14px"></div>
+    <div class="bar" style="height:8px"></div>
+    <div class="bar" style="height:6px"></div>
+  </div>
+</div>
+
+<!-- ===== LETTER ===== -->
+<div class="label">Letter Insert — V2</div>
+<div class="annotation">Fleet data shown. Savings blurred/hidden. Gift card incentive to guess + book.</div>
+
+<div class="letter">
+  <div class="letter-header">
+    <div class="letter-logo">With<span>Coverage</span></div>
+    <div class="letter-header-right">
+      WithCoverage, Inc.<br>
+      15 W 26th St, Floor 4<br>
+      New York, NY 10010<br>
+      withcoverage.com
+    </div>
+  </div>
+
+  <div class="letter-recipient">
+    <div class="to-label">Prepared For</div>
+    <div class="to-company">Midwest Express Freight LLC</div>
+    <div class="to-address">
+      2847 Commerce Drive<br>
+      Springfield, IL 62704
+    </div>
+    <div class="to-dot">DOT #3847291 &nbsp;·&nbsp; MC #1284750</div>
+  </div>
+
+  <div class="letter-subject">
+    <div class="subject-label">Re</div>
+    Commercial Coverage Review — DOT #3847291
+  </div>
+
+  <div class="letter-body">
+    <p>We reviewed your public carrier record filed with the Federal Motor Carrier Safety Administration and compared your fleet profile against <strong>2,400+ carriers of similar size</strong> in the Midwest region.</p>
+
+    <p>Based on your authority type, fleet size, and safety record — we've calculated an <strong>estimated annual savings</strong> specific to your fleet. Here's what we can share:</p>
+  </div>
+
+  <!-- Fleet data - visible -->
+  <div class="letter-data-box">
+    <div class="ldb-header">Your Fleet Profile — FMCSA Public Record</div>
+    <div class="ldb-grid">
+      <div class="ldb-stat">
+        <div class="ldb-stat-val">23</div>
+        <div class="ldb-stat-label">Power Units</div>
+      </div>
+      <div class="ldb-stat">
+        <div class="ldb-stat-val">28</div>
+        <div class="ldb-stat-label">Drivers</div>
+      </div>
+      <div class="ldb-stat">
+        <div class="ldb-stat-val">4.2yr</div>
+        <div class="ldb-stat-label">Authority Age</div>
+      </div>
+      <div class="ldb-stat">
+        <div class="ldb-stat-val">IL</div>
+        <div class="ldb-stat-label">Home State</div>
+      </div>
+    </div>
+    <div class="ldb-divider"></div>
+
+    <!-- Savings HIDDEN -->
+    <div class="ldb-savings-hidden">
+      <div class="ldb-savings-hidden-label">Your Estimated Annual Savings</div>
+      <div class="ldb-hidden-amount">
+        <span class="ldb-dollar">$</span>
+        <span class="ldb-blur-char">18,400</span>
+        <span style="font-family:'Fraunces',serif; font-weight:900; font-size:32px; color:var(--gray);">/yr</span>
+      </div>
+      <div class="ldb-hidden-note">Visit your personalized page to <em>reveal your number</em></div>
+    </div>
+  </div>
+
+  <!-- GUESS + GIFT CARD -->
+  <div class="letter-guess-cta">
+    <div class="guess-icon">🎯</div>
+    <div class="guess-text">
+      <div class="guess-headline">Guess your savings. Get a $100 gift card.</div>
+      <div class="guess-desc">
+        Visit your personalized page, guess how much your fleet could save, and <strong>book a free 15-minute coverage review</strong>. Everyone who completes a review receives a <strong>$100 Visa gift card</strong> — no strings attached.
+      </div>
+    </div>
+  </div>
+
+  <!-- QR / URL -->
+  <div class="letter-cta">
+    <div class="qr-box">QR<br>Code</div>
+    <div class="letter-cta-text">
+      <div class="cta-main">Guess your savings + book your review:</div>
+      <div class="cta-url">withcoverage.com/3847291</div>
+      <div class="cta-or">or call us directly</div>
+      <div class="cta-phone">(800) 555-1234</div>
+    </div>
+  </div>
+
+  <div class="letter-signoff">
+    Takes 30 seconds to guess. Takes 15 minutes to find out if you're right.<br>
+    Either way, the gift card is yours.
+  </div>
+
+  <div class="letter-signature">The WithCoverage Team</div>
+  <div class="letter-sig-title">AI-Powered Risk Management &nbsp;·&nbsp; Backed by Sequoia, 8VC & Khosla</div>
+
+  <div class="letter-footer">
+    WithCoverage, Inc. &nbsp;·&nbsp; 15 W 26th St, Floor 4, New York, NY 10010 &nbsp;·&nbsp; withcoverage.com<br>
+    This letter references publicly available data from the FMCSA Safety and Fitness Electronic Records (SAFER) system.<br>
+    Gift card offer valid for fleet operators who complete a coverage review by [date]. One per company. No purchase necessary.
+  </div>
+</div>
+
+</body>
+</html>

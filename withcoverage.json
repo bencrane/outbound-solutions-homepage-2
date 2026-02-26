@@ -1,0 +1,140 @@
+{
+    "id": "idHe8SEcsA",
+    "urn": "urn:brandfetch:brand:idHe8SEcsA",
+    "name": "With Coverage",
+    "fonts": [
+      {
+        "name": "var(--default-font-family",
+        "type": "body",
+        "origin": "custom",
+        "weights": [],
+        "originId": null
+      },
+      {
+        "name": "altone",
+        "type": "title",
+        "origin": "custom",
+        "weights": [],
+        "originId": null
+      }
+    ],
+    "links": [],
+    "logos": [
+      {
+        "tags": [],
+        "type": "logo",
+        "theme": "dark",
+        "formats": [
+          {
+            "src": "https://cdn.brandfetch.io/idHe8SEcsA/w/820/h/69/theme/dark/logo.png?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 10096,
+            "width": 820,
+            "format": "png",
+            "height": 69,
+            "background": "transparent"
+          },
+          {
+            "src": "https://cdn.brandfetch.io/idHe8SEcsA/theme/dark/logo.svg?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 8865,
+            "width": null,
+            "format": "svg",
+            "height": null,
+            "background": "transparent"
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "hex": "#000000",
+        "type": "dark",
+        "brightness": 0
+      },
+      {
+        "hex": "#ffffff",
+        "type": "light",
+        "brightness": 255
+      },
+      {
+        "hex": "#576c5d",
+        "type": "accent",
+        "brightness": 102
+      }
+    ],
+    "domain": "withcoverage.com",
+    "images": [],
+    "isNsfw": false,
+    "claimed": true,
+    "company": {
+      "kind": null,
+      "location": {
+        "city": null,
+        "state": null,
+        "region": null,
+        "country": null,
+        "subregion": null,
+        "countryCode": null
+      },
+      "employees": null,
+      "industries": [
+        {
+          "id": "50",
+          "name": "Finance",
+          "slug": "finance",
+          "emoji": "💰",
+          "score": 0.5848047137260437,
+          "parent": null
+        },
+        {
+          "id": "55",
+          "name": "Insurance",
+          "slug": "insurance",
+          "emoji": "💰",
+          "score": 0.45045149326324463,
+          "parent": {
+            "id": "50",
+            "name": "Finance",
+            "slug": "finance",
+            "emoji": "💰"
+          }
+        },
+        {
+          "id": "28",
+          "name": "Computers Electronics and Technology",
+          "slug": "computers-electronics-and-technology",
+          "emoji": "🖥",
+          "score": 0.20029830932617188,
+          "parent": null
+        },
+        {
+          "id": "10",
+          "name": "Business and Consumer Services",
+          "slug": "business-and-consumer-services",
+          "emoji": "📊",
+          "score": 0.19674167037010193,
+          "parent": null
+        },
+        {
+          "id": "32",
+          "name": "Computers Electronics and Technology",
+          "slug": "computers-electronics-and-technology",
+          "emoji": "🖥",
+          "score": 0.18328292667865753,
+          "parent": {
+            "id": "28",
+            "name": "Computers Electronics and Technology",
+            "slug": "computers-electronics-and-technology",
+            "emoji": "🖥"
+          }
+        }
+      ],
+      "foundedYear": null,
+      "financialIdentifiers": {
+        "isin": [],
+        "ticker": []
+      }
+    },
+    "description": "All-In-One Risk Management to protect your brand",
+    "qualityScore": 0.34615384615384615,
+    "longDescription": "With Coverage is a leading risk management platform tailored for consumer brands. They specialize in providing comprehensive coverage solutions to protect businesses from unforeseen risks and liabilities. With their expertise in risk management, they offer a range of products and services designed to meet the unique needs of consumer brands, ensuring peace of mind for both businesses and customers. With Coverage understands the challenges faced by consumer brands in today's rapidly changing marketplace. Their team of experts work closely with businesses to assess their specific risks and develop customized solutions. Whether it's product liability, cyber risks, or supply chain disruptions, they have the knowledge and resources to mitigate potential threats. Contact With Coverage today at contact@withcoverage.com to learn more about their risk management platform and how they can help safeguard your consumer brand. Don't let unforeseen risks hinder your success, trust With Coverage to help you navigate the complex world of risk management."
+  }

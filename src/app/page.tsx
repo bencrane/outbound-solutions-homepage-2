@@ -169,27 +169,45 @@ function ProblemSection() {
   );
 }
 
-function WhoWeWorkWithSection() {
+function RequirementsSection() {
   const criteria = [
-    { label: "$3M+", description: "Revenue" },
-    { label: "5+", description: "Sales team" },
-    { label: "B2B", description: "Business model" },
-    { label: "$30K+", description: "ACV" },
+    { label: "$3M+ revenue", quote: "You're past the figuring-it-out phase" },
+    { label: "5+ on the sales team", quote: "You've already hired for growth" },
+    { label: "B2B only", quote: "Consumer brands, we can't help you" },
+    { label: "Complex sales cycle", quote: "Your deals don't close on a demo" },
+    { label: "Multiple decision-makers", quote: "Nobody signs off alone" },
+    { label: "$30K+ ACV", quote: "You don't discount to close" },
+    { label: "$50K+ existing ad spend", quote: "You don't just hope for new business" },
   ];
 
   return (
     <Section contained>
-      <SectionHeader label="WHO WE WORK WITH" title="Built for teams ready to scale." />
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: tokens.spacing[4] }}>
+      <Stack gap={3} style={{ marginBottom: tokens.spacing[8] }}>
+        <Stack direction="horizontal" gap={4} align="center">
+          <Divider orientation="horizontal" length="48px" color="default" />
+          <Text variant="label" color="muted">WHO WE WORK WITH</Text>
+        </Stack>
+        <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
+          Client Requirements
+        </Text>
+        <Text variant="body" color="secondary" style={{ fontSize: "15px", marginTop: tokens.spacing[2] }}>
+          If this sounds like your business, we should talk.
+        </Text>
+      </Stack>
+      <Stack gap={3}>
         {criteria.map((item) => (
           <Card key={item.label} padding="md">
-            <Stack gap={2}>
-              <Text variant="display" as="div" style={{ fontSize: "32px", lineHeight: 1.1 }}>{item.label}</Text>
-              <Text variant="caption" color="muted">{item.description}</Text>
+            <Stack direction="horizontal" gap={4} align="center" style={{ justifyContent: "space-between" }}>
+              <Text variant="title" as="div" style={{ fontSize: "16px" }}>{item.label}</Text>
+              {item.quote && (
+                <Text variant="body" color="muted" style={{ fontSize: "14px", fontStyle: "italic" }}>
+                  &ldquo;{item.quote}&rdquo;
+                </Text>
+              )}
             </Stack>
           </Card>
         ))}
-      </div>
+      </Stack>
     </Section>
   );
 }
@@ -257,7 +275,7 @@ function SignalCardsSection() {
       <Stack gap={3} style={{ marginBottom: tokens.spacing[8] }}>
         <Stack direction="horizontal" gap={4} align="center">
           <Divider orientation="horizontal" length="48px" color="default" />
-          <Text variant="label" color="muted">THE ENGINE v2</Text>
+          <Text variant="label" color="muted">THE ENGINE</Text>
         </Stack>
         <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
           Signals that produce pipeline.
@@ -332,7 +350,7 @@ export default function Home() {
         <HowWeWorkSection />
         <SignalsSection />
         <SignalCardsSection />
-        <WhoWeWorkWithSection />
+        <RequirementsSection />
         <CTASection />
       </main>
       <Footer />
