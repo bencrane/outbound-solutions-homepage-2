@@ -96,19 +96,14 @@ export function GTMDashboard() {
       <div style={{ maxWidth: 1400, margin: "0 auto", padding: "48px 32px" }}>
 
         {/* Header */}
-        <div style={{ marginBottom: 32, display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
-          <div>
-            <h1 style={{ fontSize: 28, fontWeight: 600, color: "#fff", margin: 0 }}>WithCoverage</h1>
+        <div style={{ marginBottom: 32 }}>
+          <h1 style={{ fontSize: 28, fontWeight: 600, color: "#fff", margin: 0 }}>AlumniGTM for WithCoverage</h1>
           <p style={{ fontSize: 14, color: "#888", margin: "12px 0 0", maxWidth: 800, lineHeight: 1.6 }}>
             These are CFOs, Controllers, and VP-level operations leaders who previously worked at your current customers and now hold buying authority at companies with qualified complex insurance needs — multi-state operations, international supply chains, cold chain logistics, manufacturing, and franchise exposure. Every lead has been vetted on three dimensions: company fit, decision-making authority, and strength of the alumni connection.
           </p>
           <p style={{ fontSize: 13, color: "#555", margin: "16px 0 0" }}>
             {leads.length} leads from {customers.length} past customers
           </p>
-          </div>
-          <div style={{ background: "#111", border: "1px solid #333", borderRadius: 6, padding: "10px 16px" }}>
-            <span style={{ fontSize: 13, fontWeight: 600, color: "#4ade80", letterSpacing: "0.02em" }}>AlumniGTM</span>
-          </div>
         </div>
 
         {/* Filter button */}

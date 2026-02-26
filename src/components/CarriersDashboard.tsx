@@ -130,7 +130,7 @@ export function CarriersDashboard() {
             <h1
               style={{
                 margin: 0,
-                fontSize: 22,
+                fontSize: 26,
                 fontWeight: 600,
                 color: "#e6edf3",
               }}
@@ -139,14 +139,14 @@ export function CarriersDashboard() {
             </h1>
             <p
               style={{
-                marginTop: 6,
+                marginTop: 12,
                 marginRight: 0,
                 marginBottom: 0,
                 marginLeft: 0,
-                fontSize: 12,
-                color: "#7d8590",
-                lineHeight: 1.6,
-                maxWidth: 520,
+                fontSize: 14,
+                color: "#8b949e",
+                lineHeight: 1.7,
+                maxWidth: 640,
               }}
             >
               These are active interstate freight carriers operating 10–100 power

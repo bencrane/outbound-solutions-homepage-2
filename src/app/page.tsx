@@ -492,7 +492,7 @@ function SignalCardsSection() {
 function CTASection() {
   return (
     <Section contained>
-      <Card style={{ textAlign: "center" }} padding="md">
+      <Card style={{ textAlign: "center", maxWidth: 640, margin: "0 auto" }} padding="md">
         <Stack gap={4} align="center">
           <Text
             variant="headline"
