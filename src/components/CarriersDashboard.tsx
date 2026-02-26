@@ -37,7 +37,6 @@ function formatSwitchRate(rate: number | null): { value: string; suffix: string 
 
 export function CarriersDashboard() {
   const router = useRouter();
-  const [search, setSearch] = useState("");
   const [personaFilter, setPersonaFilter] = useState<string>("all");
   const [carriers, setCarriers] = useState<Carrier[]>([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -45,15 +44,6 @@ export function CarriersDashboard() {
   const [error, setError] = useState<string | null>(null);
   const [personaCounts, setPersonaCounts] = useState<Record<string, number>>({});
   const [hoveredDot, setHoveredDot] = useState<string | null>(null);
-  const [debouncedSearch, setDebouncedSearch] = useState("");
-
-  // Debounce search input
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setDebouncedSearch(search);
-    }, 300);
-    return () => clearTimeout(timer);
-  }, [search]);
 
   // Fetch carriers when filters change
   useEffect(() => {
@@ -63,7 +53,6 @@ export function CarriersDashboard() {
       try {
         const response = await fetchCarriers({
           persona: personaFilter !== "all" ? personaFilter : undefined,
-          search: debouncedSearch || undefined,
           limit: 100,
         });
         setCarriers(response.carriers);
@@ -77,7 +66,7 @@ export function CarriersDashboard() {
     }
 
     loadCarriers();
-  }, [personaFilter, debouncedSearch]);
+  }, [personaFilter]);
 
   // Fetch counts for all personas on initial load
   useEffect(() => {
@@ -166,12 +155,7 @@ export function CarriersDashboard() {
               opportunity.
             </p>
           </div>
-          <div style={{ textAlign: "right" }}>
-            <p style={{ margin: 0, fontSize: 11, color: "#484f58" }}>
-              {carriers.length} of {totalCount} carriers
-            </p>
-          </div>
-        </div>
+                  </div>
       </div>
 
       <div style={{ paddingTop: 20, paddingRight: 40, paddingBottom: 20, paddingLeft: 40 }}>
@@ -218,23 +202,9 @@ export function CarriersDashboard() {
               );
             })}
           </div>
-          <input
-            type="text"
-            placeholder="Search..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            style={{
-              background: "transparent",
-              border: "1px solid #1b2332",
-              borderRadius: 8,
-              padding: "5px 12px",
-              color: "#c9d1d9",
-              fontSize: 11,
-              width: 160,
-              outline: "none",
-              fontFamily: "inherit",
-            }}
-          />
+          <span style={{ fontSize: 11, color: "#484f58" }}>
+            {carriers.length} of {totalCount} carriers
+          </span>
         </div>
 
         {/* Error state */}
@@ -288,6 +258,7 @@ export function CarriersDashboard() {
                     { label: "PERSONA", w: "12%" },
                     { label: "EST. RENEWAL", w: "12%" },
                     { label: "SCORE", w: "8%" },
+                    { label: "INTEL", w: "8%" },
                   ].map((col) => (
                     <th
                       key={col.label}
@@ -324,7 +295,7 @@ export function CarriersDashboard() {
                       }}
                       onMouseEnter={() => setHoveredDot(c.dot_number)}
                       onMouseLeave={() => setHoveredDot(null)}
-                      onClick={() => router.push(`/carriers/${c.dot_number}`)}
+                      onClick={() => router.push(`/wc/carriers/${c.dot_number}`)}
                     >
                       <td style={{ padding: "14px 14px" }}>
                         <div
@@ -471,6 +442,26 @@ export function CarriersDashboard() {
                         }}
                       >
                         {c.score ?? "—"}
+                      </td>
+                      <td style={{ padding: "14px 14px" }}>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            router.push(`/wc/carriers/${c.dot_number}`);
+                          }}
+                          style={{
+                            background: "transparent",
+                            border: "1px solid #1b2332",
+                            borderRadius: 4,
+                            padding: "5px 10px",
+                            color: "#7d8590",
+                            fontSize: 11,
+                            cursor: "pointer",
+                            fontFamily: "inherit",
+                          }}
+                        >
+                          View
+                        </button>
                       </td>
                     </tr>
                   );
