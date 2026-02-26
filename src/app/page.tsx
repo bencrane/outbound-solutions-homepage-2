@@ -124,16 +124,16 @@ function HeroSection() {
       >
         <Stack gap={8}>
           <Text variant="display" as="h1" style={{ fontSize: "clamp(48px, 6vw, 72px)" }}>
-            GTM that gets results.
+            GTM that <span style={{ color: tokens.colors.accent.success }}>gets results.</span>
           </Text>
 
           <Text variant="body" color="secondary" style={{ maxWidth: "480px", fontSize: "15px" }}>
             We build the data pipelines, signal detection, and sending infrastructure
-            that turn outbound into a predictable channel.
+            that turn outbound into a predictable revenue channel for your business.
           </Text>
 
           <div style={{ paddingTop: tokens.spacing[4] }}>
-            <Button variant="primary" size="lg">REQUEST ACCESS</Button>
+            <a href="mailto:team@outboundsolutions.com"><Button variant="primary" size="lg">REQUEST ACCESS</Button></a>
           </div>
         </Stack>
 
@@ -182,7 +182,7 @@ function RequirementsSection() {
           <Text variant="label" color="muted">THE FIT</Text>
         </Stack>
         <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
-          We work with growth-stage B2B.
+          We work with <span style={{ color: tokens.colors.accent.success }}>growth-stage companies.</span>
         </Text>
         <Text variant="body" color="secondary" style={{ fontSize: "15px", marginTop: tokens.spacing[2] }}>
           If this sounds like your business, we should talk.
@@ -229,7 +229,15 @@ function InsightSection() {
 
   return (
     <Section contained>
-      <SectionHeader label="THE INSIGHT" title="We start with your best-fit customers." />
+      <Stack gap={3} style={{ marginBottom: tokens.spacing[8] }}>
+        <Stack direction="horizontal" gap={4} align="center">
+          <Divider orientation="horizontal" length="48px" color="default" />
+          <Text variant="label" color="muted">THE INSIGHT</Text>
+        </Stack>
+        <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
+          We start with your <span style={{ color: tokens.colors.accent.success }}>best-fit customers.</span>
+        </Text>
+      </Stack>
       <Text variant="body" color="secondary" style={{ maxWidth: "600px", fontSize: "15px", marginBottom: tokens.spacing[8], marginTop: `-${tokens.spacing[4]}` }}>
         Most outbound starts with a purchased list. We start with your actual customers — enriched to reveal what made them buy.
       </Text>
@@ -310,7 +318,15 @@ function MethodSection() {
 
   return (
     <Section contained>
-      <SectionHeader label="THE METHOD" title="We map your total addressable market." />
+      <Stack gap={3} style={{ marginBottom: tokens.spacing[8] }}>
+        <Stack direction="horizontal" gap={4} align="center">
+          <Divider orientation="horizontal" length="48px" color="default" />
+          <Text variant="label" color="muted">THE METHOD</Text>
+        </Stack>
+        <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
+          We map your <span style={{ color: tokens.colors.accent.success }}>total addressable market.</span>
+        </Text>
+      </Stack>
       <Text variant="body" color="secondary" style={{ maxWidth: "600px", fontSize: "15px", marginBottom: tokens.spacing[8], marginTop: `-${tokens.spacing[4]}` }}>
         Your actual customers tell us who else to reach. We enrich, analyze, and build your TAM from the ground up.
       </Text>
@@ -413,11 +429,18 @@ function HowItWorksSection() {
 function ImpactSection() {
   return (
     <Section contained>
-      <SectionHeader label="THE RESULTS" title="We deliver revenue impact." />
+      <Stack gap={3} style={{ marginBottom: tokens.spacing[8] }}>
+        <Stack direction="horizontal" gap={4} align="center">
+          <Divider orientation="horizontal" length="48px" color="default" />
+          <Text variant="label" color="muted">THE RESULTS</Text>
+        </Stack>
+        <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
+          We deliver <span style={{ color: tokens.colors.accent.success }}>revenue impact.</span>
+        </Text>
+      </Stack>
       <Stack gap={6}>
-        <Text variant="body" color="secondary" style={{ maxWidth: "560px", fontSize: "15px" }}>
-          Every client gets a live dashboard tracking the metrics that matter —
-          revenue attributed, meetings booked, cost per meeting, and pipeline generated.
+        <Text variant="body" color="secondary" style={{ maxWidth: "520px", fontSize: "15px" }}>
+          Every client gets a live dashboard. Revenue attributed, meetings booked, cost per meeting, pipeline generated.
         </Text>
         <HeroMetrics />
       </Stack>
@@ -428,9 +451,17 @@ function ImpactSection() {
 function SignalsSection() {
   return (
     <Section contained id="signals">
-      <SectionHeader label="THE ENGINE" title="We detect the signals that matter." />
-      <Text variant="body" color="secondary" style={{ maxWidth: "640px", fontSize: "15px", marginBottom: tokens.spacing[8], marginTop: `-${tokens.spacing[4]}` }}>
-        We monitor public data for behavioral inflection points — moments when a company&#39;s circumstances change faster than their vendor relationships.
+      <Stack gap={3} style={{ marginBottom: tokens.spacing[8] }}>
+        <Stack direction="horizontal" gap={4} align="center">
+          <Divider orientation="horizontal" length="48px" color="default" />
+          <Text variant="label" color="muted">THE ENGINE</Text>
+        </Stack>
+        <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
+          We detect the <span style={{ color: tokens.colors.accent.success }}>signals that matter.</span>
+        </Text>
+      </Stack>
+      <Text variant="body" color="secondary" style={{ maxWidth: "600px", fontSize: "15px", marginBottom: tokens.spacing[8], marginTop: `-${tokens.spacing[4]}` }}>
+        We monitor public data for behavioral inflection points — moments when circumstances change faster than vendor relationships.
       </Text>
       <SignalsTable />
     </Section>
@@ -468,13 +499,13 @@ function CTASection() {
             as="h2"
             style={{ fontSize: "clamp(28px, 4vw, 40px)" }}
           >
-            We look forward to hearing from you.
+            We look forward to <span style={{ color: tokens.colors.accent.success }}>hearing from you.</span>
           </Text>
           <Text variant="body" color="muted" style={{ maxWidth: "480px" }}>
             Let&#39;s get results.
           </Text>
           <div style={{ paddingTop: tokens.spacing[4] }}>
-            <Button variant="primary" size="lg">REQUEST ACCESS</Button>
+            <a href="mailto:team@outboundsolutions.com"><Button variant="primary" size="lg">REQUEST ACCESS</Button></a>
           </div>
         </Stack>
       </Card>

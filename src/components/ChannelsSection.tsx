@@ -50,7 +50,7 @@ export function ChannelsSection() {
           <Text variant="label" color="muted">THE CHANNELS</Text>
         </Stack>
         <Text variant="headline" as="h2" style={{ fontSize: "clamp(28px, 4vw, 40px)" }}>
-          We reach them where they are.
+          We reach them <span style={{ color: tokens.colors.accent.success }}>where they are.</span>
         </Text>
         <Text variant="body" color="secondary" style={{ fontSize: "15px", maxWidth: "560px" }}>
           Each channel is infrastructure we&apos;ve built — not tools we use. Signal data flows through, personalized messages flow out.

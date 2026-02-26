@@ -68,35 +68,38 @@ function TableRow({ signal, index, isHovered, onHover, onLeave, vertical }: {
         transition: tokens.transitions.fast,
       }}
     >
-      <td style={cellStyle}>
-        <Stack direction="horizontal" gap={2} align="center">
-          <div
-            style={{
-              width: 6,
-              height: 6,
-              borderRadius: "50%",
-              background: tokens.colors.accent.success,
-              boxShadow: `0 0 6px ${tokens.colors.accent.success}`,
-              flexShrink: 0,
-            }}
-          />
-          <Text variant="label" color="muted" style={{ fontSize: "11px" }}>
-            {signal.name.toUpperCase()}
-          </Text>
-        </Stack>
+      <td style={{ ...cellStyle, width: "20px", paddingRight: 0 }}>
+        <div
+          style={{
+            width: 6,
+            height: 6,
+            borderRadius: "50%",
+            background: tokens.colors.accent.success,
+            boxShadow: `0 0 6px ${tokens.colors.accent.success}`,
+            animation: "pulse 2s infinite",
+          }}
+        />
       </td>
       <td style={cellStyle}>
-        <Stack gap={1}>
-          <Text variant="body" color="primary" style={{ fontSize: "14px" }}>
-            {signal.example}
-          </Text>
-          <Text variant="caption" color="secondary" style={{ fontSize: "13px" }}>
-            {signal.bridge}
-          </Text>
-        </Stack>
+        <Text variant="label" color="muted" style={{ fontSize: "11px" }}>
+          {signal.name.toUpperCase()}
+        </Text>
+      </td>
+      <td style={cellStyle}>
+        <Text variant="body" color="primary" style={{ fontSize: "14px" }}>
+          {signal.example}
+        </Text>
+      </td>
+      <td style={{ ...cellStyle, width: "24px", textAlign: "center", color: tokens.colors.fg.muted }}>
+        →
+      </td>
+      <td style={cellStyle}>
+        <Text variant="body" color="secondary" style={{ fontSize: "13px" }}>
+          {signal.bridge}
+        </Text>
       </td>
       <td style={{ ...cellStyle, textAlign: "right", width: "100px" }}>
-        <Text variant="caption" color="muted" style={{ fontSize: "12px", fontFamily: tokens.typography.fonts.mono }}>
+        <Text variant="caption" style={{ fontSize: "12px", fontFamily: tokens.typography.fonts.mono, color: tokens.colors.accent.success }}>
           {getTimestamp(signal.name, vertical)}
         </Text>
       </td>
@@ -150,58 +153,22 @@ export function SignalsTable() {
 
   return (
     <div>
-      {/* Vertical tabs with LIVE indicator */}
+      {/* Vertical tabs */}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
+          gap: tokens.spacing[1],
           marginBottom: tokens.spacing[4],
         }}
       >
-        <div style={{ display: "flex", gap: tokens.spacing[1] }}>
-          {verticals.map((vertical) => (
-            <VerticalTab
-              key={vertical}
-              label={vertical}
-              isActive={activeVertical === vertical}
-              onClick={() => setActiveVertical(vertical)}
-            />
-          ))}
-        </div>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: tokens.spacing[2],
-            padding: `${tokens.spacing[2]} ${tokens.spacing[3]}`,
-            background: `${tokens.colors.accent.success}15`,
-            borderRadius: tokens.radii.md,
-            border: `1px solid ${tokens.colors.accent.success}30`,
-          }}
-        >
-          <div
-            style={{
-              width: 6,
-              height: 6,
-              borderRadius: "50%",
-              background: tokens.colors.accent.success,
-              boxShadow: `0 0 8px ${tokens.colors.accent.success}`,
-              animation: "pulse 2s infinite",
-            }}
+        {verticals.map((vertical) => (
+          <VerticalTab
+            key={vertical}
+            label={vertical}
+            isActive={activeVertical === vertical}
+            onClick={() => setActiveVertical(vertical)}
           />
-          <span
-            style={{
-              fontFamily: tokens.typography.fonts.mono,
-              fontSize: "11px",
-              fontWeight: 500,
-              letterSpacing: "0.05em",
-              color: tokens.colors.accent.success,
-            }}
-          >
-            LIVE
-          </span>
-        </div>
+        ))}
       </div>
 
       {/* Table container */}
@@ -222,11 +189,20 @@ export function SignalsTable() {
         >
           <thead>
             <tr style={{ borderBottom: `1px solid ${tokens.colors.border.default}` }}>
-              <th style={{ ...thStyle, width: "200px", textAlign: "left" }}>
+              <th style={{ ...thStyle, width: "20px" }}>
+
+              </th>
+              <th style={{ ...thStyle, width: "160px", textAlign: "left" }}>
                 Signal
               </th>
               <th style={{ ...thStyle, textAlign: "left" }}>
-                What We See → Why It Matters
+                What We See
+              </th>
+              <th style={{ ...thStyle, width: "24px" }}>
+
+              </th>
+              <th style={{ ...thStyle, textAlign: "left" }}>
+                Why It Matters
               </th>
               <th style={{ ...thStyle, width: "100px", textAlign: "right" }}>
                 Detected

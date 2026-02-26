@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Outbound Solutions | GTM that gets results",
-  description: "We build the data pipelines, signal detection, and sending infrastructure that turn outbound into a predictable channel.",
+  description: "GTM that gets results.",
 };
 
 export default function RootLayout({
