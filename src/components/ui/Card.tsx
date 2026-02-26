@@ -25,12 +25,13 @@ export function Card({
 }: CardProps) {
   return (
     <Component
-      className={className}
+      className={`card-hover ${className || ""}`}
       style={{
         background: tokens.colors.bg.secondary,
         border: `1px solid ${tokens.colors.border.subtle}`,
         borderRadius: tokens.radii.lg,
         padding: paddingSizes[padding],
+        transition: "border-color 0.2s ease",
         ...style,
       }}
     >

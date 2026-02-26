@@ -492,8 +492,8 @@ function SignalCardsSection() {
 function CTASection() {
   return (
     <Section contained>
-      <Card style={{ textAlign: "center" }} padding="lg">
-        <Stack gap={6} align="center">
+      <Card style={{ textAlign: "center" }} padding="md">
+        <Stack gap={4} align="center">
           <Text
             variant="headline"
             as="h2"
@@ -504,9 +504,7 @@ function CTASection() {
           <Text variant="body" color="muted" style={{ maxWidth: "480px" }}>
             Let&#39;s get results.
           </Text>
-          <div style={{ paddingTop: tokens.spacing[4] }}>
-            <a href="mailto:team@outboundsolutions.com"><Button variant="primary" size="lg">REQUEST ACCESS</Button></a>
-          </div>
+          <a href="mailto:team@outboundsolutions.com"><Button variant="primary" size="lg">REQUEST ACCESS</Button></a>
         </Stack>
       </Card>
     </Section>

@@ -173,6 +173,7 @@ export function SignalsTable() {
 
       {/* Table container */}
       <div
+        className="card-hover"
         style={{
           background: tokens.colors.bg.primary,
           border: `1px solid ${tokens.colors.border.subtle}`,
