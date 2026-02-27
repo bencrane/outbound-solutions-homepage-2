@@ -28,7 +28,7 @@ export default function LetterCampaignPage() {
         fontFamily: "'Fraunces', serif", fontWeight: 900, fontSize: 24,
         color: '#333', textAlign: 'center', letterSpacing: '-0.5px', marginBottom: 4,
       }}>
-        WithCoverage — Direct Mail V2
+        WithCoverage
       </div>
       <div style={{
         fontSize: 13, color: '#888', textAlign: 'center', maxWidth: 560,
