@@ -179,21 +179,21 @@ export function LunosGTMDashboard() {
 
         {/* Table */}
         <div style={{ overflowX: "auto", border: "1px solid #222", borderRadius: 8, WebkitOverflowScrolling: "touch" }}>
-          <table style={{ minWidth: 1100, borderCollapse: "collapse", fontSize: 14 }}>
+          <table className="lunos-table" style={{ minWidth: 1100, borderCollapse: "collapse", fontSize: 14 }}>
             <thead>
               <tr style={{ borderBottom: "1px solid #222", background: "#0a0a0a" }}>
                 {[
-                  { label: "Company", width: 200, center: false },
-                  { label: "Contact", width: 180, center: false, hideOnMobile: true },
-                  { label: "Job Title", width: 140, center: false, hideOnMobile: true },
-                  { label: "Revenue", width: 100, center: false, hideOnMobile: true },
-                  { label: "STF 6mo Ago", width: 90, center: true, hideOnMobile: true },
-                  { label: "STF Now", width: 70, center: true, hideOnMobile: true },
+                  { label: "Company", width: 200, center: false, sticky: true },
+                  { label: "Contact", width: 180, center: false },
+                  { label: "Job Title", width: 140, center: false },
+                  { label: "Revenue", width: 100, center: false },
+                  { label: "STF 6mo Ago", width: 90, center: true },
+                  { label: "STF Now", width: 70, center: true },
                   { label: "Urgency Profile", width: 180, center: false },
-                  { label: "Priority", width: 80, center: false, hideOnMobile: true },
+                  { label: "Priority", width: 80, center: false },
                   { label: "GTM Analysis", width: 100, center: true },
                 ].map((h) => (
-                  <th key={h.label} className={h.hideOnMobile ? "lunos-hide-mobile" : ""} style={{ padding: "12px 16px", textAlign: h.center ? "center" : "left", fontWeight: 500, color: "#555", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", minWidth: h.width, whiteSpace: "nowrap" }}>{h.label}</th>
+                  <th key={h.label} style={{ padding: "12px 16px", textAlign: h.center ? "center" : "left", fontWeight: 500, color: "#555", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", minWidth: h.width, whiteSpace: "nowrap", ...("sticky" in h ? { position: "sticky" as const, left: 0, zIndex: 2, background: "#0a0a0a" } : {}) }}>{h.label}</th>
                 ))}
               </tr>
             </thead>
@@ -202,22 +202,22 @@ export function LunosGTMDashboard() {
                 const m = computeMetrics(t);
                 return (
                   <tr key={`${t.company_id}-${t.contact_id}`} style={{ borderBottom: "1px solid #1a1a1a" }}>
-                    <td style={{ padding: "14px 16px", whiteSpace: "nowrap" }}>
+                    <td style={{ padding: "14px 16px", whiteSpace: "nowrap", position: "sticky", left: 0, zIndex: 1, background: "#000" }}>
                       <a href={`https://${t.domain}`} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "none", fontWeight: 500 }}>
                         {t.company_name}
                       </a>
                     </td>
-                    <td className="lunos-hide-mobile" style={{ padding: "14px 16px", whiteSpace: "nowrap" }}>
+                    <td style={{ padding: "14px 16px", whiteSpace: "nowrap" }}>
                       <a href={t.contact_linkedin_url} target="_blank" rel="noopener noreferrer" style={{ color: "#888", textDecoration: "none" }}>
                         {cleanContactName(t.contact_full_name)}
                       </a>
                     </td>
-                    <td className="lunos-hide-mobile" style={{ padding: "14px 16px", color: "#888" }}>{formatJobTitle(t.contact_normalized_job_title)}</td>
-                    <td className="lunos-hide-mobile" style={{ padding: "14px 16px", color: "#666" }}>{t.annual_estimated_revenue}</td>
-                    <td className="lunos-hide-mobile" style={{ padding: "14px 16px", color: "#999", textAlign: "center" }}>{m.stf_ratio_then !== null ? m.stf_ratio_then.toFixed(1) : ""}</td>
-                    <td className="lunos-hide-mobile" style={{ padding: "14px 16px", textAlign: "center", color: m.stf_ratio_now !== null && m.stf_ratio_then !== null ? (m.stf_ratio_now < m.stf_ratio_then ? "#4ade80" : m.stf_ratio_now > m.stf_ratio_then ? "#ef4444" : "#999") : "#999" }}>{m.stf_ratio_now !== null ? m.stf_ratio_now.toFixed(1) : ""}</td>
+                    <td style={{ padding: "14px 16px", color: "#888" }}>{formatJobTitle(t.contact_normalized_job_title)}</td>
+                    <td style={{ padding: "14px 16px", color: "#666" }}>{t.annual_estimated_revenue}</td>
+                    <td style={{ padding: "14px 16px", color: "#999", textAlign: "center" }}>{m.stf_ratio_then !== null ? m.stf_ratio_then.toFixed(1) : ""}</td>
+                    <td style={{ padding: "14px 16px", textAlign: "center", color: m.stf_ratio_now !== null && m.stf_ratio_then !== null ? (m.stf_ratio_now < m.stf_ratio_then ? "#4ade80" : m.stf_ratio_now > m.stf_ratio_then ? "#ef4444" : "#999") : "#999" }}>{m.stf_ratio_now !== null ? m.stf_ratio_now.toFixed(1) : ""}</td>
                     <td style={{ padding: "14px 16px", color: m.profile === "Crisis & Ignoring It" ? "#ef4444" : m.profile === "Crisis & Hiring Through It" ? "#f97316" : "#999", fontSize: 13 }}>{m.profile}</td>
-                    <td className="lunos-hide-mobile" style={{ padding: "14px 16px", color: getPriority(m.profile).color }}>{getPriority(m.profile).label}</td>
+                    <td style={{ padding: "14px 16px", color: getPriority(m.profile).color }}>{getPriority(m.profile).label}</td>
                     <td style={{ padding: "14px 16px", textAlign: "center" }}>
                       <Link
                         href={`/lunos/gtm/${t.company_id}`}

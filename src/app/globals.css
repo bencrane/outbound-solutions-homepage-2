@@ -113,8 +113,8 @@ body {
 }
 
 @media (max-width: 900px) {
-  .lunos-hide-mobile {
-    display: none !important;
+  .lunos-table {
+    min-width: 800px !important;
   }
 }
 
