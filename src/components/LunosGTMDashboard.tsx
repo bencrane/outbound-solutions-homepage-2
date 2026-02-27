@@ -183,7 +183,7 @@ export function LunosGTMDashboard() {
             <thead>
               <tr style={{ borderBottom: "1px solid #222", background: "#0a0a0a" }}>
                 {[
-                  { label: "Company", width: 200, center: false, sticky: true },
+                  { label: "Company", width: 160, center: false },
                   { label: "Contact", width: 180, center: false },
                   { label: "Job Title", width: 140, center: false },
                   { label: "Revenue", width: 100, center: false },
@@ -193,7 +193,7 @@ export function LunosGTMDashboard() {
                   { label: "Priority", width: 80, center: false },
                   { label: "GTM Analysis", width: 100, center: true },
                 ].map((h) => (
-                  <th key={h.label} style={{ padding: "12px 16px", textAlign: h.center ? "center" : "left", fontWeight: 500, color: "#555", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", minWidth: h.width, whiteSpace: "nowrap", ...("sticky" in h ? { position: "sticky" as const, left: 0, zIndex: 2, background: "#0a0a0a" } : {}) }}>{h.label}</th>
+                  <th key={h.label} style={{ padding: "12px 16px", textAlign: h.center ? "center" : "left", fontWeight: 500, color: "#555", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", minWidth: h.width, whiteSpace: "nowrap" }}>{h.label}</th>
                 ))}
               </tr>
             </thead>
@@ -202,7 +202,7 @@ export function LunosGTMDashboard() {
                 const m = computeMetrics(t);
                 return (
                   <tr key={`${t.company_id}-${t.contact_id}`} style={{ borderBottom: "1px solid #1a1a1a" }}>
-                    <td style={{ padding: "14px 16px", whiteSpace: "nowrap", position: "sticky", left: 0, zIndex: 1, background: "#000" }}>
+                    <td style={{ padding: "14px 16px" }}>
                       <a href={`https://${t.domain}`} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "none", fontWeight: 500 }}>
                         {t.company_name}
                       </a>
