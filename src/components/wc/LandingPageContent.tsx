@@ -90,24 +90,22 @@ export function PostcardLandingContent({ carrier }: { carrier: CarrierData }) {
               color: 'var(--wc-white)', fontFamily: "'DM Sans', sans-serif", fontSize: 14, outline: 'none',
             }}
           />
-          <div style={{ display: 'flex', gap: 8 }}>
-            <input
-              type="email"
-              placeholder="Email"
-              style={{
-                flex: 1, padding: '12px 14px', background: 'rgba(255,255,255,0.06)',
-                border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8,
-                color: 'var(--wc-white)', fontFamily: "'DM Sans', sans-serif", fontSize: 14, outline: 'none',
-              }}
-            />
-            <button style={{
-              padding: '12px 18px', background: 'var(--wc-accent)', color: 'var(--wc-navy)',
-              fontFamily: "'DM Sans', sans-serif", fontSize: 14, fontWeight: 800,
-              border: 'none', borderRadius: 8, cursor: 'pointer', whiteSpace: 'nowrap',
-            }}>
-              Claim
-            </button>
-          </div>
+          <input
+            type="email"
+            placeholder="Email"
+            style={{
+              padding: '12px 14px', background: 'rgba(255,255,255,0.06)',
+              border: '1px solid rgba(255,255,255,0.1)', borderRadius: 8,
+              color: 'var(--wc-white)', fontFamily: "'DM Sans', sans-serif", fontSize: 14, outline: 'none',
+            }}
+          />
+          <button style={{
+            padding: '14px 18px', background: 'var(--wc-accent)', color: 'var(--wc-navy)',
+            fontFamily: "'DM Sans', sans-serif", fontSize: 14, fontWeight: 800,
+            border: 'none', borderRadius: 8, cursor: 'pointer',
+          }}>
+            Claim
+          </button>
         </div>
       </div>
 
