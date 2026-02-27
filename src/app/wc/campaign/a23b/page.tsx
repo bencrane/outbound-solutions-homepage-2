@@ -21,6 +21,7 @@ export default function PostcardCampaignPage() {
       flexDirection: 'column',
       alignItems: 'center',
       gap: 24,
+      overflowX: 'hidden',
     }}>
       <div style={{
         fontFamily: "'Fraunces', serif", fontWeight: 900, fontSize: 24,
