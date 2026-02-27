@@ -1,4 +1,5 @@
 export { DesignLabel } from "./DesignLabel";
+export { ScaleWrap } from "./ScaleWrap";
 export { PostcardFront } from "./PostcardFront";
 export { PostcardBack } from "./PostcardBack";
 export { PhoneMockup } from "./PhoneMockup";

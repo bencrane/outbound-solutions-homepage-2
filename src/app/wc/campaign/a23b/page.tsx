@@ -5,6 +5,7 @@ import {
   PostcardBack,
   PhoneMockup,
   PostcardLandingContent,
+  ScaleWrap,
   defaultCarrier,
 } from "@/components/wc";
 
@@ -37,17 +38,23 @@ export default function PostcardCampaignPage() {
       </div>
 
       <DesignLabel title="Postcard Front (6×9)" annotation="Feels like recognition, not a sales pitch. Their name + a celebration." />
-      <PostcardFront carrier={carrier} />
+      <ScaleWrap nativeWidth={864} nativeHeight={576}>
+        <PostcardFront carrier={carrier} />
+      </ScaleWrap>
 
       <DesignLabel title="Postcard Back" annotation="Carrier details + gift card context + QR code. Clean, not salesy." />
-      <PostcardBack carrier={carrier} />
+      <ScaleWrap nativeWidth={864} nativeHeight={576}>
+        <PostcardBack carrier={carrier} />
+      </ScaleWrap>
 
       <div style={{ width: '100%', maxWidth: 864, height: 1, background: 'rgba(0,0,0,0.08)', margin: '24px 0' }} />
 
       <DesignLabel title="Landing Page — Mobile" annotation="Confirms their ranking. Shows local restaurant. Email = claim. No selling on this page." />
-      <PhoneMockup url={carrier.personalizedUrl}>
-        <PostcardLandingContent carrier={carrier} />
-      </PhoneMockup>
+      <ScaleWrap nativeWidth={375}>
+        <PhoneMockup url={carrier.personalizedUrl}>
+          <PostcardLandingContent carrier={carrier} />
+        </PhoneMockup>
+      </ScaleWrap>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import {
   Letter,
   PhoneMockup,
   CarrierCheckLandingContent,
+  ScaleWrap,
   defaultCarrier,
 } from "@/components/wc";
 
@@ -37,17 +38,23 @@ export default function LetterCampaignPage() {
       </div>
 
       <DesignLabel title="Envelope — Front" annotation="Official look. Teaser line visible on envelope face." />
-      <Envelope carrier={carrier} />
+      <ScaleWrap nativeWidth={890} nativeHeight={380}>
+        <Envelope carrier={carrier} />
+      </ScaleWrap>
 
       <DesignLabel title="Letter Insert" annotation="Fleet data shown. Savings blurred/hidden. Gift card incentive to guess + book." />
-      <Letter carrier={carrier} />
+      <ScaleWrap nativeWidth={680} nativeHeight={880}>
+        <Letter carrier={carrier} />
+      </ScaleWrap>
 
       <div style={{ width: '100%', maxWidth: 864, height: 1, background: 'rgba(0,0,0,0.08)', margin: '24px 0' }} />
 
       <DesignLabel title="Landing Page — Mobile" annotation="Carrier check page. Shows fleet data, savings estimate, and quote CTA." />
-      <PhoneMockup url={carrier.personalizedUrl}>
-        <CarrierCheckLandingContent carrier={carrier} />
-      </PhoneMockup>
+      <ScaleWrap nativeWidth={375}>
+        <PhoneMockup url={carrier.personalizedUrl}>
+          <CarrierCheckLandingContent carrier={carrier} />
+        </PhoneMockup>
+      </ScaleWrap>
     </div>
   );
 }

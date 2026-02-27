@@ -955,36 +955,4 @@
   text-align: center;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 920px) {
-  .wc-postcard { width: 100%; height: auto; aspect-ratio: 3/2; overflow: hidden; }
-  .wc-front-inner { padding: 20px 24px; }
-  .wc-front-headline { font-size: clamp(16px, 4.5vw, 36px); }
-  .wc-front-eyebrow { font-size: 9px; }
-  .wc-front-sub { font-size: 12px; }
-  .wc-front-logo { font-size: 14px; }
-  .wc-front-badge { font-size: 8px; padding: 3px 8px; }
-  .wc-front-url { padding: 6px 10px; }
-  .wc-front-url .url-text { font-size: 10px; }
-  .wc-gift-teaser-text { font-size: 11px; }
-  .wc-gift-emoji { font-size: 20px; }
-  .wc-back { grid-template-columns: 1fr; }
-  .wc-back-left { padding: 20px 24px; }
-  .wc-back-right { display: none; }
-  .wc-back-logo { font-size: 14px; }
-  .wc-back-carrier-name { font-size: 16px; }
-  .wc-back-carrier-details { font-size: 11px; }
-  .wc-back-body { font-size: 12px; }
-  .wc-back-gift-box { padding: 12px; }
-  .wc-back-gift-text { font-size: 11px; }
-  .wc-back-gift-url { font-size: 10px; }
-  .wc-envelope { width: 100%; height: auto; aspect-ratio: 2.35/1; overflow: hidden; }
-  .wc-envelope .wc-env-to { font-size: 12px; }
-  .wc-envelope .wc-env-from { font-size: 9px; }
-  .wc-envelope .wc-env-dot { font-size: 10px; }
-  .wc-letter { width: 100%; overflow: hidden; }
-  .wc-phone-frame { width: 100%; max-width: 375px; }
-  .wc-ldb-grid { grid-template-columns: repeat(2, 1fr); }
-  .wc-letter-guess-cta { flex-direction: column; text-align: center; }
-}
 
