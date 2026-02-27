@@ -43,7 +43,7 @@ export function PostcardFront2({ company: c }: PostcardFront2Props) {
       {/* Top row */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", position: "relative", zIndex: 1 }}>
         <div style={{ fontSize: 20, fontWeight: 700, color: "#fff", letterSpacing: "-0.5px" }}>
-          lumos<span style={{ color: "#3b82f6" }}>.ai</span>
+          Lunos<span style={{ color: "#3b82f6" }}>.ai</span>
         </div>
         <div style={{
           background: "rgba(16, 185, 129, 0.12)",
@@ -56,7 +56,7 @@ export function PostcardFront2({ company: c }: PostcardFront2Props) {
           letterSpacing: "0.5px",
           textTransform: "uppercase",
         }}>
-          ★ Top Performer
+          ★ Choice Logistics
         </div>
       </div>
 
@@ -87,34 +87,35 @@ export function PostcardFront2({ company: c }: PostcardFront2Props) {
           <span style={{ fontFamily: "'Instrument Serif', serif", fontSize: 38, color: "#f59e0b", letterSpacing: 3 }}>■■,■■■</span>
           <span style={{ fontSize: 14, color: "#f59e0b", opacity: 0.7 }}>/yr</span>
         </div>
-
-        <p style={{ color: "#94a3b8", fontSize: 15, lineHeight: 1.5, maxWidth: 440, margin: 0 }}>
-          We analyzed your public filings and industry benchmarks.<br />
-          Guess your number — closest estimate wins up to $500.
-        </p>
       </div>
 
-      {/* Bottom row */}
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", position: "relative", zIndex: 1 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <div style={{
-            background: "#3b82f6",
-            color: "#fff",
-            fontSize: 14,
-            fontWeight: 600,
-            padding: "12px 24px",
-            borderRadius: 8,
-            letterSpacing: "0.3px",
-          }}>
-            lumos.ai/reveal
-          </div>
-          <span style={{ color: "#3b82f6", fontSize: 20 }}>→</span>
+      {/* Bottom CTA bar */}
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        background: "rgba(255, 255, 255, 0.05)",
+        border: "1px solid rgba(255, 255, 255, 0.1)",
+        borderRadius: 12,
+        padding: "12px 12px 12px 24px",
+        position: "relative",
+        zIndex: 1,
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <span style={{ color: "#fff", fontSize: 15, fontWeight: 600 }}>
+            Guess correctly and win up to <span style={{ color: "#10b981", fontWeight: 700 }}>$500</span>
+          </span>
+          <span style={{ color: "#64748b", fontSize: 16 }}>→</span>
         </div>
-
-        <div style={{ textAlign: "right" }}>
-          <div style={{ color: "#10b981", fontSize: 13, fontWeight: 600, textTransform: "uppercase", letterSpacing: 1, marginBottom: 2 }}>Win up to</div>
-          <div style={{ color: "#fff", fontSize: 28, fontWeight: 700, letterSpacing: -1 }}>$500</div>
-          <div style={{ color: "#64748b", fontSize: 11, marginTop: 2 }}>Everyone wins something</div>
+        <div style={{
+          background: "#10b981",
+          color: "#fff",
+          fontSize: 13,
+          fontWeight: 600,
+          padding: "10px 20px",
+          borderRadius: 8,
+        }}>
+          Lunos.ai/reveal/choice-logistics
         </div>
       </div>
     </div>

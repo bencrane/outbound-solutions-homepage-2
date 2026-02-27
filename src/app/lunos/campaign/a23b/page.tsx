@@ -24,15 +24,8 @@ export default function PostcardCampaignPage() {
         fontFamily: "'DM Serif Display', serif", fontWeight: 900, fontSize: 24,
         color: '#1a1a1a', textAlign: 'center', letterSpacing: '-0.5px', marginBottom: 4,
       }}>
-        Lunos
+        LUNOS
       </div>
-      <div style={{
-        fontSize: 13, color: '#888', textAlign: 'center', maxWidth: 560,
-        lineHeight: 1.5, marginBottom: 16,
-      }}>
-        Personalized AR cost postcard. Data from Enigma + industry benchmarks. Late payment cost drives to personalized landing page.
-      </div>
-
       <DesignLabel title="Postcard Front (6×9)" annotation="Personalized DSO data. Shows annual cost of slow collections. CTA to personalized savings page." />
       <ScaleWrap nativeWidth={660}>
         <PostcardFront company={company} />

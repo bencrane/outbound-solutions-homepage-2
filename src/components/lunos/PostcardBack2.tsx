@@ -27,7 +27,7 @@ export function PostcardBack2({ company: c }: PostcardBack2Props) {
       }}>
         <div>
           <div style={{ fontSize: 16, fontWeight: 700, color: "#0f172a", marginBottom: 20 }}>
-            lumos<span style={{ color: "#3b82f6" }}>.ai</span>
+            Lunos<span style={{ color: "#3b82f6" }}>.ai</span>
           </div>
 
           <div style={{
@@ -43,20 +43,20 @@ export function PostcardBack2({ company: c }: PostcardBack2Props) {
             letterSpacing: "0.5px",
             textTransform: "uppercase",
           }}>
-            Personalized for your company
+            Prepared for Choice Logistics
           </div>
 
           <h3 style={{
-            fontFamily: "'Instrument Serif', 'DM Serif Display', serif",
-            fontSize: 22,
-            color: "#0f172a",
-            lineHeight: 1.3,
-            marginBottom: 16,
-          }}>
-            Your collections data suggests you&apos;re leaving money on the table.
-          </h3>
+          fontFamily: "'Instrument Serif', 'DM Serif Display', serif",
+          fontSize: 22,
+          color: "#0f172a",
+          lineHeight: 1.3,
+          marginBottom: 16,
+        }}>
+          Your collections data suggests you&apos;re leaving money on the table.
+        </h3>
 
-          <p style={{ color: "#475569", fontSize: 13, lineHeight: 1.65, marginBottom: 20 }}>
+        <p style={{ color: "#475569", fontSize: 13, lineHeight: 1.65, marginBottom: 20 }}>
             We reviewed public financial signals and compared your payment cycle
             against 2,400+ companies of similar size in your industry. Based on your
             revenue profile and sector benchmarks, we&apos;ve estimated what late payments
@@ -65,20 +65,6 @@ export function PostcardBack2({ company: c }: PostcardBack2Props) {
         </div>
 
         <div>
-          {/* Stats row */}
-          <div style={{ display: "flex", gap: 24, marginBottom: 20 }}>
-            {[
-              { value: c.revenue, label: "Est. Annual Revenue" },
-              { value: c.industryAvgDSO, label: "Industry Avg DSO" },
-              { value: c.state, label: "Home State" },
-            ].map((stat, i) => (
-              <div key={i} style={{ display: "flex", flexDirection: "column" }}>
-                <div style={{ fontSize: 22, fontWeight: 700, color: "#0f172a", letterSpacing: "-0.5px" }}>{stat.value}</div>
-                <div style={{ fontSize: 10, color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.8px", marginTop: 2 }}>{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
           {/* CTA */}
           <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
             <div style={{
@@ -89,17 +75,14 @@ export function PostcardBack2({ company: c }: PostcardBack2Props) {
               padding: "10px 20px",
               borderRadius: 6,
             }}>
-              lumos.ai/reveal
-            </div>
-            <div style={{ color: "#94a3b8", fontSize: 11 }}>
-              Guess your number →<br />Everyone wins a gift.
+              Lunos.ai/reveal/choice-logistics
             </div>
           </div>
 
           {/* Fine print */}
           <div style={{ fontSize: 9, color: "#94a3b8", lineHeight: 1.5 }}>
             No purchase necessary. All participants receive a minimum $10 digital gift card upon submission.
-            See lumos.ai/reveal/rules for full terms.
+            See Lunos.ai/reveal/rules for full terms.
           </div>
         </div>
       </div>

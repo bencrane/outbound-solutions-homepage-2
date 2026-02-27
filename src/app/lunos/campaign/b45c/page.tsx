@@ -23,7 +23,7 @@ export default function GamifiedCampaignPage() {
         fontFamily: "'Instrument Serif', serif", fontWeight: 400, fontSize: 24,
         color: '#333', textAlign: 'center', letterSpacing: '-0.5px', marginBottom: 4,
       }}>
-        Lumos
+        LUNOS
       </div>
       <div style={{
         fontSize: 13, color: '#888', textAlign: 'center', maxWidth: 560,
@@ -46,7 +46,7 @@ export default function GamifiedCampaignPage() {
 
       <DesignLabel title="Landing Page — Mobile" annotation="Guess input + email capture. Prize incentive prominent. Reveals number after submission." />
       <ScaleWrap nativeWidth={375}>
-        <PhoneMockup url="lumos.ai/reveal">
+        <PhoneMockup url="Lunos.ai/reveal">
           <LandingPageContent2 company={company} />
         </PhoneMockup>
       </ScaleWrap>

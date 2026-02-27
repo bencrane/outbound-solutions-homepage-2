@@ -5,7 +5,7 @@ export function LandingPageContent2({ company: c }: { company: LumosCompanyData 
     <div style={{ padding: '0 20px 36px', fontFamily: "'DM Sans', -apple-system, sans-serif", background: '#0a0f1a', minHeight: '100%' }}>
       {/* Nav */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 16, marginBottom: 20, borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-        <div style={{ fontSize: 17, fontWeight: 700, color: '#fff' }}>lumos<span style={{ color: '#3b82f6' }}>.ai</span></div>
+        <div style={{ fontSize: 17, fontWeight: 700, color: '#fff' }}>Lunos<span style={{ color: '#3b82f6' }}>.ai</span></div>
         <div style={{
           background: 'rgba(16, 185, 129, 0.12)',
           border: '1px solid rgba(16, 185, 129, 0.25)',
@@ -16,7 +16,7 @@ export function LandingPageContent2({ company: c }: { company: LumosCompanyData 
           borderRadius: 100,
           textTransform: 'uppercase' as const,
         }}>
-          ★ Top Performer
+          ★ Choice Logistics
         </div>
       </div>
 

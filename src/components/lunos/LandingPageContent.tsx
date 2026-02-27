@@ -7,7 +7,7 @@ export function LandingPageContent({ company: c }: { company: LumosCompanyData }
     <div style={{ padding: '0 20px 36px', fontFamily: "'DM Sans', -apple-system, sans-serif", background: '#0f1419', minHeight: '100%' }}>
       {/* Nav */}
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: 16, marginBottom: 20, borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
-        <div style={{ fontSize: 17, fontWeight: 700, color: '#34d399' }}>lunos</div>
+        <div style={{ fontSize: 17, fontWeight: 700, color: '#34d399' }}>Lunos</div>
         <div style={{ fontSize: 10, color: '#7d8590' }}>AR Intelligence</div>
       </div>
 

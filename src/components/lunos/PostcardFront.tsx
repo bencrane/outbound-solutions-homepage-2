@@ -23,7 +23,7 @@ export function PostcardFront({ company: c }: PostcardFrontProps) {
       {/* Top row with logo and badge */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 32 }}>
         {/* Logo */}
-        <div style={{ fontSize: 18, fontWeight: 700, color: "#34d399", letterSpacing: "-0.02em" }}>lunos</div>
+        <div style={{ fontSize: 18, fontWeight: 700, color: "#34d399", letterSpacing: "-0.02em" }}>Lunos</div>
 
         {/* Company badge */}
         <div style={{
@@ -72,7 +72,7 @@ export function PostcardFront({ company: c }: PostcardFrontProps) {
       }}>
         <p style={{ fontSize: 14, color: "#c9d1d9", margin: 0, whiteSpace: "nowrap" }}>Curious to know more? See for yourself →</p>
         <div style={{ background: "linear-gradient(135deg, #34d399, #06b6d4)", borderRadius: 8, padding: "10px 16px", fontSize: 13, fontWeight: 600, color: "#0f1419", whiteSpace: "nowrap" }}>
-          lunos.ai/review/{c.company.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}
+          Lunos.ai/review/{c.company.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')}
         </div>
       </div>
     </div>
