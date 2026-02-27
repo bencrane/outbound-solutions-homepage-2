@@ -38,12 +38,12 @@ export default function PostcardCampaignPage() {
       </div>
 
       <DesignLabel title="Postcard Front (6×9)" annotation="Feels like recognition, not a sales pitch. Their name + a celebration." />
-      <ScaleWrap nativeWidth={864} nativeHeight={576}>
+      <ScaleWrap nativeWidth={864}>
         <PostcardFront carrier={carrier} />
       </ScaleWrap>
 
       <DesignLabel title="Postcard Back" annotation="Carrier details + gift card context + QR code. Clean, not salesy." />
-      <ScaleWrap nativeWidth={864} nativeHeight={576}>
+      <ScaleWrap nativeWidth={864}>
         <PostcardBack carrier={carrier} />
       </ScaleWrap>
 

@@ -38,12 +38,12 @@ export default function LetterCampaignPage() {
       </div>
 
       <DesignLabel title="Envelope — Front" annotation="Official look. Teaser line visible on envelope face." />
-      <ScaleWrap nativeWidth={890} nativeHeight={380}>
+      <ScaleWrap nativeWidth={890}>
         <Envelope carrier={carrier} />
       </ScaleWrap>
 
       <DesignLabel title="Letter Insert" annotation="Fleet data shown. Savings blurred/hidden. Gift card incentive to guess + book." />
-      <ScaleWrap nativeWidth={680} nativeHeight={880}>
+      <ScaleWrap nativeWidth={680}>
         <Letter carrier={carrier} />
       </ScaleWrap>
 

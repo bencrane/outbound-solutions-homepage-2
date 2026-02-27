@@ -5,12 +5,13 @@ import { useRef, useState, useEffect, ReactNode } from "react";
 interface ScaleWrapProps {
   children: ReactNode;
   nativeWidth: number;
-  nativeHeight?: number;
 }
 
-export function ScaleWrap({ children, nativeWidth, nativeHeight }: ScaleWrapProps) {
+export function ScaleWrap({ children, nativeWidth }: ScaleWrapProps) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
+  const [innerHeight, setInnerHeight] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     function measure() {
@@ -18,13 +19,20 @@ export function ScaleWrap({ children, nativeWidth, nativeHeight }: ScaleWrapProp
       const containerWidth = containerRef.current.offsetWidth;
       const s = Math.min(containerWidth / nativeWidth, 1);
       setScale(s);
+
+      if (innerRef.current) {
+        setInnerHeight(innerRef.current.scrollHeight * s);
+      }
     }
     measure();
+    const observer = new ResizeObserver(measure);
+    if (innerRef.current) observer.observe(innerRef.current);
     window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", measure);
+    };
   }, [nativeWidth]);
-
-  const scaledHeight = nativeHeight ? nativeHeight * scale : undefined;
 
   return (
     <div
@@ -33,15 +41,18 @@ export function ScaleWrap({ children, nativeWidth, nativeHeight }: ScaleWrapProp
         width: "100%",
         maxWidth: nativeWidth,
         margin: "0 auto",
-        height: scaledHeight,
+        height: innerHeight,
         overflow: "hidden",
       }}
     >
-      <div style={{
-        transform: scale < 1 ? `scale(${scale})` : undefined,
-        transformOrigin: "top left",
-        width: nativeWidth,
-      }}>
+      <div
+        ref={innerRef}
+        style={{
+          transform: scale < 1 ? `scale(${scale})` : undefined,
+          transformOrigin: "top left",
+          width: nativeWidth,
+        }}
+      >
         {children}
       </div>
     </div>
