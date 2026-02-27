@@ -1,6 +1,6 @@
 import "@/components/wc/wc.css";
 import { DesignLabel, ScaleWrap } from "@/components/wc";
-import { PostcardFront, PostcardBack, PhoneMockup, LandingPageContent, defaultCompany } from "@/components/lumos";
+import { PostcardFront, PostcardBack, PhoneMockup, LandingPageContent, defaultCompany } from "@/components/lunos";
 
 export default function PostcardCampaignPage() {
   const company = defaultCompany;

@@ -1,6 +1,6 @@
 import "@/components/wc/wc.css";
 import { DesignLabel, ScaleWrap } from "@/components/wc";
-import { PostcardFront2, PostcardBack2, PhoneMockup, LandingPageContent2, defaultCompany } from "@/components/lumos";
+import { PostcardFront2, PostcardBack2, PhoneMockup, LandingPageContent2, defaultCompany } from "@/components/lunos";
 
 export default function GamifiedCampaignPage() {
   const company = defaultCompany;

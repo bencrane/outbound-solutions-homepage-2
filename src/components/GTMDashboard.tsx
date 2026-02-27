@@ -196,7 +196,7 @@ export function GTMDashboard() {
                   </td>
                   <td style={{ padding: "14px 16px", color: "#666", whiteSpace: "nowrap" }}>{l.company_name}</td>
                   <td style={{ padding: "14px 16px", color: "#999" }}>{l.lead_title}</td>
-                  <td style={{ padding: "14px 16px", color: "#fde047" }}>{l.past_employer_name}</td>
+                  <td style={{ padding: "14px 16px", color: "#4ade80" }}>{l.past_employer_name}</td>
                   <td style={{ padding: "14px 16px", color: "#999" }}>{l.past_job_title}</td>
                   <td style={{ padding: "14px 16px", color: priorityColor(l.priority), fontSize: 13 }}>
                     {priorityLabel(l.priority)}

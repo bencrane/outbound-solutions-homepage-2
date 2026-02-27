@@ -160,8 +160,8 @@ export function LunosGTMDashboard() {
     .sort((a, b) => a.contact_full_name.localeCompare(b.contact_full_name));
 
   return (
-    <div style={{ background: "#000", color: "#e5e5e5", minHeight: "100vh", fontFamily: "system-ui, -apple-system, sans-serif" }}>
-      <div style={{ margin: "0 auto", padding: "48px 32px" }}>
+    <div style={{ background: "#000", color: "#e5e5e5", minHeight: "100vh", fontFamily: "system-ui, -apple-system, sans-serif", overflowX: "hidden" }}>
+      <div style={{ margin: "0 auto", padding: "48px 32px", maxWidth: "100vw", boxSizing: "border-box" }}>
 
         {/* Header */}
         <div style={{ marginBottom: 32 }}>
@@ -183,7 +183,7 @@ export function LunosGTMDashboard() {
             <thead>
               <tr style={{ borderBottom: "1px solid #222", background: "#0a0a0a" }}>
                 {[
-                  { label: "Contact", width: 180, center: false },
+                  { label: "Contact", width: 180, center: false, sticky: true },
                   { label: "Job Title", width: 160, center: false },
                   { label: "Company", width: 200, center: false },
                   { label: "Revenue", width: 100, center: false },
@@ -193,7 +193,7 @@ export function LunosGTMDashboard() {
                   { label: "Priority", width: 80, center: false },
                   { label: "GTM Analysis", width: 100, center: true },
                 ].map((h) => (
-                  <th key={h.label} style={{ padding: "12px 16px", textAlign: h.center ? "center" : "left", fontWeight: 500, color: "#555", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", minWidth: h.width, whiteSpace: "nowrap" }}>{h.label}</th>
+                  <th key={h.label} style={{ padding: "12px 16px", textAlign: h.center ? "center" : "left", fontWeight: 500, color: "#555", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", minWidth: h.width, whiteSpace: "nowrap", ...("sticky" in h ? { position: "sticky" as const, left: 0, zIndex: 2, background: "#0a0a0a" } : {}) }}>{h.label}</th>
                 ))}
               </tr>
             </thead>
@@ -202,7 +202,7 @@ export function LunosGTMDashboard() {
                 const m = computeMetrics(t);
                 return (
                   <tr key={`${t.company_id}-${t.contact_id}`} style={{ borderBottom: "1px solid #1a1a1a" }}>
-                    <td style={{ padding: "14px 16px", whiteSpace: "nowrap" }}>
+                    <td style={{ padding: "14px 16px", whiteSpace: "nowrap", position: "sticky", left: 0, background: "#000", zIndex: 1 }}>
                       <a href={t.contact_linkedin_url} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "none", fontWeight: 500 }}>
                         {cleanContactName(t.contact_full_name)}
                       </a>
