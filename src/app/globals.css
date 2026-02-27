@@ -112,6 +112,13 @@ body {
   padding-right: var(--space-12);
 }
 
+@media (max-width: 1024px) {
+  .channels-card {
+    height: auto !important;
+    padding: 32px !important;
+  }
+}
+
 @media (max-width: 768px) {
   .section-container {
     padding-left: var(--space-5);
@@ -132,7 +139,6 @@ body {
   }
 
   .channels-card {
-    height: auto !important;
     padding: 24px !important;
   }
 
