@@ -95,7 +95,7 @@ export function ChannelsSection() {
 
       {/* Content card */}
       <div
-        className="channels-card"
+        className="channels-card card-hover"
         style={{
           background: tokens.colors.bg.secondary,
           border: `1px solid ${tokens.colors.border.subtle}`,

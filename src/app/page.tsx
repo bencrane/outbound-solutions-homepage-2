@@ -40,6 +40,7 @@ function Header() {
 function HeroMetrics() {
   return (
     <div
+      className="card-hover"
       style={{
         background: tokens.colors.bg.secondary,
         border: `1px solid ${tokens.colors.border.subtle}`,
