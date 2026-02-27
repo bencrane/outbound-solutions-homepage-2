@@ -253,7 +253,7 @@ export function CarriersDashboard() {
               <thead>
                 <tr>
                   {[
-                    { label: "CARRIER", w: "26%" },
+                    { label: "CARRIER", w: "26%", sticky: true },
                     { label: "FLEET", w: "18%" },
                     { label: "COVERAGE", w: "8%" },
                     { label: "SWITCH RATE", w: "9%" },
@@ -273,6 +273,7 @@ export function CarriersDashboard() {
                         letterSpacing: "0.08em",
                         borderBottom: "1px solid #1b2332",
                         width: col.w,
+                        ...("sticky" in col ? { position: "sticky" as const, left: 0, zIndex: 2, background: "#0d1117" } : {}),
                       }}
                     >
                       {col.label}
@@ -299,7 +300,13 @@ export function CarriersDashboard() {
                       onMouseLeave={() => setHoveredDot(null)}
                       onClick={() => router.push(`/wc/carriers/${c.dot_number}`)}
                     >
-                      <td style={{ padding: "12px 10px" }}>
+                      <td style={{
+                        padding: "12px 10px",
+                        position: "sticky",
+                        left: 0,
+                        zIndex: 1,
+                        background: isHovered ? "#161b22" : "#0d1117",
+                      }}>
                         <div
                           style={{
                             fontSize: 13,

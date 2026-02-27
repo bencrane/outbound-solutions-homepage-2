@@ -254,11 +254,12 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
         background: "#0d1117",
         color: "#c9d1d9",
         minHeight: "100vh",
+        overflowX: "hidden",
       }}
     >
       <div style={{ maxWidth: 1080, margin: "0 auto" }}>
         {/* Top bar */}
-        <div style={{ padding: "16px 40px", borderBottom: "1px solid #1b2332" }}>
+        <div className="cd-padded" style={{ padding: "16px 40px", borderBottom: "1px solid #1b2332" }}>
           <span
             style={{ fontSize: 12, color: "#484f58", cursor: "pointer" }}
             onClick={() => router.push("/wc/carriers")}
@@ -268,8 +269,9 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
         </div>
 
         {/* Hero Section - Score centered with company info */}
-        <div style={{ padding: "40px 40px 32px" }}>
+        <div className="cd-padded" style={{ padding: "40px 40px 32px" }}>
           <div
+            className="cd-hero"
             style={{
               display: "flex",
               alignItems: "center",
@@ -355,7 +357,7 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
           </div>
 
           {/* Key Metrics Row */}
-          <div style={{ display: "flex", gap: 12, marginTop: 32 }}>
+          <div className="cd-stats" style={{ display: "flex", gap: 12, marginTop: 32 }}>
             <StatCard
               label="Coverage"
               value={formatCoverage(c.coverage_amount)}
@@ -387,6 +389,7 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
 
         {/* Tab nav */}
         <div
+          className="cd-padded cd-tabs"
           style={{
             padding: "0 40px",
             borderBottom: "1px solid #1b2332",
@@ -420,6 +423,7 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
 
         {/* Content — fixed container, no layout shift between tabs */}
         <div
+          className="cd-content"
           style={{
             margin: "0 40px 40px",
             border: "1px solid #1b2332",
@@ -429,7 +433,7 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
           }}
         >
           {tab === "overview" && (
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+            <div className="cd-overview-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
               <div style={{ padding: "24px 28px", borderRight: "1px solid #1b2332" }}>
                 <Section title="Contact Information">
                   <Field label="Officer 1" value={c.contact1} />

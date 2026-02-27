@@ -139,6 +139,48 @@ body {
   .footer-links {
     display: none !important;
   }
+
+  .cd-padded {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .cd-hero {
+    flex-direction: column !important;
+    gap: 24px !important;
+    align-items: flex-start !important;
+  }
+
+  .cd-stats {
+    flex-wrap: wrap !important;
+  }
+
+  .cd-stats > * {
+    min-width: calc(50% - 6px) !important;
+  }
+
+  .cd-tabs {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .cd-tabs button {
+    padding: 14px 16px !important;
+    white-space: nowrap;
+  }
+
+  .cd-content {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+  }
+
+  .cd-overview-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .cd-overview-grid > div {
+    border-right: none !important;
+  }
 }
 
 @media (max-width: 480px) {
