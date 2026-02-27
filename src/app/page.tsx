@@ -530,13 +530,13 @@ function Footer() {
         alignItems: "center",
       }}
     >
-      <a href="/terms-of-service" style={{ textDecoration: "none", flex: 1 }}>
+      <a href="/terms-of-service" className="footer-links" style={{ textDecoration: "none", flex: 1 }}>
         <Text variant="caption" color="muted" style={{ fontSize: "12px" }}>Terms of Service</Text>
       </a>
       <Text variant="caption" color="muted" style={{ fontSize: "12px", textAlign: "center", flex: 1 }}>
         &copy; Rare Structure. All Rights Reserved 2026
       </Text>
-      <a href="/privacy-policy" style={{ textDecoration: "none", flex: 1, textAlign: "right" }}>
+      <a href="/privacy-policy" className="footer-links" style={{ textDecoration: "none", flex: 1, textAlign: "right" }}>
         <Text variant="caption" color="muted" style={{ fontSize: "12px" }}>Privacy Policy</Text>
       </a>
     </footer>

@@ -248,7 +248,8 @@ export function CarriersDashboard() {
               overflow: "hidden",
             }}
           >
-            <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <div style={{ overflowX: "auto", WebkitOverflowScrolling: "touch" }}>
+            <table style={{ minWidth: 900, width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr>
                   {[
@@ -470,6 +471,7 @@ export function CarriersDashboard() {
                 })}
               </tbody>
             </table>
+            </div>
           </div>
         )}
 

@@ -135,6 +135,10 @@ body {
     height: auto !important;
     padding: 24px !important;
   }
+
+  .footer-links {
+    display: none !important;
+  }
 }
 
 @media (max-width: 480px) {
