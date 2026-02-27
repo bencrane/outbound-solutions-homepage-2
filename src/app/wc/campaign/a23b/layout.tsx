@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'WithCoverage — Postcard V3',
+  title: 'WithCoverage',
   description: 'Direct mail campaign prototype',
 }
 

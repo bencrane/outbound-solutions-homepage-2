@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'WithCoverage — Check Your Fleet Coverage',
+  title: 'WithCoverage',
   description: 'Personalized fleet coverage report',
 }
 
