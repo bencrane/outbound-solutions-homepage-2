@@ -183,9 +183,9 @@ export function LunosGTMDashboard() {
             <thead>
               <tr style={{ borderBottom: "1px solid #222", background: "#0a0a0a" }}>
                 {[
-                  { label: "Contact", width: 180, center: false, sticky: true },
-                  { label: "Job Title", width: 160, center: false },
-                  { label: "Company", width: 200, center: false },
+                  { label: "Company", width: 200, center: false, sticky: true },
+                  { label: "Contact", width: 180, center: false },
+                  { label: "Job Title", width: 140, center: false },
                   { label: "Revenue", width: 100, center: false },
                   { label: "STF 6mo Ago", width: 90, center: true },
                   { label: "STF Now", width: 70, center: true },
@@ -203,16 +203,16 @@ export function LunosGTMDashboard() {
                 return (
                   <tr key={`${t.company_id}-${t.contact_id}`} style={{ borderBottom: "1px solid #1a1a1a" }}>
                     <td style={{ padding: "14px 16px", whiteSpace: "nowrap", position: "sticky", left: 0, background: "#000", zIndex: 1 }}>
-                      <a href={t.contact_linkedin_url} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "none", fontWeight: 500 }}>
-                        {cleanContactName(t.contact_full_name)}
-                      </a>
-                    </td>
-                    <td style={{ padding: "14px 16px", color: "#999" }}>{formatJobTitle(t.contact_normalized_job_title)}</td>
-                    <td style={{ padding: "14px 16px", color: "#999" }}>
-                      <a href={`https://${t.domain}`} target="_blank" rel="noopener noreferrer" style={{ color: "#999", textDecoration: "none" }}>
+                      <a href={`https://${t.domain}`} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "none", fontWeight: 500 }}>
                         {t.company_name}
                       </a>
                     </td>
+                    <td style={{ padding: "14px 16px", whiteSpace: "nowrap" }}>
+                      <a href={t.contact_linkedin_url} target="_blank" rel="noopener noreferrer" style={{ color: "#888", textDecoration: "none" }}>
+                        {cleanContactName(t.contact_full_name)}
+                      </a>
+                    </td>
+                    <td style={{ padding: "14px 16px", color: "#888" }}>{formatJobTitle(t.contact_normalized_job_title)}</td>
                     <td style={{ padding: "14px 16px", color: "#666" }}>{t.annual_estimated_revenue}</td>
                     <td style={{ padding: "14px 16px", color: "#999", textAlign: "center" }}>{m.stf_ratio_then !== null ? m.stf_ratio_then.toFixed(1) : ""}</td>
                     <td style={{ padding: "14px 16px", textAlign: "center", color: m.stf_ratio_now !== null && m.stf_ratio_then !== null ? (m.stf_ratio_now < m.stf_ratio_then ? "#4ade80" : m.stf_ratio_now > m.stf_ratio_then ? "#ef4444" : "#999") : "#999" }}>{m.stf_ratio_now !== null ? m.stf_ratio_now.toFixed(1) : ""}</td>
