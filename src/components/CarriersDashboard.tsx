@@ -23,11 +23,12 @@ const tabs = [
 
 function formatCoverage(amount: string | null): string {
   if (!amount) return "—";
-  const num = parseFloat(amount);
-  if (isNaN(num)) return amount;
+  const raw = parseFloat(amount);
+  if (isNaN(raw)) return amount;
+  const num = raw * 1_000;
   if (num >= 1_000_000) return `$${(num / 1_000_000).toFixed(num % 1_000_000 === 0 ? 0 : 1)}M`;
   if (num >= 1_000) return `$${(num / 1_000).toFixed(0)}K`;
-  return `$${num}`;
+  return `$${num.toLocaleString()}`;
 }
 
 function formatSwitchRate(rate: number | null): { value: string; suffix: string } | null {
@@ -251,19 +252,19 @@ export function CarriersDashboard() {
               <thead>
                 <tr>
                   {[
-                    { label: "CARRIER", w: "24%" },
-                    { label: "FLEET", w: "14%" },
-                    { label: "COVERAGE", w: "10%" },
-                    { label: "SWITCH RATE", w: "12%" },
-                    { label: "PERSONA", w: "12%" },
-                    { label: "EST. RENEWAL", w: "12%" },
-                    { label: "SCORE", w: "8%" },
-                    { label: "INTEL", w: "8%" },
+                    { label: "CARRIER", w: "26%" },
+                    { label: "FLEET", w: "18%" },
+                    { label: "COVERAGE", w: "8%" },
+                    { label: "SWITCH RATE", w: "9%" },
+                    { label: "PERSONA", w: "10%" },
+                    { label: "EST. RENEWAL", w: "11%" },
+                    { label: "SCORE", w: "7%" },
+                    { label: "INTEL", w: "6%" },
                   ].map((col) => (
                     <th
                       key={col.label}
                       style={{
-                        padding: "14px 14px",
+                        padding: "12px 10px",
                         textAlign: "left",
                         fontSize: 10,
                         fontWeight: 500,
@@ -297,7 +298,7 @@ export function CarriersDashboard() {
                       onMouseLeave={() => setHoveredDot(null)}
                       onClick={() => router.push(`/wc/carriers/${c.dot_number}`)}
                     >
-                      <td style={{ padding: "14px 14px" }}>
+                      <td style={{ padding: "12px 10px" }}>
                         <div
                           style={{
                             fontSize: 13,
@@ -313,7 +314,7 @@ export function CarriersDashboard() {
                           DOT {c.dot_number}
                         </div>
                       </td>
-                      <td style={{ padding: "14px 14px" }}>
+                      <td style={{ padding: "12px 10px" }}>
                         <div
                           style={{
                             display: "flex",
@@ -357,7 +358,7 @@ export function CarriersDashboard() {
                       </td>
                       <td
                         style={{
-                          padding: "14px 14px",
+                          padding: "12px 10px",
                           fontSize: 14,
                           fontWeight: 500,
                           color: "#e6edf3",
@@ -365,7 +366,7 @@ export function CarriersDashboard() {
                       >
                         {formatCoverage(c.coverage_amount)}
                       </td>
-                      <td style={{ padding: "14px 14px" }}>
+                      <td style={{ padding: "12px 10px" }}>
                         {switchRate ? (
                           <>
                             <span style={{ fontSize: 13, color: "#c9d1d9" }}>
@@ -385,7 +386,7 @@ export function CarriersDashboard() {
                           <span style={{ color: "#30363d", fontSize: 11 }}>—</span>
                         )}
                       </td>
-                      <td style={{ padding: "14px 14px" }}>
+                      <td style={{ padding: "12px 10px" }}>
                         {c.persona ? (
                           <span
                             style={{
@@ -406,7 +407,7 @@ export function CarriersDashboard() {
                           <span style={{ color: "#30363d", fontSize: 11 }}>—</span>
                         )}
                       </td>
-                      <td style={{ padding: "14px 14px" }}>
+                      <td style={{ padding: "12px 10px" }}>
                         {c.renewal_days != null ? (
                           <span
                             style={{
@@ -430,7 +431,7 @@ export function CarriersDashboard() {
                       </td>
                       <td
                         style={{
-                          padding: "14px 14px",
+                          padding: "12px 10px",
                           fontSize: 15,
                           fontWeight: 600,
                           color:
@@ -443,19 +444,20 @@ export function CarriersDashboard() {
                       >
                         {c.score ?? "—"}
                       </td>
-                      <td style={{ padding: "14px 14px" }}>
+                      <td style={{ padding: "12px 10px" }}>
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             router.push(`/wc/carriers/${c.dot_number}`);
                           }}
                           style={{
-                            background: "transparent",
-                            border: "1px solid #1b2332",
+                            background: "rgba(251,191,36,0.08)",
+                            border: "1px solid rgba(251,191,36,0.25)",
                             borderRadius: 4,
                             padding: "5px 10px",
-                            color: "#7d8590",
+                            color: "#fbbf24",
                             fontSize: 11,
+                            fontWeight: 600,
                             cursor: "pointer",
                             fontFamily: "inherit",
                           }}

@@ -15,11 +15,12 @@ type PersonaKey = keyof typeof personaConfig;
 
 function formatCoverage(amount: string | null): string {
   if (!amount) return "—";
-  const num = parseFloat(amount);
-  if (isNaN(num)) return amount;
+  const raw = parseFloat(amount);
+  if (isNaN(raw)) return amount;
+  const num = raw * 1_000;
   if (num >= 1_000_000) return `$${(num / 1_000_000).toFixed(num % 1_000_000 === 0 ? 0 : 1)}M`;
   if (num >= 1_000) return `$${(num / 1_000).toFixed(0)}K`;
-  return `$${num}`;
+  return `$${num.toLocaleString()}`;
 }
 
 function ScoreRing({ score, size = 140 }: { score: number | null; size?: number }) {
@@ -218,7 +219,7 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
         <div style={{ padding: "16px 40px", borderBottom: "1px solid #1b2332" }}>
           <span
             style={{ fontSize: 12, color: "#484f58", cursor: "pointer" }}
-            onClick={() => router.push("/carriers")}
+            onClick={() => router.push("/wc/carriers")}
           >
             ← Back to list
           </span>
@@ -260,7 +261,7 @@ export function CarrierDetail({ dotNumber }: { dotNumber: string }) {
         <div style={{ padding: "16px 40px", borderBottom: "1px solid #1b2332" }}>
           <span
             style={{ fontSize: 12, color: "#484f58", cursor: "pointer" }}
-            onClick={() => router.push("/carriers")}
+            onClick={() => router.push("/wc/carriers")}
           >
             ← Back to list
           </span>
