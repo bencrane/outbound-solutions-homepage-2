@@ -70,9 +70,9 @@ function HeroMetrics() {
           <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[2] }}>+$62k this month</Text>
         </div>
         <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderBottom: `1px solid ${tokens.colors.border.subtle}` }}>
-          <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>MEETINGS ATTENDED</Text>
-          <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>38</Text>
-          <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[2] }}>14 this month</Text>
+          <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>PIPELINE</Text>
+          <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>$412k</Text>
+          <Text variant="caption" color="muted" style={{ fontSize: "12px", marginTop: tokens.spacing[2] }}>18 deals open</Text>
         </div>
         <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderRight: `1px solid ${tokens.colors.border.subtle}` }}>
           <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>COST PER MEETING</Text>
@@ -80,9 +80,9 @@ function HeroMetrics() {
           <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[2] }}>&darr; from $203</Text>
         </div>
         <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}` }}>
-          <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>PIPELINE</Text>
-          <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>$412k</Text>
-          <Text variant="caption" color="muted" style={{ fontSize: "12px", marginTop: tokens.spacing[2] }}>18 deals open</Text>
+          <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>MEETINGS ATTENDED</Text>
+          <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>38</Text>
+          <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[2] }}>14 this month</Text>
         </div>
       </div>
     </div>
@@ -109,12 +109,14 @@ function HeroSection() {
       contained
       padding={0}
       border={false}
+      className="hero-section"
       style={{
         paddingTop: "180px",
         paddingBottom: "140px",
       }}
     >
       <div
+        className="hero-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
@@ -124,20 +126,21 @@ function HeroSection() {
       >
         <Stack gap={8}>
           <Text variant="display" as="h1" style={{ fontSize: "clamp(48px, 6vw, 72px)" }}>
-            GTM that <span style={{ color: tokens.colors.accent.success }}>gets results.</span>
+            GTM that{" "}<span style={{ color: tokens.colors.accent.success, whiteSpace: "nowrap" }}>gets results.</span>
           </Text>
 
           <Text variant="body" color="secondary" style={{ maxWidth: "480px", fontSize: "15px" }}>
             We build the data pipelines, signal detection, and sending infrastructure
             that turn outbound into a predictable revenue channel for your business.
           </Text>
-
           <div style={{ paddingTop: tokens.spacing[4] }}>
             <a href="mailto:team@outboundsolutions.com"><Button variant="primary" size="lg">REQUEST ACCESS</Button></a>
           </div>
         </Stack>
 
-        <PipelineAnimation />
+        <div className="hero-animation">
+          <PipelineAnimation />
+        </div>
       </div>
     </Section>
   );
@@ -243,6 +246,7 @@ function InsightSection() {
       </Text>
 
       <div
+        className="insight-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(3, 1fr)",
@@ -514,24 +518,26 @@ function CTASection() {
 function Footer() {
   return (
     <footer
+      className="section-container"
       style={{
         maxWidth: "1200px",
         margin: "0 auto",
-        padding: `${tokens.spacing[8]} ${tokens.spacing[8]} ${tokens.spacing[10]}`,
+        paddingTop: tokens.spacing[8],
+        paddingBottom: tokens.spacing[10],
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
       }}
     >
-      <Stack direction="horizontal" gap={0}>
-        <Text variant="label" color="primary" as="span" style={{ fontWeight: 700, fontSize: "13px" }}>
-          OUTBOUND
-        </Text>
-        <Text variant="label" color="muted" as="span" style={{ fontSize: "13px" }}>
-          SOLUTIONS
-        </Text>
-      </Stack>
-      <Text variant="caption" color="muted">&copy; 2026</Text>
+      <a href="/terms-of-service" style={{ textDecoration: "none", flex: 1 }}>
+        <Text variant="caption" color="muted" style={{ fontSize: "12px" }}>Terms of Service</Text>
+      </a>
+      <Text variant="caption" color="muted" style={{ fontSize: "12px", textAlign: "center", flex: 1 }}>
+        &copy; Rare Structure. All Rights Reserved 2026
+      </Text>
+      <a href="/privacy-policy" style={{ textDecoration: "none", flex: 1, textAlign: "right" }}>
+        <Text variant="caption" color="muted" style={{ fontSize: "12px" }}>Privacy Policy</Text>
+      </a>
     </footer>
   );
 }

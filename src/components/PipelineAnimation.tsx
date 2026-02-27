@@ -11,6 +11,7 @@ export function PipelineAnimation() {
         borderRadius: tokens.radii.lg,
         padding: tokens.spacing[8],
         minHeight: "320px",
+        height: "100%",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",

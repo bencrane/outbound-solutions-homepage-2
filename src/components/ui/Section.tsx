@@ -24,12 +24,11 @@ export function Section({
 }: SectionProps) {
   const innerContent = contained ? (
     <div
+      className="section-container"
       style={{
         maxWidth: "1200px",
         marginLeft: "auto",
         marginRight: "auto",
-        paddingLeft: tokens.spacing[12],
-        paddingRight: tokens.spacing[12],
       }}
     >
       {children}

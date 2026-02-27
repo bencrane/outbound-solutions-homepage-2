@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Text, Stack, Card } from "@/components/ui";
 import { tokens } from "@/lib/tokens";
 
@@ -89,19 +89,27 @@ function ArrowButton({ direction, onClick, disabled }: { direction: "left" | "ri
 
 export function FitCarousel() {
   const [startIndex, setStartIndex] = useState(0);
-  const visibleCount = 3;
-  const cardWidth = 360;
-  const gap = 16;
+  const [isMobile, setIsMobile] = useState(false);
 
-  const canGoLeft = startIndex > 0;
-  const canGoRight = startIndex < criteria.length - visibleCount;
+  useEffect(() => {
+    const mql = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+
+  const visibleCount = isMobile ? 1 : 3;
+  const cardWidth = isMobile ? 280 : 360;
+  const gap = 16;
+  const maxIndex = criteria.length - visibleCount;
 
   const goLeft = () => {
-    if (canGoLeft) setStartIndex(startIndex - 1);
+    setStartIndex(startIndex <= 0 ? maxIndex : startIndex - 1);
   };
 
   const goRight = () => {
-    if (canGoRight) setStartIndex(startIndex + 1);
+    setStartIndex(startIndex >= maxIndex ? 0 : startIndex + 1);
   };
 
   return (
@@ -113,6 +121,7 @@ export function FitCarousel() {
         }}
       >
         <div
+          className="fit-carousel-track"
           style={{
             display: "flex",
             gap: `${gap}px`,
@@ -123,6 +132,7 @@ export function FitCarousel() {
           {criteria.map((item) => (
             <div
               key={item.label}
+              className="fit-carousel-card"
               style={{
                 flexShrink: 0,
                 width: `${cardWidth}px`,
@@ -143,8 +153,8 @@ export function FitCarousel() {
       </div>
 
       <div style={{ display: "flex", gap: tokens.spacing[3] }}>
-        <ArrowButton direction="left" onClick={goLeft} disabled={!canGoLeft} />
-        <ArrowButton direction="right" onClick={goRight} disabled={!canGoRight} />
+        <ArrowButton direction="left" onClick={goLeft} disabled={false} />
+        <ArrowButton direction="right" onClick={goRight} disabled={false} />
       </div>
     </div>
   );

@@ -105,6 +105,54 @@ body {
   background: rgba(255, 255, 255, 0.12);
 }
 
+/* ————— Responsive ————— */
+
+.section-container {
+  padding-left: var(--space-12);
+  padding-right: var(--space-12);
+}
+
+@media (max-width: 768px) {
+  .section-container {
+    padding-left: var(--space-5);
+    padding-right: var(--space-5);
+  }
+
+  .insight-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .signals-desktop-only {
+    display: none !important;
+  }
+
+  .signals-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .channels-card {
+    height: auto !important;
+    padding: 24px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-8) !important;
+  }
+
+  .hero-section {
+    padding-top: 120px !important;
+    padding-bottom: 80px !important;
+  }
+
+  .hero-animation {
+    display: none !important;
+  }
+}
+
 /* ————— Utilities ————— */
 
 .grid-background {

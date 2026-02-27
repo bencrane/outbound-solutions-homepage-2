@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { Text, Stack } from "@/components/ui";
 import { tokens } from "@/lib/tokens";
 import signalsData from "@/data/signals.json";
@@ -14,7 +14,6 @@ interface Signal {
 
 const signals: Signal[] = signalsData;
 
-// Get unique verticals from the data
 const verticals = [
   "Trucking",
   "Construction",
@@ -26,6 +25,21 @@ const verticals = [
 
 type Vertical = (typeof verticals)[number];
 
+const MOBILE_BREAKPOINT = 768;
+const DESKTOP_ROW_LIMIT = 6;
+const MOBILE_ROW_LIMIT = 4;
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT}px)`);
+    setIsMobile(mql.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, []);
+  return isMobile;
+}
 
 const cellStyle = {
   padding: `${tokens.spacing[5]} ${tokens.spacing[6]}`,
@@ -90,15 +104,15 @@ function TableRow({ signal, index, isHovered, onHover, onLeave, vertical }: {
           {signal.example}
         </Text>
       </td>
-      <td style={{ ...cellStyle, width: "24px", textAlign: "center", color: tokens.colors.fg.muted }}>
+      <td className="signals-desktop-only" style={{ ...cellStyle, width: "24px", textAlign: "center", color: tokens.colors.fg.muted }}>
         →
       </td>
-      <td style={cellStyle}>
+      <td className="signals-desktop-only" style={cellStyle}>
         <Text variant="body" color="secondary" style={{ fontSize: "13px" }}>
           {signal.bridge}
         </Text>
       </td>
-      <td style={{ ...cellStyle, textAlign: "right", width: "100px" }}>
+      <td className="signals-desktop-only" style={{ ...cellStyle, textAlign: "right", width: "100px" }}>
         <Text variant="caption" style={{ fontSize: "12px", fontFamily: tokens.typography.fonts.mono, color: tokens.colors.accent.success }}>
           {getTimestamp(signal.name, vertical)}
         </Text>
@@ -146,15 +160,19 @@ function VerticalTab({ label, isActive, onClick }: {
 export function SignalsTable() {
   const [activeVertical, setActiveVertical] = useState<Vertical>("Trucking");
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
+  const isMobile = useIsMobile();
+
+  const rowLimit = isMobile ? MOBILE_ROW_LIMIT : DESKTOP_ROW_LIMIT;
 
   const filteredSignals = useMemo(() => {
-    return signals.filter((s) => s.verticals.includes(activeVertical)).slice(0, 6);
-  }, [activeVertical]);
+    return signals.filter((s) => s.verticals.includes(activeVertical)).slice(0, rowLimit);
+  }, [activeVertical, rowLimit]);
 
   return (
     <div>
       {/* Vertical tabs */}
       <div
+        className="signals-tabs"
         style={{
           display: "flex",
           gap: tokens.spacing[1],
@@ -199,13 +217,13 @@ export function SignalsTable() {
               <th style={{ ...thStyle, textAlign: "left" }}>
                 What We See
               </th>
-              <th style={{ ...thStyle, width: "24px" }}>
+              <th className="signals-desktop-only" style={{ ...thStyle, width: "24px" }}>
 
               </th>
-              <th style={{ ...thStyle, textAlign: "left" }}>
+              <th className="signals-desktop-only" style={{ ...thStyle, textAlign: "left" }}>
                 Why It Matters
               </th>
-              <th style={{ ...thStyle, width: "100px", textAlign: "right" }}>
+              <th className="signals-desktop-only" style={{ ...thStyle, width: "100px", textAlign: "right" }}>
                 Detected
               </th>
             </tr>

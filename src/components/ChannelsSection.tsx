@@ -37,10 +37,12 @@ export function ChannelsSection() {
 
   return (
     <section
+      className="section-container"
       style={{
         maxWidth: "1200px",
         margin: "0 auto",
-        padding: `${tokens.spacing[16]} ${tokens.spacing[8]}`,
+        paddingTop: tokens.spacing[16],
+        paddingBottom: tokens.spacing[16],
       }}
     >
       {/* Section header */}
@@ -93,6 +95,7 @@ export function ChannelsSection() {
 
       {/* Content card */}
       <div
+        className="channels-card"
         style={{
           background: tokens.colors.bg.secondary,
           border: `1px solid ${tokens.colors.border.subtle}`,
