@@ -22,7 +22,21 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Outbound Solutions | GTM that gets results",
-  description: "GTM that gets results.",
+  description: "Targeted outbound campaigns for B2B sales teams.",
+  metadataBase: new URL("https://outboundsolutions.com"),
+  openGraph: {
+    title: "Outbound Solutions | GTM that gets results",
+    description: "Targeted outbound campaigns for B2B sales teams.",
+    url: "https://outboundsolutions.com",
+    siteName: "Outbound Solutions",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Outbound Solutions | GTM that gets results",
+    description: "Targeted outbound campaigns for B2B sales teams.",
+  },
 };
 
 export default function RootLayout({
