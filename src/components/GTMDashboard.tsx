@@ -180,7 +180,7 @@ export function GTMDashboard() {
                   { label: "Prior Company", width: 160 },
                   { label: "Prior Role", width: 200 },
                   { label: "Rank", width: 80 },
-                  { label: "Playbook", width: 90 },
+                  { label: "GTM Analysis", width: 100 },
                 ].map((h) => (
                   <th key={h.label} style={{ padding: "12px 16px", textAlign: "left", fontWeight: 500, color: "#555", fontSize: 11, textTransform: "uppercase", letterSpacing: "0.05em", minWidth: h.width, whiteSpace: "nowrap" }}>{h.label}</th>
                 ))}

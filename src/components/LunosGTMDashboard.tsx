@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 
 interface Target {
   company_id: number;
@@ -201,17 +200,15 @@ export function LunosGTMDashboard() {
               {targets.map((t) => {
                 const m = computeMetrics(t);
                 return (
-                  <tr key={`${t.company_id}-${t.contact_id}`} style={{ borderBottom: "1px solid #1a1a1a" }}>
-                    <td style={{ padding: "14px 16px" }}>
-                      <a href={`https://${t.domain}`} target="_blank" rel="noopener noreferrer" style={{ color: "#fff", textDecoration: "none", fontWeight: 500 }}>
-                        {t.company_name}
-                      </a>
-                    </td>
-                    <td style={{ padding: "14px 16px", whiteSpace: "nowrap" }}>
-                      <a href={t.contact_linkedin_url} target="_blank" rel="noopener noreferrer" style={{ color: "#888", textDecoration: "none" }}>
-                        {cleanContactName(t.contact_full_name)}
-                      </a>
-                    </td>
+                  <tr
+                    key={`${t.company_id}-${t.contact_id}`}
+                    onClick={() => window.location.href = `/lunos/gtm/${t.company_id}`}
+                    style={{ borderBottom: "1px solid #1a1a1a", cursor: "pointer" }}
+                    onMouseEnter={(e) => e.currentTarget.style.background = "#111"}
+                    onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
+                  >
+                    <td style={{ padding: "14px 16px", color: "#fff", fontWeight: 500 }}>{t.company_name}</td>
+                    <td style={{ padding: "14px 16px", whiteSpace: "nowrap", color: "#888" }}>{cleanContactName(t.contact_full_name)}</td>
                     <td style={{ padding: "14px 16px", color: "#888" }}>{formatJobTitle(t.contact_normalized_job_title)}</td>
                     <td style={{ padding: "14px 16px", color: "#666" }}>{t.annual_estimated_revenue}</td>
                     <td style={{ padding: "14px 16px", color: "#999", textAlign: "center" }}>{m.stf_ratio_then !== null ? m.stf_ratio_then.toFixed(1) : ""}</td>
@@ -219,12 +216,9 @@ export function LunosGTMDashboard() {
                     <td style={{ padding: "14px 16px", color: m.profile === "Crisis & Ignoring It" ? "#ef4444" : m.profile === "Crisis & Hiring Through It" ? "#f97316" : "#999", fontSize: 13 }}>{m.profile}</td>
                     <td style={{ padding: "14px 16px", color: getPriority(m.profile).color }}>{getPriority(m.profile).label}</td>
                     <td style={{ padding: "14px 16px", textAlign: "center" }}>
-                      <Link
-                        href={`/lunos/gtm/${t.company_id}`}
-                        style={{ background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.25)", borderRadius: 4, padding: "6px 12px", color: "#fbbf24", fontSize: 12, fontWeight: 600, cursor: "pointer", textDecoration: "none", display: "inline-block" }}
-                      >
+                      <span style={{ background: "rgba(251,191,36,0.08)", border: "1px solid rgba(251,191,36,0.25)", borderRadius: 4, padding: "6px 12px", color: "#fbbf24", fontSize: 12, fontWeight: 600, display: "inline-block" }}>
                         View
-                      </Link>
+                      </span>
                     </td>
                   </tr>
                 );
