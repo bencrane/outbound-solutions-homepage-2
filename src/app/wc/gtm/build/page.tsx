@@ -170,8 +170,26 @@ const tiers = [
 ];
 
 export default function WithCoverageScope() {
-  const [expandedPhase, setExpandedPhase] = useState<number | null>(null);
-  const [expandedSignal, setExpandedSignal] = useState<number | null>(null);
+  const [expandedPhases, setExpandedPhases] = useState<Set<number>>(new Set());
+  const [expandedSignals, setExpandedSignals] = useState<Set<number>>(new Set());
+
+  const togglePhase = (i: number) => {
+    setExpandedPhases(prev => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
+  };
+
+  const toggleSignal = (i: number) => {
+    setExpandedSignals(prev => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
+  };
 
   return (
     <div style={{
@@ -291,7 +309,7 @@ export default function WithCoverageScope() {
             ) : (
               <>
                 <div
-                  onClick={() => setExpandedPhase(expandedPhase === i ? null : i)}
+                  onClick={() => togglePhase(i)}
                   style={{
                     padding: "20px 0",
                     cursor: "pointer",
@@ -311,12 +329,12 @@ export default function WithCoverageScope() {
                   <div style={{
                     fontSize: 14,
                     color: "#3F3F46",
-                    transform: expandedPhase === i ? "rotate(90deg)" : "rotate(0deg)",
+                    transform: expandedPhases.has(i) ? "rotate(90deg)" : "rotate(0deg)",
                     transition: "transform 0.15s"
                   }}>→</div>
                 </div>
 
-                {expandedPhase === i && (
+                {expandedPhases.has(i) && (
                   <div style={{ paddingLeft: 48, paddingBottom: 24 }}>
                     {phase.steps && phase.steps.map((step, j) => (
                       <div key={j} style={{ marginBottom: 16 }}>
@@ -377,7 +395,7 @@ export default function WithCoverageScope() {
           {crisisSignals.map((s, i) => (
             <div key={i} style={{ borderBottom: "1px solid #18181B" }}>
               <div
-                onClick={() => setExpandedSignal(expandedSignal === i ? null : i)}
+                onClick={() => toggleSignal(i)}
                 style={{
                   padding: "16px 0",
                   cursor: "pointer",
@@ -400,11 +418,11 @@ export default function WithCoverageScope() {
                 <div style={{
                   fontSize: 14,
                   color: "#3F3F46",
-                  transform: expandedSignal === i ? "rotate(90deg)" : "rotate(0deg)",
+                  transform: expandedSignals.has(i) ? "rotate(90deg)" : "rotate(0deg)",
                   transition: "transform 0.15s"
                 }}>→</div>
               </div>
-              {expandedSignal === i && (
+              {expandedSignals.has(i) && (
                 <div style={{ paddingLeft: 36, paddingBottom: 20 }}>
                   <div style={{
                     fontSize: 13,
