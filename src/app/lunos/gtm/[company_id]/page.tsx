@@ -157,7 +157,7 @@ export default function LunosCompanyPage() {
         </div>
 
         {/* GTM Analysis */}
-        <div style={{ marginBottom: 32 }}>
+        <div style={{ marginBottom: 32, padding: "16px 20px", background: "#111", border: "1px solid #222", borderRadius: 8 }}>
           <h2 style={{ fontSize: 12, fontWeight: 600, color: "#4ade80", letterSpacing: "0.05em", margin: "0 0 12px", textTransform: "uppercase" }}>
             GTM Analysis
           </h2>
