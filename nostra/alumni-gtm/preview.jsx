@@ -933,19 +933,16 @@ export default function AlumniGTMPreview() {
           {activeTab === "people" && (
             <table className="w-full border-collapse table-fixed" style={{ width: "100%" }}>
               <colgroup>
-                <col style={{ width: "14%" }} />
-                <col style={{ width: "16%" }} />
-                <col style={{ width: "24%" }} />
-                <col style={{ width: "10%" }} />
-                <col style={{ width: "20%" }} />
-                <col style={{ width: "8%" }} />
+                <col style={{ width: "15%" }} />
+                <col style={{ width: "18%" }} />
+                <col style={{ width: "27%" }} />
+                <col style={{ width: "12%" }} />
+                <col style={{ width: "22%" }} />
               </colgroup>
               <thead>
                 <tr className="border-b border-[#1E1E22]">
-                  {["Name", "Current Company", "Current Role", "Alum Of", "Prior Role", "GTM Brief"].map((h, i) => (
-                    <th key={i} className={`py-3 px-3 text-[10px] tracking-widest text-[#666] uppercase font-medium whitespace-nowrap ${
-                      h === "GTM Brief" ? "text-center" : "text-left"
-                    }`}>
+                  {["Name", "Current Company", "Current Role", "Alum Of", "Prior Role"].map((h, i) => (
+                    <th key={i} className="py-3 px-3 text-[10px] tracking-widest text-[#666] uppercase font-medium whitespace-nowrap text-left">
                       {h}
                     </th>
                   ))}
@@ -978,6 +975,7 @@ export default function AlumniGTMPreview() {
                         {pastJobTitles[l.person?.linkedin_url] || l.prior_company?.cleaned_job_title || l.prior_company?.role}
                       </div>
                     </td>
+                    {/* GTM Brief column hidden
                     <td className="py-4 px-3 align-top text-center">
                       {(() => {
                         // Show N/A if ICP fit is NO
@@ -1004,6 +1002,7 @@ export default function AlumniGTMPreview() {
                         return <span className="text-[11px] text-[#E8798A]">N/A</span>;
                       })()}
                     </td>
+                    */}
                   </tr>
                 ))}
               </tbody>
