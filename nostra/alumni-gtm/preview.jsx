@@ -25,14 +25,16 @@ export default function AlumniGTMPreview() {
   const [drawerOpen, setDrawerOpen] = useState(false); // legacy, will remove
   const [gtmBrief, setGtmBrief] = useState(null);
   const [gtmBriefLoading, setGtmBriefLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState("companies");
+  const [activeTab, setActiveTab] = useState("people");
   const [availableBriefs, setAvailableBriefs] = useState(new Set());
   const [pastJobTitles, setPastJobTitles] = useState({});
   const [gtmFilter, setGtmFilter] = useState("yes"); // "yes" | "no" | "both"
   const [icpFilter, setIcpFilter] = useState("yes"); // "yes" | "no" | "both"
+  const [priorityFilter, setPriorityFilter] = useState("all"); // "all" | "high" | "medium" | "low"
   const [openDrawer, setOpenDrawer] = useState(null); // "gtm" | "icp" | "alumni" | null
   const [gtmExpanded, setGtmExpanded] = useState(false);
   const [icpExpanded, setIcpExpanded] = useState(false);
+  const [priorityExpanded, setPriorityExpanded] = useState(false);
   const metaAdsRef = useRef(null);
 
   // Extract LinkedIn slug from URL
@@ -256,6 +258,23 @@ export default function AlumniGTMPreview() {
     "priscilla & tiffany art",
     "details",
     "clinicas de salud del pueblo",
+    "arhaus",
+    "elizabeth arden",
+    "gunner",
+    "h&m",
+    "jacques marie mage",
+    "lovisa",
+    "spanx",
+  ];
+
+  const pinnedPeople = [
+    "abigail joseph",
+    "anna moore",
+    "chris rose",
+    "edward park",
+    "gracie pearlman",
+    "jennifer porter",
+    "mario moreno sears",
   ];
 
   const filtered = useMemo(() => {
@@ -276,12 +295,25 @@ export default function AlumniGTMPreview() {
       list = list.filter(l => l.person?.icp_fit === "NO");
     }
 
+    // Apply Priority filter
+    if (priorityFilter !== "all") {
+      list = list.filter(l => l.current_company?.priority?.toLowerCase() === priorityFilter);
+    }
+
     list = list.filter(l => !excludedCompanies.some(exc => l.current_company?.name?.toLowerCase().includes(exc)));
     if (filterCompany !== "ALL") {
       list = list.filter(l => l.prior_company?.name === filterCompany);
     }
+    // Sort pinned people to the top
+    list.sort((a, b) => {
+      const aIsPinned = pinnedPeople.includes(a.person?.full_name?.toLowerCase());
+      const bIsPinned = pinnedPeople.includes(b.person?.full_name?.toLowerCase());
+      if (aIsPinned && !bIsPinned) return -1;
+      if (!aIsPinned && bIsPinned) return 1;
+      return 0;
+    });
     return list;
-  }, [data, filterCompany, gtmFilter, icpFilter]);
+  }, [data, filterCompany, gtmFilter, icpFilter, priorityFilter]);
 
   const companies = useMemo(() => {
     if (!filtered.length) return [];
@@ -762,6 +794,39 @@ export default function AlumniGTMPreview() {
                 </div>
               )}
             </div>
+            <div className="flex items-center border border-[#1E1E22] rounded-lg overflow-hidden">
+              <button
+                onClick={() => setPriorityExpanded(!priorityExpanded)}
+                className={`px-3 py-2 text-[10px] uppercase tracking-wider transition-colors ${
+                  priorityExpanded ? "bg-[#1E1E22] text-white" : "text-zinc-500 hover:text-zinc-300"
+                }`}
+              >
+                Priority {!priorityExpanded && <span className="text-zinc-600 ml-1 capitalize">({priorityFilter})</span>}
+              </button>
+              {priorityExpanded && (
+                <div className="flex gap-1 px-2 border-l border-[#1E1E22]">
+                  {["all", "high", "medium", "low"].map((val) => (
+                    <button
+                      key={val}
+                      onClick={() => setPriorityFilter(val)}
+                      className={`px-2.5 py-1 rounded text-xs border transition-colors capitalize ${
+                        priorityFilter === val
+                          ? val === "high"
+                            ? "bg-[#101912] border-[#4ade80]/30 text-[#4ade80]/70"
+                            : val === "medium"
+                            ? "bg-[#1a1610] border-[#c9a057]/30 text-[#c9a057]/70"
+                            : val === "low"
+                            ? "bg-[#1a1212] border-[#c07070]/30 text-[#c07070]/70"
+                            : "bg-[#1E1E22] border-[#333] text-white"
+                          : "bg-transparent border-[#1E1E22] text-zinc-500 hover:border-zinc-500"
+                      }`}
+                    >
+                      {val}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -834,7 +899,7 @@ export default function AlumniGTMPreview() {
                       <div className="text-[13px] font-medium text-white">{l.person?.full_name}</div>
                     </td>
                     <td className="py-4 px-3 align-top">
-                      <div className="text-[13px] text-[#d4a84b] font-medium truncate" title={l.current_company?.name}>
+                      <div className="text-[13px] text-[#e5c564] font-medium truncate" title={l.current_company?.name}>
                         {l.current_company?.name}
                       </div>
                     </td>
@@ -844,7 +909,7 @@ export default function AlumniGTMPreview() {
                       </div>
                     </td>
                     <td className="py-4 px-3 align-top">
-                      <div className="text-[13px] text-[#a8894a]">{l.prior_company?.name}</div>
+                      <div className="text-[13px] text-[#e5c564]">{l.prior_company?.name}</div>
                     </td>
                     <td className="py-4 px-3 align-top">
                       <div className="text-[12px] text-[#888]">
@@ -932,12 +997,12 @@ export default function AlumniGTMPreview() {
                       <div className="text-[12px] text-[#888]">{formatSizeRange(c.size_range)}</div>
                     </td>
                     <td className="py-4 px-3 text-center">
-                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.meta_ads_active ? "bg-[#1a1810] text-[#d4a84b]" : "bg-[#1a1a1a] text-[#666]"}`}>
+                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.meta_ads_active ? "bg-[#1a1810] text-[#e5c564]" : "bg-[#1a1a1a] text-[#666]"}`}>
                         {c.meta_ads_active ? "Active" : "N/A"}
                       </span>
                     </td>
                     <td className="py-4 px-3 text-center">
-                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.google_ads_active ? "bg-[#1a1810] text-[#d4a84b]" : "bg-[#1a1a1a] text-[#666]"}`}>
+                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.google_ads_active ? "bg-[#1a1810] text-[#e5c564]" : "bg-[#1a1a1a] text-[#666]"}`}>
                         {c.google_ads_active ? "Active" : "N/A"}
                       </span>
                     </td>
