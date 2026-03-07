@@ -135,31 +135,30 @@ export default function AlumniGTMPreview() {
     return range.replace(/ employees?/i, "");
   };
 
-  // Open GTM brief for a lead (from API or fallback to JSON file)
+  // Open GTM brief for a lead (file takes precedence over API)
   const openGtmBrief = async (lead) => {
-    // Use API data if available
-    if (lead.gtm_brief) {
-      setGtmBrief({ lead, data: lead.gtm_brief });
-      return;
+    const slug = getLinkedInSlug(lead.person?.linkedin_url);
+
+    // Check local file first (takes precedence)
+    if (slug && availableBriefs.has(slug)) {
+      setGtmBriefLoading(true);
+      try {
+        const res = await fetch(`/nostra_json/${slug}.json`);
+        if (res.ok) {
+          const json = await res.json();
+          setGtmBrief({ lead, data: json.output });
+          return;
+        }
+      } catch (e) {
+        // Fall through to API
+      } finally {
+        setGtmBriefLoading(false);
+      }
     }
 
-    // Fallback to JSON file
-    const slug = getLinkedInSlug(lead.person?.linkedin_url);
-    if (!slug) return;
-
-    setGtmBriefLoading(true);
-    try {
-      const res = await fetch(`/nostra_json/${slug}.json`);
-      if (res.ok) {
-        const json = await res.json();
-        setGtmBrief({ lead, data: json.output });
-      } else {
-        setGtmBrief({ lead, data: null, error: "Brief not found" });
-      }
-    } catch (e) {
-      setGtmBrief({ lead, data: null, error: e.message });
-    } finally {
-      setGtmBriefLoading(false);
+    // Fallback to API data
+    if (lead.gtm_brief) {
+      setGtmBrief({ lead, data: lead.gtm_brief });
     }
   };
 
@@ -430,7 +429,7 @@ export default function AlumniGTMPreview() {
                 {/* Table rows */}
                 {c.leads.map((lead, i) => {
                   const slug = getLinkedInSlug(lead.person?.linkedin_url);
-                  const hasBrief = lead.gtm_brief || (slug && availableBriefs.has(slug));
+                  const hasBrief = (slug && availableBriefs.has(slug)) || lead.gtm_brief;
                   return (
                     <div key={i} className="grid grid-cols-5 gap-2 px-4 py-3 border-b border-[#1E1E22] last:border-b-0 hover:bg-[#111] transition-colors">
                       <div className="text-sm text-[#ECECEE] font-medium truncate">{lead.person?.full_name}</div>
