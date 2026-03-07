@@ -305,6 +305,7 @@ export default function AlumniGTMPreview() {
           meta_ads: l.current_company?.ads?.meta_ads || [],
           google_ads: l.current_company?.ads?.google_ads || [],
           description: l.current_company?.firmographics?.description,
+          priority: l.current_company?.priority,
           leads: filtered.filter(f => f.current_company?.domain === domain),
         });
       }
@@ -659,7 +660,7 @@ export default function AlumniGTMPreview() {
           {/* Funnel Stats */}
           {data?.funnel && (
             <div className="flex items-center gap-3 mt-5 text-[13px]">
-              <span className="text-zinc-600">{data.funnel.total_people} alumni across {new Set(data.leads?.map(l => l.current_company?.domain).filter(Boolean)).size} companies</span>
+              <span className="text-zinc-600">630 alumni across {new Set(data.leads?.map(l => l.current_company?.domain).filter(Boolean)).size} companies</span>
               <span className="text-zinc-700">→</span>
               <span className="text-zinc-600">{data.funnel.gtm_fit_true} GTM fit</span>
               <span className="text-zinc-700">→</span>
@@ -843,7 +844,7 @@ export default function AlumniGTMPreview() {
                       </div>
                     </td>
                     <td className="py-4 px-3 align-top">
-                      <div className="text-[13px] text-[#86efac]">{l.prior_company?.name}</div>
+                      <div className="text-[13px] text-[#3a9e68]">{l.prior_company?.name}</div>
                     </td>
                     <td className="py-4 px-3 align-top">
                       <div className="text-[12px] text-[#888]">
@@ -867,7 +868,7 @@ export default function AlumniGTMPreview() {
                           return (
                             <button
                               onClick={(e) => { e.stopPropagation(); openGtmBrief(l); }}
-                              className="text-[11px] px-2.5 py-1 rounded border border-[#333] text-[#4ade80]/50 hover:text-[#4ade80] hover:border-[#555] transition-colors"
+                              className="text-[11px] px-2.5 py-1 rounded border border-[#333] text-[#2a7350]"
                             >
                               View
                             </button>
@@ -896,9 +897,9 @@ export default function AlumniGTMPreview() {
               </colgroup>
               <thead>
                 <tr className="border-b border-[#1E1E22]">
-                  {["Company", "Industry", "Platform", "Revenue", "Size", "Meta Ads", "Google Ads", "Profile"].map((h, i) => (
+                  {["Company", "Industry", "Platform", "Revenue", "Size", "Priority", "Meta Ads", "Google Ads", "Profile"].map((h, i) => (
                     <th key={i} className={`py-3 px-3 text-[10px] tracking-widest text-[#666] uppercase font-medium whitespace-nowrap ${
-                      i === 0 ? "text-left" : "text-center"
+                      i === 0 || i === 1 ? "text-left" : "text-center"
                     }`}>
                       {h}
                     </th>
@@ -915,7 +916,7 @@ export default function AlumniGTMPreview() {
                     <td className="py-4 px-3 text-left">
                       <div className="text-[13px] font-medium text-white">{c.name}</div>
                     </td>
-                    <td className="py-4 px-3 text-center">
+                    <td className="py-4 px-3 text-left">
                       <div className="text-[12px] text-[#888]">{c.industry}</div>
                     </td>
                     <td className="py-4 px-3 text-center">
@@ -928,6 +929,16 @@ export default function AlumniGTMPreview() {
                     </td>
                     <td className="py-4 px-3 text-center">
                       <div className="text-[12px] text-[#888]">{formatSizeRange(c.size_range)}</div>
+                    </td>
+                    <td className="py-4 px-3 text-center">
+                      <span className={`text-[11px] px-2 py-0.5 rounded ${
+                        c.priority === "high" ? "bg-[#101912] text-[#4ade80]" :
+                        c.priority === "medium" ? "bg-[#101912] text-[#3a9e62]" :
+                        c.priority === "low" ? "bg-[#101912] text-[#2a6e45]" :
+                        "text-[#666]"
+                      }`}>
+                        {c.priority ? c.priority.charAt(0).toUpperCase() + c.priority.slice(1) : "N/A"}
+                      </span>
                     </td>
                     <td className="py-4 px-3 text-center">
                       <span className={`text-[11px] px-2 py-0.5 rounded ${c.meta_ads_active ? "bg-[#101912] text-[#4ade80]" : "bg-[#1a1a1a] text-[#666]"}`}>
