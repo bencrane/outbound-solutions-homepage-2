@@ -427,7 +427,9 @@ export default function AlumniGTMPreview() {
                 ))
               ) : (
                 /* Fallback for old format or local JSON files */
-                Object.entries(briefData).map(([sectionKey, sectionValue]) => (
+                Object.entries(briefData)
+                  .filter(([key]) => !["memo_to", "memo_from", "memo_date", "lead_name", "client_name"].includes(key))
+                  .map(([sectionKey, sectionValue]) => (
                   <div key={sectionKey} className="bg-[#0E0E10] border border-[#1E1E22] rounded-md p-5">
                     <div className="text-[11px] tracking-widest text-[#6AADCF] uppercase font-semibold mb-3">
                       {sectionKey.replace(/_/g, " ")}
