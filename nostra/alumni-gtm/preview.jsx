@@ -834,7 +834,7 @@ export default function AlumniGTMPreview() {
                       <div className="text-[13px] font-medium text-white">{l.person?.full_name}</div>
                     </td>
                     <td className="py-4 px-3 align-top">
-                      <div className="text-[13px] text-[#4ade80] font-medium truncate" title={l.current_company?.name}>
+                      <div className="text-[13px] text-[#d4a84b] font-medium truncate" title={l.current_company?.name}>
                         {l.current_company?.name}
                       </div>
                     </td>
@@ -844,7 +844,7 @@ export default function AlumniGTMPreview() {
                       </div>
                     </td>
                     <td className="py-4 px-3 align-top">
-                      <div className="text-[13px] text-[#3a9e68]">{l.prior_company?.name}</div>
+                      <div className="text-[13px] text-[#a8894a]">{l.prior_company?.name}</div>
                     </td>
                     <td className="py-4 px-3 align-top">
                       <div className="text-[12px] text-[#888]">
@@ -886,18 +886,19 @@ export default function AlumniGTMPreview() {
           {activeTab === "companies" && (
             <table className="w-full border-collapse table-fixed" style={{ width: "100%" }}>
               <colgroup>
-                <col style={{ width: "15%" }} />
-                <col style={{ width: "16%" }} />
+                <col style={{ width: "14%" }} />
+                <col style={{ width: "14%" }} />
                 <col style={{ width: "9%" }} />
-                <col style={{ width: "12%" }} />
+                <col style={{ width: "10%" }} />
+                <col style={{ width: "8%" }} />
                 <col style={{ width: "9%" }} />
-                <col style={{ width: "13%" }} />
-                <col style={{ width: "13%" }} />
-                <col style={{ width: "13%" }} />
+                <col style={{ width: "9%" }} />
+                <col style={{ width: "8%" }} />
+                <col style={{ width: "9%" }} />
               </colgroup>
               <thead>
                 <tr className="border-b border-[#1E1E22]">
-                  {["Company", "Industry", "Platform", "Revenue", "Size", "Priority", "Meta Ads", "Google Ads", "Profile"].map((h, i) => (
+                  {["Company", "Industry", "Platform", "Revenue", "Size", "Meta Ads", "Google Ads", "Priority", "Profile"].map((h, i) => (
                     <th key={i} className={`py-3 px-3 text-[10px] tracking-widest text-[#666] uppercase font-medium whitespace-nowrap ${
                       i === 0 || i === 1 ? "text-left" : "text-center"
                     }`}>
@@ -931,23 +932,23 @@ export default function AlumniGTMPreview() {
                       <div className="text-[12px] text-[#888]">{formatSizeRange(c.size_range)}</div>
                     </td>
                     <td className="py-4 px-3 text-center">
-                      <span className={`text-[11px] px-2 py-0.5 rounded ${
-                        c.priority === "high" ? "bg-[#101912] text-[#4ade80]" :
-                        c.priority === "medium" ? "bg-[#101912] text-[#3a9e62]" :
-                        c.priority === "low" ? "bg-[#101912] text-[#2a6e45]" :
-                        "text-[#666]"
-                      }`}>
-                        {c.priority ? c.priority.charAt(0).toUpperCase() + c.priority.slice(1) : "N/A"}
-                      </span>
-                    </td>
-                    <td className="py-4 px-3 text-center">
-                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.meta_ads_active ? "bg-[#101912] text-[#4ade80]" : "bg-[#1a1a1a] text-[#666]"}`}>
+                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.meta_ads_active ? "bg-[#1a1810] text-[#d4a84b]" : "bg-[#1a1a1a] text-[#666]"}`}>
                         {c.meta_ads_active ? "Active" : "N/A"}
                       </span>
                     </td>
                     <td className="py-4 px-3 text-center">
-                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.google_ads_active ? "bg-[#101912] text-[#4ade80]" : "bg-[#1a1a1a] text-[#666]"}`}>
+                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.google_ads_active ? "bg-[#1a1810] text-[#d4a84b]" : "bg-[#1a1a1a] text-[#666]"}`}>
                         {c.google_ads_active ? "Active" : "N/A"}
+                      </span>
+                    </td>
+                    <td className="py-4 px-3 text-center">
+                      <span className={`text-[11px] px-2 py-0.5 rounded ${
+                        c.priority?.toLowerCase() === "high" ? "bg-[#101912] text-[#4ade80]" :
+                        c.priority?.toLowerCase() === "medium" ? "bg-[#1a1610] text-[#c9a057]" :
+                        c.priority?.toLowerCase() === "low" ? "bg-[#1a1212] text-[#c07070]" :
+                        "text-[#666]"
+                      }`}>
+                        {c.priority ? c.priority.charAt(0).toUpperCase() + c.priority.slice(1).toLowerCase() : "N/A"}
                       </span>
                     </td>
                     <td className="py-4 px-3 text-center">
