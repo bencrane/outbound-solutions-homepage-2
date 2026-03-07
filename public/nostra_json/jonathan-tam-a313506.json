@@ -1,0 +1,785 @@
+{
+  "input": "\"#CONTEXT#\nYou are a B2B sales strategist writing a GTM intelligence memo for a sales team. You will receive information about:\n1. A client company whose product is being sold\n2. A lead who previously worked at a company that is a known customer of the client\n3. The lead's current company where they now hold a relevant role\n\nThe lead's past company is a known customer of the client. The lead held a relevant role there and would have been exposed to or aware of the client's product. They have since moved to a new company in a similar or more senior role.\"\n\n\"#INPUTS#\nclient_company_name: Nostra\nclient_company_domain: nostra.ai\nclient_company_description: Nostra helps the world’s leading ecommerce brands future-proof their digital infrastructure with cutting-edge edge technology. We enable high-growth DTC companies to deploy enterprise-grade infrastructure in minutes, not months. Our edge platform is designed to accelerate site speed, increase conversion rates, and drive more revenue, while protecting your brand from modern threats. With products like Edge Delivery Engine, Edge Protection, Edge ID, and Edge Crawler, we give brands the tools to: • Boost performance by 20–30% • Block ad bot traffic before it hits your site • Extend cookie life for better attribution • Optimize content for LLM indexing and AI-native search Brands like Jolie, Amiri, and Olukai rely on Nostra to deliver faster, safer, smarter ecommerce experiences\n\nlead_full_name: \nlead_linkedin_url: Jonathan Tam\nlead_current_job_title: https://www.linkedin.com/in/jonathan-tam-a313506\nlead_current_company_name: Chief Operating Officer\nlead_current_company_domain: FIGS\nlead_current_company_description: wearfigs.com\n\nlead_past_company_name: FIGS scrubs are revolutionizing the medical apparel industry through its use of ridiculously soft and technical fabrics that are tailored to perfection. \n\nFIGS proprietary fabric is wrinkle resistant, moisture wicking and utilizes four-way stretch. Through our customer-centric, vertically integrated e-commerce platform, FIGS has transformed the way medical professionals shop. \n\nThrough our Threads for Threads initiative, we've donated scrubs all over the world to those who need it — because everyone deserves to wear FIGS.\nlead_past_company_domain: Forever 21\nlead_past_company_description: forever21.com\nlead_past_company_job_title: Forever 21 continues to be a fashion industry leader with a mission to make the latest trends accessible to all. F21 persists on staying ahead of innovation and providing styles and fit that our customers love. While reinventing for now and beyond, we’re seeking passionate and creative new family members to join us on this adventure! F21 continues to operate E-commerce and 450 locations across the U.S. along with maintaining a strong brand DNA with consumers and within the fashion industry. \n\nIn February 2020, Forever 21 came under new ownership made up of Simon Property Group, Brookfield Property Partners, and Authentic Brands Group. Under this new ownership F21 has the financial strength and long term view that will prepare us for the future, while continuing to set the same high standards as it always has. Join our team and learn the inner sanctum of the global fashion industry, while we build the new Forever 21! \n\nForever 21 is operated by SPARC Group LLC.\n \nAbout SPARC Group LLC\nSPARC Group LLC offers operational and strategic expertise including retail and e-commerce management, sourcing, design and technology for leading global brands. SPARC Group is a joint venture between Simon Property Group, a preeminent retail real estate company and Authentic Brands Group, a global leader in brand development. In addition to Forever 21, SPARC Group brands include Aéropostale, Brooks Brothers, Nautica, Eddie Bauer, and Lucky Brand.\n \nSPARC Group LLC is an equal opportunity employer, and is committed to maintaining a workplace free from prohibited employment conduct, including discrimination or harassment on the basis of race, color, national origin, sex, age, religion, disability, genetic information, sexual orientation, gender identity or expression, marital status, domestic partner status, civil partnership, status as a covered veteran, status in the Uniformed Services of the United States, citizenship and any other characteristic protected by law.\"\n\n\"#OBJECTIVE#\nGenerate a 5-section GTM strategy memo that helps a sales rep understand why this lead is a high-value target right now and exactly how to approach them.\n\n#RESEARCH DIRECTIVES#\nBefore writing the memo, research the following:\n\n1. **Current company business context** — What is the current company's scale, market position, ecommerce footprint, and growth trajectory? What operational or technical challenges would a company like this face? What about their stage creates urgency for the client's product?\n\n2. **Competitive landscape** — Who are the current company's direct competitors? What market pressure do they face? How does site performance, conversion optimization, or digital infrastructure factor into their competitive position?\n\n3. **Lead's role and authority** — Based on their title and the company context, what does this person own? What decisions do they influence or control? Why are they the right person to talk to about the client's product?\n\n4. **The alumni signal** — The lead previously held a relevant role at a company that uses the client's product. What would they have seen or experienced there? How does that experience translate to their current situation?\n\n5. **Complexity delta** — How do the challenges at the current company compare to the past company? Are they dealing with more brands, more SKUs, more markets, more traffic, more complexity? Frame the current situation relative to what they've already navigated.\n\n#OUTPUT FORMAT#\nWrite a 5-section memo in sharp, conversational prose. No bullet points. No headers beyond the section names. Each section should be a tight paragraph.\n\n**OVERVIEW**\n2-3 sentences. Who is this person, what is their current role, and what is their connection to the client's customer base. State the alumni signal clearly.\n\n**MARKET POSITION**\nOne paragraph. The current company's business context — scale, growth stage, competitive pressure, and why their digital infrastructure matters right now. What is at stake for them?\n\n**RELEVANCE & READINESS**\nOne paragraph. Why this specific person. What did they see or own at their past company? What do they own now? Why would they recognize the value of the client's product immediately?\n\n**RECOMMENDED APPROACH**\nOne paragraph. The specific angle for outreach. Include a sample message or talk track that references the alumni connection and speaks to the current company's situation. Make it concrete, not generic.\n\n**TAKEAWAY**\nOne sentence. The verdict — why this lead matters and the urgency level.\n\n#STYLE GUIDANCE#\n- Be direct and specific. No filler, no hedge words.\n- Do not fabricate metrics, quotes, or claims. Only infer plausibly from the inputs and your research.\n- Do not claim the lead directly used or implemented the client's product unless you have evidence. Frame it as exposure and awareness based on their role.\n- The memo should read like it was written by someone who understands the market, not by an AI summarizing inputs.\n- Total length: 300-400 words.\n\nOutput Schema\njson{\n  \"\"overview\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"2-3 sentences. Who is this person, their current role, and their alumni connection to the client's customer base.\"\"\n  },\n  \"\"market_position\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on the current company's business context, competitive pressure, and why digital infrastructure matters now.\"\"\n  },\n  \"\"relevance_and_readiness\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on why this specific person — what they saw at the past company, what they own now, why they'd recognize value immediately.\"\"\n  },\n  \"\"recommended_approach\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph with the specific outreach angle and sample messaging that references the alumni connection.\"\"\n  },\n  \"\"takeaway\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One sentence verdict on why this lead matters and urgency level.\"\"\n  }\n}\"",
+  "output": {
+    "overview": {
+      "lead_name": "Jonathan Tam",
+      "current_role": "Chief Operating Officer at FIGS",
+      "alumni_connection": "Jonathan Tam previously served as a Lead Industrial Engineer at Forever 21, a company with a published Nostra customer case study. The case study highlights that Nostra's Edge Delivery Engine and Crawler Optimization solutions led to a 53% reduction in Time to First Byte (TTFB), a 59% acceleration in page load times, and a 166% increase in crawl speed for Forever 21. This past context makes him a highly credible audience who understands the specific performance challenges and measurable benefits that Nostra's technology delivers."
+    },
+    "market_position": {
+      "company_context": "FIGS is a rapidly scaling, digitally native direct-to-consumer (DTC) brand that concluded fiscal year 2025 with approximately $631 million in revenue, a 13.6% year-over-year increase, and projects 10-12% growth for 2026. The company serves 2.9 million active customers with an average order value of about $120. Positioned as a premium brand in the medical apparel industry, FIGS is expanding its market footprint beyond its core e-commerce website and app. Its growth strategy now incorporates an increasingly omnichannel approach, including a B2B/institutional outfitting arm called TEAMS and selective physical retail stores known as 'Community Hubs', signaling a new phase of operational complexity and investment capacity.",
+      "competitive_pressure": "FIGS operates in a highly competitive environment, contending with legacy wholesalers like Barco Uniforms and Superior Group of Companies, specialized retailers such as Scrubs & Beyond, and other aggressive DTC brands including Jaanuu, Mandala, and Fabletics. The company differentiates itself through its focus on technical product innovation, a strong community-driven brand, and its digitally native distribution model. In this landscape, where customer experience is paramount, superior site performance, high conversion rates, and a resilient digital infrastructure are not just advantages but necessities to defend market share and protect customer lifetime value against nimble DTC peers.",
+      "infrastructure_imperative": "Optimizing digital infrastructure is a critical imperative for FIGS as it navigates its current growth trajectory and operational pressures. The company's leadership has highlighted a focus on optimizing distribution and managing tariff headwinds, which intensifies the need for maximizing online conversion and efficiency. The increasing complexity stemming from its DTC model—characterized by high-velocity product drops, a heavy reliance on mobile traffic, and expansion into international markets—combined with new B2B (TEAMS) workflows and an omnichannel retail footprint, creates significant challenges. These include ensuring fast mobile performance, effective global SEO, accurate attribution across online and offline channels, and maintaining data integrity by filtering bot traffic. Nostra's edge platform directly addresses these needs by improving site speed, providing bot protection, extending cookie lifetimes for better attribution, and optimizing content for crawlers, offering a path to scale profitably without a disruptive and lengthy replatforming project."
+    },
+    "relevance_and_readiness": {
+      "past_experience": "During his tenure as Lead Industrial Engineer at Forever 21 (April 2010 - April 2013), Jonathan Tam would have been deeply involved in optimizing operational processes for a major fast-fashion e-commerce player. Forever 21 is a published Nostra customer, where Nostra's Edge Delivery Engine and Crawler Optimization solutions yielded a 53% reduction in Time to First Byte (TTFB), a 59% acceleration in page load times, and a 166% increase in crawl speed. While he may not have directly managed the implementation, his role in industrial engineering would have made him acutely aware of how front-end performance, site speed, and efficient web crawling directly impact operational efficiency, conversion rates, and ultimately, revenue. This experience provides him with a foundational understanding of the problems Nostra solves and the tangible business impact of addressing them.",
+      "current_mandate": "As the Chief Operating Officer at FIGS since October 2024, Jonathan Tam is the ideal contact. Company leadership has explicitly mentioned in earnings calls that he is responsible for evaluating and shaping the operating roadmap, with a specific focus on distribution optimization and identifying savings opportunities. His mandate covers the entire operational spectrum of a high-growth, digitally native brand that is expanding into a complex omnichannel model including B2B (TEAMS), international markets, and physical retail (Community Hubs). This expansion increases operational complexity around inventory, fulfillment, and digital experience. Because Nostra's solutions directly improve core operational and marketing metrics—such as conversion rates (via site speed), data accuracy (via bot filtering), and marketing ROI (via better attribution)—they fall squarely within his purview as COO to drive efficiency and profitable growth.",
+      "value_recognition": "Jonathan Tam is primed to immediately recognize Nostra's value due to the confluence of his past experience and FIGS's current challenges. Having been at Forever 21, he has a credible 'alumni' connection to a successful Nostra implementation and understands the performance gains possible. At FIGS, he is now facing a new set of complexities: managing high-velocity product drops, ensuring a fast mobile experience for 2.9 million active customers, optimizing SEO for international expansion, and maintaining data integrity against bot traffic. With FIGS leadership focused on profitable growth amidst tariff headwinds, the need for cost-effective solutions that boost conversion and optimize marketing spend is acute. Nostra's ability to deliver enterprise-grade performance, protection, and identity resolution at the edge—without a burdensome replatforming project—directly addresses his mandate to find operational efficiencies and supports FIGS's strategic growth pillars for 2026."
+    },
+    "recommended_approach": {
+      "outreach_angle": "The outreach should lead with the credible alumni connection to Forever 21, using it as social proof to establish immediate relevance. The core angle is to frame Nostra not as a generic tool, but as a strategic enabler for FIGS's specific 2026 growth initiatives: International expansion, the B2B 'TEAMS' platform, and the growing 'Community Hub' retail footprint. Connect Nostra's edge platform to the operational challenges these initiatives create—the need for fast mobile performance in new global markets, protecting the TEAMS portal from bots, and extending customer identity for attribution as users move between physical stores and the website. Position Nostra as a fast, low-lift way to de-risk this expansion and improve margins by boosting conversion and cleaning up traffic data, directly aligning with his COO mandate to find optimization and savings.",
+      "sample_message": "\"Hi Jonathan - Noticed you're now leading operations at FIGS, congrats on the impressive growth and record Q4. I'm reaching out because when you were at Forever 21, they used Nostra's edge platform to significantly accelerate site speed and organic traffic. Given FIGS's 2026 focus on scaling International, TEAMS, and your Community Hubs, I imagine that ensuring a fast mobile experience, protecting against bot traffic, and getting clean attribution data across channels are top of mind. We help brands like Amiri and Olukai solve these challenges at the edge, delivering a 20-30% performance boost in weeks. Is it worth a brief chat to discuss how we could support your operating roadmap at FIGS?\""
+    },
+    "takeaway": {
+      "verdict": "Jonathan Tam is a high-value target because as the new COO of FIGS, a rapidly growing DTC brand, he is tasked with optimizing operations amidst increasing digital complexity. His prior experience at Forever 21, a Nostra customer, makes him uniquely aware of and receptive to Nostra's value proposition for improving site performance, data quality, and conversion, which directly addresses FIGS' current growth-related challenges.",
+      "urgency_level": "High",
+      "urgency_reason": "The urgency is high because Jonathan Tam is a new COO (since Oct 2024) explicitly tasked by leadership with optimizing FIGS' operational roadmap to support aggressive 2026 growth. This presents a critical window to influence his strategy as he seeks to make an early impact, leveraging his familiarity with the problem space from his time at Forever 21."
+    }
+  },
+  "outputBasis": [
+    {
+      "field": "relevance_and_readiness",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion. Known for its trendy, affordable clothing, and rapid turnover of styles, Forever 21 has become a staple for young consumers looking to stay on-trend without breaking the bank.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.\nT",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.",
+            "The key takeaways from Forever 21's experience are clear:",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively."
+          ]
+        },
+        {
+          "title": "Jonathan Tam - FIGS",
+          "url": "https://www.linkedin.com/in/jonathan-tam-a313506",
+          "excerpts": [
+            "- title: Chief Operating Officer",
+            "- location: Santa Monica, California, United States",
+            "- title: Lead Industrial Engineer",
+            "- location: California",
+            "- start date: Apr 2010",
+            "- end date: Apr 2013",
+            "- company: Forever 21"
+          ]
+        },
+        {
+          "title": "Jonathan Tam - Chief Operating Officer at FIGS | The Org",
+          "url": "https://theorg.com/org/figs/org-chart/jonathan-tam",
+          "excerpts": [
+            "Jonathan Tam is a seasoned operations professional currently serving as the Chief Operating Officer at FIGS since 2024.",
+            "They have previously held significant roles, including Lead Design Engineer at Becker Automotive Design and Lead Industrial Engineer at Forever 21."
+          ]
+        }
+      ],
+      "reasoning": "The alumni signal is supported by content that Forever 21 is a published Nostra customer and that Nostra’s Edge Delivery Engine and Crawler Optimization delivered tangible performance improvements. This directly demonstrates that the lead’s past employer would have been exposed to Nostra’s products and outcomes, aligning with the claim that the lead would have seen or experienced relevant benefits. Additional reinforcement comes from explicit references to Jonathan Tam’s current role as Chief Operating Officer at FIGS and his prior involvement in roles at Forever 21, establishing a credible link between the lead’s past company and his current leadership responsibilities. That past-to-present trajectory is crucial to understanding why the lead would recognize the value of the client’s offerings. In summary, the combination of Forever 21’s customer status, the documented performance improvements attributed to Nostra’s solutions, and Jonathan Tam’s career path from Forever 21 to FIGS provides a coherent and well-supported alumni signal and a strong case for relevance and readiness.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.\nT",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant content directly links Forever 21’s performance improvements to Nostra, which supports the alumni signal that Jonathan Tam would be aware of Nostra’s capabilities from his past company experience. Specifically, Forever 21’s site speed challenges and the quantified benefits—“59% acceleration in page load times” and “166% increase in crawl speed”—demonstrate the concrete impact of Nostra’s Edge Delivery Engine and Crawler Optimization, aligning with the field value’s claim of what Jonathan Tam would have observed or been aware of at Forever 21. Additional excerpts discuss Forever 21 as a customer and describe how Nostra’s solutions were applied to improve performance, reinforcing the alumni connection and the credibility of the target. Other excerpts confirm Jonathan Tam’s current role as COO at FIGS and provide corroborating context about FIGS’ tech and performance focus, which supports why the lead would be receptive to Nostra’s value proposition given his responsibilities. Taken together, these excerpts establish the alumni signal and the practical relevance of Nostra’s solution to the lead’s current business challenges.”,",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness.value_recognition",
+      "citations": [
+        {
+          "title": "Jonathan Tam - Chief Operating Officer at FIGS | The Org",
+          "url": "https://theorg.com/org/figs/org-chart/jonathan-tam",
+          "excerpts": [
+            "Jonathan Tam is a seasoned operations professional currently serving as the Chief Operating Officer at FIGS since 2024.",
+            "They have previously held significant roles, including Lead Design Engineer at Becker Automotive Design and Lead Industrial Engineer at Forever 21."
+          ]
+        },
+        {
+          "title": "Jonathan Tam - FIGS",
+          "url": "https://www.linkedin.com/in/jonathan-tam-a313506",
+          "excerpts": [
+            "- title: Chief Operating Officer",
+            "- company: Forever 21"
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion. Known for its trendy, affordable clothing, and rapid turnover of styles, Forever 21 has become a staple for young consumers looking to stay on-trend without breaking the bank."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant excerpts establish the alumni signal and current leadership context: a chief operating officer at FIGS who previously worked in a role at Forever 21, a Forever 21 connection, and explicit notes linking Jonathan Tam to Forever 21. This directly supports the claim that the lead has an alumni signal and would recognize Nostra’s value due to prior exposure. The excerpt stating that Jonathan Tam is the Chief Operating Officer at FIGS provides the contemporary decision-making anchor for outreach. Supporting that, excerpts that identify Jonathan Tam’s prior association with Forever 21 (the past company) reinforce the alumni narrative and the relevance of his experiences to Nostra’s proven deployments. The remaining excerpts describe Forever 21’s performance improvements achieved with Nostra (e.g., significant page-load acceleration and crawl speed gains). These quantified outcomes illustrate the tangible benefits the lead would expect from Nostra’s edge capabilities, aligning with the finegrained field value’s emphasis on performance, speed, and SEO-related improvements at scale. Collectively, the strongest support comes from the explicit leadership role and alumni link, then the direct Forever 21 connection, followed by the quantified outcomes that demonstrate plausible value realization for FIGS given their described challenges (fast mobile experiences, bot traffic, SEO, international expansion).",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness.past_experience",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "The key takeaways from Forever 21's experience are clear:",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively."
+          ]
+        }
+      ],
+      "reasoning": "The target field value centers on Jonathan Tam’s prior exposure to Forever 21 as a customer of Nostra, and the tangible improvements Nostra delivered there. Excerpt describing a 59% acceleration in page load times directly supports the claim that front-end performance improvements were achieved under Nostra, which would be within Jonathan Tam’s awareness as Lead Industrial Engineer at Forever 21 in that period. The 166% increase in crawl speed further reinforces the impact on search indexing and site visibility, another facet he would have encountered. Excerpt mentioning Nostra’s Edge Delivery Engine and Crawler Optimization explicitly ties the technology to the outcomes discussed, reinforcing the relevance of his past role to understanding the value proposition. Excerpts noting Forever 21’s heavy reliance on online channels and the critical importance of speed and performance establish the operational context that would make such improvements highly salient to someone with his industrial engineering background. Additional excerpts summarize the overarching takeaway: prioritizing site speed and user experience, and investing in innovative solutions, which align with the practical problems he would have observed in his prior role. Supporting excerpts that describe Forever 21 as a fast-fashion leader and the company’s emphasis on digital presence further ground the alumni signal in a real-world, revenue-linked context that would be meaningful to his current leadership responsibilities at FIGS. Taken together, these excerpts convincingly link the historical experience at Forever 21 with tangible performance outcomes enabled by Nostra, underpinning the inference that Jonathan Tam would recognize the value of the client’s product today.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach",
+      "citations": [
+        {
+          "title": "Jonathan Tam - FIGS",
+          "url": "https://www.linkedin.com/in/jonathan-tam-a313506",
+          "excerpts": [
+            "- title: Chief Operating Officer",
+            "- company: Forever 21"
+          ]
+        },
+        {
+          "title": "Jonathan Tam - Chief Operating Officer at FIGS | The Org",
+          "url": "https://theorg.com/org/figs/org-chart/jonathan-tam",
+          "excerpts": [
+            "Jonathan Tam is a seasoned operations professional currently serving as the Chief Operating Officer at FIGS since 2024.",
+            "They have previously held significant roles, including Lead Design Engineer at Becker Automotive Design and Lead Industrial Engineer at Forever 21."
+          ]
+        },
+        {
+          "title": "FIGS, Inc. (FIGS)",
+          "url": "https://s202.q4cdn.com/315845995/files/doc_financials/2025/q1/FIGS-1Q25-Transcript.pdf",
+          "excerpts": [
+            "Jon Tam, our new COO, has actively built a road map that we're going to continue to go after. And this is just us being more accelerating.Read more"
+          ]
+        },
+        {
+          "title": "FIGS, Inc. (FIGS)",
+          "url": "https://s202.q4cdn.com/315845995/files/doc_financials/2024/q4/FIGS-4Q24-Transcript.pdf",
+          "excerpts": [
+            "Most recently, we have brought in Jon Tam as our new Chief Operating Officer and Michelle Armstrong\nas our new Chief Product Officer."
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion. Known for its trendy, affordable clothing, and rapid turnover of styles, Forever 21 has become a staple for young consumers looking to stay on-trend without breaking the bank.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.\nT",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.",
+            "The key takeaways from Forever 21's experience are clear:",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively."
+          ]
+        }
+      ],
+      "reasoning": "The outreach value hinges on establishing credibility through an alumni signal: the lead previously worked at Forever 21 and now operates as COO at FIGS. Excerpts that explicitly identify Jonathan Tam’s current role at FIGS and his past tenure at Forever 21 provide the strongest support for this connection. Additional excerpts corroborate by detailing Forever 21’s past engagement with Nostra, including site-speed and traffic improvements, which illustrates a track record of the client’s technology helping a brand with e-commerce scale and performance—precisely the kind of outcome the outreach strategy seeks to imply for FIGS. Content that frames FIGS’ growth trajectory and the operational focus of a COO further strengthens the case that an edge-performance narrative would resonate with this lead’s current priorities (international expansion, TEAMS, Community Hubs) and that the alumni signal could serve as social proof for rapid value realization. The Forever 21 success narratives with Nostra provide concrete, topical examples of how the client’s solution drives speed, traffic, and conversion, which can be paraphrased or cited in outreach messaging to illustrate plausible outcomes in the FIGS context. Relative to other excerpts, those naming Jonathan Tam and Forever 21 are the most directly supportive, followed by corroborating content about FIGS’ leadership context and Forever 21/Nostra success stories, which offer actionable, evidence-backed angles for a tailored outreach message. ",
+      "confidence": "medium"
+    },
+    {
+      "field": "overview.alumni_connection",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.\nT",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively."
+          ]
+        }
+      ],
+      "reasoning": "The field asserts that the lead previously held a role at Forever 21 and was exposed to Nostra’s Edge Delivery Engine and Crawler Optimization, with measurable outcomes such as a 53% reduction in Time to First Byte, a 59% acceleration in page load times, and a 166% increase in crawl speed. Excerpts describing Forever 21’s case study directly confirm that Nostra’s technology delivered significant performance gains, including the 59% acceleration in page load times and the 166% increase in crawl speed, which serve as concrete evidence of the alumnus’ familiarity with the product’s impact. Additional excerpts emphasize Forever 21’s heavy reliance on online channels and the importance of site speed and user experience, which aligns with why someone from Forever 21 would recognize the value of Nostra’s digital infrastructure improvements. Collectively, these excerpts substantiate the alumni signal by illustrating both the company’s use of Nostra and the tangible benefits realized, thus making the lead a highly credible target who understands the measurable benefits of the technology. The integration of Edge Delivery Engine and Crawler Optimization in the success story fortifies the connection between the alumnus’ past exposure and the current product value proposition, reinforcing relevance for outreach targeted at a senior operations role within FIGS. ",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway",
+      "citations": [
+        {
+          "title": "Jonathan Tam - Chief Operating Officer at FIGS | The Org",
+          "url": "https://theorg.com/org/figs/org-chart/jonathan-tam",
+          "excerpts": [
+            "Jonathan Tam is a seasoned operations professional currently serving as the Chief Operating Officer at FIGS since 2024."
+          ]
+        },
+        {
+          "title": "FIGS, Inc. (FIGS)",
+          "url": "https://s202.q4cdn.com/315845995/files/doc_financials/2025/q1/FIGS-1Q25-Transcript.pdf",
+          "excerpts": [
+            "Jon Tam, our new COO, has actively built a road map that we're going to continue to go after. And this is just us being more accelerating.Read more"
+          ]
+        },
+        {
+          "title": "Jonathan Tam - FIGS",
+          "url": "https://www.linkedin.com/in/jonathan-tam-a313506",
+          "excerpts": [
+            "- title: Chief Operating Officer",
+            "- company: Forever 21"
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion. Known for its trendy, affordable clothing, and rapid turnover of styles, Forever 21 has become a staple for young consumers looking to stay on-trend without breaking the bank.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.\nT",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.",
+            "The key takeaways from Forever 21's experience are clear:",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively."
+          ]
+        }
+      ],
+      "reasoning": "The most critical support comes from excerpts that establish the lead’s current executive role and company, showing direct relevance to strategic outreach: the excerpts identify Jonathan Tam as the Chief Operating Officer at FIGS, confirming the leadership level and potential budget and decision influence. The next strongest support comes from the connection to Forever 21 as a past employer, which helps confirm the alumni signal and the likelihood that the lead understands and has been exposed to the client’s product in a customer context. Further support comes from Forever 21’s documented use of Nostra AI to improve website performance and attract organic traffic, which directly links the alumnus’s prior experience to the client’s value proposition around site speed, reliability, and performance improvements. Additional excerpts describe Forever 21’s ongoing business narrative and the role of Nostra’s Edge Delivery Engine and optimization capabilities, reinforcing why FIGS’s current scale and growth trajectory would value an optimized, data-driven approach to digital infrastructure and performance. Collectively, these excerpts support the claim that a new COO with prior exposure to the client’s customer base is highly incentivized to explore a solution like Nostra, given FIGS’s growth ambitions and the competitive importance of site performance, conversion, and data quality.",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness.current_mandate",
+      "citations": [
+        {
+          "title": "Jonathan Tam - Chief Operating Officer at FIGS | The Org",
+          "url": "https://theorg.com/org/figs/org-chart/jonathan-tam",
+          "excerpts": [
+            "Jonathan Tam is a seasoned operations professional currently serving as the Chief Operating Officer at FIGS since 2024.",
+            "They have previously held significant roles, including Lead Design Engineer at Becker Automotive Design and Lead Industrial Engineer at Forever 21."
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "The key takeaways from Forever 21's experience are clear:",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively.",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion. Known for its trendy, affordable clothing, and rapid turnover of styles, Forever 21 has become a staple for young consumers looking to stay on-trend without breaking the bank."
+          ]
+        },
+        {
+          "title": "Jonathan Tam - FIGS",
+          "url": "https://www.linkedin.com/in/jonathan-tam-a313506",
+          "excerpts": [
+            "- title: Chief Operating Officer",
+            "- location: Santa Monica, California, United States",
+            "- title: Lead Industrial Engineer",
+            "- location: California",
+            "- start date: Apr 2010",
+            "- end date: Apr 2013",
+            "- company: Forever 21"
+          ]
+        }
+      ],
+      "reasoning": "The most directly supporting content identifies Jonathan Tam as the Chief Operating Officer at FIGS since 2024, establishing his current mandate over operations and the scope of responsibilities that include distribution optimization and omnichannel growth. This aligns with the field value’s emphasis on targeting him as the ideal contact due to overseeing the operating roadmap and efficiency initiatives for a digitally native, growth-focused brand expanding into B2B, international markets, and physical retail. The alumni signal is reinforced by references showing that the lead previously held a relevant role at FIGS’ past customer (Forever 21) and later advanced within FIGS itself, which explains why he would have exposure to or awareness of Nostra’s product through prior roles and ongoing executive oversight. Additional excerpts about Forever 21’s experience with Nostra provide concrete examples of how Nostra’s solutions improved site speed, crawl speed, and overall digital performance, which helps justify why a COO responsible for operational efficiency and digital experience would recognize the value of Nostra’s offerings. Collectively, these pieces support the field value by confirming the alignment between Jonathan Tam’s current leadership scope at FIGS and the potential impact of Nostra’s platform on their operational and digital performance, while establishing the alumni signal as a credible bridge for engagement with him.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview.lead_name",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.\nT",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively."
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field value identifies a person by name, who is known to have previously worked at a client customer. The alumni signal hinges on the past company (Forever 21) having used the client's product, implying the lead would have some awareness or exposure through their prior role. The selected excerpts collectively document Forever 21’s use of Nostra AI to address key performance issues such as page speed, crawl speed, and overall site performance, which would be the exact experiences the lead might have encountered or observed at their prior employer. By recounting issues like slow page loads affecting conversions and the impact of optimized speed on SEO and traffic, these excerpts establish a credible connection between Forever 21’s experience with Nostra AI and the lead’s observed background. While the excerpts do not mention the lead by name, they contextualize the alumni signal — that a predecessor at the lead’s past company would have seen the product in action and understood its potential value. This supports the inferred alignment between the lead’s professional history and the client’s GTM message, providing concrete evidence of familiarity with the product’s impact on performance, crawling, and visibility, which are central to the suggested outreach narrative.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.outreach_angle",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion. Known for its trendy, affordable clothing, and rapid turnover of styles, Forever 21 has become a staple for young consumers looking to stay on-trend without breaking the bank.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.\nT",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.",
+            "The key takeaways from Forever 21's experience are clear:",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively."
+          ]
+        },
+        {
+          "title": "Jonathan Tam - FIGS",
+          "url": "https://www.linkedin.com/in/jonathan-tam-a313506",
+          "excerpts": [
+            "- title: Chief Operating Officer",
+            "- company: Forever 21"
+          ]
+        },
+        {
+          "title": "FIGS, Inc. (FIGS)",
+          "url": "https://s202.q4cdn.com/315845995/files/doc_financials/2025/q1/FIGS-1Q25-Transcript.pdf",
+          "excerpts": [
+            "Jon Tam, our new COO, has actively built a road map that we're going to continue to go after. And this is just us being more accelerating.Read more"
+          ]
+        },
+        {
+          "title": "FIGS, Inc. (FIGS)",
+          "url": "https://s202.q4cdn.com/315845995/files/doc_financials/2024/q4/FIGS-4Q24-Transcript.pdf",
+          "excerpts": [
+            "Most recently, we have brought in Jon Tam as our new Chief Operating Officer and Michelle Armstrong\nas our new Chief Product Officer."
+          ]
+        },
+        {
+          "title": "Jonathan Tam - Chief Operating Officer at FIGS | The Org",
+          "url": "https://theorg.com/org/figs/org-chart/jonathan-tam",
+          "excerpts": [
+            "They have previously held significant roles, including Lead Design Engineer at Becker Automotive Design and Lead Industrial Engineer at Forever 21.",
+            "Jonathan Tam is a seasoned operations professional currently serving as the Chief Operating Officer at FIGS since 2024."
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field value describes an outreach strategy that foregrounds an alumni connection to Forever 21 as social proof and then ties Nostra’s edge platform to FIGS' growth initiatives, including international expansion and the TEAMS platform. Excerpts that discuss Forever 21’s success with Nostra AI establish concrete evidence of Nostra’s impact on site speed, crawl efficiency, and overall digital performance, which directly supports the claim that Nostra can de-risk expansion and improve margins for a fast-growth e-commerce operator. Specific data points such as page load acceleration and crawl-speed improvements illustrate the tangible benefits that would appeal to a COO evaluating infrastructure readiness for rapid scaling. The Forever 21 success narratives also emphasize prioritizing website speed and user experience, aligning with the outreach’s aim to position Nostra as a fast, low-lift enabler of performance under rising traffic and global expansion. The alumni signal is reinforced by excerpts identifying Jonathan Tam as COO at FIGS and connections to Forever 21 in the past and current contexts, which helps validate using the Forever 21 social proof to establish credibility with the lead. Additional excerpts provide broader context about Jonathan Tam’s leadership roles and career history, strengthening the targeting rationale by confirming his exposure to or awareness of Nostra’s offerings through his prior association with a client-portfolio brand. In sum, the strongest support comes from Forever 21 case studies demonstrating measurable site-performance gains, followed by explicit references to the lead’s alumni link to Forever 21 and his leadership roles at FIGS, which together justify the proposed outreach angle and credibility-building approach.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position",
+      "citations": [
+        {
+          "title": "\n\tFIGS, Inc. - FIGS Releases Fourth Quarter and Full Year 2025 Financial Results\n",
+          "url": "https://ir.wearfigs.com/news/news-details/2026/FIGS-Releases-Fourth-Quarter-and-Full-Year-2025-Financial-Results/default.aspx",
+          "excerpts": [
+            "About FIGS",
+            "FIGS is a founder-led, direct-to-consumer healthcare apparel and lifestyle brand that seeks to celebrate, empower, and serve current and future generations of healthcare professionals. We create technically advanced apparel and products that feature an unmatched combination of comfort, durability, function, and style. We share stories about healthcare professionals’ experiences in ways that inspire them. We build meaningful connections within the healthcare community that we created. Above all, we seek to make an impact for our community, including by advocating for them and always having their backs.",
+            "We serve healthcare professionals both in the U.S. and internationally. We also serve healthcare institutions through our TEAMS platform.",
+            "Active customers as of December 31, 2025 and 2024, respectively, net revenues per active customer as of December 31, 2025 and 2024, respectively, and average order value for the years ended December 31, 2025 and 2024, respectively, are presented below under the heading “Key Operating Metrics.”"
+          ]
+        }
+      ],
+      "reasoning": "The most directly supportive content describes FIGS’ scale and growth trajectory, including explicit financial results and revenue context, which establish the company’s size and growth pace as a backdrop for why digital infrastructure matters now. The excerpt detailing the Fourth Quarter and Full Year 2025 financial results anchors revenue growth and scale, providing a concrete basis for urgency in optimizing online performance and infrastructure. The companion excerpt emphasizes TEAMS as an omnichannel arm that broadens FIGS’ footprint beyond direct-to-consumer, signaling more complex fulfillment and attribution challenges that make robust digital infrastructure essential. Another excerpt explicitly notes TEAMS as a channel service and confirms the company serves professionals both domestically and internationally, reinforcing the global and enterprise-facing dimension that raises the bar for site performance, speed, and reliability. Finally, the excerpt on key operating metrics outlines active customers and other performance indicators, underscoring the scale at which site performance and accurate attribution translate into tangible business outcomes. Collectively, these excerpts corroborate the field value’s claims about FIGS’ scale, growth trajectory, omnichannel expansion (including TEAMS), and the critical role of digital infrastructure in sustaining competitive position and growth.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.sample_message",
+      "citations": [
+        {
+          "title": "Jonathan Tam - FIGS",
+          "url": "https://www.linkedin.com/in/jonathan-tam-a313506",
+          "excerpts": [
+            "- title: Chief Operating Officer"
+          ]
+        },
+        {
+          "title": "Jonathan Tam - Chief Operating Officer at FIGS | The Org",
+          "url": "https://theorg.com/org/figs/org-chart/jonathan-tam",
+          "excerpts": [
+            "They have previously held significant roles, including Lead Design Engineer at Becker Automotive Design and Lead Industrial Engineer at Forever 21.",
+            "Jonathan Tam is a seasoned operations professional currently serving as the Chief Operating Officer at FIGS since 2024."
+          ]
+        },
+        {
+          "title": "FIGS, Inc. (FIGS)",
+          "url": "https://s202.q4cdn.com/315845995/files/doc_financials/2025/q1/FIGS-1Q25-Transcript.pdf",
+          "excerpts": [
+            "Jon Tam, our new COO, has actively built a road map that we're going to continue to go after. And this is just us being more accelerating.Read more"
+          ]
+        },
+        {
+          "title": "FIGS, Inc. (FIGS)",
+          "url": "https://s202.q4cdn.com/315845995/files/doc_financials/2024/q4/FIGS-4Q24-Transcript.pdf",
+          "excerpts": [
+            "Most recently, we have brought in Jon Tam as our new Chief Operating Officer and Michelle Armstrong\nas our new Chief Product Officer."
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion. Known for its trendy, affordable clothing, and rapid turnover of styles, Forever 21 has become a staple for young consumers looking to stay on-trend without breaking the bank.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.\nT",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.",
+            "The key takeaways from Forever 21's experience are clear:",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively."
+          ]
+        }
+      ],
+      "reasoning": "The outreach sample message hinges on a few core claims: the lead is now operating as COO at FIGS, bringing an alumni signal from Forever 21 where the client’s product (Nostra) was relevant; Forever 21 reportedly used Nostra’s edge platform to improve speed and traffic, yielding measurable performance benefits. Excerpts confirm the lead’s current role and company, establishing the alumni linkage to the client’s customer base. They also confirm the prior company (Forever 21) and its relationship to Nostra, which supports the premise that the lead would have seen or been aware of the client’s product in a relevant capacity. Additional excerpts provide concrete performance outcomes from Forever 21’s use of Nostra (e.g., page load improvements and crawl speed enhancements), which align with the claims in the outreach message about speed boosts and impact on organic traffic. By tying Jonathan Tam’s FIGS leadership to a verified Forever 21-Nostra engagement, these excerpts collectively underpin the messaging that emphasizes a fast mobile experience, bot protection, clean attribution, and edge delivery benefits as the value proposition for FIGS. The excerpts about Nostra’s Edge Delivery Engine and crawler optimization further reinforce the technical credibility of the sample message’s claims about performance gains and edge capabilities. Overall, the strongest support comes from direct statements about Jonathan Tam’s role, the alumni connection to Forever 21, and the documented Forever 21 improvements with Nostra, with supplementary detail on the nature of the performance enhancements providing context for the proposed outreach angle.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway.urgency_level",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "The key takeaways from Forever 21's experience are clear:",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively.",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.\nT",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion. Known for its trendy, affordable clothing, and rapid turnover of styles, Forever 21 has become a staple for young consumers looking to stay on-trend without breaking the bank."
+          ]
+        }
+      ],
+      "reasoning": "The strongest evidence comes from cases where Nostra’s solutions yielded tangible, large-scale website performance and crawl efficiency improvements for Forever 21, a known customer. A 166% increase in crawl speed indicates dramatically improved indexation and visibility, while a 59% acceleration in page load directly ties to user experience, engagement, and conversion—outcomes that create urgency for any fast-moving ecommerce brand facing competitive pressures and high traffic volumes. Reports of site speed challenges at Forever 21—such as longer load times, higher bounce, and difficulty handling traffic surges—underscore the operational and commercial stakes that Nostra’s platform addresses, reinforcing why a COO at a similar retailer would recognize value immediately. Additional excerpts describe Forever 21’s reliance on Nostra’s Edge Delivery Engine and Crawler Optimization to drive performance and efficiency, which further illustrates the practical ROI and urgency for similar brands. The alumni signal (the lead’s past role at FIGS and the client’s connection to Forever 21 through Nostra’s customer base) aligns with these patterns: the lead’s past exposure suggests awareness of the product’s capabilities, while the current role at FIGS positions them to understand and advocate for performance-driven infrastructure improvements. The combination of documented performance gains, concrete challenges faced by a comparable customer, and the alumni bridge collectively supports a high-urgency assessment for this lead.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.competitive_pressure",
+      "citations": [
+        {
+          "title": "\n\tFIGS, Inc. - FIGS Releases Fourth Quarter and Full Year 2025 Financial Results\n",
+          "url": "https://ir.wearfigs.com/news/news-details/2026/FIGS-Releases-Fourth-Quarter-and-Full-Year-2025-Financial-Results/default.aspx",
+          "excerpts": [
+            "FIGS is a founder-led, direct-to-consumer healthcare apparel and lifestyle brand that seeks to celebrate, empower, and serve current and future generations of healthcare professionals. We create technically advanced apparel and products that feature an unmatched combination of comfort, durability, function, and style. We share stories about healthcare professionals’ experiences in ways that inspire them. We build meaningful connections within the healthcare community that we created. Above all, we seek to make an impact for our community, including by advocating for them and always having their backs.",
+            "About FIGS"
+          ]
+        }
+      ],
+      "reasoning": "The field value emphasizes a highly competitive environment with legacy wholesalers, specialized retailers, and nimble DTC peers, and highlights differentiation through technical product innovation and a digitally native distribution model. Excerpt 1 directly supports the DTC nature and brand-centric positioning that underpins competitive dynamics, showing FIGS operates as a direct-to-consumer brand targeting healthcare professionals. Excerpt 2 reinforces the audience and digital reach, which ties to why superior site performance and a robust digital infrastructure matter in a competitive landscape. Together, these excerpts establish the brand’s market positioning and the importance of digital capabilities, aligning with the notion that competitive pressure is driven by both brand differentiation and online experience.",
+      "confidence": "low"
+    },
+    {
+      "field": "takeaway.urgency_reason",
+      "citations": [
+        {
+          "title": "Jonathan Tam - Chief Operating Officer at FIGS | The Org",
+          "url": "https://theorg.com/org/figs/org-chart/jonathan-tam",
+          "excerpts": [
+            "Jonathan Tam is a seasoned operations professional currently serving as the Chief Operating Officer at FIGS since 2024."
+          ]
+        },
+        {
+          "title": "Jonathan Tam - FIGS",
+          "url": "https://www.linkedin.com/in/jonathan-tam-a313506",
+          "excerpts": [
+            "- title: Chief Operating Officer",
+            "- company: Forever 21"
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times."
+          ]
+        }
+      ],
+      "reasoning": "The urgency signal hinges on two core factors: (a) the lead’s current authority and timing, and (b) the alumni signal that ties their past exposure to the client’s product to current pain points. Direct statements confirm that Jonathan Tam is serving as Chief Operating Officer at FIGS since 2024, establishing his high-level operational influence and a leadership window beginning in late 2024. The alumni signal is supported by the past-company linkage to Forever 21, a client-adjacent brand, combined with explicit mention of Forever 21 in the past-company context. Additionally, the Forever 21 success materials demonstrate that Nostra’s solutions can tangibly improve site speed, crawl speed, and overall digital performance—outcomes highly relevant to FIGS’ needs as they pursue aggressive 2026 growth. This makes the lead a high-priority target because he is in a position to influence the operational roadmap during a window where performance improvements could meaningfully accelerate growth, and his prior exposure to the problem space indicates quicker recognition of the value proposition. The most compelling support comes from the direct career timeline and role, then the alumni connection, followed by the documented benefits of Nostra’s solutions in similar contexts, which collectively justify a high-urgency assessment. The material about Forever 21’s performance improvements provides a concrete basis for messaging that speaks directly to speed, conversion, and crawlability outcomes that FIGS would care about.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.company_context",
+      "citations": [
+        {
+          "title": "\n\tFIGS, Inc. - FIGS Releases Fourth Quarter and Full Year 2025 Financial Results\n",
+          "url": "https://ir.wearfigs.com/news/news-details/2026/FIGS-Releases-Fourth-Quarter-and-Full-Year-2025-Financial-Results/default.aspx",
+          "excerpts": [
+            "Active customers as of December 31, 2025 and 2024, respectively, net revenues per active customer as of December 31, 2025 and 2024, respectively, and average order value for the years ended December 31, 2025 and 2024, respectively, are presented below under the heading “Key Operating Metrics.”",
+            "We serve healthcare professionals both in the U.S. and internationally. We also serve healthcare institutions through our TEAMS platform.",
+            "FIGS is a founder-led, direct-to-consumer healthcare apparel and lifestyle brand that seeks to celebrate, empower, and serve current and future generations of healthcare professionals. We create technically advanced apparel and products that feature an unmatched combination of comfort, durability, function, and style. We share stories about healthcare professionals’ experiences in ways that inspire them. We build meaningful connections within the healthcare community that we created. Above all, we seek to make an impact for our community, including by advocating for them and always having their backs."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant excerpt directly references operating metrics and a key performance context that aligns with the field value: it discusses active customers, revenue metrics, and presumably a table of operating metrics that would anchor the fiscal and customer-scale claims. The next excerpt mentions TEAMS, FIGS’ platform for institutional outfitting, which reinforces the field value’s emphasis on expanding through an omnichannel/institutional channel and signals the increased architectural complexity and scalable infrastructure that supports growth. A further excerpt describes FIGS as a founder-led, direct-to-consumer brand serving healthcare professionals and institutions, which provides context about target segments and brand positioning, supporting why FIGS is a scaled, digitally native player in this space. The earliest excerpts primarily set framing and branding rather than delivering the explicit numeric growth and channel strategy details, but they still corroborate the broader narrative of a growing, digitally oriented medical apparel company expanding beyond DTC into institutional channels. Collectively, these excerpts substantiate the field value’s core claims about scale, growth trajectory, active customer base, AOV context, and TEAMS-driven omnichannel expansion.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.infrastructure_imperative",
+      "citations": [
+        {
+          "title": "\n\tFIGS, Inc. - FIGS Releases Fourth Quarter and Full Year 2025 Financial Results\n",
+          "url": "https://ir.wearfigs.com/news/news-details/2026/FIGS-Releases-Fourth-Quarter-and-Full-Year-2025-Financial-Results/default.aspx",
+          "excerpts": [
+            "We serve healthcare professionals both in the U.S. and internationally. We also serve healthcare institutions through our TEAMS platform.",
+            "Active customers as of December 31, 2025 and 2024, respectively, net revenues per active customer as of December 31, 2025 and 2024, respectively, and average order value for the years ended December 31, 2025 and 2024, respectively, are presented below under the heading “Key Operating Metrics.”",
+            "FIGS is a founder-led, direct-to-consumer healthcare apparel and lifestyle brand that seeks to celebrate, empower, and serve current and future generations of healthcare professionals. We create technically advanced apparel and products that feature an unmatched combination of comfort, durability, function, and style. We share stories about healthcare professionals’ experiences in ways that inspire them. We build meaningful connections within the healthcare community that we created. Above all, we seek to make an impact for our community, including by advocating for them and always having their backs.",
+            "About FIGS"
+          ]
+        }
+      ],
+      "reasoning": "The most relevant information comes from excerpts that indicate FIGS operates with a broad footprint (serving customers in the U.S. and internationally) and has a platform (TEAMS) that suggests orchestration of e-commerce and healthcare-related deployments. This aligns with the finegrained field value which emphasizes global expansion, omnichannel considerations, and the need for scalable digital infrastructure. The excerpt describing key operating metrics further supports the growth and scale context, illustrating the emphasis on performance and customer engagement that infrastructure optimization would underpin. Additional excerpts provide general FIGS branding and healthcare focus, which, while informative about the company, do not directly address infrastructure imperatives but still contextualize the environment in which infrastructure decisions are made. Collectively, these excerpts support the notion that FIGS faces international reach, platform-enabled operations, and performance-driven growth, all of which reinforce the importance of digital infrastructure optimization. ",
+      "confidence": "medium"
+    },
+    {
+      "field": "takeaway.verdict",
+      "citations": [
+        {
+          "title": "Jonathan Tam - Chief Operating Officer at FIGS | The Org",
+          "url": "https://theorg.com/org/figs/org-chart/jonathan-tam",
+          "excerpts": [
+            "Jonathan Tam is a seasoned operations professional currently serving as the Chief Operating Officer at FIGS since 2024."
+          ]
+        },
+        {
+          "title": "Jonathan Tam - FIGS",
+          "url": "https://www.linkedin.com/in/jonathan-tam-a313506",
+          "excerpts": [
+            "- title: Chief Operating Officer",
+            "- company: Forever 21"
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times. These speed issues also created SEO challenges, as search engines rank slower sites lower and have trouble crawling and indexing them efficiently. Core Web Vitals like Largest Contentful Paint (LCP), First Input Delay (FID), and [Cumulative Layout Shift (CLS)](https://www.nostra.ai/blogs-collection/cumulative-layout-shift-cls-how-to-measure-optimize-cls) are negatively affected by poor site performance, particularly on mobile devices.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.\nT",
+            "Forever 21's success story demonstrates the transformative power of Nostra AI's solutions in [optimizing website speed](https://www.nostra.ai/blogs-collection/how-to-improve-site-speed) and efficiency. By addressing the critical challenges of slow page load times and poor search engine visibility, Nostra AI enabled Forever 21 to enhance user experience, improve search engine rankings, and drive business growth.",
+            "The key takeaways from Forever 21's experience are clear:",
+            "**Prioritize website speed and user experience:** These factors are crucial for success in the competitive e-commerce landscape.",
+            "**Invest in innovative solutions:** Nostra AI's Edge Delivery Engine™ and Crawler Optimization offer cutting-edge technology to address these challenges.",
+            "**Partner with experts:** Nostra AI's team of experts can provide the guidance and support needed to implement and optimize these solutions effectively."
+          ]
+        },
+        {
+          "title": "FIGS, Inc. (FIGS)",
+          "url": "https://s202.q4cdn.com/315845995/files/doc_financials/2025/q1/FIGS-1Q25-Transcript.pdf",
+          "excerpts": [
+            "Jon Tam, our new COO, has actively built a road map that we're going to continue to go after. And this is just us being more accelerating.Read more"
+          ]
+        }
+      ],
+      "reasoning": "Jonathan Tam is identified as the Chief Operating Officer at FIGS, establishing his current role and leadership level at a high-growth DTC brand. This anchors the target’s authority to influence operations and tech decisions relevant to site performance and digital infrastructure. The alumni signal is reinforced by Forever 21 being described as a past company context and a known Nostra customer. Specifically, Forever 21 is presented as a client whose website performance improvements under Nostra are documented, including accelerated page load, faster crawl speed, and improved overall site performance. This combination—Tam’s COO role at FIGS and the explicit Forever 21–Nostra success narrative—illustrates that Tam would have visibility into Nostra’s value proposition, especially around performance optimization, data quality, and conversion impact. The supporting excerpts describe Forever 21’s challenges with site speed and the measurable outcomes achieved with Nostra, which directly map to FIGS’ likely growth-related pain points as described in the input. Taken together, these excerpts strongly support treating Jonathan Tam as a high-value target who would recognize the relevance of Nostra’s edge platform and performance optimization capabilities.” , ",
+      "confidence": "high"
+    }
+  ],
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "overview": {
+        "type": "object",
+        "properties": {
+          "lead_name": {
+            "type": "string",
+            "description": "The full name of the lead."
+          },
+          "current_role": {
+            "type": "string",
+            "description": "The lead's current job title and company."
+          },
+          "alumni_connection": {
+            "type": "string",
+            "description": "A clear statement of the lead's connection to a past company that is a known customer of the client."
+          }
+        },
+        "required": [
+          "lead_name",
+          "current_role",
+          "alumni_connection"
+        ],
+        "additionalProperties": false
+      },
+      "market_position": {
+        "type": "object",
+        "properties": {
+          "company_context": {
+            "type": "string",
+            "description": "The current company's scale, growth stage, and market position."
+          },
+          "competitive_pressure": {
+            "type": "string",
+            "description": "The competitive landscape and market pressures the company faces."
+          },
+          "infrastructure_imperative": {
+            "type": "string",
+            "description": "Why digital infrastructure, site performance, and conversion are critical for them right now."
+          }
+        },
+        "required": [
+          "company_context",
+          "competitive_pressure",
+          "infrastructure_imperative"
+        ],
+        "additionalProperties": false
+      },
+      "relevance_and_readiness": {
+        "type": "object",
+        "properties": {
+          "past_experience": {
+            "type": "string",
+            "description": "What the lead would have been exposed to or owned at their past company related to the client's solution."
+          },
+          "current_mandate": {
+            "type": "string",
+            "description": "What the lead owns in their current role and why they are the right person to contact."
+          },
+          "value_recognition": {
+            "type": "string",
+            "description": "Why the lead is primed to immediately recognize the value of the client's product based on their experience and current challenges."
+          }
+        },
+        "required": [
+          "past_experience",
+          "current_mandate",
+          "value_recognition"
+        ],
+        "additionalProperties": false
+      },
+      "recommended_approach": {
+        "type": "object",
+        "properties": {
+          "outreach_angle": {
+            "type": "string",
+            "description": "The specific strategic angle for the outreach, referencing the alumni connection and current company situation."
+          },
+          "sample_message": {
+            "type": "string",
+            "description": "A concrete, non-generic sample message or talk track for the outreach."
+          }
+        },
+        "required": [
+          "outreach_angle",
+          "sample_message"
+        ],
+        "additionalProperties": false
+      },
+      "takeaway": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string",
+            "description": "The summary verdict on why this lead is a high-value target."
+          },
+          "urgency_level": {
+            "type": "string",
+            "description": "The urgency level for contacting this lead (e.g., High, Medium, Low)."
+          },
+          "urgency_reason": {
+            "type": "string",
+            "description": "The specific reason for the assessed urgency level."
+          }
+        },
+        "required": [
+          "verdict",
+          "urgency_level",
+          "urgency_reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "overview",
+      "market_position",
+      "relevance_and_readiness",
+      "recommended_approach",
+      "takeaway"
+    ],
+    "additionalProperties": false
+  }
+}

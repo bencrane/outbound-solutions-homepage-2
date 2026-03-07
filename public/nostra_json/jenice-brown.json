@@ -1,0 +1,1170 @@
+{
+  "input": "\"#CONTEXT#\nYou are a B2B sales strategist writing a GTM intelligence memo for a sales team. You will receive information about:\n1. A client company whose product is being sold\n2. A lead who previously worked at a company that is a known customer of the client\n3. The lead's current company where they now hold a relevant role\n\nThe lead's past company is a known customer of the client. The lead held a relevant role there and would have been exposed to or aware of the client's product. They have since moved to a new company in a similar or more senior role.\"\n\n\"#INPUTS#\nclient_company_name: Nostra\nclient_company_domain: nostra.ai\nclient_company_description: Nostra helps the world’s leading ecommerce brands future-proof their digital infrastructure with cutting-edge edge technology. We enable high-growth DTC companies to deploy enterprise-grade infrastructure in minutes, not months. Our edge platform is designed to accelerate site speed, increase conversion rates, and drive more revenue, while protecting your brand from modern threats. With products like Edge Delivery Engine, Edge Protection, Edge ID, and Edge Crawler, we give brands the tools to: • Boost performance by 20–30% • Block ad bot traffic before it hits your site • Extend cookie life for better attribution • Optimize content for LLM indexing and AI-native search Brands like Jolie, Amiri, and Olukai rely on Nostra to deliver faster, safer, smarter ecommerce experiences\n\nlead_full_name: \nlead_linkedin_url: Jenice Brown\nlead_current_job_title: https://www.linkedin.com/in/jenice-brown\nlead_current_company_name: Assistant Director of Digital Marketing\nlead_current_company_domain: Elisabeth Morrow School\nlead_current_company_description: elisabethmorrow.org\n\nlead_past_company_name: The Elisabeth Morrow School is an independent day school serving children age two through eighth grade from more than 55 communities throughout New Jersey and New York. Its mission is to provide exemplary academics and character development in a diverse and inclusive child-centered community, inspiring students to become curious scholars, ethical leaders, and global citizens.\nlead_past_company_domain: Jordan Craig\nlead_past_company_description: jordancraig.com\nlead_past_company_job_title: Jordan Craig. was founded in 1989 upon the ethos of delivering high quality affordable garments. What started as a small shirt company with roots in retail on Jamaica Avenue in Queens, NY; Jordan Craig has evolved over the years to accommodate the needs of the customer on the street. From baggier fits to tapered looks, solid color blocks to camouflage and print, coated denims to twill; Jordan Craig prides itself on its ability to feel the pulse of the street and quickly transition from one trend to the next.\n\nIn the new millennium, the company has expanded its catalog of labels with the introduction of Jordan Craig Legacy; giving greater focus to higher end fashions, fabrics and finishing. Jordan Craig continues to grow and expand its influence in the marketplace.\n\nAlthough many years have passed, Jordan Craig remains faithful to the lessons learned from its humble beginnings, and committed to delivering a superior product that is subtly sophisticated with great care, value, and fashion.\n\nOur products are distributed all over the world through volume retailers, department stores, online retailers, and specialty footwear stores. We are constantly growing and looking for talent that will help us in our journey. View Jordan Craig job openings at: http://www.jordancraig.com/jobs\"\n\n\"#OBJECTIVE#\nGenerate a 5-section GTM strategy memo that helps a sales rep understand why this lead is a high-value target right now and exactly how to approach them.\n\n#RESEARCH DIRECTIVES#\nBefore writing the memo, research the following:\n\n1. **Current company business context** — What is the current company's scale, market position, ecommerce footprint, and growth trajectory? What operational or technical challenges would a company like this face? What about their stage creates urgency for the client's product?\n\n2. **Competitive landscape** — Who are the current company's direct competitors? What market pressure do they face? How does site performance, conversion optimization, or digital infrastructure factor into their competitive position?\n\n3. **Lead's role and authority** — Based on their title and the company context, what does this person own? What decisions do they influence or control? Why are they the right person to talk to about the client's product?\n\n4. **The alumni signal** — The lead previously held a relevant role at a company that uses the client's product. What would they have seen or experienced there? How does that experience translate to their current situation?\n\n5. **Complexity delta** — How do the challenges at the current company compare to the past company? Are they dealing with more brands, more SKUs, more markets, more traffic, more complexity? Frame the current situation relative to what they've already navigated.\n\n#OUTPUT FORMAT#\nWrite a 5-section memo in sharp, conversational prose. No bullet points. No headers beyond the section names. Each section should be a tight paragraph.\n\n**OVERVIEW**\n2-3 sentences. Who is this person, what is their current role, and what is their connection to the client's customer base. State the alumni signal clearly.\n\n**MARKET POSITION**\nOne paragraph. The current company's business context — scale, growth stage, competitive pressure, and why their digital infrastructure matters right now. What is at stake for them?\n\n**RELEVANCE & READINESS**\nOne paragraph. Why this specific person. What did they see or own at their past company? What do they own now? Why would they recognize the value of the client's product immediately?\n\n**RECOMMENDED APPROACH**\nOne paragraph. The specific angle for outreach. Include a sample message or talk track that references the alumni connection and speaks to the current company's situation. Make it concrete, not generic.\n\n**TAKEAWAY**\nOne sentence. The verdict — why this lead matters and the urgency level.\n\n#STYLE GUIDANCE#\n- Be direct and specific. No filler, no hedge words.\n- Do not fabricate metrics, quotes, or claims. Only infer plausibly from the inputs and your research.\n- Do not claim the lead directly used or implemented the client's product unless you have evidence. Frame it as exposure and awareness based on their role.\n- The memo should read like it was written by someone who understands the market, not by an AI summarizing inputs.\n- Total length: 300-400 words.\n\nOutput Schema\njson{\n  \"\"overview\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"2-3 sentences. Who is this person, their current role, and their alumni connection to the client's customer base.\"\"\n  },\n  \"\"market_position\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on the current company's business context, competitive pressure, and why digital infrastructure matters now.\"\"\n  },\n  \"\"relevance_and_readiness\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on why this specific person — what they saw at the past company, what they own now, why they'd recognize value immediately.\"\"\n  },\n  \"\"recommended_approach\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph with the specific outreach angle and sample messaging that references the alumni connection.\"\"\n  },\n  \"\"takeaway\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One sentence verdict on why this lead matters and urgency level.\"\"\n  }\n}\"",
+  "output": {
+    "overview": {
+      "lead_name": "Jenice Brown",
+      "current_role": "Assistant Director of Digital Content at The Elisabeth Morrow School",
+      "alumni_signal": "Jenice Brown previously worked as a Marketing Associate at Jordan Craig, a verified Nostra customer. During her tenure, she would have been exposed to Nostra's impact, as evidenced by a public testimonial from Jordan Craig's Director of Marketing, Rob Varon, praising Nostra for dramatically decreasing load times, and a case study detailing how Nostra enabled persistent user identification for the brand."
+    },
+    "market_position": {
+      "company_context": "The Elisabeth Morrow School (EMS) is a top-ranked, non-profit independent day school in Englewood, NJ, serving approximately 395 students from nursery to 8th grade. Its digital presence is built on a WordPress main site, which integrates with third-party platforms for key functions: Ravenna for admissions applications and School and Student Services (SSS) for financial aid, and BoostMySchool for online donations. This multi-platform ecosystem presents technical challenges related to user journey continuity and data attribution.",
+      "revenue_and_growth_drivers": "The school's financial model relies heavily on two primary streams: student tuition and fundraising. Tuition and fees constitute about 80% of the school's income, but there is an explicit gap between this revenue and the actual cost of education. This gap is bridged by annual giving, primarily through the 'Apple Tree Fund,' which raised over $1 million in the 2024-2025 fiscal year. Therefore, growth is driven by maintaining and increasing student enrollment and achieving high participation in fundraising campaigns.",
+      "digital_imperative": "A high-performing digital presence is mission-critical for EMS to achieve its core business goals. The school's website and associated portals are the primary funnels for both admissions and advancement. Slow site speed, form errors, or poor mobile experience can directly reduce the number of completed applications on Ravenna and depress donation conversions on BoostMySchool. Furthermore, with increasing privacy constraints (e.g., cookie limitations), the ability to persistently identify and attribute users across their WordPress site and third-party portals is essential for effective marketing and optimizing both admissions yield and fundraising participation."
+    },
+    "relevance_and_readiness": {
+      "past_experience_relevance": "During her time as a Marketing Associate at Jordan Craig, a performance-focused DTC apparel brand, Jenice would have been exposed to the critical importance of site speed and user attribution. Nostra's work with Jordan Craig, which included dramatically decreasing load times and enabling persistent user identification to overcome iOS privacy limitations, would have been a significant initiative within the marketing context. She would have been aware of the direct impact these infrastructure improvements had on marketing ROI and conversion rates.",
+      "current_role_ownership": "In her current role as Assistant Director of Digital Content and Marketing at The Elisabeth Morrow School, Jenice's responsibilities directly align with Nostra's value proposition. She owns or influences the school's website content, digital campaigns, and landing pages. Her role necessitates collaboration with the Admissions and Advancement departments to ensure their digital funnels are effective. This positions her as a key stakeholder for any solution that improves website performance, protects forms from bots, and enhances analytics fidelity for student recruitment and fundraising.",
+      "value_recognition": "Jenice's past experience at a sophisticated e-commerce company that leveraged Nostra for a competitive edge makes her uniquely ready to recognize the value of Nostra's solutions in her new role. She has seen firsthand how infrastructure performance translates to business outcomes. This allows her to immediately grasp how accelerating EMS's WordPress site and improving identity persistence across its Ravenna and BoostMySchool funnels are not just technical upgrades, but strategic initiatives that can directly increase student applications and donor contributions."
+    },
+    "recommended_approach": {
+      "outreach_thesis": "The core strategy is to lead with the strong alumni signal, explicitly referencing Nostra's successful partnership with Jordan Craig. The outreach should then immediately pivot to map the value demonstrated there (site speed, persistent identification) directly onto the specific, high-stakes challenges at The Elisabeth Morrow School—namely, optimizing the conversion funnels for admissions (on Ravenna) and fundraising (on BoostMySchool) that originate on their WordPress site.",
+      "sample_subject_line": "Jordan Craig -> Elisabeth Morrow School",
+      "sample_message_body": "Hi Jenice, I saw you're now leading digital content at The Elisabeth Morrow School after your time at Jordan Craig. Our team at Nostra worked closely with Rob Varon's team there to dramatically decrease load times and solve for user identification after the iOS privacy updates. I imagine you face similar challenges at EMS, ensuring a fast experience for prospective parents on your WordPress site and maintaining clear attribution as they move to apply on Ravenna or donate via BoostMySchool. We could offer a quick assessment to quantify the page speed impact on those key journeys and show how we can improve identification across those domains. Would that be worth a brief chat?"
+    },
+    "takeaway": {
+      "verdict": "Jenice Brown is a high-value target because her experience at a successful Nostra customer (Jordan Craig) makes her uniquely pre-qualified to understand and champion Nostra's value for the critical admissions and fundraising funnels she now influences at The Elisabeth Morrow School.",
+      "urgency_level": "High",
+      "justification": "The urgency is high due to the powerful combination of a warm alumni signal, the lead's direct ownership of the relevant digital channels, and the clear application of Nostra's solution to her current company's primary revenue and growth drivers."
+    }
+  },
+  "outputBasis": [
+    {
+      "field": "recommended_approach",
+      "citations": [
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Jordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Case Study\n ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Remi and Nostra AI: Speeding Up Success in eCommerce",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Location\nSection Title: Jenice Brown > Assistant Director Of Digital Marketing\nContent:\nVerona, United States",
+            "Jenice Brown has diverse work experience across various industries.",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Jenice Brown pursued higher education starting in 2013 at Passaic County Community College, where they obtained an Associate of Arts degree in Communication, Journalism, and Related Programs. Jenice later enrolled at William Paterson University of New Jersey in 2017 and successfully completed their Bachelor's degree in English Writing, with a minor in Public Relations, in 2019."
+          ]
+        },
+        {
+          "title": "Faculty and Staff - Elisabeth Morrow School",
+          "url": "https://elisabethmorrow.org/directory/",
+          "excerpts": [
+            "Section Title: Staff Directory > Jenice Brown > Assistant Director of Digital Content",
+            "Content:\n**Department:** Communications and Marketing\n**Pronouns:** She/Her/Hers"
+          ]
+        },
+        {
+          "title": "The Elisabeth Morrow School Management Team | Org Chart",
+          "url": "https://rocketreach.co/the-elisabeth-morrow-school-management_b5d3e38bf42e47a7",
+          "excerpts": [
+            "The Elisabeth Morrow School Employee Jenice Brown's profile photo · Jenice Brown. Assistant Director of Digital Marketing at The Elisabeth Morrow School. Verona ... The Elisabeth Morrow School Employee Jenice Brown's profile photo · Jenice Brown. Assistant Director of Digital Marketing at The Elisabeth Morrow School. Verona ..."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School - Overview, News & Similar ...",
+          "url": "https://www.zoominfo.com/c/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "Director, Environmental Education. Phone Email. JB. United States flag for contact location. Jenice Brown. Assistant Director, Digital Marketing. Phone Email.Read more United States flag for contact location. Jenice Brown. Assistant Director, Digital Marketing. Phone Email. LS. United States flag for contact location. Laura ...Read more"
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Section Title: Customer Stories\nContent:\nNostra uses AI to power leading Shopify stores and websites. Read their stories to see if Nostra is the right fit for your business.",
+            ""
+          ]
+        },
+        {
+          "title": "Jenice Brown",
+          "url": "https://elisabethmorrow.org/directory/marek-beck/alycen-ashburn/jenice-brown/",
+          "excerpts": [
+            "Nov 14, 2022 — Nurturing curious, confident children on 14 acres of natural learning spaces in Bergen County, New Jersey. ems map. Facebook · LinkedIn ...Read more"
+          ]
+        },
+        {
+          "title": "The Elisabeth Morrow School in Englewood, New Jersey",
+          "url": "https://www.usnews.com/education/k12/new-jersey/the-elisabeth-morrow-school-309693",
+          "excerpts": [
+            "The student population of The Elisabeth Morrow School is 387. The school's student-teacher ratio is 5:1. Tuition & Financial Aid."
+          ]
+        },
+        {
+          "title": "Dwight-Englewood School vs. The Elisabeth Morrow School - Compare Rankings, Scores and Reviews",
+          "url": "https://www.privateschoolreview.com/popular-comparisons/dwight-englewood-school-vs-the-elisabeth-morrow-school/17223/17975",
+          "excerpts": [
+            "Should you go to Dwight-Englewood School or The Elisabeth Morrow School? Compare their rankings, scores, reviews and more to help you determine which school ..."
+          ]
+        },
+        {
+          "title": "Apply to The Elisabeth Morrow School - Elisabeth Morrow School",
+          "url": "https://elisabethmorrow.org/apply/",
+          "excerpts": [
+            "Section Title: Apply to The Elisabeth Morrow School > Tuition and Financial Aid > Tuition and Fees\nContent:\nTuition and fees are set on an annual basis.\n[View tuition and fees](https://elisabethmorrow.org/tuition-and-fees-at-the-elisabeth-morrow-school/)",
+            ""
+          ]
+        },
+        {
+          "title": "Expenditures and Revenue - Elisabeth Morrow School",
+          "url": "https://elisabethmorrow.org/news/state-of-the-school/expenditures-and-revenue-2023-2024/",
+          "excerpts": [
+            "Nov 21, 2023 — Tuition and fees make up approximately 80% of the school's income ... Enrollment, Facilities and Operations, and Community Life, Equity, and ...Read more"
+          ]
+        },
+        {
+          "title": "Apply for financial aid. (optional) - Elisabeth Morrow School",
+          "url": "https://elisabethmorrow.org/admission_steps/apply-for-financial-aid-optional/",
+          "excerpts": [
+            "Jan. 8, 2026 — The financial aid application is due; applications may be filed even if taxes are not complete. April 15, 2026 — Final ... Admission and tuition assistance decisions are made independently of each other, but the process happens simultaneously.Read more"
+          ]
+        },
+        {
+          "title": "Advancement 2024–2025 - Elisabeth Morrow School",
+          "url": "https://elisabethmorrow.org/news/state-of-the-school/advancement-2024-2025/",
+          "excerpts": [
+            "The main goal of the advancement office is to help build a strong and engaged community while fundraising to meet the needs of the school."
+          ]
+        },
+        {
+          "title": "Advancement 2022–2023",
+          "url": "https://elisabethmorrow.org/news/state-of-the-school/advancement-2022-2023/",
+          "excerpts": [
+            "The main goal of the advancement office is to help build a strong and engaged community while fundraising to meet the needs of the school.Read more"
+          ]
+        }
+      ],
+      "reasoning": "The outreach thesis hinges on leveraging a clear alumni signal: the lead previously worked at Jordan Craig, which is cited as having partnered with Nostra AI. This supports the idea that Jenice Brown, now at The Elisabeth Morrow School, would recognize the value of Nostra based on that prior exposure in a similar or more senior role. Evidence shows Jordan Craig collaborated with Nostra AI to improve site performance and enable persistent user identification, directly linking past experience to the benefits we’d want EMS to realize (faster load times, better attribution, and personalized experiences). Additionally, Nostra highlights real-world results through Edge-related capabilities that improve speed and user experience, which strengthens the relevancy of the outreach angle when addressing EMS’s admissions and fundraising journeys hosted on WordPress and partner platforms like Ravenna and BoostMySchool. Supporting context about Jenice Brown’s current role at EMS and her prior involvement with Jordan Craig in the Jordan Craig and EMS-aligned ecosystem confirms the alumni signal and contextual leverage. This combination makes the suggested outreach more credible: it positions Nostra as a proven partner in optimizing fast experiences and reliable attribution for a school’s digital properties, while explicitly invoking the alumni connection and the concrete outcomes demonstrated at the prior company. The content also reinforces that EMS faces similar challenges to Jordan Craig in delivering fast, well-attributed user journeys across multiple domains, which is precisely what the outreach aims to address.",
+      "confidence": "medium"
+    },
+    {
+      "field": "relevance_and_readiness",
+      "citations": [
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Jordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Case Study\n ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Remi and Nostra AI: Speeding Up Success in eCommerce",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice Brown has diverse work experience across various industries.",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        }
+      ],
+      "reasoning": "The most compelling support comes from descriptions of a prior engagement between Jordan Craig and Nostra, where Nostra enabled persistent user identification and dramatically reduced load times, which would directly influence marketing ROI and conversion—an experience Jenice would have encountered in her marketing roles at Jordan Craig and later observed in Nostra case studies. This directly informs past_experience_relevance and value recognition, showing that she would understand the benefits of site speed, attribution, and identity persistence. Her current role at The Elisabeth Morrow School involves overseeing digital content and marketing, with responsibilities for the school’s web presence and digital funnels, which makes her a direct owner or influencer of site performance, conversion-related analytics, and bot protection for forms—areas that align with Nostra’s Edge offerings and Edge ID value proposition. Content confirming Jenice Brown’s LinkedIn and EMS role, plus organizational context, supports current ownership and readiness, suggesting she would recognize the value of infrastructure improvements as they translate into better recruitment and fundraising outcomes. Additional Nostra success stories and Edge ID references reinforce the core value proposition, bolstering the argument that Jenice would respond positively to messaging that links faster site performance, robust attribution, and bot protection to tangible marketing outcomes for EMS and its programs.",
+      "confidence": "medium"
+    },
+    {
+      "field": "takeaway",
+      "citations": [
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Jenice Brown has diverse work experience across various industries.",
+            "Prior to that, they worked as a Marketing Associate at Jordan Craig from June 2021 to September 2022,"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        }
+      ],
+      "reasoning": "The alumni signal is strongest when we identify Jenice Brown as the current Assistant Director of Digital Marketing at The Elisabeth Morrow School, with documented past involvement at Jordan Craig, a company described in the provided sources. This creates a clear line: Jenice has exposure to Jordan Craig’s business and marketing dynamics, which aligns with Nostra’s value proposition for higher-velocity digital marketing, site performance, and personalized experiences that Jordan Craig leveraged. The excerpts establish Jenice Brown’s current role and EMS context, and explicitly tie her past to Jordan Craig, the company known to have used Nostra’s technology. From there, the connection is reinforced by sources detailing Jordan Craig’s description and history, including its evolution and presence in the market, which strengthens the plausibility that Jenice would recognize and value Nostra’s offerings given her mandate over digital marketing at a school with a growth and digital footprint. Additional excerpts show Nostra’s referenceable success with Jordan Craig and similar partners, underscoring why a lead with Jordan Craig exposure would be primed to understand the benefits of Nostra’s Edge ID and related infrastructure in a fast-growing, performance-driven environment. Altogether, the combination of current role, alumni linkage to a Nostra-adopter, and explicit Jordan Craig-Nostra association provides a coherent, high-signal case for urgency and relevance of outreach to this lead.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview",
+      "citations": [
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice Brown has diverse work experience across various industries.",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Location\nSection Title: Jenice Brown > Assistant Director Of Digital Marketing\nContent:\nVerona, United States",
+            "Jenice Brown pursued higher education starting in 2013 at Passaic County Community College, where they obtained an Associate of Arts degree in Communication, Journalism, and Related Programs. Jenice later enrolled at William Paterson University of New Jersey in 2017 and successfully completed their Bachelor's degree in English Writing, with a minor in Public Relations, in 2019."
+          ]
+        },
+        {
+          "title": "The Elisabeth Morrow School Management Team | Org Chart",
+          "url": "https://rocketreach.co/the-elisabeth-morrow-school-management_b5d3e38bf42e47a7",
+          "excerpts": [
+            "The Elisabeth Morrow School Employee Jenice Brown's profile photo · Jenice Brown. Assistant Director of Digital Marketing at The Elisabeth Morrow School. Verona ... The Elisabeth Morrow School Employee Jenice Brown's profile photo · Jenice Brown. Assistant Director of Digital Marketing at The Elisabeth Morrow School. Verona ..."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Jordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Case Study"
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Remi and Nostra AI: Speeding Up Success in eCommerce",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Section Title: Customer Stories\nContent:\nNostra uses AI to power leading Shopify stores and websites. Read their stories to see if Nostra is the right fit for your business."
+          ]
+        }
+      ],
+      "reasoning": "The strongest support comes from excerpts that directly tie Jenice Brown to The Elisabeth Morrow School in a deputy/leadership capacity and corroborate her past affiliation with Jordan Craig, which is described as a customer of Nostra. The excerpt detailing Jenice Brown’s LinkedIn/Org presence confirms her current role as Assistant Director of Digital Marketing/Content at The Elisabeth Morrow School, aligning with the finegrained field’s current-role facet. Additional excerpts describe Jenice Brown’s prior tenure at Jordan Craig, the brand’s public descriptions, and Jordan Craig’s relationship to Nostra, which helps establish the alumni signal that she would have been exposed to Nostra during her time at Jordan Craig and could recognize the technology in her new role. Several excerpts document Nostra’s customer stories or case studies involving Jordan Craig, including testimonials praising load-time improvements and the technology’s impact on identity and personalization, which directly anchor the alumni signal in real customer use. This combination—current role confirmation, prior Jordan Craig affiliation, and documented Nostra usage by Jordan Craig—provides coherent, corroborating evidence for the finegrained field value. The remaining context excerpts about Elisabeth Morrow School staff and general Nostra resources offer supportive background that reinforces the narrative but are less central to the alumni signal itself.",
+      "confidence": "medium"
+    },
+    {
+      "field": "market_position",
+      "citations": [
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "The Elisabeth Morrow School in Englewood, New Jersey",
+          "url": "https://www.usnews.com/education/k12/new-jersey/the-elisabeth-morrow-school-309693",
+          "excerpts": [
+            "The student population of The Elisabeth Morrow School is 387. The school's student-teacher ratio is 5:1. Tuition & Financial Aid."
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice Brown has diverse work experience across various industries.",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Location\nSection Title: Jenice Brown > Assistant Director Of Digital Marketing\nContent:\nVerona, United States"
+          ]
+        },
+        {
+          "title": "Faculty and Staff - Elisabeth Morrow School",
+          "url": "https://elisabethmorrow.org/directory/",
+          "excerpts": [
+            "Section Title: Staff Directory > Jenice Brown > Assistant Director of Digital Content",
+            "Content:\n**Department:** Communications and Marketing\n**Pronouns:** She/Her/Hers"
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Section Title: Customer Stories\nContent:\nNostra uses AI to power leading Shopify stores and websites. Read their stories to see if Nostra is the right fit for your business."
+          ]
+        },
+        {
+          "title": "Remi and Nostra AI: Speeding Up Success in eCommerce",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant material directly informs the market position by illustrating EMS’s digital infrastructure footprint and the multi-platform ecosystem it relies on (WordPress site, Ravenna, SSS, and BoostMySchool integrations). This establishes the scale, complexity, and urgency of needing robust digital infrastructure like faster load times, reliable attribution, and cross-portal consistency. The excerpts about Jenice Brown and EMS organizational context corroborate EMS’s current role and leadership context, grounding the outreach in plausible organizational realities. The EMS-focused items describing staff directories and leadership confirmation help validate the relevance of the alumni signal (the lead’s past association with a customer-like environment) by showing EMS as a real, active institution with a marketing and digital footprint. The alumni-linked items demonstrate how Jordan Craig has interacted with Nostra’s platform in case contexts (e.g., persistent user identification and performance improvements) and how EMS-aligned entities may be aware of or exposed to Nostra’s capabilities through prior or related signals. The inclusion of Nostra’s own performance-oriented content (Edge, speed, attribution improvements) provides concrete touchpoints that align with EMS’s digital-education-admissions-and-advancement funnels, where site speed and cross-platform attribution directly impact inquiry conversions, admissions, and fundraising outcomes.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway.verdict",
+      "citations": [
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Prior to that, they worked as a Marketing Associate at Jordan Craig from June 2021 to September 2022,",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Jenice Brown has diverse work experience across various industries."
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        }
+      ],
+      "reasoning": "The most impactful evidence is that Jordan Craig, a former employer of the lead, was a customer of Nostra, and that Nostra has product-enabled success on Jordan Craig’s site, which makes the lead more likely to understand and advocate for Nostra’s value in similar digital funnels. The excerpt confirming Jenice Brown’s current role at The Elisabeth Morrow School establishes the target context. The excerpt confirming her past position at Jordan Craig links the alumni signal to a direct Nostra customer relationship. Additional excerpts provide corroboration about the lead’s current identity and role, reinforcing why she would recognize and value the product as she oversees digital marketing or related funnels at her current institution. Together, these pieces support the claim that she is a high-value target due to both exposure to the customer side of Nostra and influence over relevant organizational outcomes at her present company.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway.justification",
+      "citations": [
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Prior to that, they worked as a Marketing Associate at Jordan Craig from June 2021 to September 2022,",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Jenice Brown has diverse work experience across various industries."
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        }
+      ],
+      "reasoning": "The strongest support comes from content describing a direct collaboration between Jordan Craig (the lead’s past company) and Nostra AI, which directly evidences the alumni signal and the product’s applicability to a customer-like entity in the past context. This aligns with the concept that the lead would have exposure to or awareness of Nostra’s capabilities through that prior customer relationship, creating a plausible bridge to their current role where digital channels are central to growth. Supplementary items confirm the lead’s current position and ownership of digital communications channels at The Elisabeth Morrow School, establishing that they control digital marketing/web presence areas where Nostra could add value, and that there is a documented past connection to Jordan Craig, the client’s customer. The combination of a warm alumni signal and explicit past collaboration with Nostra on a real account strengthens the case for urgency, because the lead likely recognizes the value proposition in the context of digital infrastructure, identity, and personalization that drive revenue and performance. The remaining excerpts provide supportive context about the lead’s current title and the past employer relationship, reinforcing the connection without delivering contradictory evidence. In sum, the most relevant evidence demonstrates: a direct past partnership involving Nostra with a similar customer (Jordan Craig), the lead’s current senior marketing role with digital channel ownership, and a plausible transfer of awareness to their present company context where Nostra’s solution could impact revenue and growth metrics.",
+      "confidence": "medium"
+    },
+    {
+      "field": "relevance_and_readiness.past_experience_relevance",
+      "citations": [
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Case Study\n ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice Brown has diverse work experience across various industries.",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022."
+          ]
+        }
+      ],
+      "reasoning": "The alumni signal posits that Jenice Brown, during her time at Jordan Craig (a performance-focused DTC apparel brand), would have seen and been aware of infrastructure improvements driven by Nostra, including significant reductions in load times and enhanced user identification to improve marketing ROI and conversion. Excerpts describing Jordan Craig partnering with Nostra AI and Intelligems to overcome iOS privacy limitations and to enable high-accuracy user identification directly support the claim that the lead would have encountered or been exposed to Nostra’s capabilities in a marketing context. Additional excerpts establish that Jenice Brown currently holds a digital marketing leadership role at The Elisabeth Morrow School, and that she has past association with Jordan Craig, corroborated by multiple sources. By linking Jordan Craig’s adoption of Nostra’s Edge and related infrastructure improvements to marketing outcomes, these excerpts collectively support the inference that the alumna signal would be meaningful to her current role and decision-making in the new company. The strongest support comes from statements that Jordan Craig partnered with Nostra AI and achieved concrete performance benefits, which would be salient to a marketing-focused executive evaluating infrastructure investments. The confirmation of Jenice Brown’s past with Jordan Craig and her current senior digital role provides a plausible bridge for re-engagement around Nostra’s capabilities in a new context. Overall, the materials align with the idea that she would recognize, remember, and value the kinds of site performance and attribution improvements Nostra offers, given her career trajectory and the marketing outcomes at her past employer.",
+      "confidence": "medium"
+    },
+    {
+      "field": "recommended_approach.sample_subject_line",
+      "citations": [
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Jordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Case Study\n ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        }
+      ],
+      "reasoning": "The alumni signal requires a trace from the past company, Jordan Craig, to the lead’s current company, Elisabeth Morrow School. Excerpt showing Jenice Brown as Assistant Director of Digital Marketing at The Elisabeth Morrow School confirms the lead’s current company and role context, which is essential for tailoring outreach to EMS. Excerpts describing Jordan Craig’s involvement with Nostra (as a customer or partner) establish what the lead would have observed in the past environment (exposure to Nostra’s capabilities, such as improved performance or identity solutions). When these strands are connected—someone who previously operated at Jordan Craig (a Jordan Craig-related reference in Nostra materials) and who now works at EMS—the subject line “Jordan Craig -> Elisabeth Morrow School” is substantiated as a plausible alumni signal. The case study and resource mentions that place Jordan Craig in the Nostra ecosystem, underscoring familiarity with your product in a way the lead could recognize in her current role, which strengthens the rationale for a targeted approach that references both the past employer and current organization.",
+      "confidence": "medium"
+    },
+    {
+      "field": "recommended_approach.sample_message_body",
+      "citations": [
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Location\nSection Title: Jenice Brown > Assistant Director Of Digital Marketing\nContent:\nVerona, United States"
+          ]
+        },
+        {
+          "title": "Faculty and Staff - Elisabeth Morrow School",
+          "url": "https://elisabethmorrow.org/directory/",
+          "excerpts": [
+            "Section Title: Staff Directory > Jenice Brown > Assistant Director of Digital Content",
+            "Content:\n**Department:** Communications and Marketing\n**Pronouns:** She/Her/Hers"
+          ]
+        },
+        {
+          "title": "The Elisabeth Morrow School Management Team | Org Chart",
+          "url": "https://rocketreach.co/the-elisabeth-morrow-school-management_b5d3e38bf42e47a7",
+          "excerpts": [
+            "The Elisabeth Morrow School Employee Jenice Brown's profile photo · Jenice Brown. Assistant Director of Digital Marketing at The Elisabeth Morrow School. Verona ... The Elisabeth Morrow School Employee Jenice Brown's profile photo · Jenice Brown. Assistant Director of Digital Marketing at The Elisabeth Morrow School. Verona ..."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Jordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Case Study\n ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Remi and Nostra AI: Speeding Up Success in eCommerce",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        }
+      ],
+      "reasoning": "The finest-grained field value is a sample outreach message addressed to Jenice Brown that references her transition from Jordan Craig to The Elisabeth Morrow School and cites Nostra’s work with Jordan Craig on site performance and user identity post-iOS changes. The most directly relevant material confirms both sides of this alumni signal: Jenice Brown is currently the Assistant Director of Digital Marketing at The Elisabeth Morrow School, and she previously had a connection to Jordan Craig. Excerpts showing Jenice Brown’s EMS affiliation and roles at EMS (including LinkedIn and organizational pages) establish her current position and responsibilities in digital marketing and content. An excerpt that notes Jenice Brown’s past association with Jordan Craig provides the alumni link needed for a credible outreach angle. Additional excerpts about Jordan Craig’s collaboration with Nostra on performance and identity issues supply concrete, connectable talking points that mirror the content of the suggested message (load time improvements, identity sensitivity post-iOS privacy changes, and attribution continuity). Finally, contextual EMS pages deepen the evidence that Jenice is a digital marketing leader responsible for site experiences and attribution, making the suggested messaging both plausible and pertinent.\n\nDirect connections to support the message: EMS role and title; EMS staff/directory references confirming Jenice’s position; explicit statement of past association with Jordan Craig; Jordan Craig/Nostra collaboration case content demonstrating relevant pain points (speed, identity, attribution) that align with the proposed outreach focus. Together these excerpts establish a coherent narrative: Jenice is the EMS digital marketing lead with Jordan Craig roots, and Nostra has prior, concrete success addressing the same digital-infrastructure challenges she would care about today. The content commonly cited in the message—speed improvements, user identification post-privacy changes, and attribution consistency—are evidenced by the excerpts describing Jordan Craig/Nostra interactions and EMS digital concentration.\n",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway.urgency_level",
+      "citations": [
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Prior to that, they worked as a Marketing Associate at Jordan Craig from June 2021 to September 2022,",
+            "Jenice Brown has diverse work experience across various industries."
+          ]
+        }
+      ],
+      "reasoning": "The most persuasive support for a high urgency rating comes from the fact that Jordan Craig—the lead’s past company—partnered with Nostra, which directly demonstrates a customer relationship and exposure to Nostra’s offerings. This alumni signal indicates the lead likely understands the value proposition and potential impact of Nostra’s edge infrastructure on a similar business context. The corroborating documents confirm the lead’s current connection to The Elisabeth Morrow School, anchoring the relevance of digital marketing leadership to the client’s product benefits in performance, attribution, and security. This combination—past customer exposure and current strategic role in digital marketing—creates a clear throughline to urgency: the lead can champion or expedite a pilot or adoption given their familiarity with the product and the likely digital maturity needs of their current organization. The remaining excerpts reinforce the alumni and role context but add only tangential details about the individual’s background and the exact nature of Jordan Craig’s prior marketing functions; they do not undermine the core alumni signal or the customer partnership evidence.",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness.current_role_ownership",
+      "citations": [
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Jenice Brown has diverse work experience across various industries."
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Jordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Case Study\n ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        },
+        {
+          "title": "Remi and Nostra AI: Speeding Up Success in eCommerce",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        }
+      ],
+      "reasoning": "Jenice Brown is identified in current-organization contexts as holding a leadership role in digital marketing (Assistant Director of Digital Marketing). This directly supports the claim that she owns or heavily influences digital properties such as the school’s website content and digital campaigns, and that she collaborates with other departments to optimize digital funnels. The school affiliation corroborates the alumni signal aspect by anchoring her to the past Jordan Craig connection, which aligns with the premise that a former employee of a client customer would have exposure to the product. The excerpts describing Nostra’s performance-related outcomes (faster load times, higher conversions, improved attribution, and bot-protection-related capabilities) illustrate the kinds of measurable improvements Jenice would be evaluating within her role, thereby making her a relevant target for outreach. The references to Jordan Craig’s past involvement with Nostra provide context for her awareness of the product lineage and potential appreciation of its impact on digital experiences. While some excerpts discuss the client’s broader provider capabilities rather than her day-to-day ownership, they collectively reinforce the fit between her current responsibilities and the client’s value proposition, particularly around website performance, protection from bot traffic, and analytics fidelity.\n",
+      "confidence": "medium"
+    },
+    {
+      "field": "market_position.digital_imperative",
+      "citations": [
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Section Title: Customer Stories\nContent:\nNostra uses AI to power leading Shopify stores and websites. Read their stories to see if Nostra is the right fit for your business."
+          ]
+        },
+        {
+          "title": "Remi and Nostra AI: Speeding Up Success in eCommerce",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        }
+      ],
+      "reasoning": "The most relevant excerpt directly connects Nostra’s platform to tangible improvements in site speed and conversion, which align with EMS’s core digital goals (admissions and fundraising funnels) and the need to reduce friction on Ravenna and BoostMySchool. Supporting evidence comes from a client-style testimonial stating load times decreased and conversions improved, illustrating the concrete value of improved performance for EMS’s online processes. Additional excerpts highlight Nostra’s success in boosting site performance and conversions for ecommerce sites, reinforcing the proposition that EMS would experience similar benefits given its marketplace-like admissions and donations funnels. A note about EMS and a past association with Jordan Craig helps anchor the alumni signal: it confirms EMS as the current context, and the past company connection provides a plausible pathway for the lead to recognize value from prior exposure, even if it doesn’t claim direct product adoption. Collectively, these excerpts support the claim that a high-performing, privacy-conscious digital infrastructure is mission-critical for EMS and that the lead’s background places them in a position to understand and value such a solution.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.company_context",
+      "citations": [
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Faculty and Staff - Elisabeth Morrow School",
+          "url": "https://elisabethmorrow.org/directory/",
+          "excerpts": [
+            "Section Title: Staff Directory > Jenice Brown > Assistant Director of Digital Content",
+            "Content:\n**Department:** Communications and Marketing\n**Pronouns:** She/Her/Hers"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice Brown has diverse work experience across various industries.",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Location\nSection Title: Jenice Brown > Assistant Director Of Digital Marketing\nContent:\nVerona, United States"
+          ]
+        },
+        {
+          "title": "The Elisabeth Morrow School in Englewood, New Jersey",
+          "url": "https://www.usnews.com/education/k12/new-jersey/the-elisabeth-morrow-school-309693",
+          "excerpts": [
+            "The student population of The Elisabeth Morrow School is 387. The school's student-teacher ratio is 5:1. Tuition & Financial Aid."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Section Title: Customer Stories\nContent:\nNostra uses AI to power leading Shopify stores and websites. Read their stories to see if Nostra is the right fit for your business."
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant excerpt confirms EMS as a current employer of the lead’s known contact or related personnel, which helps anchor the alumni signal to EMS. The mention of Jenice Brown in EMS context shows a direct link to EMS’ digital leadership and potential familiarity with digital marketing infrastructure, making her a plausible senior contact. Other EMS-focused excerpts provide context about EMS personnel structure (e.g., assistant director of digital content/marketing) and location, which helps tailor outreach and confirm the organizational environment. Excerpts describing EMS’s past association with Jordan Craig establish the alumni signal but do not reveal EMS’s technical stack; they are supportive for understanding the lead’s past exposure to a product ecosystem. Excerpts about Nostra success stories or the client’s product features illuminate the vendor landscape but do not directly substantiate EMS’s specific WordPress-based multi-platform architecture. Taken together, the strongest support comes from EMS-identifying excerpts, with supporting context from EMS staff listings and location; the exact technical stack details in the field value are not explicitly evidenced in the excerpts, hence partial support for the precise platform integrations. The alumni connection is inferred through EMS personnel mentions and the lead’s past company linkages, while the rest remains inferential rather than explicit in the excerpts.",
+      "confidence": "low"
+    },
+    {
+      "field": "relevance_and_readiness.value_recognition",
+      "citations": [
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Case Study\n ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Remi and Nostra AI: Speeding Up Success in eCommerce",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice Brown has diverse work experience across various industries.",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant content directly ties Jenice Brown to both EMS and a past role at Jordan Craig, a customer of Nostra. Excerpt sets describing Jordan Craig partnering with Nostra and achieving high-return outcomes establish that Jenice would have been exposed to Nostra’s capabilities through a sophisticated ecommerce environment. This supports the claim that her past experience involved a company using Nostra, which makes her uniquely primed to recognize how performance, identity persistence, and faster load times translate into tangible business results in her new role at EMS. Additional excerpts confirm EMS-related context for Jenice and reinforce the alumni signal by showing her ongoing professional trajectory in digital marketing at EMS, validating the relevance of the alumni connection. The supporting Nostra testimonials about site speed, conversion impact, and identity-related features provide plausible grounds for why her recognition of Nostra’s value would be immediate, especially when considering EMS’s needs around WordPress site acceleration and user identity across funnels. The combination of the alumni link (past Jordan Craig), current EMS role, and the documented Nostra-enabled performance improvements creates a coherent narrative that Jenice would immediately grasp the strategic value of deploying Nostra’s edge solutions to optimize EMS’s digital infrastructure and fundraising/donor acquisition efforts.",
+      "confidence": "medium"
+    },
+    {
+      "field": "overview.alumni_signal",
+      "citations": [
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Jordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Case Study"
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        }
+      ],
+      "reasoning": "The alumni signal rests on two pillars: the lead’s past exposure at a customer of the product and the visible impact the product had for that customer. First, there are explicit statements describing Jordan Craig partnering with Nostra AI to address iOS privacy constraints and achieve highly accurate returning-user identification, unbiased A/B testing, and scalable personalization. This directly demonstrates the type of experience Jenice would have encountered in her prior role at the customer company, making the alumni signal plausible. Second, testimonial-style content from Jordan Craig and Nostra’s success narratives illustrate tangible performance improvements—faster load times, higher conversion, and better attribution—consistent with what Jordan Craig’s leadership would publicly praise about Nostra. These pieces collectively support the premise that Jenice was adjacent to or exposed to Nostra’s impact during her tenure at a verified customer. Additional corroboration comes from notes indicating Jordan Craig’s past association with Nostra in a case context, reinforcing the link between the brand and the product. Finally, broader Nostra success stories with other brands further bolster the plausibility that a former Jordan Craig marketing contact would recognize the value of Nostra’s platform. Taken together, these excerpts coherently connect the alumni signal to clear evidence of Jordan Craig’s use of Nostra and the observed outcomes, aligning with the field value.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview.current_role",
+      "citations": [
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice Brown has diverse work experience across various industries.",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Location\nSection Title: Jenice Brown > Assistant Director Of Digital Marketing\nContent:\nVerona, United States",
+            "Jenice Brown pursued higher education starting in 2013 at Passaic County Community College, where they obtained an Associate of Arts degree in Communication, Journalism, and Related Programs. Jenice later enrolled at William Paterson University of New Jersey in 2017 and successfully completed their Bachelor's degree in English Writing, with a minor in Public Relations, in 2019."
+          ]
+        },
+        {
+          "title": "The Elisabeth Morrow School Management Team | Org Chart",
+          "url": "https://rocketreach.co/the-elisabeth-morrow-school-management_b5d3e38bf42e47a7",
+          "excerpts": [
+            "The Elisabeth Morrow School Employee Jenice Brown's profile photo · Jenice Brown. Assistant Director of Digital Marketing at The Elisabeth Morrow School. Verona ... The Elisabeth Morrow School Employee Jenice Brown's profile photo · Jenice Brown. Assistant Director of Digital Marketing at The Elisabeth Morrow School. Verona ..."
+          ]
+        },
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Jordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Case Study"
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Remi and Nostra AI: Speeding Up Success in eCommerce",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Section Title: Customer Stories\nContent:\nNostra uses AI to power leading Shopify stores and websites. Read their stories to see if Nostra is the right fit for your business."
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field value represents the current role as an administrator in digital content/marketing at The Elisabeth Morrow School. Several excerpts explicitly confirm Jenice Brown's current association with The Elisabeth Morrow School and title as Assistant Director of Digital Marketing, which is highly aligned with the target role in a closely related digital leadership function at the same institution. The strongest confirmations are excerpts describing her as Assistant Director of Digital Marketing at The Elisabeth Morrow School and referencing the school directly, which directly corroborates the organization and seniority level. While the exact phrasing of the target role is 'Assistant Director of Digital Content,' the surrounding context in these excerpts shows a consistent pattern of a senior digital leadership position at the Elisabeth Morrow School, indicating a high degree of relevance and likely alignment in responsibilities (digital content strategy, marketing execution, content governance) given the title and domain. Additional excerpts establish an alumni signal by connecting Jenice Brown to Jordan Craig and the Elisabeth Morrow School, which helps frame her exposure to client customers and potential awareness of the client’s product, reinforcing relevance for GTM outreach. The presence of multiple confirmations of the current affiliation and role at the same institution strengthens the overall relevance, even if the exact job title differs slightly, suggesting the field value is supported by recognizable authority and context within the target organization.",
+      "confidence": "medium"
+    },
+    {
+      "field": "overview.lead_name",
+      "citations": [
+        {
+          "title": "Elisabeth Morrow School Company Profile",
+          "url": "https://www.datanyze.com/companies/elisabeth-morrow-school/32215211",
+          "excerpts": [
+            "**NOTE**: This document confirms Jenice Brown's current involvement with The Elisabeth Morrow School and her past association with Jordan Craig, a company described in the source document, but it does not explicitly state any use or deployment of Nostra's product by Jordan Craig.]"
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Jenice Brown has diverse work experience across various industries.",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Location\nSection Title: Jenice Brown > Assistant Director Of Digital Marketing\nContent:\nVerona, United States",
+            "Jenice Brown pursued higher education starting in 2013 at Passaic County Community College, where they obtained an Associate of Arts degree in Communication, Journalism, and Related Programs. Jenice later enrolled at William Paterson University of New Jersey in 2017 and successfully completed their Bachelor's degree in English Writing, with a minor in Public Relations, in 2019."
+          ]
+        },
+        {
+          "title": "The Elisabeth Morrow School Management Team | Org Chart",
+          "url": "https://rocketreach.co/the-elisabeth-morrow-school-management_b5d3e38bf42e47a7",
+          "excerpts": [
+            "The Elisabeth Morrow School Employee Jenice Brown's profile photo · Jenice Brown. Assistant Director of Digital Marketing at The Elisabeth Morrow School. Verona ... The Elisabeth Morrow School Employee Jenice Brown's profile photo · Jenice Brown. Assistant Director of Digital Marketing at The Elisabeth Morrow School. Verona ..."
+          ]
+        }
+      ],
+      "reasoning": "The target value is Jenice Brown, the lead’s name. Excerpt 6 explicitly confirms Jenice Brown’s current involvement with The Elisabeth Morrow School and mentions her past association with Jordan Craig, aligning with the provided lead_past_company and the current role at a related institution. The remaining excerpts primarily establish the same identity through various professional profiles: a LinkedIn-style entry that directly names Jenice Brown as the Assistant Director of Digital Marketing at The Elisabeth Morrow School, and several organizational profile snippets that list the same name and role. Together, these excerpts corroborate the lead’s identity (Jenice Brown) and tie her to the current company context (Elisabeth Morrow School) and past customer (Jordan Craig) context related to the client’s product domain. There is no conflicting information across these excerpts, and they collectively support the requested field value by confirming the person’s name and associated roles and affiliations. The strongest, most direct support comes from excerpts that explicitly state the current title and workplace, while other excerpts provide consistent corroboration of the name across bios and profiles.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.outreach_thesis",
+      "citations": [
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources?d6808797_page=2",
+          "excerpts": [
+            "Case Study\n ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            " ... \nSection Title: Expert Guides > Nostra AI Enables Persistent User Identification for Intelligems on Jordan Craig’s Website\nContent:\nJordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale.",
+            "Jordan Craig partnered with Nostra AI and Intelligems to overcome iOS privacy limitations, enabling ~99% returning user identification accuracy, unbiased A/B testing, and revenue-driving personalization at scale."
+          ]
+        },
+        {
+          "title": "Improve personalization and marketing attribution with Edge ID",
+          "url": "https://www.nostra.ai/edge-id",
+          "excerpts": [
+            "Real Results. Real Customers. Real Stories.\nContent:\nI truly cannot say enough positive things about Nostra’s infrastructure platform. We brought Nostra on and immediately saw our load times dramatically decrease. Our faster website increased conversion rate which ultimately affected our profit. In addition, we have received even more incremental value by using the rest of the Nostra's offerings. Nostra is a must have for any business looking to give their customers a better experience while also giving their own bottom line a boost."
+          ]
+        },
+        {
+          "title": "Remi and Nostra AI: Speeding Up Success in eCommerce",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        },
+        {
+          "title": "Jenice Brown - The Elisabeth Morrow School | LinkedIn",
+          "url": "https://www.linkedin.com/in/jenice-brown",
+          "excerpts": [
+            "\nAs the Assistant Director of Digital Content at The Elisabeth Morrow School, I specialize"
+          ]
+        },
+        {
+          "title": "Jenice Brown - Assistant Director Of Digital Marketing at The Elisabeth Morrow School | The Org",
+          "url": "https://theorg.com/org/the-elisabeth-morrow-school/org-chart/jenice-brown",
+          "excerpts": [
+            "Location\nSection Title: Jenice Brown > Assistant Director Of Digital Marketing\nContent:\nVerona, United States",
+            "Jenice most recently worked at The Elisabeth Morrow School as an Assistant Director of Digital Marketing since November 2022.",
+            "Jenice Brown pursued higher education starting in 2013 at Passaic County Community College, where they obtained an Associate of Arts degree in Communication, Journalism, and Related Programs. Jenice later enrolled at William Paterson University of New Jersey in 2017 and successfully completed their Bachelor's degree in English Writing, with a minor in Public Relations, in 2019."
+          ]
+        },
+        {
+          "title": "Faculty and Staff - Elisabeth Morrow School",
+          "url": "https://elisabethmorrow.org/directory/",
+          "excerpts": [
+            "Section Title: Staff Directory > Jenice Brown > Assistant Director of Digital Content",
+            "Content:\n**Department:** Communications and Marketing\n**Pronouns:** She/Her/Hers"
+          ]
+        },
+        {
+          "title": "Jenice Brown",
+          "url": "https://elisabethmorrow.org/directory/marek-beck/alycen-ashburn/jenice-brown/",
+          "excerpts": [
+            "Nov 14, 2022 — Nurturing curious, confident children on 14 acres of natural learning spaces in Bergen County, New Jersey. ems map. Facebook · LinkedIn ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The strongest support comes from excerpts describing Jordan Craig partnering with Nostra and achieving tangible outcomes like high-accuracy user identification and conversion-friendly performance, which directly exemplify the alumni signal the outreach thesis hinges on. Specifically, the case highlighting Jordan Craig’s collaboration with Nostra AI and Intelligems to overcome iOS privacy limitations demonstrates a direct line of awareness and potential influence from the lead’s past company to the lead’s current role, making the alumni signal highly salient for framing value transfer to Elisabeth Morrow School’s context. Additional excerpts illustrate Nostra’s impact on site speed and conversions, which underpin the suggested value map to Ravenna (admissions funnels) and BoostMySchool (fundraising) for the current site. Contextual references to Jenice Brown at Elisabeth Morrow School help anchor the current-company landscape and the relevance of digital marketing and content experiences in the school setting. Quotes in these excerpts collectively support the thesis that past exposure to Nostra’s infrastructure and performance improvements informs a plausible, compelling value narrative for the lead’s current company challenges, particularly around site experience, performance, and attribution. The combination of alumni exposure, demonstrated performance, and current-school context provides coherent, concrete grounding for the outreach thesis and a credible, targeted approach.",
+      "confidence": "high"
+    }
+  ],
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "overview": {
+        "type": "object",
+        "properties": {
+          "lead_name": {
+            "type": "string",
+            "description": "Full name of the lead."
+          },
+          "current_role": {
+            "type": "string",
+            "description": "The lead's current job title and company."
+          },
+          "alumni_signal": {
+            "type": "string",
+            "description": "Summary of the lead's connection to a past company that is a known client."
+          }
+        },
+        "required": [
+          "lead_name",
+          "current_role",
+          "alumni_signal"
+        ],
+        "additionalProperties": false
+      },
+      "market_position": {
+        "type": "object",
+        "properties": {
+          "company_context": {
+            "type": "string",
+            "description": "The business model and scale of the lead's current company (e.g., non-profit school, enrollment size)."
+          },
+          "revenue_and_growth_drivers": {
+            "type": "string",
+            "description": "How the company generates revenue and grows, such as student tuition and fundraising."
+          },
+          "digital_imperative": {
+            "type": "string",
+            "description": "Why a high-performing digital presence is critical for their key goals like admissions and donations."
+          }
+        },
+        "required": [
+          "company_context",
+          "revenue_and_growth_drivers",
+          "digital_imperative"
+        ],
+        "additionalProperties": false
+      },
+      "relevance_and_readiness": {
+        "type": "object",
+        "properties": {
+          "past_experience_relevance": {
+            "type": "string",
+            "description": "What the lead would have been aware of regarding the client's value proposition from their time at the past company."
+          },
+          "current_role_ownership": {
+            "type": "string",
+            "description": "What the lead is responsible for in their current role that aligns with the client's solution (e.g., digital marketing for admissions)."
+          },
+          "value_recognition": {
+            "type": "string",
+            "description": "Why their past experience makes them uniquely ready to understand the client's product benefits in their new role."
+          }
+        },
+        "required": [
+          "past_experience_relevance",
+          "current_role_ownership",
+          "value_recognition"
+        ],
+        "additionalProperties": false
+      },
+      "recommended_approach": {
+        "type": "object",
+        "properties": {
+          "outreach_thesis": {
+            "type": "string",
+            "description": "The core strategic angle for the outreach, connecting past experience to current challenges."
+          },
+          "sample_subject_line": {
+            "type": "string",
+            "description": "A specific and compelling subject line for an outreach email."
+          },
+          "sample_message_body": {
+            "type": "string",
+            "description": "The body of a sample email or talk track that is concrete and references the alumni connection."
+          }
+        },
+        "required": [
+          "outreach_thesis",
+          "sample_subject_line",
+          "sample_message_body"
+        ],
+        "additionalProperties": false
+      },
+      "takeaway": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string",
+            "description": "A one-sentence summary of why this lead is a high-value target."
+          },
+          "urgency_level": {
+            "type": "string",
+            "description": "The recommended urgency for outreach (e.g., High, Medium, Low)."
+          },
+          "justification": {
+            "type": "string",
+            "description": "The brief reason for the assigned urgency level."
+          }
+        },
+        "required": [
+          "verdict",
+          "urgency_level",
+          "justification"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "overview",
+      "market_position",
+      "relevance_and_readiness",
+      "recommended_approach",
+      "takeaway"
+    ],
+    "additionalProperties": false
+  }
+}

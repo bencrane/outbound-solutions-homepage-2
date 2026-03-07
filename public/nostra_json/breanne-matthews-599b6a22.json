@@ -1,0 +1,919 @@
+{
+  "input": "\"#CONTEXT#\nYou are a B2B sales strategist writing a GTM intelligence memo for a sales team. You will receive information about:\n1. A client company whose product is being sold\n2. A lead who previously worked at a company that is a known customer of the client\n3. The lead's current company where they now hold a relevant role\n\nThe lead's past company is a known customer of the client. The lead held a relevant role there and would have been exposed to or aware of the client's product. They have since moved to a new company in a similar or more senior role.\"\n\n\"#INPUTS#\nclient_company_name: Nostra\nclient_company_domain: nostra.ai\nclient_company_description: Nostra helps the world’s leading ecommerce brands future-proof their digital infrastructure with cutting-edge edge technology. We enable high-growth DTC companies to deploy enterprise-grade infrastructure in minutes, not months. Our edge platform is designed to accelerate site speed, increase conversion rates, and drive more revenue, while protecting your brand from modern threats. With products like Edge Delivery Engine, Edge Protection, Edge ID, and Edge Crawler, we give brands the tools to: • Boost performance by 20–30% • Block ad bot traffic before it hits your site • Extend cookie life for better attribution • Optimize content for LLM indexing and AI-native search Brands like Jolie, Amiri, and Olukai rely on Nostra to deliver faster, safer, smarter ecommerce experiences\n\nlead_full_name: \nlead_linkedin_url: Breanne Matthews\nlead_current_job_title: https://www.linkedin.com/in/breanne-matthews-599b6a22\nlead_current_company_name: General Manager\nlead_current_company_domain: Coca-Cola Canada Bottling\nlead_current_company_description: cokecanada.com\n\nlead_past_company_name: Coke Canada Bottling is Canada’s Local Bottler. We are a Canadian, family-owned business. We’re Made Local. With more than 6,000 diverse employees coast-to-coast, we have operations in every province through our 50+ sales and distribution centres and five manufacturing facilities.\n \nWe proudly make, distribute, merchandise, and sell the most loved beverages Canadians enjoy including Coca-Cola, Diet Coke, Coca-Cola Zero Sugar, Sprite, Fanta, Barq’s, FUZE Iced Tea, smartwater, POWERADE, DASANI, vitaminwater, and distribute partner brands Canada Dry, Monster Energy, and A&W.\n \nThe Coke Canada Bottling family is a team determined to create a better future and deliver optimism by bringing sustainable value for our employees, customers and consumers, grow our business responsibly, and make a positive difference in the communities where we operate.\n\nLooking to join the team? Visit our Careers Site here:\nhttps://careers.cokeonena.com/canada\n\nThe Coke Canada Bottling LinkedIn channel is a place for professional discussion and respectful dialogue. Comments deemed as inappropriate, disrespectful, or spam and/or misinformation may be deleted without warning. \n\nAny case of offensive content, including but not limited to, discriminatory or offensive remarks, threats of violence, unlawful content, objectionable comments, or racial slurs of any kind will not be tolerated, and removed from our page upon detection, without notice. \n\nAll Coke Canada Bottling Employees participating on LinkedIn are bound by company internal policies.\n\nYou can read about LinkedIn’s professional policies here: https://www.linkedin.com/legal/professional-community-policies. \n\nPlease contact us at ContactUs@CokeCanada.com with any concerns.\nlead_past_company_domain: Forever 21\nlead_past_company_description: forever21.com\nlead_past_company_job_title: Forever 21 continues to be a fashion industry leader with a mission to make the latest trends accessible to all. F21 persists on staying ahead of innovation and providing styles and fit that our customers love. While reinventing for now and beyond, we’re seeking passionate and creative new family members to join us on this adventure! F21 continues to operate E-commerce and 450 locations across the U.S. along with maintaining a strong brand DNA with consumers and within the fashion industry. \n\nIn February 2020, Forever 21 came under new ownership made up of Simon Property Group, Brookfield Property Partners, and Authentic Brands Group. Under this new ownership F21 has the financial strength and long term view that will prepare us for the future, while continuing to set the same high standards as it always has. Join our team and learn the inner sanctum of the global fashion industry, while we build the new Forever 21! \n\nForever 21 is operated by SPARC Group LLC.\n \nAbout SPARC Group LLC\nSPARC Group LLC offers operational and strategic expertise including retail and e-commerce management, sourcing, design and technology for leading global brands. SPARC Group is a joint venture between Simon Property Group, a preeminent retail real estate company and Authentic Brands Group, a global leader in brand development. In addition to Forever 21, SPARC Group brands include Aéropostale, Brooks Brothers, Nautica, Eddie Bauer, and Lucky Brand.\n \nSPARC Group LLC is an equal opportunity employer, and is committed to maintaining a workplace free from prohibited employment conduct, including discrimination or harassment on the basis of race, color, national origin, sex, age, religion, disability, genetic information, sexual orientation, gender identity or expression, marital status, domestic partner status, civil partnership, status as a covered veteran, status in the Uniformed Services of the United States, citizenship and any other characteristic protected by law.\"\n\n\"#OBJECTIVE#\nGenerate a 5-section GTM strategy memo that helps a sales rep understand why this lead is a high-value target right now and exactly how to approach them.\n\n#RESEARCH DIRECTIVES#\nBefore writing the memo, research the following:\n\n1. **Current company business context** — What is the current company's scale, market position, ecommerce footprint, and growth trajectory? What operational or technical challenges would a company like this face? What about their stage creates urgency for the client's product?\n\n2. **Competitive landscape** — Who are the current company's direct competitors? What market pressure do they face? How does site performance, conversion optimization, or digital infrastructure factor into their competitive position?\n\n3. **Lead's role and authority** — Based on their title and the company context, what does this person own? What decisions do they influence or control? Why are they the right person to talk to about the client's product?\n\n4. **The alumni signal** — The lead previously held a relevant role at a company that uses the client's product. What would they have seen or experienced there? How does that experience translate to their current situation?\n\n5. **Complexity delta** — How do the challenges at the current company compare to the past company? Are they dealing with more brands, more SKUs, more markets, more traffic, more complexity? Frame the current situation relative to what they've already navigated.\n\n#OUTPUT FORMAT#\nWrite a 5-section memo in sharp, conversational prose. No bullet points. No headers beyond the section names. Each section should be a tight paragraph.\n\n**OVERVIEW**\n2-3 sentences. Who is this person, what is their current role, and what is their connection to the client's customer base. State the alumni signal clearly.\n\n**MARKET POSITION**\nOne paragraph. The current company's business context — scale, growth stage, competitive pressure, and why their digital infrastructure matters right now. What is at stake for them?\n\n**RELEVANCE & READINESS**\nOne paragraph. Why this specific person. What did they see or own at their past company? What do they own now? Why would they recognize the value of the client's product immediately?\n\n**RECOMMENDED APPROACH**\nOne paragraph. The specific angle for outreach. Include a sample message or talk track that references the alumni connection and speaks to the current company's situation. Make it concrete, not generic.\n\n**TAKEAWAY**\nOne sentence. The verdict — why this lead matters and the urgency level.\n\n#STYLE GUIDANCE#\n- Be direct and specific. No filler, no hedge words.\n- Do not fabricate metrics, quotes, or claims. Only infer plausibly from the inputs and your research.\n- Do not claim the lead directly used or implemented the client's product unless you have evidence. Frame it as exposure and awareness based on their role.\n- The memo should read like it was written by someone who understands the market, not by an AI summarizing inputs.\n- Total length: 300-400 words.\n\nOutput Schema\njson{\n  \"\"overview\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"2-3 sentences. Who is this person, their current role, and their alumni connection to the client's customer base.\"\"\n  },\n  \"\"market_position\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on the current company's business context, competitive pressure, and why digital infrastructure matters now.\"\"\n  },\n  \"\"relevance_and_readiness\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on why this specific person — what they saw at the past company, what they own now, why they'd recognize value immediately.\"\"\n  },\n  \"\"recommended_approach\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph with the specific outreach angle and sample messaging that references the alumni connection.\"\"\n  },\n  \"\"takeaway\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One sentence verdict on why this lead matters and urgency level.\"\"\n  }\n}\"",
+  "output": {
+    "overview": {
+      "lead_identity": "Breanne Matthews is the General Manager for Coca-Cola Canada Bottling’s Kingston Market Unit, where she leads local operations and customer execution.",
+      "alumni_signal": "Breanne Matthews previously worked at Forever 21, which is a documented customer of Nostra. This experience means she would have been exposed to the impact of Nostra's edge performance solutions on revenue and user adoption."
+    },
+    "market_position": {
+      "company_context": "Coca-Cola Canada Bottling is a significant national entity, operating as Canada's local bottler with a substantial footprint. The company employs over 6,000 people, runs five manufacturing facilities, and manages more than 50 sales and distribution centers across every province, serving hundreds of thousands of customers. A key part of its strategy is explicitly stated as 'Fueling Our Growth Through Technology and Investment.' This is manifested in their push for digital self-service through the 'myCoke' portal, which allows customers to handle ordering, view invoices, and request service online, indicating a strategic shift towards digital customer interaction.",
+      "competitive_landscape": "The competitive environment for Coca-Cola Canada Bottling is intense, with primary rivals being PepsiCo Beverages and Keurig Dr Pepper. These competitors exert constant pressure, particularly in the digital realm. Both PepsiCo (with its 'PepsiCo Partners' portal) and Keurig Dr Pepper operate mature and established B2B ordering platforms. This creates a high-stakes, high-rivalry market where the quality and performance of digital customer-facing tools are critical for maintaining and growing market share. The presence of these sophisticated competitor platforms sets a high bar for the user experience and functionality of Coke Canada's own 'myCoke' portal.",
+      "digital_infrastructure_stakes": "For Coca-Cola Canada Bottling, the performance of its digital infrastructure, specifically the 'myCoke' B2B portal, is critical. The stakes are directly tied to core business outcomes. High performance, including site speed, reliability, and effective bot mitigation, translates directly into increased order volume, higher customer satisfaction, and a reduced load on customer support channels. What is at stake is the ability to provide frictionless ordering experiences for a diverse customer base ranging from small and medium-sized businesses (SMBs) to large chains, ensure dependable service workflows, and ultimately protect its account share from digitally adept competitors in a fiercely contested market. Failure to deliver a superior digital experience could result in lost sales and customer churn."
+    },
+    "relevance_and_readiness": {
+      "lead_authority_and_role": "As the General Manager for the Kingston Market Unit at Coca-Cola Canada Bottling, Breanne Matthews holds a significant position of authority. Her role entails ownership of the local P&L delivery, management of customer partnerships, and ensuring operational excellence. These responsibilities mean that the performance of the 'myCoke' digital self-serve portal has a direct and measurable impact on her success. Key metrics like revenue, order fill rates, and service level agreements (SLAs) are all influenced by the portal's efficiency and user experience, placing her in a position to both feel the pain of any shortcomings and champion solutions that drive improvement.",
+      "past_experience_exposure": "Breanne Matthews' previous employment at Forever 21, a documented customer of Nostra, provides a strong 'alumni signal.' During her time there, she would have been exposed to the impact of Nostra's technology. Specifically, she would have seen how edge delivery and crawler optimization programs can significantly improve key website performance metrics. Nostra's own case study on Forever 21 documents dramatic results, including a 53% reduction in Time to First Byte (TTFB) and a 59% acceleration in page load times. This experience makes her a high-context buyer who understands the tangible benefits of a faster, more efficient e-commerce platform.",
+      "value_proposition_recognition": "Her past exposure at Forever 21 makes Breanne Matthews uniquely prepared to understand and advocate for Nostra's value proposition in her current role at Coca-Cola Canada Bottling. She has firsthand context for what faster websites and improved performance do for revenue and user adoption. The benefits offered by Nostra—such as faster ordering, fewer abandoned cart sessions, and lower call volumes for support—map directly to her current remit as a General Manager focused on P&L and customer satisfaction. This alignment makes her an ideal internal champion for a low-lift pilot to improve 'myCoke' performance, as she can immediately grasp the business case and its impact on her market's results."
+    },
+    "recommended_approach": {
+      "outreach_angle": "The primary outreach angle is to position Nostra as a non-disruptive, drop-in edge layer specifically designed to accelerate the 'myCoke' portal and reduce friction in the B2B ordering and service processes. The strategy is to directly connect her past experience at Forever 21, where she witnessed the benefits of edge performance optimization, to the current operational challenges and opportunities within her market at Coca-Cola Canada Bottling. This frames Nostra not as a generic vendor, but as a known solution to a problem she is likely facing.",
+      "sample_message_talk_track": "'Breanne—congrats on the Kingston GM role. At Forever 21, your team saw how an edge layer can slash TTFB and page load and even improve crawl rates. Nostra’s Edge Delivery Engine and Protection layer do this without a replatform. We’d propose a 2-week A/B pilot on myCoke high-traffic flows (login → search → cart → submit order) in your market: measure time-to-first-byte, page load, order completion, and support tickets. F21’s program saw a 53% TTFB reduction and 59% faster loads; we typically see 10%+ revenue impact when self-serve friction falls. If we can prove faster ordering and fewer assisted calls in Kingston, you can scale it Canada-wide with your IT peers.' This should be closed by referencing Coke Canada’s stated technology investment mandate and offering to align on specific success metrics."
+    },
+    "takeaway": {
+      "verdict": "Breanne Matthews is a high-value target because she combines previous exposure to Nostra's impact at a former company with her current direct ownership of local revenue and customer experience at Coke Canada Bottling. This unique combination makes her an ideal sponsor for a performance pilot on the myCoke portal.",
+      "urgency_level": "High"
+    }
+  },
+  "outputBasis": [
+    {
+      "field": "market_position",
+      "citations": [
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Section Title: About Us > We are Coke Canada Bottling. Your Local Bottler."
+          ]
+        },
+        {
+          "title": "New Customers | Coke Canada Bottling Ltd.",
+          "url": "https://cokecanada.com/our-customers/new-customers/",
+          "excerpts": [
+            "Section Title: New Customers > We’re making it easy to order our products online with myCoke",
+            "myCoke is an all in one platform that is the smart way to refresh your business and stay up to date on the latest and greatest offers and products:",
+            "Effortless ordering with enhanced capabilities",
+            "Section Title: New Customers > Reduce Costs by Leveraging EDI Solutions > Increase return on investment"
+          ]
+        },
+        {
+          "title": "Coca-Cola Canada Bottling Limited",
+          "url": "https://ca.linkedin.com/company/coca-cola-canada-bottling-limited",
+          "excerpts": [
+            "Coke Canada Bottling is Canada's Local Bottler. We are a Canadian, family-owned business. We're Made Local. With more than 6,000 diverse employees ...Read more"
+          ]
+        },
+        {
+          "title": "Home - Your Local Coca-Cola Bottler",
+          "url": "https://careers.cokeonena.com/canada",
+          "excerpts": [
+            "With more than 6,000 diverse employees, we operate in every province, and territory, through our 50+ sales and distribution centres and five manufacturing ...Read more Coke Canada Bottling Limited is a local, Canadian, family-owned business with a mission to deliver optimism and create a better future.Read more"
+          ]
+        },
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        }
+      ],
+      "reasoning": "The most directly supportive content confirms Coca-Cola Canada Bottling’s large, nationwide footprint and its assertion of operating across provinces with a sizeable workforce and multi-facility operations, which aligns with the field value’s emphasis on scale and national presence. Additional excerpts describe the company’s emphasis on digital customer interaction through formats like myCoke, reinforcing the claimed stakes around digital infrastructure and online self-service. Other excerpts outline the competitive landscape, naming major rivals and their own digital portals, which underscores the high-pressure environment for Coke Canada’s digital experience. Several excerpts describe the company’s public-facing positioning and organizational scale, which help justify why technology investments and performance improvements would be critical in sustaining market position. Specific mentions of Coke Canada’s operations, locations, and customer reach ground the market_position in tangible, company-wide context and illustrate why improved digital infrastructure is strategically valuable given competitive dynamics. Excerpts that discuss the breadth of Coke Canada’s footprint and the existence of a consumer-facing portal (myCoke) tie directly to the need for reliable, fast, and secure digital platforms to support high-volume ordering and cross-provincial distribution, which are central to the asserted stakes in the field value.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience.",
+            "The implementation process involved close collaboration between Nostra AI and Forever 21's Engineering team. Nostra AI's experts worked diligently to integrate their solutions seamlessly into Forever 21's existing infrastructure, minimizing disruptions, and ensuring a smooth transition. Throughout the process, Nostra AI provided ongoing support and monitoring to optimize performance and address any potential issues."
+          ]
+        },
+        {
+          "title": "Nostra AI Raises $8.9M to Help Brands Boost E-Commerce Performance, Bringing Total Capital Raised to $20M",
+          "url": "https://www.businesswire.com/news/home/20240911413668/en/Nostra-AI-Raises-%248.9M-to-Help-Brands-Boost-E-Commerce-Performance-Bringing-Total-Capital-Raised-to-%2420M",
+          "excerpts": [
+            "With enterprise customer momentum including fashion retailer Forever 21, Nostra AI’s Edge Delivery Engine™ showcases immediate impact on core website metric",
+            " Edge Delivery Engine™ speeds up websites by examining personalized content such as shopping carts and determining what content can be cached to decrease load times. The engine, paired with Nostra AI’s Crawler Optimization that improves website experiences for bots, provides a powerful suite of tools that drive near-instant results for enterprise retailers like Forever 21 and some of the fastest-growing e-commerce brands like Jones Road, Jolie, BRUNT Workwear, Glamnetic, Cozy Earth and Nood.\n“",
+            "When it comes to e-commerce, it’s no secret that website speed, especially on mobile devices, has a direct impact on conversion rates and revenue,” said Nostra AI CEO and Founder Arthur Root. “Our proprietary Edge Delivery Engine™ makes websites substantially faster, instantly — customers are seeing north of a 10% lift in revenue by simply decreasing page load time.”"
+          ]
+        },
+        {
+          "title": "Breanne Matthews - Coca-Cola Canada Bottling Limited | LinkedIn",
+          "url": "https://ca.linkedin.com/in/breanne-matthews-599b6a22",
+          "excerpts": [
+            "I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ... I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews Email & Phone Number | Coca-Cola Canada ...",
+          "url": "https://rocketreach.co/breanne-matthews-email_128900005",
+          "excerpts": [
+            "Breanne Matthews, based in Belleville, ON, CA, is currently a General Manager at Coca-Cola Canada Bottling Limited. Breanne Matthews brings experience from ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Section Title: About Us > Locations Coast-to-Coast",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners."
+          ]
+        }
+      ],
+      "reasoning": "The most directly relevant content confirms the alumni signal: Forever 21 is a customer of Nostra, and Forever 21’s website performance and traffic improvements are attributed to Nostra AI’s Edge Delivery Engine and related solutions. These excerpts collectively demonstrate the client’s product relevance to a prior employer that the lead previously served in a relevant role, thereby validating exposure to the client’s category of offerings. Additional excerpts establish Breanne Matthews’s current leadership role at Coca-Cola Canada Bottling Limited, which anchors the alumni narrative to a real, verifiable executive at a beverage bottling/local market company. Supporting Coca-Cola Canada Bottling collateral helps confirm the lead’s current position and organizational context, which is necessary to frame the alumni signal within the target’s sales narrative. The collection of excerpts about Coke Canada Bottling, their scale and local market operations, and the Forever 21/Nostra success stories together provide a coherent chain: the lead’s past exposure at Forever 21 (a Nostra customer) would have given her awareness of Nostra’s Edge Delivery Engine and related capabilities, while her current role at Coca-Cola Canada Bottling forms the contemporary outreach target and business context for GTM strategy.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway",
+      "citations": [
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Coca-Cola Canada Bottling Limited",
+          "url": "https://ca.linkedin.com/company/coca-cola-canada-bottling-limited",
+          "excerpts": [
+            "Coke Canada Bottling is Canada's Local Bottler. We are a Canadian, family-owned business. We're Made Local. With more than 6,000 diverse employees ...Read more"
+          ]
+        },
+        {
+          "title": "Breanne Matthews Email & Phone Number | Coca-Cola Canada ...",
+          "url": "https://rocketreach.co/breanne-matthews-email_128900005",
+          "excerpts": [
+            "Breanne Matthews, based in Belleville, ON, CA, is currently a General Manager at Coca-Cola Canada Bottling Limited. Breanne Matthews brings experience from ..."
+          ]
+        },
+        {
+          "title": "Contact Breanne Matthews, Email: b***@cokecanada.com & Phone Number | General Manager at Coca-Cola Canada Bottling - ZoomInfo",
+          "url": "https://www.zoominfo.com/p/Breanne-Matthews/9238467830",
+          "excerpts": [
+            "Breanne Matthews\nGeneral Manager at Coca-Cola Canada Bottling"
+          ]
+        },
+        {
+          "title": "Breanne Matthews - Coca-Cola Canada Bottling Limited | LinkedIn",
+          "url": "https://ca.linkedin.com/in/breanne-matthews-599b6a22",
+          "excerpts": [
+            "I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ... I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ..."
+          ]
+        },
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners."
+          ]
+        },
+        {
+          "title": "Nostra AI Raises $8.9M to Help Brands Boost E-Commerce Performance, Bringing Total Capital Raised to $20M",
+          "url": "https://www.businesswire.com/news/home/20240911413668/en/Nostra-AI-Raises-%248.9M-to-Help-Brands-Boost-E-Commerce-Performance-Bringing-Total-Capital-Raised-to-%2420M",
+          "excerpts": [
+            " Edge Delivery Engine™ speeds up websites by examining personalized content such as shopping carts and determining what content can be cached to decrease load times. The engine, paired with Nostra AI’s Crawler Optimization that improves website experiences for bots, provides a powerful suite of tools that drive near-instant results for enterprise retailers like Forever 21 and some of the fastest-growing e-commerce brands like Jones Road, Jolie, BRUNT Workwear, Glamnetic, Cozy Earth and Nood.\n“",
+            "When it comes to e-commerce, it’s no secret that website speed, especially on mobile devices, has a direct impact on conversion rates and revenue,” said Nostra AI CEO and Founder Arthur Root. “Our proprietary Edge Delivery Engine™ makes websites substantially faster, instantly — customers are seeing north of a 10% lift in revenue by simply decreasing page load time.”"
+          ]
+        }
+      ],
+      "reasoning": "The most persuasive support comes from excerpts that clearly establish the lead’s current authority and company context: a high-level profile indicating Breanne Matthews holds the General Manager role at Coca-Cola Canada Bottling Limited, which confirms direct ownership of local revenue, distribution, and customer experience within Coke Canada’s operating footprint. Additional excerpts corroborate Coke Canada Bottling as a substantial, multi-facility local bottler with broad provincial coverage and hundreds or thousands of employees, underscoring the scale and operational impact of her role. The alumni signal is evidenced by the lead’s past association with Coke Canada Bottling and the description of Coke Canada Bottling as a known customer of the client, which makes the senior operator a plausible sponsor or advocate for piloting Nostra's Edge solutions in a consumer-facing retail environment like myCoke. Supporting material about Forever 21’s success with Nostra AI and the Edge Delivery Engine provides contextual backing for the value proposition, demonstrating that Nostra enables tangible performance gains in enterprise e-commerce settings, which Breanne would likely value given her focus on site speed and conversion. Taken together, these excerpts directly align with the takeaways stated in the value field: Breanne is a high-value target due to her combined exposure to Nostra’s impact in a prior role and her current authority overseeing Coke Canada Bottling’s local revenue and customer experiences, creating a strong case for a performance-pilot sponsorship.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.competitive_landscape",
+      "citations": [
+        {
+          "title": "New Customers | Coke Canada Bottling Ltd.",
+          "url": "https://cokecanada.com/our-customers/new-customers/",
+          "excerpts": [
+            "myCoke is an all in one platform that is the smart way to refresh your business and stay up to date on the latest and greatest offers and products:",
+            "Effortless ordering with enhanced capabilities"
+          ]
+        },
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Section Title: About Us > We are Coke Canada Bottling. Your Local Bottler."
+          ]
+        },
+        {
+          "title": "Coca-Cola Canada Bottling Limited",
+          "url": "https://ca.linkedin.com/company/coca-cola-canada-bottling-limited",
+          "excerpts": [
+            "Coke Canada Bottling is Canada's Local Bottler. We are a Canadian, family-owned business. We're Made Local. With more than 6,000 diverse employees ...Read more"
+          ]
+        },
+        {
+          "title": "Home - Your Local Coca-Cola Bottler",
+          "url": "https://careers.cokeonena.com/canada",
+          "excerpts": [
+            "With more than 6,000 diverse employees, we operate in every province, and territory, through our 50+ sales and distribution centres and five manufacturing ...Read more Coke Canada Bottling Limited is a local, Canadian, family-owned business with a mission to deliver optimism and create a better future.Read more"
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field analyzes the competitive landscape for Coca-Cola Canada Bottling, focusing on how intense competition and the maturity of rival digital ordering platforms affect Coke Canada Bottling's own digital tools like myCoke. The most relevant excerpts directly reference long-standing digital commerce capabilities and customer-facing platforms. For example, one excerpt describes myCoke as an all-in-one platform that facilitates effortless ordering and keeps customers updated on offers and products, which is exactly the kind of digital infrastructure that would be under competitive pressure from mature platforms. Another excerpt highlights that the company is actively offering enhanced ordering capabilities along with EDI solutions and ROI-focused features, underscoring the strategic importance of digital tools in competing for B2B customers. Supporting context about Coke Canada Bottling’s scale and reach (regional operations, thousands of employees, extensive distribution network) helps frame why strong digital experiences are critical in a competitive market. Additional excerpts provide corporate identity and footprint, reinforcing the scale and regional focus that make digital performance crucial for maintaining market share. Collectively, these excerpts support the idea that Coke Canada Bottling operates in a large, distributed, and digitally dependent market where competitive pressure centers on the quality and capabilities of B2B portals and ordering platforms; while they do not name specific rivals directly, the emphasis on digital platforms and the importance of performance and reliability aligns with a high-stakes competitive landscape.",
+      "confidence": "medium"
+    },
+    {
+      "field": "market_position.digital_infrastructure_stakes",
+      "citations": [
+        {
+          "title": "New Customers | Coke Canada Bottling Ltd.",
+          "url": "https://cokecanada.com/our-customers/new-customers/",
+          "excerpts": [
+            "myCoke is an all in one platform that is the smart way to refresh your business and stay up to date on the latest and greatest offers and products:",
+            "Effortless ordering with enhanced capabilities",
+            "Section Title: New Customers > We’re making it easy to order our products online with myCoke",
+            "Section Title: New Customers > Reduce Costs by Leveraging EDI Solutions > Increase return on investment"
+          ]
+        },
+        {
+          "title": "Home - Your Local Coca-Cola Bottler",
+          "url": "https://careers.cokeonena.com/canada",
+          "excerpts": [
+            "With more than 6,000 diverse employees, we operate in every province, and territory, through our 50+ sales and distribution centres and five manufacturing ...Read more Coke Canada Bottling Limited is a local, Canadian, family-owned business with a mission to deliver optimism and create a better future.Read more"
+          ]
+        },
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Section Title: About Us > We are Coke Canada Bottling. Your Local Bottler."
+          ]
+        },
+        {
+          "title": "Coca-Cola Canada Bottling Limited",
+          "url": "https://ca.linkedin.com/company/coca-cola-canada-bottling-limited",
+          "excerpts": [
+            "Coke Canada Bottling is Canada's Local Bottler. We are a Canadian, family-owned business. We're Made Local. With more than 6,000 diverse employees ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The most relevant material directly centers on the digital ordering experience and related platforms. Descriptions of myCoke as an all-in-one platform designed to streamline ordering and stay updated on offers demonstrate why performance and user experience of the digital channel matter for Coca-Cola Canada Bottling's operations and customer interactions. Mentions of enhanced capabilities and ROI tied to digital tools further support the stakes around site speed, reliability, and bot mitigation, which are central to the field value. Context about Coke Canada Bottling as a large, locally operating bottler with many employees and a broad provincial footprint reinforces why a frictionless, dependable digital infrastructure can influence order volume, customer satisfaction, and competitive positioning. The leadership profile and company overview provide corroboration that the digital channel is strategically important for this market player, though they are less directly about the portal specifics than the portal-focused excerpts.\n",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness",
+      "citations": [
+        {
+          "title": "Breanne Matthews - Coca-Cola Canada Bottling Limited | LinkedIn",
+          "url": "https://ca.linkedin.com/in/breanne-matthews-599b6a22",
+          "excerpts": [
+            "I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ... I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews Email & Phone Number | Coca-Cola Canada ...",
+          "url": "https://rocketreach.co/breanne-matthews-email_128900005",
+          "excerpts": [
+            "Breanne Matthews, based in Belleville, ON, CA, is currently a General Manager at Coca-Cola Canada Bottling Limited. Breanne Matthews brings experience from ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Coca-Cola Canada Bottling Limited",
+          "url": "https://ca.linkedin.com/company/coca-cola-canada-bottling-limited",
+          "excerpts": [
+            "Coke Canada Bottling is Canada's Local Bottler. We are a Canadian, family-owned business. We're Made Local. With more than 6,000 diverse employees ...Read more"
+          ]
+        },
+        {
+          "title": "Home - Your Local Coca-Cola Bottler",
+          "url": "https://careers.cokeonena.com/canada",
+          "excerpts": [
+            "With more than 6,000 diverse employees, we operate in every province, and territory, through our 50+ sales and distribution centres and five manufacturing ...Read more Coke Canada Bottling Limited is a local, Canadian, family-owned business with a mission to deliver optimism and create a better future.Read more"
+          ]
+        },
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners."
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs."
+          ]
+        },
+        {
+          "title": "Nostra AI Raises $8.9M to Help Brands Boost E-Commerce Performance, Bringing Total Capital Raised to $20M",
+          "url": "https://www.businesswire.com/news/home/20240911413668/en/Nostra-AI-Raises-%248.9M-to-Help-Brands-Boost-E-Commerce-Performance-Bringing-Total-Capital-Raised-to-%2420M",
+          "excerpts": [
+            "With enterprise customer momentum including fashion retailer Forever 21, Nostra AI’s Edge Delivery Engine™ showcases immediate impact on core website metric",
+            " Edge Delivery Engine™ speeds up websites by examining personalized content such as shopping carts and determining what content can be cached to decrease load times. The engine, paired with Nostra AI’s Crawler Optimization that improves website experiences for bots, provides a powerful suite of tools that drive near-instant results for enterprise retailers like Forever 21 and some of the fastest-growing e-commerce brands like Jones Road, Jolie, BRUNT Workwear, Glamnetic, Cozy Earth and Nood.\n“",
+            "When it comes to e-commerce, it’s no secret that website speed, especially on mobile devices, has a direct impact on conversion rates and revenue,” said Nostra AI CEO and Founder Arthur Root. “Our proprietary Edge Delivery Engine™ makes websites substantially faster, instantly — customers are seeing north of a 10% lift in revenue by simply decreasing page load time.”"
+          ]
+        }
+      ],
+      "reasoning": "The strongest support comes from excerpts that explicitly name the lead’s current role and company, establishing authority to influence decisions about digital infrastructure and customer-facing portals. Such sources describe Breanne Matthews as a General Manager at Coca-Cola Canada Bottling Limited, with the Kingston Market Unit highlighted, reinforcing ownership of local P&L delivery and customer partnerships—precisely the responsibilities that connect to the client’s edge/digital platform value. Additional sources corroborate Coca-Cola Canada Bottling as the local bottler with a broad footprint, further anchoring the strategic context for this lead. The alumni signal is evidenced by Forever 21 content showing Coca-Cola’s past customer (Forever 21) and by Nostra’s success stories involving Forever 21, which demonstrates how Nostra’s Edge Delivery Engine and crawler optimization can improve site performance. This frames the lead as highly attuned to performance-driven digital infrastructure, making the value proposition tangible for her current remit (speed, reliability, revenue impact, and customer experience). The combination of her current authority, the direct link to Coca-Cola Canada Bottling’s scale and operations, and the explicit Forever 21 Nostra references builds a coherent case for prioritizing outreach to this lead, with a plausible expectation that she understands the benefits of faster, more reliable e-commerce experiences and the potential ROI from a pilot of the client’s Edge platform. The Forever 21 case study and the Nostra press materials provide concrete examples of outcomes (faster site performance, reduced latency, improved conversion potential) that align with her responsibilities around delivery performance and customer satisfaction, reinforcing both readiness and relevance for engagement.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach",
+      "citations": [
+        {
+          "title": "Breanne Matthews - Coca-Cola Canada Bottling Limited | LinkedIn",
+          "url": "https://ca.linkedin.com/in/breanne-matthews-599b6a22",
+          "excerpts": [
+            "I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ... I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Breanne Matthews Email & Phone Number | Coca-Cola Canada ...",
+          "url": "https://rocketreach.co/breanne-matthews-email_128900005",
+          "excerpts": [
+            "Breanne Matthews, based in Belleville, ON, CA, is currently a General Manager at Coca-Cola Canada Bottling Limited. Breanne Matthews brings experience from ..."
+          ]
+        },
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Section Title: About Us > Locations Coast-to-Coast",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners."
+          ]
+        },
+        {
+          "title": "Nostra AI Raises $8.9M to Help Brands Boost E-Commerce Performance, Bringing Total Capital Raised to $20M",
+          "url": "https://www.businesswire.com/news/home/20240911413668/en/Nostra-AI-Raises-%248.9M-to-Help-Brands-Boost-E-Commerce-Performance-Bringing-Total-Capital-Raised-to-%2420M",
+          "excerpts": [
+            " Edge Delivery Engine™ speeds up websites by examining personalized content such as shopping carts and determining what content can be cached to decrease load times. The engine, paired with Nostra AI’s Crawler Optimization that improves website experiences for bots, provides a powerful suite of tools that drive near-instant results for enterprise retailers like Forever 21 and some of the fastest-growing e-commerce brands like Jones Road, Jolie, BRUNT Workwear, Glamnetic, Cozy Earth and Nood.\n“",
+            "When it comes to e-commerce, it’s no secret that website speed, especially on mobile devices, has a direct impact on conversion rates and revenue,” said Nostra AI CEO and Founder Arthur Root. “Our proprietary Edge Delivery Engine™ makes websites substantially faster, instantly — customers are seeing north of a 10% lift in revenue by simply decreasing page load time.”"
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience.",
+            "The implementation process involved close collaboration between Nostra AI and Forever 21's Engineering team. Nostra AI's experts worked diligently to integrate their solutions seamlessly into Forever 21's existing infrastructure, minimizing disruptions, and ensuring a smooth transition. Throughout the process, Nostra AI provided ongoing support and monitoring to optimize performance and address any potential issues."
+          ]
+        }
+      ],
+      "reasoning": "The outreach argument hinges on a clear alumni signal: Breanne Matthews’s past at Forever 21 positions her to recognize edge-performance benefits from Nostra, and her current role as General Manager at Coca-Cola Canada Bottling places her at the center of a large, multi-province ecommerce and distribution network where faster site performance directly affects conversion and order throughput. Several excerpts establish Breanne’s identity and Coke Canada context, which provides credibility to the outreach angle that Nostra’s Edge Delivery Engine can drop in without replatforming and can measurably improve time-to-first-byte and page load for high-traffic flows such as login, search, cart, and checkout in the myCoke environment. Other excerpts describe Forever 21’s experience with Nostra and the palpable impact on performance and revenue, providing concrete numbers and a narrative to translate to Coca-Cola Canada’s scale (thousands of SKUs, multi-market presence, local bottling hub). Additional Coke Canada materials outline the company’s scale and regional operations, supporting the claim that a Canada-wide rollout could be framed as an extension of an already proven local success. Together, these sources justify a targeted outreach that references the alumni connection, presents a drop-in edge solution without disruption, and proposes a tightly scoped pilot with clear success metrics relevant to Coca-Cola Canada’s digital ordering and service surfaces. The message should cite Forever 21’s TTFB and load improvements and propose a 2-week A/B pilot on high-traffic flows in Kingston that could scale to Canada, framing the proof in terms of reduced friction, lower support tickets, and potential revenue lift as evidenced by the Forever 21 case and Nostra’s public success stories.",
+      "confidence": "medium"
+    },
+    {
+      "field": "market_position.company_context",
+      "citations": [
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Section Title: About Us > We are Coke Canada Bottling. Your Local Bottler."
+          ]
+        },
+        {
+          "title": "Home - Your Local Coca-Cola Bottler",
+          "url": "https://careers.cokeonena.com/canada",
+          "excerpts": [
+            "With more than 6,000 diverse employees, we operate in every province, and territory, through our 50+ sales and distribution centres and five manufacturing ...Read more Coke Canada Bottling Limited is a local, Canadian, family-owned business with a mission to deliver optimism and create a better future.Read more"
+          ]
+        },
+        {
+          "title": "New Customers | Coke Canada Bottling Ltd.",
+          "url": "https://cokecanada.com/our-customers/new-customers/",
+          "excerpts": [
+            "Section Title: New Customers > We’re making it easy to order our products online with myCoke",
+            "myCoke is an all in one platform that is the smart way to refresh your business and stay up to date on the latest and greatest offers and products:",
+            "Effortless ordering with enhanced capabilities",
+            "Section Title: New Customers > Reduce Costs by Leveraging EDI Solutions > Increase return on investment"
+          ]
+        },
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Coca-Cola Canada Bottling Limited",
+          "url": "https://ca.linkedin.com/company/coca-cola-canada-bottling-limited",
+          "excerpts": [
+            "Coke Canada Bottling is Canada's Local Bottler. We are a Canadian, family-owned business. We're Made Local. With more than 6,000 diverse employees ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The most directly supportive information includes explicit scale metrics for Coca-Cola Canada Bottling: the organization employs over 6,000 people, operates five manufacturing facilities, and maintains more than 50 sales and distribution centres across all provinces. This confirms the field’s depiction of Coca-Cola Canada Bottling as a substantial national entity with a broad footprint. Additional strong support comes from references to being a local bottler with a wide provincial coverage, reinforcing the local-to-national context. The strategic emphasis on digital self-service through the myCoke portal and related capabilities (online ordering, invoices, service requests) aligns with the field’s note about a digital customer interaction push, indicating a deliberate infrastructure investment to support growth. Ancillary pieces acknowledge the company’s structure and identity as Coca-Cola Canada Bottling Limited, which corroborates the entity being described as a major national bottler. These elements collectively support the asserted scale, distribution reach, and digital-infrastructure focus, painting a coherent picture of the client’s target context for GTM outreach. While some excerpts repeat similar facts (e.g., location-specific descriptions or portal features), they reinforce the scale and the digital strategy without introducing conflicting claims.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview.lead_identity",
+      "citations": [
+        {
+          "title": "Breanne Matthews Email & Phone Number | Coca-Cola Canada ...",
+          "url": "https://rocketreach.co/breanne-matthews-email_128900005",
+          "excerpts": [
+            "Breanne Matthews, based in Belleville, ON, CA, is currently a General Manager at Coca-Cola Canada Bottling Limited. Breanne Matthews brings experience from ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - Coca-Cola Canada Bottling Limited | LinkedIn",
+          "url": "https://ca.linkedin.com/in/breanne-matthews-599b6a22",
+          "excerpts": [
+            "I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ... I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ..."
+          ]
+        },
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Section Title: About Us > Locations Coast-to-Coast"
+          ]
+        }
+      ],
+      "reasoning": "The lead’s identity is clear from excerpts that state the person’s name and current role at Coca-Cola Canada Bottling Limited. One excerpt explicitly notes that Breanne Matthews is currently a General Manager at Coca-Cola Canada Bottling Limited, which provides the core data for the lead identity. Another excerpt specifies the Kingston Market Unit, grounding the role in a defined part of the organization and reinforcing seniority. A LinkedIn excerpt also confirms the name and association with Coca-Cola Canada Bottling Limited. Additional excerpts describe the Coca-Cola Canada Bottling entity generally, offering contextual backing about the company the lead is currently associated with. Taken together, these excerpts directly map to the requested field value by identifying the individual and confirming her current leadership role within the specified company.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway.verdict",
+      "citations": [
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - Coca-Cola Canada Bottling Limited | LinkedIn",
+          "url": "https://ca.linkedin.com/in/breanne-matthews-599b6a22",
+          "excerpts": [
+            "I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ... I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews Email & Phone Number | Coca-Cola Canada ...",
+          "url": "https://rocketreach.co/breanne-matthews-email_128900005",
+          "excerpts": [
+            "Breanne Matthews, based in Belleville, ON, CA, is currently a General Manager at Coca-Cola Canada Bottling Limited. Breanne Matthews brings experience from ..."
+          ]
+        },
+        {
+          "title": "Contact Breanne Matthews, Email: b***@cokecanada.com & Phone Number | General Manager at Coca-Cola Canada Bottling - ZoomInfo",
+          "url": "https://www.zoominfo.com/p/Breanne-Matthews/9238467830",
+          "excerpts": [
+            "Breanne Matthews\nGeneral Manager at Coca-Cola Canada Bottling"
+          ]
+        },
+        {
+          "title": "Coca-Cola Canada Bottling Limited",
+          "url": "https://ca.linkedin.com/company/coca-cola-canada-bottling-limited",
+          "excerpts": [
+            "Coke Canada Bottling is Canada's Local Bottler. We are a Canadian, family-owned business. We're Made Local. With more than 6,000 diverse employees ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The most relevant content directly identifies Breanne Matthews as the General Manager at Coca-Cola Canada Bottling Limited, establishing her current authority over local revenue and customer experience within a large, distributed consumer goods network. This supports the idea that she could sponsor or enable a performance pilot for a digital infrastructure product tied to ecommerce performance. The corroborating LinkedIn and organizational excerpts reinforce her leadership position and the Coca-Cola Canada Bottling footprint, highlighting the scale and operational reach that could benefit from improved site performance and anti-bot capabilities. While another set of excerpts discusses Nostra’s product capabilities and client references, which provides product relevance, the strongest linkage for the field value is her current role and the organizational context; the alumni signal is plausible but not directly evidenced by these excerpts, so the argument relies on the combination of her leadership role and the strategic alignment between Coca-Cola's distribution network and Nostra’s performance-oriented edge solutions.",
+      "confidence": "medium"
+    },
+    {
+      "field": "relevance_and_readiness.lead_authority_and_role",
+      "citations": [
+        {
+          "title": "Breanne Matthews - Coca-Cola Canada Bottling Limited | LinkedIn",
+          "url": "https://ca.linkedin.com/in/breanne-matthews-599b6a22",
+          "excerpts": [
+            "I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ... I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews Email & Phone Number | Coca-Cola Canada ...",
+          "url": "https://rocketreach.co/breanne-matthews-email_128900005",
+          "excerpts": [
+            "Breanne Matthews, based in Belleville, ON, CA, is currently a General Manager at Coca-Cola Canada Bottling Limited. Breanne Matthews brings experience from ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Coca-Cola Canada Bottling Limited",
+          "url": "https://ca.linkedin.com/company/coca-cola-canada-bottling-limited",
+          "excerpts": [
+            "Coke Canada Bottling is Canada's Local Bottler. We are a Canadian, family-owned business. We're Made Local. With more than 6,000 diverse employees ...Read more"
+          ]
+        },
+        {
+          "title": "Home - Your Local Coca-Cola Bottler",
+          "url": "https://careers.cokeonena.com/canada",
+          "excerpts": [
+            "With more than 6,000 diverse employees, we operate in every province, and territory, through our 50+ sales and distribution centres and five manufacturing ...Read more Coke Canada Bottling Limited is a local, Canadian, family-owned business with a mission to deliver optimism and create a better future.Read more"
+          ]
+        },
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners."
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field value centers on Breanne Matthews’ authority as the General Manager for Coca-Cola Canada Bottling, with embedded responsibilities such as local P&L delivery, management of customer partnerships, and operational excellence. Excerpts describing Breanne Matthews as a General Manager at Coca-Cola Canada Bottling Limited directly support the existence of a high-ranking, locally-focused leadership role with profit-and-operations accountability, which aligns with the stated field value. Additional excerpts that outline Coca-Cola Canada Bottling as a large, Canada-wide local bottler with extensive distribution networks reinforce the scale and impact of that role, making the connection between leadership authority and the need to optimize regional digital or operational systems plausible. These sources collectively establish both the exact title and the organizational context that would drive decisions related to performance, partnerships, and service-level outcomes at the local market unit level. Taken together, they substantiate the claim that the lead’s authority encompasses oversight of locally critical performance metrics and partner relationships, which would shape how she perceives and values a solution designed to improve digital infrastructure or portal experiences tied to revenue and SLA performance. The remaining excerpts, which discuss the client’s product and unrelated brands, do not directly support the authority and role claim but provide peripheral market context that helps frame the competitive and vendor landscape.Overall, the strongest support is the explicit title and organization, with solid corroboration on the corporate structure and local market focus that underpins her decision-making leverage.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway.urgency_level",
+      "citations": [
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - Coca-Cola Canada Bottling Limited | LinkedIn",
+          "url": "https://ca.linkedin.com/in/breanne-matthews-599b6a22",
+          "excerpts": [
+            "I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ... I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ..."
+          ]
+        },
+        {
+          "title": "Contact Breanne Matthews, Email: b***@cokecanada.com & Phone Number | General Manager at Coca-Cola Canada Bottling - ZoomInfo",
+          "url": "https://www.zoominfo.com/p/Breanne-Matthews/9238467830",
+          "excerpts": [
+            "Breanne Matthews\nGeneral Manager at Coca-Cola Canada Bottling"
+          ]
+        },
+        {
+          "title": "Breanne Matthews Email & Phone Number | Coca-Cola Canada ...",
+          "url": "https://rocketreach.co/breanne-matthews-email_128900005",
+          "excerpts": [
+            "Breanne Matthews, based in Belleville, ON, CA, is currently a General Manager at Coca-Cola Canada Bottling Limited. Breanne Matthews brings experience from ..."
+          ]
+        },
+        {
+          "title": "Coca-Cola Canada Bottling Limited",
+          "url": "https://ca.linkedin.com/company/coca-cola-canada-bottling-limited",
+          "excerpts": [
+            "Coke Canada Bottling is Canada's Local Bottler. We are a Canadian, family-owned business. We're Made Local. With more than 6,000 diverse employees ...Read more"
+          ]
+        },
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners."
+          ]
+        },
+        {
+          "title": "Nostra AI Raises $8.9M to Help Brands Boost E-Commerce Performance, Bringing Total Capital Raised to $20M",
+          "url": "https://www.businesswire.com/news/home/20240911413668/en/Nostra-AI-Raises-%248.9M-to-Help-Brands-Boost-E-Commerce-Performance-Bringing-Total-Capital-Raised-to-%2420M",
+          "excerpts": [
+            "When it comes to e-commerce, it’s no secret that website speed, especially on mobile devices, has a direct impact on conversion rates and revenue,” said Nostra AI CEO and Founder Arthur Root. “Our proprietary Edge Delivery Engine™ makes websites substantially faster, instantly — customers are seeing north of a 10% lift in revenue by simply decreasing page load time.”",
+            " Edge Delivery Engine™ speeds up websites by examining personalized content such as shopping carts and determining what content can be cached to decrease load times. The engine, paired with Nostra AI’s Crawler Optimization that improves website experiences for bots, provides a powerful suite of tools that drive near-instant results for enterprise retailers like Forever 21 and some of the fastest-growing e-commerce brands like Jones Road, Jolie, BRUNT Workwear, Glamnetic, Cozy Earth and Nood.\n“"
+          ]
+        }
+      ],
+      "reasoning": "The alumni signal is critical: Breanne Matthews is described as a General Manager at Coca-Cola Canada Bottling Limited, which establishes a direct link between the lead and a client customer base. This makes the lead especially valuable because she would have exposure to or awareness of the client’s edge infrastructure products through Coca-Cola Canada Bottling’s scale and distribution footprint. The Coca-Cola Canada Bottling materials emphasize a large, nationwide operation with thousands of employees and operations across provinces, underscoring why digital performance and reliability matter for long-tail customer reach and high-volume sales. Together, this suggests a high-stakes context where improving site speed, protection against ad bot traffic, and better attribution could meaningfully impact revenue at a large consumer brand. Supporting the urgency narrative, the client’s edge technology claims—speeding up websites, boosting conversion, and delivering measurable revenue lift—provide a concrete, outcome-oriented rationale for why engaging someone with Coca-Cola Canada Bottling’s reach would be timely and valuable. While the excerpts outlining the alumni connection and Coca-Cola’s scale strongly imply urgency, the explicit claim of a flagship, time-sensitive need specific to Coca-Cola Canada Bottling is not stated verbatim; however, the convergence of a high-impact corporate role, extensive distribution footprint, and a proven performance benefit in similar deployments builds a credible high-urgency case. The excerpts collectively support the view that this lead represents a high-value, time-sensitive target due to the combination of alumni signal, organizational scale, and meaningful performance implications of the client’s product.",
+      "confidence": "medium"
+    },
+    {
+      "field": "overview.alumni_signal",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience.",
+            "The implementation process involved close collaboration between Nostra AI and Forever 21's Engineering team. Nostra AI's experts worked diligently to integrate their solutions seamlessly into Forever 21's existing infrastructure, minimizing disruptions, and ensuring a smooth transition. Throughout the process, Nostra AI provided ongoing support and monitoring to optimize performance and address any potential issues."
+          ]
+        },
+        {
+          "title": "Nostra AI Raises $8.9M to Help Brands Boost E-Commerce Performance, Bringing Total Capital Raised to $20M",
+          "url": "https://www.businesswire.com/news/home/20240911413668/en/Nostra-AI-Raises-%248.9M-to-Help-Brands-Boost-E-Commerce-Performance-Bringing-Total-Capital-Raised-to-%2420M",
+          "excerpts": [
+            "With enterprise customer momentum including fashion retailer Forever 21, Nostra AI’s Edge Delivery Engine™ showcases immediate impact on core website metric",
+            " Edge Delivery Engine™ speeds up websites by examining personalized content such as shopping carts and determining what content can be cached to decrease load times. The engine, paired with Nostra AI’s Crawler Optimization that improves website experiences for bots, provides a powerful suite of tools that drive near-instant results for enterprise retailers like Forever 21 and some of the fastest-growing e-commerce brands like Jones Road, Jolie, BRUNT Workwear, Glamnetic, Cozy Earth and Nood.\n“",
+            "When it comes to e-commerce, it’s no secret that website speed, especially on mobile devices, has a direct impact on conversion rates and revenue,” said Nostra AI CEO and Founder Arthur Root. “Our proprietary Edge Delivery Engine™ makes websites substantially faster, instantly — customers are seeing north of a 10% lift in revenue by simply decreasing page load time.”"
+          ]
+        }
+      ],
+      "reasoning": "The strongest support for the alumni signal comes from excerpts that explicitly describe Forever 21 as a customer of Nostra and detail how Nostra’s Edge Delivery Engine and related tools improve site performance and traffic. These items collectively illustrate the type of exposure a former Forever 21 employee would have had to Nostra’s impact on revenue and user adoption, which is the essence of the alumni signal. Additional excerpts describe Forever 21’s heavy reliance on online channels and the critical role of website speed in conversions, reinforcing why this alumni connection would be meaningful to a leader in a similar role at Coca-Cola Canada Bottling today. Together, these excerpts show a coherent narrative: Forever 21 used Nostra’s solutions to address performance and traffic, demonstrating real-world outcomes that the alumni signal implies the lead would be aware of and could leverage in outreach. The most directly supportive content is the Forever 21 success story that frames performance improvements and collaboration during implementation, followed by notes on specific performance benefits and the strategic importance of online channels. Collectively, these excerpts corroborate the claim that the lead would have seen or understood Nostra’s impact on revenue and user adoption through Forever 21, making the alumni signal highly plausible and relevant.",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness.past_experience_exposure",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times."
+          ]
+        },
+        {
+          "title": "Nostra AI Raises $8.9M to Help Brands Boost E-Commerce Performance, Bringing Total Capital Raised to $20M",
+          "url": "https://www.businesswire.com/news/home/20240911413668/en/Nostra-AI-Raises-%248.9M-to-Help-Brands-Boost-E-Commerce-Performance-Bringing-Total-Capital-Raised-to-%2420M",
+          "excerpts": [
+            " Edge Delivery Engine™ speeds up websites by examining personalized content such as shopping carts and determining what content can be cached to decrease load times. The engine, paired with Nostra AI’s Crawler Optimization that improves website experiences for bots, provides a powerful suite of tools that drive near-instant results for enterprise retailers like Forever 21 and some of the fastest-growing e-commerce brands like Jones Road, Jolie, BRUNT Workwear, Glamnetic, Cozy Earth and Nood.\n“",
+            "When it comes to e-commerce, it’s no secret that website speed, especially on mobile devices, has a direct impact on conversion rates and revenue,” said Nostra AI CEO and Founder Arthur Root. “Our proprietary Edge Delivery Engine™ makes websites substantially faster, instantly — customers are seeing north of a 10% lift in revenue by simply decreasing page load time.”"
+          ]
+        }
+      ],
+      "reasoning": "The most relevant material confirms that Forever 21, the lead’s past company, was a customer of Nostra and that Nostra’s Edge Delivery Engine and related solutions produced measurable performance improvements. Specifically, Forever 21 is highlighted in a success story detailing accelerated site performance and traffic gains with Nostra AI, which directly supports the idea that a former employee would have been exposed to the product’s impact. Additional excerpts provide corroborating context: another listing outlines Forever 21’s use-case with Nostra’s technology in improving website performance, reinforcing the alumni signal. The excerpts containing explicit metrics (53% reduction in Time to First Byte and 59% faster page load times) quantify the benefits the lead could have observed, strengthening the case that the lead would recognize tangible value from the product. A supporting excerpt discusses Forever 21’s collaboration in a broader narrative of performance improvements, further validating that the lead’s past environment offered concrete evidence of Nostra’s capabilities. Finally, excerpts describing Forever 21’s relationship with Nostra and the general narrative of site speed challenges provide additional context, though without the same direct metric linkage, they are secondary to the explicit performance results. Together, these pieces establish a coherent alumni signal that the lead’s past experience would make them a high-context buyer for Nostra’s solutions.",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness.value_proposition_recognition",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI"
+          ]
+        },
+        {
+          "title": "Nostra AI Raises $8.9M to Help Brands Boost E-Commerce Performance, Bringing Total Capital Raised to $20M",
+          "url": "https://www.businesswire.com/news/home/20240911413668/en/Nostra-AI-Raises-%248.9M-to-Help-Brands-Boost-E-Commerce-Performance-Bringing-Total-Capital-Raised-to-%2420M",
+          "excerpts": [
+            " Edge Delivery Engine™ speeds up websites by examining personalized content such as shopping carts and determining what content can be cached to decrease load times. The engine, paired with Nostra AI’s Crawler Optimization that improves website experiences for bots, provides a powerful suite of tools that drive near-instant results for enterprise retailers like Forever 21 and some of the fastest-growing e-commerce brands like Jones Road, Jolie, BRUNT Workwear, Glamnetic, Cozy Earth and Nood.\n“",
+            "When it comes to e-commerce, it’s no secret that website speed, especially on mobile devices, has a direct impact on conversion rates and revenue,” said Nostra AI CEO and Founder Arthur Root. “Our proprietary Edge Delivery Engine™ makes websites substantially faster, instantly — customers are seeing north of a 10% lift in revenue by simply decreasing page load time.”",
+            "With enterprise customer momentum including fashion retailer Forever 21, Nostra AI’s Edge Delivery Engine™ showcases immediate impact on core website metric"
+          ]
+        }
+      ],
+      "reasoning": "The fine-grained field value asserts that Breanne Matthews’ prior exposure to Forever 21 gives her a unique readiness to grasp Nostra’s value proposition in her current Coca-Cola Canada Bottling role, aligning with her P&L focus and drive to improve revenue and customer experience. Supporting evidence shows Forever 21 partnered with Nostra to boost website performance and traffic, providing a concrete example of Nostra’s impact on a large, enterprise e-commerce site. The case study describes site speed challenges and the resulting need for optimized performance, which would be directly relevant to a general manager tasked with revenue, conversion, and customer satisfaction. Further, detailed descriptions of Nostra’s Edge Delivery Engine speeding up sites and driving near-instant improvements to core metrics reinforce the business case Breanne would recognize in her own market, especially around faster ordering, reduced abandoned carts, and lower support volumes. Additional materials emphasize that Forever 21 is an enterprise customer benefiting from Nostra’s solutions, underscoring the credibility of the alumni signal and the practical relevance of the product to Breanne’s current remit. The combination of a real-world, revenue-linked case study with explicit performance benefits makes the alumni connection highly actionable for a low-friction pilot in her market, given Coca-Cola Canada Bottling’s scale and emphasis on efficient, reliable digital commerce experiences. These excerpts collectively map directly to the value proposition Breanne would understand and advocate for based on her past exposure and current leadership focus, validating the salience of the connection for a targeted outreach strategy.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.outreach_angle",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience.",
+            "The implementation process involved close collaboration between Nostra AI and Forever 21's Engineering team. Nostra AI's experts worked diligently to integrate their solutions seamlessly into Forever 21's existing infrastructure, minimizing disruptions, and ensuring a smooth transition. Throughout the process, Nostra AI provided ongoing support and monitoring to optimize performance and address any potential issues."
+          ]
+        },
+        {
+          "title": "Nostra AI Raises $8.9M to Help Brands Boost E-Commerce Performance, Bringing Total Capital Raised to $20M",
+          "url": "https://www.businesswire.com/news/home/20240911413668/en/Nostra-AI-Raises-%248.9M-to-Help-Brands-Boost-E-Commerce-Performance-Bringing-Total-Capital-Raised-to-%2420M",
+          "excerpts": [
+            " Edge Delivery Engine™ speeds up websites by examining personalized content such as shopping carts and determining what content can be cached to decrease load times. The engine, paired with Nostra AI’s Crawler Optimization that improves website experiences for bots, provides a powerful suite of tools that drive near-instant results for enterprise retailers like Forever 21 and some of the fastest-growing e-commerce brands like Jones Road, Jolie, BRUNT Workwear, Glamnetic, Cozy Earth and Nood.\n“",
+            "When it comes to e-commerce, it’s no secret that website speed, especially on mobile devices, has a direct impact on conversion rates and revenue,” said Nostra AI CEO and Founder Arthur Root. “Our proprietary Edge Delivery Engine™ makes websites substantially faster, instantly — customers are seeing north of a 10% lift in revenue by simply decreasing page load time.”"
+          ]
+        },
+        {
+          "title": "Breanne Matthews - Coca-Cola Canada Bottling Limited | LinkedIn",
+          "url": "https://ca.linkedin.com/in/breanne-matthews-599b6a22",
+          "excerpts": [
+            "I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ... I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Breanne Matthews Email & Phone Number | Coca-Cola Canada ...",
+          "url": "https://rocketreach.co/breanne-matthews-email_128900005",
+          "excerpts": [
+            "Breanne Matthews, based in Belleville, ON, CA, is currently a General Manager at Coca-Cola Canada Bottling Limited. Breanne Matthews brings experience from ..."
+          ]
+        },
+        {
+          "title": "Our Company | Coke Canada",
+          "url": "https://cokecanada.com/our-company/",
+          "excerpts": [
+            "Content:\nWith a heritage of over 130 years, we make, distribute, merchandise, and sell the most loved beverages Canadians enjoy. Together, with more than 6,000 diverse employees, we operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local teams and our distribution partners.",
+            "Section Title: About Us > Locations Coast-to-Coast",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners.",
+            "Content:\nWe operate in every province through our 50+ sales and distribution centres and five manufacturing facilities. We proudly service hundreds of thousands of customers coast-to-coast-to-coast through our local operating teams and our distribution partners."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant content directly demonstrates how Nostra’s Edge Delivery Engine speeds up websites and improves performance, which aligns with the outreach angle of offering a non-disruptive, drop-in edge layer for the myCoke portal. Specifically, Forever 21’s improved performance and traffic with Nostra AI illustrate tangible outcomes from deploying Nostra in a large-scale ecommerce context, and serve as a credible precedent for a similar use case at Coca-Cola Canada Bottling. The accompanying success narrative emphasizes near-immediate revenue impact through faster pages, which supports the core value proposition of acceleration and reliability for a B2B ordering portal. The material describing Nostra’s Edge Delivery Engine and its companion Crawler Optimization provides concrete mechanisms by which performance gains are achieved, reinforcing why a drop-in edge layer is a low-friction, high-impact option for the lead’s current employer, especially given their large retail and consumer-facing distribution footprint. The alumni signal is reinforced by the Forever 21 case, which the lead would plausibly recognize given her past involvement with Forever 21’s ecommerce/edge performance improvements; this connection helps frame Nostra not as a generic vendor but as a proven enabler of the kind of edge optimization the lead has observed. Additional excerpts about Coca-Cola Canada Bottling’s scale and province-spanning operations supply context for urgency: a large, multi-facility, multi-region network increases the potential payoff of faster, more reliable digital experiences for B2B ordering, partner portals, and omnichannel interactions. Taken together, the strongest support comes from the concrete performance outcomes and deployment narratives for Forever 21, followed by the broader edge performance evidence, while the Coke Canada context provides the business reason to pursue this at speed. The remaining excerpts reinforce the company profile and the broader capabilities of Nostra but are less directly tied to the specific alumni-led use case or the myCoke portal, hence their comparatively lower strength for this targeted field.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.sample_message_talk_track",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience.",
+            "The implementation process involved close collaboration between Nostra AI and Forever 21's Engineering team. Nostra AI's experts worked diligently to integrate their solutions seamlessly into Forever 21's existing infrastructure, minimizing disruptions, and ensuring a smooth transition. Throughout the process, Nostra AI provided ongoing support and monitoring to optimize performance and address any potential issues."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - Coca-Cola Canada Bottling Limited | LinkedIn",
+          "url": "https://ca.linkedin.com/in/breanne-matthews-599b6a22",
+          "excerpts": [
+            "I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ... I'm a results-driven executive with over a decade of experience leading teams, building… · Experience: Coca-Cola Canada Bottling Limited · Education: Smith ..."
+          ]
+        },
+        {
+          "title": "Breanne Matthews - General Manager at Coca-Cola Canada Bottling Limited | The Org",
+          "url": "https://theorg.com/org/coke-canada-bottling/org-chart/breanne-matthews",
+          "excerpts": [
+            "Breanne Matthews is a results-driven executive with over a decade of experience in leadership and community-focused growth. Currently serving as the General Manager for Coca-Cola Canada Bottling Limited’s Kingston Market Unit, they lead teams to achieve operational excellence and strengthen customer partnerships."
+          ]
+        },
+        {
+          "title": "Breanne Matthews Email & Phone Number | Coca-Cola Canada ...",
+          "url": "https://rocketreach.co/breanne-matthews-email_128900005",
+          "excerpts": [
+            "Breanne Matthews, based in Belleville, ON, CA, is currently a General Manager at Coca-Cola Canada Bottling Limited. Breanne Matthews brings experience from ..."
+          ]
+        }
+      ],
+      "reasoning": "The sample message relies on two pillars: an alumni signal from Breanne Matthews’s leadership at Coca-Cola Canada Bottling and proven edge-related performance outcomes at Forever 21 using Nostra’s Edge Delivery Engine. Excerpts detailing Forever 21’s improved site performance and traffic through Nostra provide concrete performance benefits (faster load times, reduced TTFB, improved crawl rates) that align with the proposed talk track’s emphasis on edge technology delivering measurable gains without replatforming. They also mention the types of outcomes that the message aims to claim (revenue impact, faster ordering, reduced support calls) in a way that makes the proposed metrics plausible. Excerpts about Breanne Matthews show her current role as a General Manager at Coca-Cola Canada Bottling Limited, establishing the alumni signal and the leadership credibility required to frame the outreach around her experience with a large, regional bottler. This combination supports the plausibility of referencing Coke Canada as the alumnus’ current company and Forever 21 as a reference customer to illustrate the value of Nostra’s edge capabilities. The sample message’s specific pilot proposal (2-week A/B on high-traffic flows at Coke Canada’s ecosystem) is not directly evidenced in the excerpts, but the documented success at Forever 21 and the Coke Canada leadership context provide plausible justification for such an outreach angle in this GTM memo.",
+      "confidence": "medium"
+    }
+  ],
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "overview": {
+        "type": "object",
+        "properties": {
+          "lead_identity": {
+            "type": "string",
+            "description": "The lead's name and current role at their new company."
+          },
+          "alumni_signal": {
+            "type": "string",
+            "description": "A clear statement of the lead's connection to a past company that is a known customer of the client."
+          }
+        },
+        "required": [
+          "lead_identity",
+          "alumni_signal"
+        ],
+        "additionalProperties": false
+      },
+      "market_position": {
+        "type": "object",
+        "properties": {
+          "company_context": {
+            "type": "string",
+            "description": "The current company's scale, market position, and operational footprint."
+          },
+          "competitive_landscape": {
+            "type": "string",
+            "description": "Analysis of the competitive environment, including key competitors and market pressures."
+          },
+          "digital_infrastructure_stakes": {
+            "type": "string",
+            "description": "What is at stake for the company regarding their digital infrastructure, such as their B2B ecommerce portal."
+          }
+        },
+        "required": [
+          "company_context",
+          "competitive_landscape",
+          "digital_infrastructure_stakes"
+        ],
+        "additionalProperties": false
+      },
+      "relevance_and_readiness": {
+        "type": "object",
+        "properties": {
+          "lead_authority_and_role": {
+            "type": "string",
+            "description": "Analysis of what the lead likely owns or influences in their current role based on their title and company context."
+          },
+          "past_experience_exposure": {
+            "type": "string",
+            "description": "What the lead would have been exposed to or aware of at their past company regarding the client's product and its impact."
+          },
+          "value_proposition_recognition": {
+            "type": "string",
+            "description": "Why their past experience makes them uniquely prepared to understand the client's value proposition in their current role."
+          }
+        },
+        "required": [
+          "lead_authority_and_role",
+          "past_experience_exposure",
+          "value_proposition_recognition"
+        ],
+        "additionalProperties": false
+      },
+      "recommended_approach": {
+        "type": "object",
+        "properties": {
+          "outreach_angle": {
+            "type": "string",
+            "description": "The specific strategic angle for outreach, connecting the lead's past experience to their current company's challenges."
+          },
+          "sample_message_talk_track": {
+            "type": "string",
+            "description": "A concrete, non-generic sample message or talk track that references the alumni connection and speaks to the current situation."
+          }
+        },
+        "required": [
+          "outreach_angle",
+          "sample_message_talk_track"
+        ],
+        "additionalProperties": false
+      },
+      "takeaway": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string",
+            "description": "The final verdict on why this lead is a high-value target."
+          },
+          "urgency_level": {
+            "type": "string",
+            "description": "The recommended urgency level for sales outreach (e.g., High, Medium, Low)."
+          }
+        },
+        "required": [
+          "verdict",
+          "urgency_level"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "overview",
+      "market_position",
+      "relevance_and_readiness",
+      "recommended_approach",
+      "takeaway"
+    ],
+    "additionalProperties": false
+  }
+}

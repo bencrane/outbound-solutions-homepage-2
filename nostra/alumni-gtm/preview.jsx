@@ -25,10 +25,9 @@ export default function AlumniGTMPreview() {
   const [drawerOpen, setDrawerOpen] = useState(true);
   const [gtmBrief, setGtmBrief] = useState(null);
   const [gtmBriefLoading, setGtmBriefLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState("companies");
+  const [activeTab, setActiveTab] = useState("people");
   const [availableBriefs, setAvailableBriefs] = useState(new Set());
   const metaAdsRef = useRef(null);
-  const googleAdsRef = useRef(null);
 
   // Extract LinkedIn slug from URL
   const getLinkedInSlug = (url) => {
@@ -36,6 +35,7 @@ export default function AlumniGTMPreview() {
     const match = url.match(/linkedin\.com\/in\/([a-zA-Z0-9_-]+)/);
     return match ? match[1] : null;
   };
+  const googleAdsRef = useRef(null);
 
   // Format revenue range (e.g., "10m-50m" -> "$10M-$50M", or convert storeleads value to range)
   const formatRevenueRange = (range, storeleadsSales) => {
@@ -135,8 +135,15 @@ export default function AlumniGTMPreview() {
     return range.replace(/ employees?/i, "");
   };
 
-  // Fetch GTM brief for a lead
+  // Open GTM brief for a lead (from API or fallback to JSON file)
   const openGtmBrief = async (lead) => {
+    // Use API data if available
+    if (lead.gtm_brief) {
+      setGtmBrief({ lead, data: lead.gtm_brief });
+      return;
+    }
+
+    // Fallback to JSON file
     const slug = getLinkedInSlug(lead.person?.linkedin_url);
     if (!slug) return;
 
@@ -192,7 +199,7 @@ export default function AlumniGTMPreview() {
     fetchData();
   }, []);
 
-  // Check which GTM brief files exist
+  // Check which GTM brief files exist (for fallback)
   useEffect(() => {
     if (!data?.leads) return;
     const slugs = [...new Set(data.leads.map(l => getLinkedInSlug(l.person?.linkedin_url)).filter(Boolean))];
@@ -423,7 +430,7 @@ export default function AlumniGTMPreview() {
                 {/* Table rows */}
                 {c.leads.map((lead, i) => {
                   const slug = getLinkedInSlug(lead.person?.linkedin_url);
-                  const hasBrief = slug && availableBriefs.has(slug);
+                  const hasBrief = lead.gtm_brief || (slug && availableBriefs.has(slug));
                   return (
                     <div key={i} className="grid grid-cols-5 gap-2 px-4 py-3 border-b border-[#1E1E22] last:border-b-0 hover:bg-[#111] transition-colors">
                       <div className="text-sm text-[#ECECEE] font-medium truncate">{lead.person?.full_name}</div>
@@ -511,19 +518,23 @@ export default function AlumniGTMPreview() {
                   <div ref={metaAdsRef} className="flex gap-3 overflow-x-auto pb-2 scroll-smooth" style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}>
                     {c.meta_ads.slice(0, 10).map((ad, i) => (
                       <div key={i} className="flex-shrink-0 w-64 bg-[#0E0E10] border border-[#1E1E22] rounded overflow-hidden">
-                        {ad.image_url && (
-                          <div className="h-32 bg-[#111] flex items-center justify-center overflow-hidden">
+                        <div className="h-32 bg-[#111] flex items-center justify-center overflow-hidden">
+                          {ad.image_url ? (
                             <img
                               src={ad.image_url}
                               alt=""
                               className="w-full h-full object-cover"
                               onError={(e) => {
                                 e.target.style.display = 'none';
-                                e.target.parentElement.innerHTML = '<div class="text-[10px] text-zinc-600 text-center px-4">No longer available<br/><span class="text-zinc-700">in Meta Ads Library</span></div>';
+                                e.target.parentElement.innerHTML = '<div class="text-[10px] text-zinc-600 text-center px-4">Ad Creative No Longer Available<br/><span class="text-zinc-700">in Meta Ads Library</span></div>';
                               }}
                             />
-                          </div>
-                        )}
+                          ) : (
+                            <div className="text-[10px] text-zinc-600 text-center px-4">
+                              Ad Creative No Longer Available<br/><span className="text-zinc-700">in Meta Ads Library</span>
+                            </div>
+                          )}
+                        </div>
                         <div className="p-3">
                           <div className="flex items-center gap-2 mb-2">
                             <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#1C3040] text-[#6AADCF]">
@@ -744,7 +755,8 @@ export default function AlumniGTMPreview() {
                     <td className="py-4 px-3 text-right align-top">
                       {(() => {
                         const slug = getLinkedInSlug(l.person?.linkedin_url);
-                        if (slug && availableBriefs.has(slug)) {
+                        const hasBrief = l.gtm_brief || (slug && availableBriefs.has(slug));
+                        if (hasBrief) {
                           return (
                             <button
                               onClick={(e) => { e.stopPropagation(); openGtmBrief(l); }}

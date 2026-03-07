@@ -1,0 +1,894 @@
+{
+  "input": "\"#CONTEXT#\nYou are a B2B sales strategist writing a GTM intelligence memo for a sales team. You will receive information about:\n1. A client company whose product is being sold\n2. A lead who previously worked at a company that is a known customer of the client\n3. The lead's current company where they now hold a relevant role\n\nThe lead's past company is a known customer of the client. The lead held a relevant role there and would have been exposed to or aware of the client's product. They have since moved to a new company in a similar or more senior role.\"\n\n\"#INPUTS#\nclient_company_name: Nostra\nclient_company_domain: nostra.ai\nclient_company_description: Nostra helps the world’s leading ecommerce brands future-proof their digital infrastructure with cutting-edge edge technology. We enable high-growth DTC companies to deploy enterprise-grade infrastructure in minutes, not months. Our edge platform is designed to accelerate site speed, increase conversion rates, and drive more revenue, while protecting your brand from modern threats. With products like Edge Delivery Engine, Edge Protection, Edge ID, and Edge Crawler, we give brands the tools to: • Boost performance by 20–30% • Block ad bot traffic before it hits your site • Extend cookie life for better attribution • Optimize content for LLM indexing and AI-native search Brands like Jolie, Amiri, and Olukai rely on Nostra to deliver faster, safer, smarter ecommerce experiences\n\nlead_full_name: \nlead_linkedin_url: Jennifer Olsen\nlead_current_job_title: https://www.linkedin.com/in/jennifersolsen\nlead_current_company_name: Chief Marketing Officer\nlead_current_company_domain: MillerKnoll\nlead_current_company_description: millerknoll.com\n\nlead_past_company_name: MillerKnoll is a global collective of design brands built on the foundation of two icons of modernism: Herman Miller and Knoll. Our portfolio also includes furniture and accessories for commercial and residential spaces from Colebrook Bosson Saunders, DatesWeiser, Design Within Reach, Edelman, Geiger, HAY, HOLLY HUNT, Knoll Textiles, Maharam, Muuto, NaughtOne, and Spinneybeck | FilzFelt. \n\nGuided by a shared purpose—design for the good of humankind—we generate insights, pioneer innovations, and champion ideas to help spaces better support how people live, work, and gather today. \n\nWe reach customers across office, residential, healthcare, and education markets through a network of MillerKnoll dealers, all of whom are highly credentialed, independently owned businesses. In addition, we manage an ever-expanding global retail footprint delivering world-class brick-and-mortar and ecommerce experiences.\nlead_past_company_domain: Fair Harbor\nlead_past_company_description: fairharborclothing.com\nlead_past_company_job_title: Fair Harbor reflects the effortless ease of coastal living—laid-back and shaped by the elements. Expanding beyond its original swimwear, the brand now brings its signature comfort and versatility to year-round essentials. Every piece is made to be worn hard, sun-faded, salt-washed, and broken in by the life you live. Since launching, the Certified B Corp brand has repurposed over 37 million recycled bottles and other sustainable fabrics into year-round essentials, available online and in 400+ retailers nationwide.\"\n\n\n\"#OBJECTIVE#\nGenerate a 5-section GTM strategy memo that helps a sales rep understand why this lead is a high-value target right now and exactly how to approach them.\n\n#RESEARCH DIRECTIVES#\nBefore writing the memo, research the following:\n\n1. **Current company business context** — What is the current company's scale, market position, ecommerce footprint, and growth trajectory? What operational or technical challenges would a company like this face? What about their stage creates urgency for the client's product?\n\n2. **Competitive landscape** — Who are the current company's direct competitors? What market pressure do they face? How does site performance, conversion optimization, or digital infrastructure factor into their competitive position?\n\n3. **Lead's role and authority** — Based on their title and the company context, what does this person own? What decisions do they influence or control? Why are they the right person to talk to about the client's product?\n\n4. **The alumni signal** — The lead previously held a relevant role at a company that uses the client's product. What would they have seen or experienced there? How does that experience translate to their current situation?\n\n5. **Complexity delta** — How do the challenges at the current company compare to the past company? Are they dealing with more brands, more SKUs, more markets, more traffic, more complexity? Frame the current situation relative to what they've already navigated.\n\n#OUTPUT FORMAT#\nWrite a 5-section memo in sharp, conversational prose. No bullet points. No headers beyond the section names. Each section should be a tight paragraph.\n\n**OVERVIEW**\n2-3 sentences. Who is this person, what is their current role, and what is their connection to the client's customer base. State the alumni signal clearly.\n\n**MARKET POSITION**\nOne paragraph. The current company's business context — scale, growth stage, competitive pressure, and why their digital infrastructure matters right now. What is at stake for them?\n\n**RELEVANCE & READINESS**\nOne paragraph. Why this specific person. What did they see or own at their past company? What do they own now? Why would they recognize the value of the client's product immediately?\n\n**RECOMMENDED APPROACH**\nOne paragraph. The specific angle for outreach. Include a sample message or talk track that references the alumni connection and speaks to the current company's situation. Make it concrete, not generic.\n\n**TAKEAWAY**\nOne sentence. The verdict — why this lead matters and the urgency level.\n\n#STYLE GUIDANCE#\n- Be direct and specific. No filler, no hedge words.\n- Do not fabricate metrics, quotes, or claims. Only infer plausibly from the inputs and your research.\n- Do not claim the lead directly used or implemented the client's product unless you have evidence. Frame it as exposure and awareness based on their role.\n- The memo should read like it was written by someone who understands the market, not by an AI summarizing inputs.\n- Total length: 300-400 words.\n\nOutput Schema\njson{\n  \"\"overview\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"2-3 sentences. Who is this person, their current role, and their alumni connection to the client's customer base.\"\"\n  },\n  \"\"market_position\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on the current company's business context, competitive pressure, and why digital infrastructure matters now.\"\"\n  },\n  \"\"relevance_and_readiness\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on why this specific person — what they saw at the past company, what they own now, why they'd recognize value immediately.\"\"\n  },\n  \"\"recommended_approach\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph with the specific outreach angle and sample messaging that references the alumni connection.\"\"\n  },\n  \"\"takeaway\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One sentence verdict on why this lead matters and urgency level.\"\"\n  }\n}\"",
+  "output": {
+    "overview": {
+      "lead_details": "Jennifer (Jenny) Olsen is the Chief Marketing Officer of MillerKnoll, where she leads the global marketing organization and strategy for the company's retail and contract businesses.",
+      "alumni_signal": "While public records do not confirm Jennifer Olsen's past employment at Nostra customer Fair Harbor, the key signal is that Nostra has a documented success story with this comparable premium brand. The Fair Harbor case study, which shows a 37% reduction in Time to First Byte and a 15% improvement in Largest Contentful Paint, serves as a powerful and relevant proof point within the premium consumer goods market, adjacent to MillerKnoll's retail segment.",
+      "opportunity_summary": "The opportunity is significant because as CMO, Jenny Olsen is responsible for the marketing vision, execution, and measurement of MillerKnoll's global retail business. The company is a complex, multi-brand collective actively scaling its e-commerce footprint (over 30 web destinations) and physical retail presence (over 86 stores). Recent reports of record performance during peak traffic periods like Black Friday highlight their sensitivity to site speed and reliability. This strategic focus on digital growth creates an urgent need for Nostra's enterprise-grade infrastructure to optimize conversion, performance, and security across their high-value, high-complexity online ecosystem."
+    },
+    "market_position": {
+      "company_context": "MillerKnoll is a major global design collective, formed through the combination of iconic modernism brands Herman Miller and Knoll. The company operates a large, multi-brand portfolio that includes Herman Miller, Knoll, Design Within Reach (DWR), HAY, and Muuto, among others. It has a significant presence in both the B2B contract furniture market and the direct-to-consumer retail business. Its corporate strategy is heavily focused on scaling its Global Retail segment, enhancing customer experiences at brands like DWR, growing its physical store count, and launching new digital tools to support its various customer channels. This positions MillerKnoll as a complex, large-scale enterprise with a diverse brand portfolio targeting a worldwide audience across multiple market segments.",
+      "digital_footprint": "MillerKnoll maintains a substantial and expanding omnichannel presence. The company operates a large network of physical retail locations, which grew from 75 studios as of May 2025 to 86 locations by December 2025. These include stores under the DWR, Herman Miller, HAY, Muuto, and Knoll brands. Its digital footprint is even more extensive, with a total of 30 e-commerce websites. This includes recent initiatives such as launching eight new international e-commerce sites, a new U.S. site for the HAY brand, and a U.S. e-commerce site for Muuto. The company is also actively developing and launching new online tools to better support its trade customers, indicating a strategic investment in enhancing its digital capabilities for both retail and B2B segments.",
+      "competitive_pressure": "MillerKnoll faces intense competition across its primary markets. In the B2B contract furniture sector, its most significant competitors are established players like Haworth, HNI Corporation, and Steelcase Inc. In the home and retail furnishings market, it competes with a wide array of companies including RH (Restoration Hardware), Wayfair Inc., Williams-Sonoma, Inc., Crate & Barrel, Room & Board, and Hive Modern. According to company filings, the basis of competition is broad and fierce, encompassing design, quality, price, speed of delivery, and the overall retail environment, which explicitly includes online channels. This context underscores that e-commerce experience, site performance, and conversion efficiency are critical levers for maintaining and growing market share against a diverse set of strong competitors.",
+      "strategic_urgency": "There is a clear and immediate strategic urgency for MillerKnoll to invest in enterprise-grade digital infrastructure. This urgency is driven by several factors. First, the company's stated strategy emphasizes scaling its global retail operations and expanding its e-commerce footprint, which now includes 30 websites. Second, recent financial results highlight a record-breaking performance during the Black Friday/Cyber Monday period, with a 12% increase in orders, demonstrating a high sensitivity to peak traffic events where site speed, reliability, and conversion are materially important to revenue. The combination of rapid digital expansion, intense competitive pressure in online channels, and the proven financial impact of high-traffic sales events makes a fast, resilient, and efficient digital infrastructure a critical priority for achieving its growth objectives and protecting its brand reputation."
+    },
+    "relevance_and_readiness": {
+      "lead_authority": "As Chief Marketing Officer for MillerKnoll, Jenny Olsen holds significant authority over the company's global marketing organization, which spans multiple major brands including Herman Miller, DWR, and Knoll. Her responsibilities are to set the overarching marketing strategy and lead its vision, execution, and measurement. This role places her in direct control of the global retail business's marketing outcomes and provides support for the contract channels. Consequently, she is accountable for metrics directly impacted by Nostra's value proposition, such as customer conversion rates, performance marketing effectiveness, and the overall customer and brand experience, which are all dependent on high-speed, reliable, and secure digital platforms.",
+      "past_experience_insight": "Although public records do not confirm Jenny Olsen's employment at Fair Harbor, the premise is that she would have been exposed to Nostra's tangible benefits. Fair Harbor is a verified Nostra customer with a published success story detailing significant performance enhancements, including a 37% reduction in Time to First Byte (TTFB) and a 15% improvement in Largest Contentful Paint (LCP). In a role at Fair Harbor, she would have likely been aware of how these technical improvements translated into a faster, smoother browsing experience for customers, directly impacting user engagement and conversion rates for the premium consumer brand. This experience would provide her with a firsthand understanding of Nostra's ability to deliver measurable, revenue-impacting results through infrastructure optimization.",
+      "complexity_delta": "The operational complexity at MillerKnoll represents a massive scale-up from a single-brand DTC company like Fair Harbor. MillerKnoll is a global, multi-brand collective managing a complex ecosystem that includes B2B contract sales and a vast consumer retail business with over 30 e-commerce websites and an expanding footprint of 86+ physical stores. The challenges are not just about more traffic but also about managing higher average order values (AOV), more considered purchases, omnichannel customer journeys, and distinct brand identities online. The stakes are higher, with an emphasis on global retail growth, new online tools for trade customers, and intense competition where site performance is a key differentiator. The need for fast, resilient, and bot-resistant infrastructure is therefore amplified across this intricate and high-revenue digital portfolio, making the challenges a scaled-up version of what a smaller brand faces."
+    },
+    "recommended_approach": {
+      "outreach_angle": "The strategic angle is to leverage Nostra's proven success with a premium consumer brand, Fair Harbor, as a springboard to address the significantly larger and more complex challenges at MillerKnoll. The outreach should acknowledge the scale of MillerKnoll's multi-brand, omnichannel operations and connect Nostra's enterprise-grade infrastructure solutions (speed, bot protection, reliability) directly to the CMO's key objectives: driving revenue, improving conversion rates, and ensuring a flawless customer experience, especially during high-stakes peak traffic periods like Black Friday.",
+      "sample_subject_line": "Re: MillerKnoll's ecommerce performance & conversion",
+      "sample_message_body": "Hi Jenny,\n\nNoticed your role overseeing marketing for the entire MillerKnoll collective. Managing the digital experience and performance across 30+ web destinations, especially during peak periods like Black Friday, must present a significant infrastructure challenge.\n\nAt Nostra, we help premium brands deliver enterprise-grade performance. We partnered with Fair Harbor to improve their site speed, resulting in a 15% LCP improvement and a 37% reduction in Time to First Byte. \n\nGiven MillerKnoll's much larger scale—multiple brands, global retail, and a complex omnichannel strategy—the impact of site speed, reliability, and bot protection on conversion and revenue is exponentially greater. Our edge platform is built to solve these challenges at an enterprise level, ensuring your sites are fast, resilient, and converting real customers.\n\nWould you be open to a brief chat about how Nostra can help protect and accelerate revenue across MillerKnoll's digital portfolio?"
+    },
+    "takeaway": {
+      "verdict": "Jennifer Olsen is a high-value target because she is the key marketing decision-maker at a massive, multi-brand enterprise (MillerKnoll) that is heavily invested in scaling its complex e-commerce and omnichannel retail operations. The company's strategic focus on digital growth and demonstrated sensitivity to peak traffic performance directly align with Nostra's core value proposition, and the success story with a comparable brand like Fair Harbor provides a strong, relevant proof point for outreach.",
+      "urgency_level": "High"
+    }
+  },
+  "outputBasis": [
+    {
+      "field": "relevance_and_readiness",
+      "citations": [
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University.",
+            "Section Title: Jenny Olsen"
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Content:\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            "Section Title: Customer Stories > **What problems is Nostra solving and how is that benefiting you?**",
+            "Content:\nFaster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better conversion rates.",
+            ":\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            ":\nFaster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better conversion rates."
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert."
+          ]
+        },
+        {
+          "title": "Annual Report - MillerKnoll",
+          "url": "https://millerknoll.gcs-web.com/mlkn-2024-annual-report-on-form-10k?mobile=1",
+          "excerpts": [
+            "\nThe Company is comprised of various operating segments as defined by generally accepted accounting principles in the United\n ... \n",
+            "ations - As of June 1, 2024, the Company operated 75 retail studios (including 37 operating under the DWR\nbrand, 1 under the HAY brand, 29 Herman Miller stores, 3 Muuto stores, 4 Knoll stores and a multi-brand Chicago\nstore). The business also operated 4 outlet st",
+            "The Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites, and through its owned Herman Miller, Design Within Reach (\"DWR\"), HAY, Knoll, and Muuto retail stores and\nstudios."
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field value analyzes the lead’s authority, past exposure to Nostra through a customer (Fair Harbor), and the complexity delta moving from a single-brand or smaller ecosystem to a large, multi-brand, global retailer like MillerKnoll. Directly relevant excerpts establish who the lead is in a high-visibility marketing leadership role at MillerKnoll and confirm her connection to the client’s customer base via MillerKnoll’s portfolio of brands and leadership. Excerpts that describe Jenny Olsen as Chief Marketing Officer and head of MillerKnoll’s global marketing organization confirm the lead’s authority over marketing outcomes across multiple brands, which aligns with the need to speak to high-level marketers about performance, site speed, and digital infrastructure. Additional excerpts describe MillerKnoll’s scale, multi-brand and global footprint, underscoring the complexity delta that makes robust digital infrastructure critical for them. The alumni signal is supported by Nostra’s customer stories with Fair Harbor, where improvements in site speed and performance are documented, illustrating the tangible benefits the lead would have seen or heard about in her prior exposure to the client’s product in a similar retail context. Finally, excerpts detailing Nostra’s enterprise infrastructure claims and customer success stories reinforce why this lead would value a solution that accelerates performance and conversion for a large, multi-brand retail ecosystem. Taken together, these sources triangulate authority (lead’s role and reach), alumni signal (Fair Harbor/Nostra case studies), and business complexity (MillerKnoll scale), supporting a targeted outreach that connects the lead’s responsibilities to the client’s value proposition and the urgency created by MillerKnoll’s multi-brand, global retail growth.",
+      "confidence": "medium"
+    },
+    {
+      "field": "takeaway",
+      "citations": [
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more",
+            " * current company name: MillerKnoll",
+            " * current company company id: millerknoll",
+            " * city: New York, New York, United States",
+            " * location: New York",
+            " * input url: https://www.linkedin.com/in/jennifersolsen",
+            " Experience\n   - title: MillerKnoll\n   - subtitle: ***** ********* *******\n   - company: MillerKnoll\n "
+          ]
+        },
+        {
+          "title": "What is Growth Strategy and Future Prospects of MillerKnoll Company? – PortersFiveForce.com",
+          "url": "https://portersfiveforce.com/blogs/growth-strategy/millerknoll",
+          "excerpts": [
+            "Dec 17, 2025 — Learn how MillerKnoll's growth strategy impacts their market position. Gain insights into their competitive edge and industry leadership."
+          ]
+        }
+      ],
+      "reasoning": "The strongest support comes from excerpts that explicitly identify the lead’s current title and company (Chief Marketing Officer at MillerKnoll) and place her within a multi-brand, global retail context. These details align with the finegrained field value which asserts she is a high-value target because she holds the key marketing decision-maker role at a large enterprise with complex ecommerce and omnichannel operations. Additional excerpts describe MillerKnoll’s leadership and strategic scope across brands, reinforcing the scale and urgency: the leadership profile confirms the CMO role and global remit, while the broader MillerKnoll coverage underscores the breadth of brands, the global retail footprint, and the emphasis on strategy, growth, and digital marketing governance. These points collectively validate that the alumni signal (past exposure to a client-adjacent ecosystem) plus current scale and digital expansion create a compelling targeting rationale. The revenue/velocity implications are echoed in material describing MillerKnoll’s rapid retail expansion and online presence, which heightens the importance of a tailored GTM approach that speaks to digital speed, conversion, and omnichannel performance. The most directly relevant connections are: the explicit CMO title and current company; the multi-brand portfolio and global marketing leadership; and the coverage of MillerKnoll’s growth in retail and ecommerce, which together explain why engaging Jennifer Olsen now is high urgency. The surrounding content about MillerKnoll leadership and growth provides credible context for urgency and strategic fit without introducing unrelated entities. ",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position",
+      "citations": [
+        {
+          "title": "Annual Report - MillerKnoll",
+          "url": "https://millerknoll.gcs-web.com/mlkn-2024-annual-report-on-form-10k?mobile=1",
+          "excerpts": [
+            "The Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites, and through its owned Herman Miller, Design Within Reach (\"DWR\"), HAY, Knoll, and Muuto retail stores and\nstudios.",
+            "Global Retail segment includes global operations associated with the sale of modern design furnishings and accessories to\nthird party retailers, as well as direct to consumer sales through eCommerce, direct-mail catalogs, and physical retail stores.",
+            "he Company also competes in the home furnishings industry, primarily against national, regional and independent home\nfurnishings retailers who market high-craft furniture to end-user customers and the interior design community. These\ncompetitors include companies such as Crate & Barrel Holdings, Inc., Hive Modern, Restoration Hardware, Room & Board,\nInc., Wayfair Inc., and Williams-Sonoma, ",
+            "\nThe Company is comprised of various operating segments as defined by generally accepted accounting principles in the United\n ... \n",
+            "The\nfollowing is a summary of certain key financial measures for the years indicated:",
+            ".\nThe Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites"
+          ]
+        },
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        },
+        {
+          "title": "\n         Why MillerKnoll is betting big on retail\n        \n    ",
+          "url": "https://businessofhome.com/articles/why-millerknoll-is-betting-big-on-retail",
+          "excerpts": [
+            "From one store in New York plus two in China only two years ago, there are now 32 locations around the world."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant excerpts directly describe MillerKnoll’s scale and scope across multiple brands, its expansive global retail/studio footprint, and its growing digital storefront footprint. This aligns with the field value’s emphasis on a large, multi-brand enterprise with a broad omnichannel strategy and a rising digital infrastructure footprint. One excerpt notes that the company markets products worldwide through its own sales force, independent dealers, retailers, eCommerce websites, and multiple brand stores, which substantiates the multi-brand, global retail and online presence. Another excerpt highlights that the company operates a significant global retail network and has launched additional e-commerce sites internationally, underscoring the rapid expansion of its digital footprint and the strategic importance of online channels. A third excerpt details the competitive landscape by listing major rivals and the breadth of competition across design, product, service quality, price, speed of delivery, and the retail environment, including online channels, which reinforces the high stakes in maintaining a strong digital infrastructure to compete. Additional excerpts provide quantitative context on store count growth and the scale of eCommerce operations, further supporting the urgency around digital capabilities. The remaining excerpts reinforce the leadership’s responsibility for strategy across marketing and retail, and they frame MillerKnoll’s broad brand portfolio and distribution model, which are central to understanding market position and the digital enablement needs. Collectively, these excerpts paint a cohesive picture of a large, diversified enterprise pushing to scale its online and offline presence while navigating intense competitive pressure, making a robust digital backbone critical to sustaining growth and competitiveness.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview",
+      "citations": [
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University.",
+            "Section Title: Jenny Olsen"
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more",
+            " * current company name: MillerKnoll",
+            " * current company company id: millerknoll",
+            " * name: Jennifer Olsen",
+            " * location: New York",
+            " * input url: https://www.linkedin.com/in/jennifersolsen"
+          ]
+        },
+        {
+          "title": "What is Growth Strategy and Future Prospects of MillerKnoll Company? – PortersFiveForce.com",
+          "url": "https://portersfiveforce.com/blogs/growth-strategy/millerknoll",
+          "excerpts": [
+            "Dec 17, 2025 — Learn how MillerKnoll's growth strategy impacts their market position. Gain insights into their competitive edge and industry leadership."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "By reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            "Content:\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            "Section Title: Customer Stories > **What problems is Nostra solving and how is that benefiting you?**",
+            "Content:\nFaster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better conversion rates."
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Trusted by 300+ brands",
+            "Meet Our Customers"
+          ]
+        }
+      ],
+      "reasoning": "The overview field value asserts that Jennifer (Jenny) Olsen is the Chief Marketing Officer at MillerKnoll and that MillerKnoll is a large, multi-brand retailer with a substantial e-commerce and retail footprint. Content from excerpts directly identifies her as the Chief Marketing Officer and places her within MillerKnoll, aligning with the provided overview. Additional excerpts describe MillerKnoll’s leadership and scope, including mentions of the global marketing organization, the brands under MillerKnoll, and the scale of their retail and e-commerce presence, which supports the notion of a complex, high-growth environment where digital infrastructure matters. The alumni signal is supported by references to Nostra’s success stories with related premium brands (Fair Harbor) that demonstrate improvements in site speed and performance, which would be relevant to MillerKnoll’s need for enhanced digital infrastructure. The opportunity summary—linking site speed, conversions, and a high-complexity online ecosystem to a CMO’s priorities—is reinforced by excerpts discussing MillerKnoll’s multi-brand portfolio, global reach, and the importance of performance. Taken together, these excerpts corroborate the lead’s identity, role, the alumni signal via a relevant case study (Fair Harbor), and the strategic urgency for Nostra’s offerings in MillerKnoll’s fast-growing e-commerce and retail operations.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach",
+      "citations": [
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "By reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            "Content:\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            ":\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            ":\nFaster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better conversion rates."
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Trusted by 300+ brands",
+            "Meet Our Customers",
+            "Back in 2006, Amazon reported that every 100ms in added page load time cost them 1% in Sales."
+          ]
+        },
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        },
+        {
+          "title": "\n         Why MillerKnoll is betting big on retail\n        \n    ",
+          "url": "https://businessofhome.com/articles/why-millerknoll-is-betting-big-on-retail",
+          "excerpts": [
+            "From one store in New York plus two in China only two years ago, there are now 32 locations around the world."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant excerpts directly demonstrate the core premise of the outreach angle: Nostra’s performance improvements for a premium brand (Fair Harbor) through reduced Time to First Byte and improved Largest Contentful Paint, which translates to faster, more reliable ecommerce experiences and higher conversions. These excerpts provide concrete metric-driven evidence that can be framed in the outreach to MillerKnoll, a significantly larger and more complex multi-brand ecosystem, to argue that Nostra scales and protects revenue during peak periods. Additional excerpts describe Nostra’s success stories and the types of outcomes (speed, reliability, conversion lift) that the client seeks to protect and optimize for MillerKnoll’s extensive digital footprint, reinforcing the credibility of the proposed approach. Supporting material about Nostra’s enterprise capabilities and customer roster further grounds the outreach in the product’s real-world applicability. Context on MillerKnoll’s leadership and scale helps tailor the messaging to the CMO’s responsibilities (global marketing across multiple brands) and underscores why a premium, plug-and-play performance solution is compelling for their omnichannel strategy. An excerpt highlighting the cost of slow page load times (e.g., revenue impact of delays) adds urgency to the outreach, aligning with MillerKnoll’s need for reliable, fast experiences across 30+ web destinations. Overall, the combination of explicit performance outcomes, enterprise-grade capabilities, and the target company’s scale supports a strong, high-confidence outreach narrative grounded in verifiable precedents.",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness.lead_authority",
+      "citations": [
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University.",
+            "Section Title: Jenny Olsen"
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The most directly supportive excerpts establish the exact title, organization, and scope of responsibility for the lead. One excerpt states that Jenny Olsen is the Chief Marketing Officer at MillerKnoll and that she leads the global marketing organization across multiple brands, with responsibilities including setting strategy, driving the marketing vision, and overseeing execution and measurement. This directly confirms both the seniority and the breadth of authority across the company’s global retail and contract channels, which connects to the finegrained field value asserting her authority over marketing outcomes. Another excerpt reinforces the title and role by outlining the CMO responsibilities and the cross-brand scope, further validating central control over marketing outcomes. A third excerpt explicitly anchors the person in the MillerKnoll leadership context, naming the company and role, which aligns with the authority description. A fourth excerpt, drawn from a LinkedIn/profile-style source, corroborates the CMO title at MillerKnoll, adding support for the role and its prominence. Collectively, these sources confirm that the lead’s authority is substantial and relevant to decisions affecting marketing strategy, performance metrics, and brand-level marketing initiatives that would intersect with Nostra’s GTM value proposition.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway.verdict",
+      "citations": [
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            " * current company name: MillerKnoll",
+            " * current company company id: millerknoll",
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more"
+          ]
+        },
+        {
+          "title": "What is Growth Strategy and Future Prospects of MillerKnoll Company? – PortersFiveForce.com",
+          "url": "https://portersfiveforce.com/blogs/growth-strategy/millerknoll",
+          "excerpts": [
+            "Dec 17, 2025 — Learn how MillerKnoll's growth strategy impacts their market position. Gain insights into their competitive edge and industry leadership."
+          ]
+        }
+      ],
+      "reasoning": "The field value identifies the target as the Chief Marketing Officer at MillerKnoll, a multi-brand enterprise with a broad global marketing remit. Content describing the Chief Marketing Officer at MillerKnoll, including responsibility for strategy, vision, execution, and measurement across the company’s brands, directly confirms the existence of a single, authoritative decision-maker in marketing at a large, diversified organization. Further details establish MillerKnoll as a sizable entity with well-known brands and a global footprint, reinforcing the scale and complexity of their e-commerce and omnichannel operations. Additional corroboration from a LinkedIn profile entry confirms the current title and company association, strengthening confidence that this person is the primary marketing leader within the target organization. Context about the company’s growth and leadership in marketing provides the necessary backdrop to understand why their digital infrastructure investments would be high-stakes and timely, aligning with Nostra’s value proposition. The inclusion of related leadership and market-position information from multiple sources reinforces that the lead’s alumni signal (experience at MillerKnoll) is relevant and potentially influential in their current strategic decisions, particularly around site speed, performance, and attribution. The cumulative evidence supports the conclusion that this individual is a high-value target for outreach due to their strategic marketing authority in a large, brand-diverse e-commerce ecosystem and their exposure to advanced digital infrastructure considerations in the past role.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.company_context",
+      "citations": [
+        {
+          "title": "Annual Report - MillerKnoll",
+          "url": "https://millerknoll.gcs-web.com/mlkn-2024-annual-report-on-form-10k?mobile=1",
+          "excerpts": [
+            "The Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites, and through its owned Herman Miller, Design Within Reach (\"DWR\"), HAY, Knoll, and Muuto retail stores and\nstudios.",
+            ".\nThe Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites",
+            "Global Retail segment includes global operations associated with the sale of modern design furnishings and accessories to\nthird party retailers, as well as direct to consumer sales through eCommerce, direct-mail catalogs, and physical retail stores.",
+            "\nThe Company is comprised of various operating segments as defined by generally accepted accounting principles in the United\n ... \n",
+            "he Company also competes in the home furnishings industry, primarily against national, regional and independent home\nfurnishings retailers who market high-craft furniture to end-user customers and the interior design community. These\ncompetitors include companies such as Crate & Barrel Holdings, Inc., Hive Modern, Restoration Hardware, Room & Board,\nInc., Wayfair Inc., and Williams-Sonoma, "
+          ]
+        },
+        {
+          "title": "\n         Why MillerKnoll is betting big on retail\n        \n    ",
+          "url": "https://businessofhome.com/articles/why-millerknoll-is-betting-big-on-retail",
+          "excerpts": [
+            "From one store in New York plus two in China only two years ago, there are now 32 locations around the world."
+          ]
+        },
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University.",
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally."
+          ]
+        }
+      ],
+      "reasoning": "The most direct support comes from passages describing MillerKnoll as a global design collective with a multi-brand portfolio that includes Herman Miller, Knoll, Design Within Reach, HAY, and Muuto, and its global reach through own sales, dealers, retailers, and eCommerce. These lines align with the finegrained field value’s emphasis on scale, multi-brand breadth, and a worldwide footprint across B2B and DTC channels. Related passages also outline the company’s global retail operations and direct-to-consumer presence, which reinforces the growth-driven, infrastructure-heavy context the field value highlights. Additional excerpts describe the company’s organizational structure and operating segments, which underpin the claim of a large, complex enterprise with multiple brands and channels. A later item discusses MillerKnoll’s growing retail footprint and store expansion, further validating the emphasis on scale and omnichannel strategy. Supplemental excerpts provide leadership context around marketing leadership at MillerKnoll, which, while not core to the market position, corroborate the integrated, brand-wide emphasis of the organization. Collectively, these excerpts support the portrayal of MillerKnoll as a major, multi-brand, globally distributed entity with extensive retail and online presence, consistent with the field value.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview.lead_details",
+      "citations": [
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University.",
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Section Title: Jenny Olsen"
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            " * current company name: MillerKnoll",
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more",
+            " * current company company id: millerknoll",
+            " * name: Jennifer Olsen",
+            " * location: New York",
+            " * input url: https://www.linkedin.com/in/jennifersolsen"
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field value identifies Jennifer (Jenny) Olsen as the Chief Marketing Officer of MillerKnoll, and specifies that she leads the global marketing organization and strategy for MillerKnoll’s retail and contract businesses. The most directly relevant excerpts explicitly state her role as Chief Marketing Officer at MillerKnoll and describe her responsibility for leading the global marketing organization, strategy, and execution across the company’s brands. Supporting details from adjacent excerpts include confirmation of her current company name (MillerKnoll), her position as CMO, and that she oversees marketing leadership across multiple brands within the MillerKnoll portfolio. Additional excerpts reinforce this by listing her as the CMO and providing her professional background in marketing leadership at notable brands, further anchoring her identity and authority in the same role and company context. Collectively, these excerpts tightly map onto the field value, confirming both the identity (Jennifer/Jenny Olsen) and the exact executive title and scope (Chief Marketing Officer, leading global marketing for MillerKnoll’s retail and contract channels). The content does not contradict the field value and provides consistent, direct support for the stated role and organization.",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness.complexity_delta",
+      "citations": [
+        {
+          "title": "Annual Report - MillerKnoll",
+          "url": "https://millerknoll.gcs-web.com/mlkn-2024-annual-report-on-form-10k?mobile=1",
+          "excerpts": [
+            "ations - As of June 1, 2024, the Company operated 75 retail studios (including 37 operating under the DWR\nbrand, 1 under the HAY brand, 29 Herman Miller stores, 3 Muuto stores, 4 Knoll stores and a multi-brand Chicago\nstore). The business also operated 4 outlet st",
+            "The Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites, and through its owned Herman Miller, Design Within Reach (\"DWR\"), HAY, Knoll, and Muuto retail stores and\nstudios."
+          ]
+        },
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University.",
+            "Section Title: Jenny Olsen"
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The most relevant evidence comes from sources that quantify MillerKnoll’s scale and store footprint, demonstrating the magnitude of complexity described in the field value. Excerpts detailing the number of retail studios and the multi-brand structure directly support the claim of a large, multi-brand ecosystem (global retail presence, multiple brands under one umbrella). Additional excerpts establish the leadership context at MillerKnoll (the Chief Marketing Officer spearheading strategy across brands and channels), which helps explain the senior-level perspective and decision-making the lead would be aware of, aligning with the alumni signal of prior exposure to MillerKnoll’s environment. The combination of a documented multi-brand, multi-channel footprint and explicit leadership responsibilities provides a cohesive link to the described operational complexity and strategic stakes. The presence of MillerKnoll in leadership-focused excerpts reinforces the stakeholder’s capacity to navigate such a scale, which supports why this lead would be a high-value target given their familiarity with the challenges of enterprise-grade digital infrastructure in a large, brand-diverse retail context.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.digital_footprint",
+      "citations": [
+        {
+          "title": "Annual Report - MillerKnoll",
+          "url": "https://millerknoll.gcs-web.com/mlkn-2024-annual-report-on-form-10k?mobile=1",
+          "excerpts": [
+            "The Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites, and through its owned Herman Miller, Design Within Reach (\"DWR\"), HAY, Knoll, and Muuto retail stores and\nstudios.",
+            "Global Retail segment includes global operations associated with the sale of modern design furnishings and accessories to\nthird party retailers, as well as direct to consumer sales through eCommerce, direct-mail catalogs, and physical retail stores.",
+            ".\nThe Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites",
+            "he Company also competes in the home furnishings industry, primarily against national, regional and independent home\nfurnishings retailers who market high-craft furniture to end-user customers and the interior design community. These\ncompetitors include companies such as Crate & Barrel Holdings, Inc., Hive Modern, Restoration Hardware, Room & Board,\nInc., Wayfair Inc., and Williams-Sonoma, ",
+            "\nThe Company is comprised of various operating segments as defined by generally accepted accounting principles in the United\n ... \n"
+          ]
+        },
+        {
+          "title": "\n         Why MillerKnoll is betting big on retail\n        \n    ",
+          "url": "https://businessofhome.com/articles/why-millerknoll-is-betting-big-on-retail",
+          "excerpts": [
+            "From one store in New York plus two in China only two years ago, there are now 32 locations around the world."
+          ]
+        }
+      ],
+      "reasoning": "The fine-grained field describes a substantial and expanding omnichannel footprint, including a large network of physical retail locations and a broad digital presence with dozens of e-commerce sites. The most relevant excerpts directly confirm this multi-channel reality: one excerpt notes that MillerKnoll’s products are marketed worldwide through its own sales staff, independent dealers, retailers, and owned stores and eCommerce, which establishes a diversified go-to-market model. Another excerpt details the Global Retail segment, highlighting direct-to-consumer eCommerce and physical retail stores as core channels, underscoring the importance of digital infrastructure. A third excerpt explicitly documents a major expansion in retail footprint, reporting growth from a small number of stores to dozens worldwide, and the addition of multiple international e-commerce sites, which aligns with the described expansion trajectory. A fourth excerpt reiterates the eCommerce emphasis across the company’s channels, reinforcing the breadth of online presence. While additional excerpts discuss competitive landscape and operating segments, they provide supportive context rather than direct footprint data. Taken together, the strongest support comes from the explicit counts and expansion of physical stores and online sites, with secondary context from broader channel descriptions and competitive landscape.",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness.past_experience_insight",
+      "citations": [
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            ":\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            "Content:\nFaster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better conversion rates.",
+            "Content:\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience."
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert."
+          ]
+        },
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The strongest support comes from explicit performance improvements tied to Fair Harbor, a known Nostra customer, which provides a concrete basis for the alumni signal: a person with visibility into how Nostra’s infrastructure enhancements translate to real-world user experience and revenue impact. Descriptions of reducing Time to First Byte and improving Largest Contentful Paint illustrate the tangible benefits the lead may have observed in a prior context and thus would likely recognize when encountered again in a new company setting. Additional context from Nostra’s success stories reinforces the nature of the benefits, showing that faster page speeds and related metrics drive conversions, which is precisely what the alumni signal implies the lead would have been aware of. The presence of a dedicated page describing Nostra’s enterprise-grade infrastructure offers a direct line of sight into the capabilities the lead would be evaluating today, reinforcing why the past exposure matters for conversations with MillerKnoll. Finally, establishing the lead’s current role as Chief Marketing Officer at MillerKnoll anchors why she would be the right senior stakeholder to reach on this topic, and corroborates the relevance of the past exposure to her current strategic initiatives in marketing, brand, and digital experience. Together, these excerpts substantiate that Jenny Olsen would plausibly recognize the value of Nostra’s offerings based on prior exposure and current leadership responsibilities, supporting the intended inference about the alumni signal.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.strategic_urgency",
+      "citations": [
+        {
+          "title": "\n         Why MillerKnoll is betting big on retail\n        \n    ",
+          "url": "https://businessofhome.com/articles/why-millerknoll-is-betting-big-on-retail",
+          "excerpts": [
+            "From one store in New York plus two in China only two years ago, there are now 32 locations around the world."
+          ]
+        },
+        {
+          "title": "Annual Report - MillerKnoll",
+          "url": "https://millerknoll.gcs-web.com/mlkn-2024-annual-report-on-form-10k?mobile=1",
+          "excerpts": [
+            "The Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites, and through its owned Herman Miller, Design Within Reach (\"DWR\"), HAY, Knoll, and Muuto retail stores and\nstudios.",
+            ".\nThe Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites",
+            "Global Retail segment includes global operations associated with the sale of modern design furnishings and accessories to\nthird party retailers, as well as direct to consumer sales through eCommerce, direct-mail catalogs, and physical retail stores.",
+            "he Company also competes in the home furnishings industry, primarily against national, regional and independent home\nfurnishings retailers who market high-craft furniture to end-user customers and the interior design community. These\ncompetitors include companies such as Crate & Barrel Holdings, Inc., Hive Modern, Restoration Hardware, Room & Board,\nInc., Wayfair Inc., and Williams-Sonoma, "
+          ]
+        },
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        }
+      ],
+      "reasoning": "Excerpts describing MillerKnoll’s aggressive retail expansion and rising global footprint provide direct evidence of scaling and the resulting infrastructure demand. One excerpt notes that the company is expanding from a single store to dozens globally, illustrating aggressive growth that increases traffic, orders, and the need for reliable digital delivery. Another excerpt highlights a broad eCommerce and global retail presence, underscoring the operational scale and channels where site performance and uptime are critical. A third excerpt reinforces the geographic and channel breadth by detailing the global retail footprint and direct-to-consumer sales through eCommerce, catalogs, and stores. Additional pieces emphasize the competitive landscape in online channels and the importance of digital infrastructure to performance and revenue, linking site speed and reliability to competitive positioning. Leadership-focused excerpts about the Chief Marketing Officer provide context on strategic direction and global marketing scope, which explains why a unified, scalable digital platform would matter to the executive team. A separate note on ongoing retail expansion (more locations and markets) further substantiates urgency by illustrating continued growth velocity that will strain current infrastructure if not modernized. Taken together, these excerpts validate that the current business context involves rapid scale, expanding online channels, and peak-traffic sensitivity, all driving the imperative for enterprise-grade digital infrastructure.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview.alumni_signal",
+      "citations": [
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Content:\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience."
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Trusted by 300+ brands"
+          ]
+        },
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            " * current company name: MillerKnoll",
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The strongest support comes from the Fair Harbor success story, which explicitly states performance improvements (37% reduction in Time to First Byte and 15% improvement in Largest Contentful Paint). This directly underpins the claim that Nostra has a documented success story with a comparable premium brand, which is the core of the alumni signal. Next, the Nostra enterprise infrastructure pages establish the nature of Nostra’s offering and its credibility with a broad customer base, reinforcing why a premium brand would consider or benefit from Nostra’s capabilities in ecommerce infrastructure. Then, the MillerKnoll-related excerpts confirm the lead’s current senior marketing role at MillerKnoll, which is important for grounding the alumni signal in the lead’s real-world professional network and potential awareness of Nostra’s narrative within premium brand ecosystems. The Jennifer Olsen/MillerKnoll context supports the plausibility of the alumni linkage even if it does not confirm past employment at Fair Harbor; it helps explain why this lead could be exposed to Nostra’s value proposition given MillerKnoll’s premium brand portfolio and breadth of channels. Collectively these excerpts connect the specified alumni signal to a concrete proof point (Fair Harbor’s performance gains) and to the target’s current senior marketing leadership at MillerKnoll for relevance of outreach, with the leaders’ credentials validating the strategic fit of Nostra’s edge infrastructure narrative for premium ecommerce brands.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway.urgency_level",
+      "citations": [
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            " * current company name: MillerKnoll",
+            " Experience\n   - title: MillerKnoll\n   - subtitle: ***** ********* *******\n   - company: MillerKnoll\n ",
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more",
+            " * current company company id: millerknoll",
+            " * city: New York, New York, United States",
+            " * location: New York",
+            " * input url: https://www.linkedin.com/in/jennifersolsen"
+          ]
+        },
+        {
+          "title": "What is Growth Strategy and Future Prospects of MillerKnoll Company? – PortersFiveForce.com",
+          "url": "https://portersfiveforce.com/blogs/growth-strategy/millerknoll",
+          "excerpts": [
+            "Dec 17, 2025 — Learn how MillerKnoll's growth strategy impacts their market position. Gain insights into their competitive edge and industry leadership."
+          ]
+        }
+      ],
+      "reasoning": "The most directly relevant passages establish the lead’s current senior role and the organization they now influence. The lead is the Chief Marketing Officer at MillerKnoll, a senior leadership position with global responsibility across multiple brands, which signals high influence over marketing technology decisions that could involve digital infrastructure and site performance. The recency of the MillerKnoll leadership appointment (with prior roles at other major brands) reinforces that this person is actively shaping strategic initiatives, making them a high-priority target for GTM outreach. Additional excerpts confirm the precise current company name and the leader’s profile, suggesting a direct line of sight into the company’s digital commerce ambitions and potential readiness to adopt a platform that enhances site speed, security, attribution, and content optimization—areas where Nostra’s edge platform could create value. The excerpt describing MillerKnoll as a global marketing leader with responsibilities across retail and contract channels further supports urgency, since impactful marketing leadership typically correlates with decisive tech investments and vendor evaluations in the near term. The presence of multiple data points about the leader’s current and past roles, and their visibility in publicly accessible profiles, strengthens the inference that they are actively involved in strategic decision-making relevant to Nostra’s offerings. The remaining excerpts provide corroborating context about MillerKnoll’s leadership and positioning but are slightly less direct about the immediate decision-making context, though they still reinforce the alumni signal and the leadership footprint within the target organization.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview.opportunity_summary",
+      "citations": [
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        },
+        {
+          "title": "Jennifer Olsen - Chief Marketing Officer, MillerKnoll | Advisor",
+          "url": "https://www.linkedin.com/in/jennifersolsen",
+          "excerpts": [
+            "Jenny has held marketing leadership roles at Pepsi, Disney, Yahoo! and Crate and Barrel (where she was the company's first CMO). As an advisor and board member, ...Read more",
+            " * current company name: MillerKnoll",
+            " * current company company id: millerknoll",
+            " * name: Jennifer Olsen",
+            " * input url: https://www.linkedin.com/in/jennifersolsen"
+          ]
+        },
+        {
+          "title": "What is Growth Strategy and Future Prospects of MillerKnoll Company? – PortersFiveForce.com",
+          "url": "https://portersfiveforce.com/blogs/growth-strategy/millerknoll",
+          "excerpts": [
+            "Dec 17, 2025 — Learn how MillerKnoll's growth strategy impacts their market position. Gain insights into their competitive edge and industry leadership."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Content:\nFaster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better conversion rates.",
+            "Content:\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            "By reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            "Section Title: Customer Stories > **What problems is Nostra solving and how is that benefiting you?**"
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Trusted by 300+ brands",
+            "Meet Our Customers"
+          ]
+        }
+      ],
+      "reasoning": "The target field describes a high-potential opportunity anchored in the CMO of MillerKnoll and the company’s large, multi-brand ecommerce footprint with a sensitive peak-traffic window. The most directly supportive content identifies Jenny Olsen as MillerKnoll’s Chief Marketing Officer, detailing her leadership of the global marketing organization across MillerKnoll’s family of brands and her strategic, measurable remit. This confirms she is the senior decision-maker with a view across marketing and digital experiences, precisely the kind of stakeholder who would evaluate a platform aimed at speed, reliability, and security at scale. Additional material confirms MillerKnoll’s multi-brand, globally distributed retail and contract channels, underscoring the complexity and breadth of their ecommerce footprint. These excerpts together establish the alumni-like signal: the lead at MillerKnoll would have exposure to and awareness of the client’s product through their prior customer relationships in the home/office design ecosystem, and now occupies a role where infrastructure improvements directly impact marketing outcomes and revenue. Supporting context about MillerKnoll’s growth strategy and the importance of site performance during high-traffic periods (e.g., peak shopping events) strengthens the urgency claim that Nostra’s edge infrastructure would address. The inclusion of Nostra’s capabilities and documented performance improvements in related contexts provides a concrete product-fit narrative, anchoring why this email or outreach should be pursued with a tailored, concrete message that references the alumni signal and MillerKnoll’s current scale and pressures.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.competitive_pressure",
+      "citations": [
+        {
+          "title": "Annual Report - MillerKnoll",
+          "url": "https://millerknoll.gcs-web.com/mlkn-2024-annual-report-on-form-10k?mobile=1",
+          "excerpts": [
+            "he Company also competes in the home furnishings industry, primarily against national, regional and independent home\nfurnishings retailers who market high-craft furniture to end-user customers and the interior design community. These\ncompetitors include companies such as Crate & Barrel Holdings, Inc., Hive Modern, Restoration Hardware, Room & Board,\nInc., Wayfair Inc., and Williams-Sonoma, ",
+            "The Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites, and through its owned Herman Miller, Design Within Reach (\"DWR\"), HAY, Knoll, and Muuto retail stores and\nstudios.",
+            "Global Retail segment includes global operations associated with the sale of modern design furnishings and accessories to\nthird party retailers, as well as direct to consumer sales through eCommerce, direct-mail catalogs, and physical retail stores.",
+            ".\nThe Company's products are marketed worldwide by its own sales staff, independent dealers and retailers, via its eCommerce\nwebsites",
+            "\nThe Company is comprised of various operating segments as defined by generally accepted accounting principles in the United\n ... \n",
+            "The\nfollowing is a summary of certain key financial measures for the years indicated:"
+          ]
+        },
+        {
+          "title": "\n         Why MillerKnoll is betting big on retail\n        \n    ",
+          "url": "https://businessofhome.com/articles/why-millerknoll-is-betting-big-on-retail",
+          "excerpts": [
+            "From one store in New York plus two in China only two years ago, there are now 32 locations around the world."
+          ]
+        },
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant excerpt directly enumerates the major players MillerKnoll competes with across both the contract furniture and home furnishings spaces, providing a concrete map of the competitive field. It also clearly states the facets that matter in competition—design, quality, price, speed of delivery, and the retail environment, including online channels—and highlights that e-commerce experience, site performance, and conversion efficiency are critical levers to defend and grow share. This directly supports the finegrained value by illustrating the intensity and multidimensional nature of competition in MillerKnoll’s markets, exactly the kind of pressure that would be driving urgency for a go-to-market strategy. Supporting context comes from excerpts that outline the company’s broad retail and e-commerce footprint, reinforcing why digital infrastructure and performance are strategic battlegrounds. Additional excerpts provide peripheral context about the company’s scale and retail reach, which helps frame urgency but are not as tightly tied to the competitive dynamics as the explicit competitor list and the stated competitive dimensions. Collectively, these excerpts build a coherent picture of a highly contested market where online performance directly influences market position and growth potential for MillerKnoll.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.sample_message_body",
+      "citations": [
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Back in 2006, Amazon reported that every 100ms in added page load time cost them 1% in Sales.",
+            "Trusted by 300+ brands",
+            "Meet Our Customers"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "By reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            ":\nFaster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better conversion rates.",
+            ":\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            "Content:\nBy reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience."
+          ]
+        },
+        {
+          "title": "\n         Why MillerKnoll is betting big on retail\n        \n    ",
+          "url": "https://businessofhome.com/articles/why-millerknoll-is-betting-big-on-retail",
+          "excerpts": [
+            "From one store in New York plus two in China only two years ago, there are now 32 locations around the world."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant excerpts directly establish the key characters and context for the outreach. Excerpts describing Jenny Olsen as Chief Marketing Officer of MillerKnoll and detailing her leadership over the global marketing organization provide the exact target and organizational scope for the outreach. These are paired with a clear depiction of Nostra’s positioning as an enterprise-grade e-commerce infrastructure provider, framing the value proposition in the MillerKnoll context. Performance evidence from the success story with Fair Harbor—quantified improvements in site speed and user experience—gives concrete, claimable benefits to reference in the outreach. Additional excerpts that describe Nostra’s broader customer base and the company’s emphasis on rapid, reliable site performance reinforce credibility and scale. Specific lines that underscore the importance of site speed, bot protection, and real-time identity resolution align with the outreach angle of protecting and accelerating revenue across a large digital portfolio. The remaining excerpts contribute supportive context: MillerKnoll’s broader retail footprint, the brand’s growth, and Amazon-scale insights that illustrate the economic impact of page load times. Taken together, these excerpts build a coherent, evidence-backed backdrop for a targeted, personalized outreach to the MillerKnoll CMO that emphasizes alumni signal, enterprise scale, and measurable performance outcomes.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.outreach_angle",
+      "citations": [
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Back in 2006, Amazon reported that every 100ms in added page load time cost them 1% in Sales.",
+            "Trusted by 300+ brands",
+            "Meet Our Customers"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "By reducing Time to First Byte by 37% and improving Largest Contentful Paint by 15%, Fair Harbor gave customers a faster, smoother browsing experience.",
+            ":\nFaster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better conversion rates."
+          ]
+        },
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.",
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University."
+          ]
+        },
+        {
+          "title": "\n         Why MillerKnoll is betting big on retail\n        \n    ",
+          "url": "https://businessofhome.com/articles/why-millerknoll-is-betting-big-on-retail",
+          "excerpts": [
+            "From one store in New York plus two in China only two years ago, there are now 32 locations around the world."
+          ]
+        }
+      ],
+      "reasoning": "The recommended outreach angle hinges on proving that Nostra can scale for a large, multi-brand enterprise and protect revenue during high-traffic periods. Excerpts describing Nostra’s core capabilities—enterprise-grade infrastructure unifying instant site-speed, AI-powered bot protection, and edge-level identity resolution—directly support the premise that Nostra can handle MillerKnoll’s scale and complexity. The success story with Fair Harbor demonstrates tangible speed and performance improvements that translate into better user experience and conversions, providing a credible precedent for the target account. The statement that Nostra is trusted by hundreds of brands underpins the credibility of the platform for large retailers. The data point about page-load time impacting sales (Amazon’s 100ms rule) strengthens the business case for performance enhancements. MillerKnoll leadership exposure is relevant because the target lead (CMO) would be attuned to marketing performance and digital storefront reliability; the excerpts detailing Jenny Olsen’s role at MillerKnoll establish the decision-maker context and framework for the outreach tone. Additional context about MillerKnoll’s scale and omnichannel approach (multiple brands, contract channels, global footprint) helps tailor the messaging to address multi-brand, global operations. In sum, the most relevant content demonstrates what Nostra delivers for performance and security at scale, a proven customer success story, and the right executive context at MillerKnoll to pursue the outreach with authority and specificity.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.sample_subject_line",
+      "citations": [
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            ":\nFaster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better conversion rates."
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Back in 2006, Amazon reported that every 100ms in added page load time cost them 1% in Sales.",
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert."
+          ]
+        },
+        {
+          "title": "\n         Why MillerKnoll is betting big on retail\n        \n    ",
+          "url": "https://businessofhome.com/articles/why-millerknoll-is-betting-big-on-retail",
+          "excerpts": [
+            "From one store in New York plus two in China only two years ago, there are now 32 locations around the world."
+          ]
+        },
+        {
+          "title": "MillerKnoll News - Our Leaders",
+          "url": "https://news.millerknoll.com/Jenny-Olsen",
+          "excerpts": [
+            "Content:\n**Chief Marketing Officer, MillerKnoll**\nAs Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally.\nJenny is an accomplished C-suite executive and board member with deep marketing, leadership, and operating expertise gained from more than 25 years driving growth across diverse portfolios and building iconic brands that connect with people and culture. She has worked with some of the world’s most-known brands and across a wide range of verticals including apparel, footwear, home, media, CPG, and technology.\nPrior to joining MillerKnoll in 2025, Jenny served as CMO for established and early growth stage brands, including Crate & Barrel, Caleres, Gap Inc.’s Piperlime, and UNTUCKit.\nJenny holds a B.A. in Political Science from Colgate University and earned her MBA from the Kellogg School of Management at Northwestern University.",
+            "Chief Marketing Officer, Jenny Olsen leads the global marketing organization across MillerKnoll, Herman Miller, DWR, and Knoll. Among her chief responsibilities are setting the strategy and driving the overall marketing vision, execution, and measurement within the company’s global retail business and supporting its contract channels globally."
+          ]
+        }
+      ],
+      "reasoning": "The subject line centers on MillerKnoll’s ecommerce performance and conversion. Excerpts that explicitly tie site performance to conversion provide the strongest direct support: faster web speeds improve user experience and drive conversion, and even a widely cited latency penalty cost (100ms) translates into lost sales. Therefore, statements like faster webpage speeds maintaining high performance and driving sales through better conversion rates are highly relevant. Additionally, descriptions of Nostra’s enterprise-grade infrastructure offer the necessary technical backbone to imply how performance improvements can be delivered at MillerKnoll’s scale. The content showing that Nostra enables instant site-speed performance, AI-powered bot protection, and edge-level identity resolution provides context for why MillerKnoll would care about the subject line angle. The alumni signal is reinforced by excerpts detailing MillerKnoll leadership and branding, establishing credibility for a message that leverages the past association with a known customer. References to MillerKnoll’s broader retail growth and leadership reinforce the relevance and urgency of optimizing digital infrastructure for performance-driven ecommerce. Taken together, these sources support a subject line that highlights ecommerce performance and conversion for MillerKnoll, backed by concrete performance effects and the Nostra solution narrative, with an authentic alumni connection to MillerKnoll’s leadership team.",
+      "confidence": "high"
+    }
+  ],
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "overview": {
+        "type": "object",
+        "properties": {
+          "lead_details": {
+            "type": "string",
+            "description": "The lead's name and current role."
+          },
+          "alumni_signal": {
+            "type": "string",
+            "description": "A clear statement of the lead's connection to a past company that is a known client customer."
+          },
+          "opportunity_summary": {
+            "type": "string",
+            "description": "A brief summary of why this lead represents a significant opportunity now."
+          }
+        },
+        "required": [
+          "lead_details",
+          "alumni_signal",
+          "opportunity_summary"
+        ],
+        "additionalProperties": false
+      },
+      "market_position": {
+        "type": "object",
+        "properties": {
+          "company_context": {
+            "type": "string",
+            "description": "The current company's scale, brand portfolio, and market position."
+          },
+          "digital_footprint": {
+            "type": "string",
+            "description": "Details on the company's e-commerce and retail presence."
+          },
+          "competitive_pressure": {
+            "type": "string",
+            "description": "The competitive landscape and the importance of digital performance."
+          },
+          "strategic_urgency": {
+            "type": "string",
+            "description": "Why digital infrastructure is a critical priority for the company right now."
+          }
+        },
+        "required": [
+          "company_context",
+          "digital_footprint",
+          "competitive_pressure",
+          "strategic_urgency"
+        ],
+        "additionalProperties": false
+      },
+      "relevance_and_readiness": {
+        "type": "object",
+        "properties": {
+          "lead_authority": {
+            "type": "string",
+            "description": "The lead's current role, responsibilities, and decision-making power."
+          },
+          "past_experience_insight": {
+            "type": "string",
+            "description": "What the lead likely experienced or was aware of at their past company regarding the client's value."
+          },
+          "complexity_delta": {
+            "type": "string",
+            "description": "How the challenges at the current company are a scaled-up version of what they've seen before."
+          }
+        },
+        "required": [
+          "lead_authority",
+          "past_experience_insight",
+          "complexity_delta"
+        ],
+        "additionalProperties": false
+      },
+      "recommended_approach": {
+        "type": "object",
+        "properties": {
+          "outreach_angle": {
+            "type": "string",
+            "description": "The specific strategic angle for the outreach, connecting past and present roles."
+          },
+          "sample_subject_line": {
+            "type": "string",
+            "description": "A concrete example of an email subject line for the outreach."
+          },
+          "sample_message_body": {
+            "type": "string",
+            "description": "A sample talk track or message body that is concrete and references the alumni connection."
+          }
+        },
+        "required": [
+          "outreach_angle",
+          "sample_subject_line",
+          "sample_message_body"
+        ],
+        "additionalProperties": false
+      },
+      "takeaway": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string",
+            "description": "The final verdict on why this lead is a high-value target."
+          },
+          "urgency_level": {
+            "type": "string",
+            "description": "The recommended priority level for this lead (e.g., High, Medium, Low)."
+          }
+        },
+        "required": [
+          "verdict",
+          "urgency_level"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "overview",
+      "market_position",
+      "relevance_and_readiness",
+      "recommended_approach",
+      "takeaway"
+    ],
+    "additionalProperties": false
+  }
+}

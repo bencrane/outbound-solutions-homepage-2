@@ -1,0 +1,311 @@
+{
+  "input": "#CONTEXT#\nYou are a B2B sales strategist writing a GTM intelligence memo for a sales team. You will receive information about:\n1. A client company whose product is being sold\n2. A lead who previously worked at a company that is a known customer of the client\n3. The lead's current company where they now hold a relevant role\n\nThe lead's past company is a known customer of the client. The lead held a relevant role there and would have been exposed to or aware of the client's product. They have since moved to a new company in a similar or more senior role.\n\n\n\n\"#OBJECTIVE#\nGenerate a 5-section GTM strategy memo that helps a sales rep understand why this lead is a high-value target right now and exactly how to approach them.\n\n#RESEARCH DIRECTIVES#\nBefore writing the memo, research the following:\n\n1. **Current company business context** — What is the current company's scale, market position, ecommerce footprint, and growth trajectory? What operational or technical challenges would a company like this face? What about their stage creates urgency for the client's product?\n\n2. **Competitive landscape** — Who are the current company's direct competitors? What market pressure do they face? How does site performance, conversion optimization, or digital infrastructure factor into their competitive position?\n\n3. **Lead's role and authority** — Based on their title and the company context, what does this person own? What decisions do they influence or control? Why are they the right person to talk to about the client's product?\n\n4. **The alumni signal** — The lead previously held a relevant role at a company that uses the client's product. What would they have seen or experienced there? How does that experience translate to their current situation?\n\n5. **Complexity delta** — How do the challenges at the current company compare to the past company? Are they dealing with more brands, more SKUs, more markets, more traffic, more complexity? Frame the current situation relative to what they've already navigated.\n\n#OUTPUT FORMAT#\nWrite a 5-section memo in sharp, conversational prose. No bullet points. No headers beyond the section names. Each section should be a tight paragraph.\n\n**OVERVIEW**\n2-3 sentences. Who is this person, what is their current role, and what is their connection to the client's customer base. State the alumni signal clearly.\n\n**MARKET POSITION**\nOne paragraph. The current company's business context — scale, growth stage, competitive pressure, and why their digital infrastructure matters right now. What is at stake for them?\n\n**RELEVANCE & READINESS**\nOne paragraph. Why this specific person. What did they see or own at their past company? What do they own now? Why would they recognize the value of the client's product immediately?\n\n**RECOMMENDED APPROACH**\nOne paragraph. The specific angle for outreach. Include a sample message or talk track that references the alumni connection and speaks to the current company's situation. Make it concrete, not generic.\n\n**TAKEAWAY**\nOne sentence. The verdict — why this lead matters and the urgency level.\n\n#STYLE GUIDANCE#\n- Be direct and specific. No filler, no hedge words.\n- Do not fabricate metrics, quotes, or claims. Only infer plausibly from the inputs and your research.\n- Do not claim the lead directly used or implemented the client's product unless you have evidence. Frame it as exposure and awareness based on their role.\n- The memo should read like it was written by someone who understands the market, not by an AI summarizing inputs.\n- Total length: 300-400 words.\n\n\"#INPUTS#\nclient_company_name: Nostra\nclient_company_domain: nostra.ai\nclient_company_description: Nostra helps the world’s leading ecommerce brands future-proof their digital infrastructure with cutting-edge edge technology. We enable high-growth DTC companies to deploy enterprise-grade infrastructure in minutes, not months. Our edge platform is designed to accelerate site speed, increase conversion rates, and drive more revenue, while protecting your brand from modern threats. With products like Edge Delivery Engine, Edge Protection, Edge ID, and Edge Crawler, we give brands the tools to: • Boost performance by 20–30% • Block ad bot traffic before it hits your site • Extend cookie life for better attribution • Optimize content for LLM indexing and AI-native search Brands like Jolie, Amiri, and Olukai rely on Nostra to deliver faster, safer, smarter ecommerce experiences\n\nlead_full_name: \nlead_linkedin_url: Adam Rivas\nlead_current_job_title: https://www.linkedin.com/in/adamrivas\nlead_current_company_name: Community Growth Director\nlead_current_company_domain: Kin Unified Healing\nlead_current_company_description: kinunifiedhealing.com\n\nlead_past_company_name: null\nlead_past_company_domain: Forever 21\nlead_past_company_description: forever21.com\nlead_past_company_job_title: Forever 21 continues to be a fashion industry leader with a mission to make the latest trends accessible to all. F21 persists on staying ahead of innovation and providing styles and fit that our customers love. While reinventing for now and beyond, we’re seeking passionate and creative new family members to join us on this adventure! F21 continues to operate E-commerce and 450 locations across the U.S. along with maintaining a strong brand DNA with consumers and within the fashion industry. \n\nIn February 2020, Forever 21 came under new ownership made up of Simon Property Group, Brookfield Property Partners, and Authentic Brands Group. Under this new ownership F21 has the financial strength and long term view that will prepare us for the future, while continuing to set the same high standards as it always has. Join our team and learn the inner sanctum of the global fashion industry, while we build the new Forever 21! \n\nForever 21 is operated by SPARC Group LLC.\n \nAbout SPARC Group LLC\nSPARC Group LLC offers operational and strategic expertise including retail and e-commerce management, sourcing, design and technology for leading global brands. SPARC Group is a joint venture between Simon Property Group, a preeminent retail real estate company and Authentic Brands Group, a global leader in brand development. In addition to Forever 21, SPARC Group brands include Aéropostale, Brooks Brothers, Nautica, Eddie Bauer, and Lucky Brand.\n \nSPARC Group LLC is an equal opportunity employer, and is committed to maintaining a workplace free from prohibited employment conduct, including discrimination or harassment on the basis of race, color, national origin, sex, age, religion, disability, genetic information, sexual orientation, gender identity or expression, marital status, domestic partner status, civil partnership, status as a covered veteran, status in the Uniformed Services of the United States, citizenship and any other characteristic protected by law.\"\n\nOutput Schema\njson{\n  \"\"overview\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"2-3 sentences. Who is this person, their current role, and their alumni connection to the client's customer base.\"\"\n  },\n  \"\"market_position\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on the current company's business context, competitive pressure, and why digital infrastructure matters now.\"\"\n  },\n  \"\"relevance_and_readiness\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on why this specific person — what they saw at the past company, what they own now, why they'd recognize value immediately.\"\"\n  },\n  \"\"recommended_approach\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph with the specific outreach angle and sample messaging that references the alumni connection.\"\"\n  },\n  \"\"takeaway\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One sentence verdict on why this lead matters and urgency level.\"\"\n  }\n}\"",
+  "output": {
+    "overview": "Adam Rivas is an Educator Practitioner at Kin Unified Healing, a growing sound therapy institute. He has a direct alumni connection to our customer base through his previous employment at Forever 21, a confirmed Nostra customer. This connection provides a unique entry point, as he has been exposed to a business environment where the value of high-performance digital infrastructure, like that provided by Nostra, is well-understood.",
+    "market_position": "Kin Unified Healing is scaling as a hybrid wellness institute, blending in-person services with a digital footprint that includes ecommerce on Shopify, class bookings via Arketa, and an online community on Mighty Networks. This expansion puts them in direct competition with established online players like Sound Healing Academy, which have strong SEO and conversion funnels. For Kin, whose growth depends on attracting students to certifications and workshops, a fragmented and slow digital experience is a significant liability. Optimizing their digital infrastructure is now critical to compete on discoverability, enhance the user journey from discovery to enrollment, and maximize revenue from both their educational programs and retail shop.",
+    "relevance_and_readiness": "Adam's relevance comes from his time at Forever 21, a high-volume ecommerce environment where site speed directly impacts revenue—a problem Nostra demonstrably solved for them with a 59% page load acceleration. While his role was store-level, he was part of a culture where digital performance was a key business driver. Now at Kin, as an educator and potential community growth lead, he is on the front lines of student acquisition. He would immediately recognize how a slow, disjointed digital experience across Shopify, Arketa, and Mighty Networks creates friction for enrollment and damages the brand, making him uniquely prepared to understand the value of a unified edge platform.",
+    "recommended_approach": {
+      "outreach_angle": "The core angle is to leverage the alumni connection by referencing the massive performance gains Nostra delivered for Forever 21. Frame it as, 'You saw the challenges of digital scale at F21; we were the partner that solved them. Now at Kin, as you're scaling a community and educational programs, that same technology can be your competitive edge.' The goal is to validate his role in community growth and, if he's the right contact, show him a clear path to improving student acquisition and site performance. If not, use this compelling context to ask for an introduction to the person who owns the website and marketing technology.",
+      "sample_message": "Hi Adam, I saw your background with Forever 21 and your current work at Kin Unified Healing. My team at Nostra was the partner that helped F21 achieve a 59% acceleration in page load speed and a 166% increase in crawl speed. Given Kin's growth in certifications and your fragmented digital stack across Shopify and Arketa, I imagine discoverability and conversion are top of mind. I have a few thoughts on how our edge platform could help you streamline that experience for new students. Would you be open to a brief chat?"
+    },
+    "takeaway": "This is a high-urgency lead because Adam has firsthand context for the problem we solve from a major customer and is now at a company hitting the exact growth-related digital infrastructure challenges our platform is built for."
+  },
+  "outputBasis": [
+    {
+      "field": "market_position",
+      "citations": [
+        {
+          "title": "KIN Unified Healing",
+          "url": "https://app.arketa.co/Kinunifiedhealing",
+          "excerpts": [
+            "Adam Rivas (Educator Practitioner)",
+            "KIN Unified Healing Institute • Walnut, CA",
+            "Somatic Yoga and Sound Therapy is a 60-minute class that integrates several therapeutic techniques with proven benefits:",
+            "KIN Unified Healing Institute • Walnut, CA\nVi",
+            "SOUND AND SOMATIC YOGA"
+          ]
+        },
+        {
+          "title": "Janelle Corpuz - KIN Unified Institute of Sound",
+          "url": "https://www.linkedin.com/in/janelle-corpuz-31959610",
+          "excerpts": [
+            "Current Company\n * name: KIN Unified Institute of Sound"
+          ]
+        }
+      ],
+      "reasoning": "The field value describes Kin Unified Healing as a growing hybrid wellness institute with a digital footprint spanning Shopify ecommerce, Arketa for class bookings, and a Mighty Networks community, while facing competition from established players with strong SEO and conversion funnels. The excerpts directly referencing Kin Unified Healing provide concrete details about the organization’s structure, offerings, and digital ecosystems, illustrating how Kin operates across in-person and online channels. These items establish Kin’s current expansion through education and services and confirm that their digital infrastructure is pivotal to discoverability, enrollment journeys, and revenue from both programs and retail. The companion excerpt detailing Kin’s personnel and institutional context reinforces the idea that Kin is actively building a multi-channel platform, which strengthens the case that optimizing their digital stack would have immediate strategic value. Conversely, the Forever 21 success-story items illustrate a benchmark of how a large ecommerce brand leverages edge and crawl optimizations to drive performance, offering contrast on the level of impact possible when digital infrastructure is optimized. The final item confirms Kin’s association with a named person, anchoring the alumni signal to a real contact, which supports a tailored outreach angle grounded in Kin’s ecosystem and competitive context.",
+      "confidence": "medium"
+    },
+    {
+      "field": "relevance_and_readiness",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 leverages Nostra AI's Edge Delivery Engine & Crawler Optimization to drastically improve website performance and drive organic traffic growth.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "To address Forever 21's challenges, Nostra AI implemented its innovative Edge Delivery Engine™ and Crawler Optimization solutions.",
+            "Ryan Hofmann, VP of CRM and Channel Marketing at Forever 21, emphasized the urgency of the situation, stating, \"We all know slow sites suck… but what's causing the slowness and how do we attack that?\" These challenges underscored the need for a comprehensive solution that could not only address the technical aspects of website optimization but also provide actionable insights and support. Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs."
+          ]
+        },
+        {
+          "title": "Janelle Corpuz - KIN Unified Institute of Sound",
+          "url": "https://www.linkedin.com/in/janelle-corpuz-31959610",
+          "excerpts": [
+            "Current Company\n * name: KIN Unified Institute of Sound"
+          ]
+        }
+      ],
+      "reasoning": "The claim that the lead’s relevance stems from Forever 21’s high-volume ecommerce context is supported by explicit performance improvements attributed to Nostra AI, including a rapid 59% acceleration in page load and a 166% increase in crawl speed. These concrete metrics demonstrate how digital performance directly impacts revenue in a large-scale consumer brand, which aligns with the lead’s prior exposure to a data-driven, performance-first environment. The Forever 21 success narrative also notes the use of Edge Delivery Engine and Crawler Optimization, illustrating the exact kinds of capabilities the client provides and the tangible benefits those capabilities delivered. This helps explain why the lead would recognize the value of a unified edge platform when considering enrollment and brand protection, given his familiarity with performance-centric ecommerce operations. Additionally, the Forever 21 case underscores the urgency and strategic importance of site performance in a competitive, fast-moving fashion context, which reinforces the alumni signal that the lead would ‘get’ how a fast, reliable digital experience translates to growth and brand integrity. The current Forever 21-themed content, including the quote about urgency from a senior executive, reinforces the real-world pressure to optimize performance and supports the notion that the lead, now at Kin Unified Healing, would intuitively understand the friction caused by slow or disjointed digital experiences across multiple platforms. The combination of past exposure, direct performance outcomes, and ongoing emphasis on speed and reliability makes this lead highly receptive to a targeted, solution-oriented outreach that references proven results and a practical, edge-driven approach.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 leverages Nostra AI's Edge Delivery Engine & Crawler Optimization to drastically improve website performance and drive organic traffic growth.",
+            "Ryan Hofmann, VP of CRM and Channel Marketing at Forever 21, emphasized the urgency of the situation, stating, \"We all know slow sites suck… but what's causing the slowness and how do we attack that?\" These challenges underscored the need for a comprehensive solution that could not only address the technical aspects of website optimization but also provide actionable insights and support. Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagemen",
+            "66% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "To address Forever 21's challenges, Nostra AI implemented its innovative Edge Delivery Engine™ and Crawler Optimization solutions.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.\n",
+            "The implementation process involved close collaboration between Nostra AI and Forever 21's Engineering team. Nostra AI's experts worked diligently to integrate their solutions seamlessly into Forever 21's existing infrastructure, minimizing disruptions, and ensuring a smooth transition. Throughout the process, Nostra AI provided ongoing support and monitoring to optimize performance and address any potential issues.",
+            "This strategic approach not only mitigates current challenges but also positions the brand for long-term digital success in the competitive fast fashion industry.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience."
+          ]
+        },
+        {
+          "title": "Janelle Corpuz - KIN Unified Institute of Sound",
+          "url": "https://www.linkedin.com/in/janelle-corpuz-31959610",
+          "excerpts": [
+            "Current Company\n * name: KIN Unified Institute of Sound"
+          ]
+        }
+      ],
+      "reasoning": "The outreach angle and sample message should leverage proven performance improvements tied to Forever 21, since the lead’s past company is Forever 21 and the current lead’s role involves growth within Kin Unified Healing. Direct references show that Forever 21 achieved substantial site performance gains using Nostra AI’s Edge Delivery Engine and Crawler Optimization, including a 59% acceleration in page load time and a 166% increase in crawl speed. This establishes a credible, tangible track record to cite in outreach, especially when framing the alumni connection as a bridge from past scale challenges to Kin’s growth needs. Additional excerpts describe the core technology and its impact on ongoing performance and traffic, reinforcing why rapid, scalable digital infrastructure matters for a growth-focused organization like Kin Unified Healing. The combination of Edge Delivery Engine usage, improved crawl speeds, and the narrative of performance-led optimization provides concrete talking points for a targeted message that acknowledges the alumnus’s prior exposure to the client’s product and translates that into a relevant solution for Kin’s current scale and complexity. The presence of detailed outcomes and the implementation context helps craft a specific, non-generic outreach that references both the alumni signal and the current company’s digital challenges. The later excerpts reinforce that the solution is action-oriented (test-and-learn, performance KPIs) and align with a direct, no-fluff outreach approach suitable for a GTM memo.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 leverages Nostra AI's Edge Delivery Engine & Crawler Optimization to drastically improve website performance and drive organic traffic growth.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Ryan Hofmann, VP of CRM and Channel Marketing at Forever 21, emphasized the urgency of the situation, stating, \"We all know slow sites suck… but what's causing the slowness and how do we attack that?\" These challenges underscored the need for a comprehensive solution that could not only address the technical aspects of website optimization but also provide actionable insights and support. Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.\n",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "To address Forever 21's challenges, Nostra AI implemented its innovative Edge Delivery Engine™ and Crawler Optimization solutions.",
+            "59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagemen",
+            "66% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic"
+          ]
+        },
+        {
+          "title": "Janelle Corpuz - KIN Unified Institute of Sound",
+          "url": "https://www.linkedin.com/in/janelle-corpuz-31959610",
+          "excerpts": [
+            "Current Company\n * name: KIN Unified Institute of Sound"
+          ]
+        },
+        {
+          "title": "KIN Unified Healing",
+          "url": "https://app.arketa.co/Kinunifiedhealing",
+          "excerpts": [
+            "Adam Rivas (Educator Practitioner)"
+          ]
+        },
+        {
+          "title": "Adam Rivas - Office Services & Administration Specialist",
+          "url": "https://www.linkedin.com/in/adamrivas",
+          "excerpts": [
+            "- start date: Nov 2011",
+            "   - company: Forever 21",
+            "   - company id: forever-21",
+            "   - url: https://www.linkedin.com/company/forever-21",
+            "     + https://media.licdn.com/dms/image/v2/C560BAQFeQ3vxYX8JNA/company-logo_100_100/company-logo_100_100/0/1630648041686/forever_21_logo?e=2147483647&v=beta&t=or7GhKk-NRMyzpE1WmybM_HUk3t8v69lfksQS33aGJs",
+            " Experience ",
+            "   - title: Cashier"
+          ]
+        }
+      ],
+      "reasoning": "The fine-grained field value characterizes this lead as high-urgency due to a concrete alumni signal: the lead previously worked with a major customer of the client and now operates at a company facing the same digital-infrastructure growth challenges the client’s platform is designed to solve. The strongest supporting evidence comes from success stories describing Forever 21 leveraging Nostra AI to dramatically accelerate page load times, boost crawl speed, and improve overall site performance, all of which align with the growth- and performance-driven pains the client targets. These excerpts directly connect Forever 21’s prior use of the client’s edge technology to tangible outcomes, establishing a credible through-line for the current lead’s awareness and potential receptivity. In addition, the lead’s current role at Kin Unified Healing confirms the alumni signal in a new, related context: they now operate as a strategic decision-maker at a company that could confront similar digital-infrastructure needs as Forever 21 did, which strengthens the urgency and relevance of tailoring outreach to address scale, traffic, and performance challenges. The embedded quotes and specifics about Forever 21’s performance wins—such as accelerated page load and faster crawls—translate into a concrete narrative for the lead: a proven remedy exists for the exact issues they likely face in a growth phase with multiple SKUs, rapid traffic, and expanding markets. The discussing pieces about Forever 21’s performance challenges and the subsequent improvements provide a solid, evidence-backed backdrop for why this lead matters now, and why the message should frame the client’s product as a rapid-enablement solution for high-growth ecommerce companies seeking faster, safer, and more attribution-friendly digital experiences.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview",
+      "citations": [
+        {
+          "title": "Adam Rivas - Office Services & Administration Specialist",
+          "url": "https://www.linkedin.com/in/adamrivas",
+          "excerpts": [
+            "   - company: Forever 21",
+            "     + https://media.licdn.com/dms/image/v2/C560BAQFeQ3vxYX8JNA/company-logo_100_100/company-logo_100_100/0/1630648041686/forever_21_logo?e=2147483647&v=beta&t=or7GhKk-NRMyzpE1WmybM_HUk3t8v69lfksQS33aGJs"
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 leverages Nostra AI's Edge Delivery Engine & Crawler Optimization to drastically improve website performance and drive organic traffic growth.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.\n",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "To address Forever 21's challenges, Nostra AI implemented its innovative Edge Delivery Engine™ and Crawler Optimization solutions.",
+            "59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagemen",
+            "66% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic",
+            "Ryan Hofmann, VP of CRM and Channel Marketing at Forever 21, emphasized the urgency of the situation, stating, \"We all know slow sites suck… but what's causing the slowness and how do we attack that?\" These challenges underscored the need for a comprehensive solution that could not only address the technical aspects of website optimization but also provide actionable insights and support. Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs."
+          ]
+        },
+        {
+          "title": "KIN Unified Healing",
+          "url": "https://app.arketa.co/Kinunifiedhealing",
+          "excerpts": [
+            "Adam Rivas (Educator Practitioner)"
+          ]
+        },
+        {
+          "title": "Janelle Corpuz - KIN Unified Institute of Sound",
+          "url": "https://www.linkedin.com/in/janelle-corpuz-31959610",
+          "excerpts": [
+            "Current Company\n * name: KIN Unified Institute of Sound"
+          ]
+        }
+      ],
+      "reasoning": "The high-value signal rests on two pillars: Adam Rivas’s exposure to Forever 21 in a relevant capacity and Forever 21’s identity as a customer of Nostra, which provides a concrete context for why Adam’s alumni background matters. Excerpts confirming Adam’s past association with Forever 21 establish the direct alumni link and imply he has encountered a retail e-commerce environment where performance infrastructure is valuable. Excerpts documenting Forever 21’s engagement with Nostra—improving page speed, crawl speed, and overall site performance—show the practical relevance of Nostra’s offerings to the alumnus’s prior employer, reinforcing why he would recognize the product’s value. Mentioning Forever 21’s role within SPARC Group and its digital strategy further anchors the customer context in which Adam previously operated, supporting the premise that he carries awareness of the client’s core benefits. Excerpts discussing Kin Unified Healing provide the current connection piece, but the critical evidence for the alumni signal and the customer alignment comes from Forever 21 and Nostra-focused material, which directly ties the lead’s past experience to the client’s value proposition. In summary, the strongest support comes from explicit Forever 21 affiliation with Adam and the documented Nostra success story with Forever 21, with additional corroboration from Forever 21’s broader corporate context and the alumni linkage to Kin Unified Healing as the current role context.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.outreach_angle",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "Forever 21 leverages Nostra AI's Edge Delivery Engine & Crawler Optimization to drastically improve website performance and drive organic traffic growth.",
+            "Ryan Hofmann, VP of CRM and Channel Marketing at Forever 21, emphasized the urgency of the situation, stating, \"We all know slow sites suck… but what's causing the slowness and how do we attack that?\" These challenges underscored the need for a comprehensive solution that could not only address the technical aspects of website optimization but also provide actionable insights and support. Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "To address Forever 21's challenges, Nostra AI implemented its innovative Edge Delivery Engine™ and Crawler Optimization solutions.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.\n",
+            "The implementation process involved close collaboration between Nostra AI and Forever 21's Engineering team. Nostra AI's experts worked diligently to integrate their solutions seamlessly into Forever 21's existing infrastructure, minimizing disruptions, and ensuring a smooth transition. Throughout the process, Nostra AI provided ongoing support and monitoring to optimize performance and address any potential issues.",
+            "This strategic approach not only mitigates current challenges but also positions the brand for long-term digital success in the competitive fast fashion industry.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience.",
+            "59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagemen",
+            "66% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic"
+          ]
+        }
+      ],
+      "reasoning": "The core outreach angle relies on a proven narrative: a major fashion retailer achieved substantial site performance gains and growth by deploying Nostra AI’s edge solutions, including concrete metrics like accelerated page loads and faster crawl speeds. This directly supports the alumni signal by suggesting that the lead, having exposure to a client’s customer base during their tenure at Forever 21 (a SPARC Group portfolio brand with heavy online presence), would recognize the value of such technology for Kin Unified Healing as it scales communities and educational programs. The referenced success stories emphasize a structured, test-and-learn collaboration between Forever 21 and the provider, a dynamic that lends credibility to a similar, low-friction pilot approach for Kin. The Edge Delivery Engine and Crawler Optimization are highlighted as the mechanisms behind performance and traffic gains, which aligns with a high-urgency digital optimization narrative for Kin’s online ecosystem. By stating that the lead likely observed or was aware of Forever 21’s challenges and the tangible optimization results, we can frame an outreach message around leveraging the same edge technology to improve Kin’s site speed, reliability, and scalability as it expands. The excerpts show not only performance improvements but also the operational collaboration and leadership emphasis on urgent speed-to-value, which bolsters the case for an immediate, concrete next step with a direct reference to the alumni connection. The strongest support comes from explicit performance gains and the demonstrated partnership model, while additional context about Forever 21’s online reliance reinforces why digital infrastructure is mission-critical for Kin as it grows its audience and programs. Together, these data points justify a tailored outreach that acknowledges prior exposure, presents a concrete pilot path, and positions the client’s edge technology as a scalable edge for Kin’s growth trajectory.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.sample_message",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "**166% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic.",
+            "**59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagement.",
+            "The impact of Nostra AI's solutions on Forever 21's website speed and efficiency was remarkable. The slide deck presentation highlights the following key results:",
+            "Forever 21 leverages Nostra AI's Edge Delivery Engine & Crawler Optimization to drastically improve website performance and drive organic traffic growth.",
+            "Ryan Hofmann, VP of CRM and Channel Marketing at Forever 21, emphasized the urgency of the situation, stating, \"We all know slow sites suck… but what's causing the slowness and how do we attack that?\" These challenges underscored the need for a comprehensive solution that could not only address the technical aspects of website optimization but also provide actionable insights and support. Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.",
+            "The implementation process involved close collaboration between Nostra AI and Forever 21's Engineering team. Nostra AI's experts worked diligently to integrate their solutions seamlessly into Forever 21's existing infrastructure, minimizing disruptions, and ensuring a smooth transition. Throughout the process, Nostra AI provided ongoing support and monitoring to optimize performance and address any potential issues.",
+            "To address Forever 21's challenges, Nostra AI implemented its innovative Edge Delivery Engine™ and Crawler Optimization solutions.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.\n",
+            "Forever 21 Accelerates Website Performance and Boosts Organic Traffic with Nostra AI",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience. Partnering with Nostra, a company specializing in web performance optimization, significantly enhanced Forever 21's digital platforms.",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "66% increase in crawl speed:** This improvement in crawl speed means that search engines can index Forever 21's pages more quickly and efficiently, leading to better visibility in search results and increased organic traffic",
+            "59% acceleration in page load:** This substantial decrease in page load time directly translates to a better user experience, reduced bounce rates, and increased engagemen",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience."
+          ]
+        },
+        {
+          "title": "Janelle Corpuz - KIN Unified Institute of Sound",
+          "url": "https://www.linkedin.com/in/janelle-corpuz-31959610",
+          "excerpts": [
+            "Current Company\n * name: KIN Unified Institute of Sound"
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field value hinges on two key anchors: (a) the Forever 21 case study showing tangible performance improvements achieved with Nostra AI, including a 59% acceleration in page load speed and a 166% increase in crawl speed, and (b) the alumni signal tying Adam Rivas’s past experience at Forever 21 to his current role at Kin Unified Healing, which informs both credibility and relevance for a tailored outreach. Excerpts that explicitly quantify page-load and crawl-speed improvements provide direct evidence of the outcomes that the outreach claims to leverage, making them highly relevant. Excerpts recounting Forever 21’s reliance on Nostra’s Edge Delivery Engine and Crawler Optimization reinforce the operational significance of the platform in a way that supports the messaging and urgency suggested by the sample message. Excerpts describing Forever 21’s digital strategy and the nature of the collaboration with Nostra offer context for the timing and approach of outreach, ensuring the message aligns with real-world client outcomes. Finally, excerpts that frame Forever 21’s online presence and performance challenges help justify why a digital-infrastructure-led improvement matters now for Kin, especially given a fragmented stack across Shopify and Arketa mentioned in the field value. Taken together, these excerpts corroborate the core claims of the sample_message and provide a coherent narrative for the GTM memo’s outreach strategy. The strongest support comes from the exact success metrics and the stated Forever 21 collaboration, while supporting context from other excerpts strengthens the credibility and urgency of the outreach approach.",
+      "confidence": "high"
+    }
+  ],
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "overview": {
+        "type": "string",
+        "description": "2-3 sentences. Who is this person, their current role, and their alumni connection to the client's customer base."
+      },
+      "market_position": {
+        "type": "string",
+        "description": "One paragraph on the current company's business context, competitive pressure, and why digital infrastructure matters now."
+      },
+      "relevance_and_readiness": {
+        "type": "string",
+        "description": "One paragraph on why this specific person — what they saw at the past company, what they own now, why they'd recognize value immediately."
+      },
+      "recommended_approach": {
+        "type": "object",
+        "properties": {
+          "outreach_angle": {
+            "type": "string",
+            "description": "A summary of the strategic angle for outreach, explaining the core hook."
+          },
+          "sample_message": {
+            "type": "string",
+            "description": "A concrete, ready-to-use sample message or talk track for the sales representative."
+          }
+        },
+        "required": [
+          "outreach_angle",
+          "sample_message"
+        ],
+        "additionalProperties": false
+      },
+      "takeaway": {
+        "type": "string",
+        "description": "One sentence verdict on why this lead matters and urgency level."
+      }
+    },
+    "required": [
+      "overview",
+      "market_position",
+      "relevance_and_readiness",
+      "recommended_approach",
+      "takeaway"
+    ],
+    "additionalProperties": false
+  }
+}

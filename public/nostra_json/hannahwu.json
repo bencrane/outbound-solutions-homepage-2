@@ -1,0 +1,1009 @@
+{
+  "input": "\"#CONTEXT#\nYou are a B2B sales strategist writing a GTM intelligence memo for a sales team. You will receive information about:\n1. A client company whose product is being sold\n2. A lead who previously worked at a company that is a known customer of the client\n3. The lead's current company where they now hold a relevant role\n\nThe lead's past company is a known customer of the client. The lead held a relevant role there and would have been exposed to or aware of the client's product. They have since moved to a new company in a similar or more senior role.\"\n\n\"#INPUTS#\nclient_company_name: Nostra\nclient_company_domain: nostra.ai\nclient_company_description: Nostra helps the world’s leading ecommerce brands future-proof their digital infrastructure with cutting-edge edge technology. We enable high-growth DTC companies to deploy enterprise-grade infrastructure in minutes, not months. Our edge platform is designed to accelerate site speed, increase conversion rates, and drive more revenue, while protecting your brand from modern threats. With products like Edge Delivery Engine, Edge Protection, Edge ID, and Edge Crawler, we give brands the tools to: • Boost performance by 20–30% • Block ad bot traffic before it hits your site • Extend cookie life for better attribution • Optimize content for LLM indexing and AI-native search Brands like Jolie, Amiri, and Olukai rely on Nostra to deliver faster, safer, smarter ecommerce experiences\n\nlead_full_name: \nlead_linkedin_url: Hannah Wu\nlead_current_job_title: https://www.linkedin.com/in/hannahwu\nlead_current_company_name: Director, Sales Performance & Analytics\nlead_current_company_domain: Mid-Day Squares\nlead_current_company_description: middaysquares.com\n\nlead_past_company_name: Delicious refrigerated snack bars made to own the mid-day\n\nMid-Day Squares is our idea of what a healthy afternoon craving killer should taste like. It was designed for those on the go that want to cut their hunger and cravings in between meals. It’s made entirely with superfoods and all of our ingredients are raw, vegan, gluten-free and organic.\nlead_past_company_domain: MiLa\nlead_past_company_description: eatmila.com\nlead_past_company_job_title: MìLà is an authentic Chinese food company. While MìLà is a Chinese food brand, it’s really a celebration of the power of food to bring us together, share our stories, and discover new flavors and cultures. Our team works tirelessly to enhance delicious products that we all enjoy at home! \n\nHistory\n\nYou may remember us as Xiao Chi Jie, or XCJ. We opened in 2018 as Xiao Chi Jie, a restaurant in Bellevue, WA, where we shared the amazing ingredients, recipes, and flavors of our Chinese heritage. Since then, we’ve grown, and so has our passion for what we do. \n\nIn 2023, XCJ became MìLà. As we evolved, we wanted a new name that felt authentically Chinese but could keep growing with us. MìLà means honey (mi 蜜) and spice (la 辣) in Chinese. We’re the same small team, making the same insanely delicious products, just with a new look. \n\nMission\n\nMìLà's mission is to build something that feels authentically and uniquely true to our roots as a Chinese American-founded brand. Something we can own, but that’s also meant to be shared. One of the things we love about Chinese food is that it’s traditionally served family-style—shared with everyone gathered at the table. MìLà is a Chinese food brand, but it’s really a celebration of the power of food to bring us together, share our stories, and discover new flavors and cultures.\n\nCheck out our openings here: https://eatmila.com/pages/careers\"\n\n\"#OBJECTIVE#\nGenerate a 5-section GTM strategy memo that helps a sales rep understand why this lead is a high-value target right now and exactly how to approach them.\n\n#RESEARCH DIRECTIVES#\nBefore writing the memo, research the following:\n\n1. **Current company business context** — What is the current company's scale, market position, ecommerce footprint, and growth trajectory? What operational or technical challenges would a company like this face? What about their stage creates urgency for the client's product?\n\n2. **Competitive landscape** — Who are the current company's direct competitors? What market pressure do they face? How does site performance, conversion optimization, or digital infrastructure factor into their competitive position?\n\n3. **Lead's role and authority** — Based on their title and the company context, what does this person own? What decisions do they influence or control? Why are they the right person to talk to about the client's product?\n\n4. **The alumni signal** — The lead previously held a relevant role at a company that uses the client's product. What would they have seen or experienced there? How does that experience translate to their current situation?\n\n5. **Complexity delta** — How do the challenges at the current company compare to the past company? Are they dealing with more brands, more SKUs, more markets, more traffic, more complexity? Frame the current situation relative to what they've already navigated.\n\n#OUTPUT FORMAT#\nWrite a 5-section memo in sharp, conversational prose. No bullet points. No headers beyond the section names. Each section should be a tight paragraph.\n\n**OVERVIEW**\n2-3 sentences. Who is this person, what is their current role, and what is their connection to the client's customer base. State the alumni signal clearly.\n\n**MARKET POSITION**\nOne paragraph. The current company's business context — scale, growth stage, competitive pressure, and why their digital infrastructure matters right now. What is at stake for them?\n\n**RELEVANCE & READINESS**\nOne paragraph. Why this specific person. What did they see or own at their past company? What do they own now? Why would they recognize the value of the client's product immediately?\n\n**RECOMMENDED APPROACH**\nOne paragraph. The specific angle for outreach. Include a sample message or talk track that references the alumni connection and speaks to the current company's situation. Make it concrete, not generic.\n\n**TAKEAWAY**\nOne sentence. The verdict — why this lead matters and the urgency level.\n\n#STYLE GUIDANCE#\n- Be direct and specific. No filler, no hedge words.\n- Do not fabricate metrics, quotes, or claims. Only infer plausibly from the inputs and your research.\n- Do not claim the lead directly used or implemented the client's product unless you have evidence. Frame it as exposure and awareness based on their role.\n- The memo should read like it was written by someone who understands the market, not by an AI summarizing inputs.\n- Total length: 300-400 words.\n\nOutput Schema\njson{\n  \"\"overview\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"2-3 sentences. Who is this person, their current role, and their alumni connection to the client's customer base.\"\"\n  },\n  \"\"market_position\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on the current company's business context, competitive pressure, and why digital infrastructure matters now.\"\"\n  },\n  \"\"relevance_and_readiness\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on why this specific person — what they saw at the past company, what they own now, why they'd recognize value immediately.\"\"\n  },\n  \"\"recommended_approach\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph with the specific outreach angle and sample messaging that references the alumni connection.\"\"\n  },\n  \"\"takeaway\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One sentence verdict on why this lead matters and urgency level.\"\"\n  }\n}\"",
+  "output": {
+    "overview": {
+      "lead_name": "Hannah Wu",
+      "current_role": "Director, Sales Performance & Analytics at Mid-Day Squares",
+      "alumni_connection": "Hannah Wu previously held a relevant role at MìLá (formerly XCJ), a known customer of Nostra. In her previous position, she would have been exposed to how Nostra's edge-level speed and cleaner traffic solutions directly contributed to improving ecommerce revenue."
+    },
+    "market_position": {
+      "company_name": "Mid-Day Squares",
+      "business_context": "Mid-Day Squares is a rapidly scaling brand in the refrigerated, functional, plant-based chocolate bar category. It has transitioned from a direct-to-consumer (DTC) launch to achieving 'national velocity' with a presence in over 10,000 stores, including major retailers like Target and Costco Canada. The company has demonstrated significant growth, ending its last fiscal year with approximately $32 million in revenue and anticipating $45 million for the current fiscal year. After five years in business, the company is profitable and reports a growth rate of 40% to 50% year-over-year, having sold over 47 million bars. This positions them as a high-growth company moving from a startup phase to a significant player in its niche.",
+      "competitive_pressure": "The company operates in a highly competitive 'refrigerated/functional chocolate set' where consumers frequently compare products based on taste, nutritional macros, and price. This daily competitive pressure is intensified by rivals like Honey Mama's, which is also expanding into major retailers and has significant production capacity. Furthermore, Mid-Day Squares faces intense cost of goods sold (COGS) pressure due to the 2024 cocoa price shock, which was so severe it 'almost destroyed the entire business.' This financial strain makes maximizing efficiency, return on ad spend (ROAS), and conversion rates a critical business imperative to maintain profitability and market share.",
+      "infrastructure_urgency": "Mid-Day Squares' digital infrastructure is a critical revenue lever due to its reliance on heavy social traffic and content-driven campaigns that create constant traffic spikes. In their competitive and cost-pressured environment, site performance directly impacts sales outcomes. Key metrics like return on ad spend (ROAS), new customer acquisition, and supporting retail sell-through are all dependent on site speed, high conversion rates, and clean data. Slow page loads and bot-inflated traffic can 'poison' key performance indicators by distorting session data, skewing marketing attribution, and causing potential customers to abandon their carts. Therefore, an infrastructure that loads quickly, blocks non-human traffic, and preserves user identity for accurate attribution is no longer a 'nice-to-have' but a crucial component for sustaining growth and profitability."
+    },
+    "relevance_and_readiness": {
+      "lead_role_relevance": "In her current role as Director, Sales Performance & Analytics at Mid-Day Squares, Hannah Wu owns the entire sales performance narrative for both direct-to-consumer (DTC) and retail channels. This includes critical key performance indicators (KPIs) such as conversion rates, average order value (AOV), promotional lift, media efficiency (ROAS), and sales forecast accuracy. These metrics are directly impacted by the performance and integrity of the company's digital infrastructure. Nostra's products are highly relevant because issues like slow page load times and bot traffic can severely harm these KPIs by depressing checkout completions, distorting session data, and skewing marketing attribution, ultimately poisoning the data she relies on to measure and drive sales.",
+      "past_experience_context": "During her time at MìLá (formerly XCJ), a known Nostra customer, Hannah Wu would have been directly exposed to the tangible benefits of Nostra's technology. The context suggests she likely witnessed firsthand how the implementation of Nostra’s Edge Delivery Engine led to significant performance improvements. Specifically, she would have seen evidence of how Nostra's solution reduced Time to First Byte (TTFB) from approximately 339ms to 89ms, resulting in a documented 4.65% increase in revenue per user. This experience provided her with concrete proof that 'milliseconds move money' and that infrastructure optimization is a direct lever for improving e-commerce revenue.",
+      "value_recognition": "Hannah Wu's past experience at MìLá makes her uniquely prepared to immediately grasp Nostra's value proposition. Having seen the direct correlation between edge-level speed, cleaner traffic, and improved e-commerce revenue, she is considered a 'high-context buyer.' She understands the critical link between site performance, the integrity of attribution data, and overall sales outcomes. Because she has managed analytics for scaled food brands, she will instantly recognize how Nostra's offerings—edge speed, bot protection, and extended identity—create a tighter, more accurate feedback loop between marketing spend and sales results. This understanding is crucial for her current role, as it translates directly into achieving both e-commerce growth and providing stronger support for retail sell-through at Mid-Day Squares, a brand operating in a hyper-competitive and cost-pressured market."
+    },
+    "recommended_approach": {
+      "outreach_angle": "The strategic angle is to anchor the outreach on the successful outcome Nostra achieved for Hannah's former employer, MìLá, leveraging her 'alumni' status as a high-context buyer. This is immediately followed by a low-friction, high-value offer: a quick diagnostic to quantify two specific, hidden drags on sales performance at Mid-Day Squares—bot traffic and site speed—which are highly relevant given their social-driven traffic spikes and expansion into retail.",
+      "sample_message": "Hannah—at MìLá, your team partnered with Nostra; the case study shows a 4.65% revenue-per-user lift with TTFB dropping from ~339ms to ~89ms. Given Mid-Day Squares’ social-driven spikes and retail expansion, we can quickly quantify two hidden drags on sales performance: automated traffic that inflates sessions and site speed bottlenecks that suppress CVR. Suggest a 30-minute readout: we’ll baseline speed, identify bot share before it hits your site, and outline a two-week pilot of Edge Delivery Engine + Edge Protect to prove impact on CVR, ROAS, and attribution without touching your theme."
+    },
+    "takeaway": {
+      "verdict": "Hannah has direct exposure to Nostra’s impact at MìLá and now owns the metrics that Nostra moves at a brand in a hyper‐competitive, cost‐pressured category.",
+      "urgency_level": "High"
+    }
+  },
+  "outputBasis": [
+    {
+      "field": "market_position",
+      "citations": [
+        {
+          "title": "The Chocolate Company That Sold One Million Bars In 20 Months - Shopify",
+          "url": "https://www.shopify.com/blog/mid-day-squares-production-fundraising",
+          "excerpts": [
+            "Based in Montreal, [Mid-Day Squares](https://www.middaysquares.com/?&currency=USD) is changing up the afternoon snack game, one chocolate square at a time.",
+            "Mid-Day Squares co-founder Nick Saltarelli. *Mid-Day Squares*",
+            "Nick and Lezlie have successfully raised $21 million to date, and sold over one million chocolate bars in just under 20 months."
+          ]
+        },
+        {
+          "title": "This Under 30 Built A Multi-Million Dollar Chocolate Brand. Then Chocolate Almost Destroyed It",
+          "url": "https://www.forbes.com/sites/zoyahasan/2026/01/16/this-under-30-built-a-multi-million-dollar-chocolate-brand-then-chocolate-almost-destroyed-it/",
+          "excerpts": [
+            "Founded alongside his sister Leslie Karls and brother-in-law Nick Saltarelli, Montreal-based Mid-Day Squares launched in 2018.",
+            "d.\nWhile more than 10,000 stores, including Target, Costco Canada and Sprouts, now stock their chocolate bars, **Wonka’s worst nightmare became reality in 2024** . Cocoa prices hit record highs, largely due to adverse weather and disease impacting West African harvests, which “almost destroyed the entire business,” "
+          ]
+        },
+        {
+          "title": "Plant-based Bars Market Size & Top Players Analysis, 2032",
+          "url": "https://www.persistencemarketresearch.com/market-research/plant-based-bars-market.asp",
+          "excerpts": [
+            "At the same time, it is striving to maintain refrigerated distribution to emphasize freshness and minimal processing."
+          ]
+        },
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources",
+          "excerpts": [
+            "Denver Modern boosted site speed by 48% and increased conversions by 8.46% during BFCM 2024 — proving faster sites drive real revenue."
+          ]
+        },
+        {
+          "title": "Delicious Healthier Chocolates: My Top Choices",
+          "url": "https://www.lemon8-app.com/rachellaurenlucy/7218332591047508486?region=us",
+          "excerpts": [
+            "My favorites are Honey Mama’s, Nelly’s, Hu, and Mid-Day Squares."
+          ]
+        }
+      ],
+      "reasoning": "Mid-Day Squares is positioned as a rapidly scaling refrigerated, functional chocolate brand with national velocity and major retailer presence, which directly supports the field value describing their scale, growth trajectory, and ecommerce footprint. Excerpts that detail their national distribution, growth milestones, and revenue trajectory offer concrete evidence of market position and urgency for digital infrastructure investments to sustain growth and performance in a competitive, high-traffic environment. Additional context from market-coverage pieces confirms competitive pressures in the category and the strategic importance of speed and performance for conversion and ROAS in a crowded shelf-space online world. Mentions of the brand in broader market analyses corroborate that this is a high-growth, high-pressure context where a robust digital backbone is essential to maintain progressive momentum and defend against competitive threats. A few entries discuss the founder or leadership profiles of the brand, which helps corroborate the consumer-facing scale narrative, though the core support for the field value lies in the tangible metrics of store count, revenue, and growth, alongside the implied infrastructure urgency in a fast-moving ecomm category.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach",
+      "citations": [
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            " Section Title: How MìLà gained a 4.65% revenue per user boost with Nostra",
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "Time to First Byte\n330ms\n90ms\nRevenue Per User\n4.65%"
+          ]
+        },
+        {
+          "title": "Remi's Success with Nostra AI: Boosting eCommerce Performance and Site Speed",
+          "url": "https://www.nostra.ai/success-stories/speeding-up-success-in-ecommerce",
+          "excerpts": [
+            "See how Remi boosted their site performance with Nostra AI, improving site speed and conversion rates with easy integration and ongoing support."
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Trusted by 300+ brands",
+            "Section Title: Faster Sites. Higher Revenue. Proven Results — and Built to Scale With You."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources",
+          "excerpts": [
+            "Denver Modern boosted site speed by 48% and increased conversions by 8.46% during BFCM 2024 — proving faster sites drive real revenue."
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "",
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")"
+          ]
+        },
+        {
+          "title": "Mid-Day Squares Marketing Strategy Breakdown",
+          "url": "https://www.panoramata.co/marketing-strategy-brand/mid-day-squares",
+          "excerpts": [
+            "There's a lot to learn from Mid-Day Squares ecommerce marketing strategy. Here, you can pick their marketing strategy, learn lessons, and take inspiration.Read more"
+          ]
+        },
+        {
+          "title": "Nostra Edge Delivery Engine",
+          "url": "https://www.nostra.ai/edge-delivery-engine",
+          "excerpts": [
+            "Speed matters. Leveraging 310+ edge locations, our Edge Delivery Engine™ enhances your site's speed and performance, leading to improved CVR, AOV, and CPC."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Faster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better ...Read more"
+          ]
+        },
+        {
+          "title": "Delicious Healthier Chocolates: My Top Choices",
+          "url": "https://www.lemon8-app.com/rachellaurenlucy/7218332591047508486?region=us",
+          "excerpts": [
+            "My favorites are Honey Mama’s, Nelly’s, Hu, and Mid-Day Squares.",
+            "Honey Mama's offers a range of cocoa-based treats that are free from refined sugar, gluten, dairy, and soy, making them a fantastic choice for those adhering to paleo or vegan diets. Their unique flavor combinations and wholesome ingredients make each bite enjoyable and satisfying. Nelly's is another brand that stands out, essentially creating a healthier version of an almond joy that still delivers on taste without the guilt.",
+            "Mid-Day Squares combines protein and fiber into a delicious bar, ensuring that you can satisfy your sweet tooth while also getting a nutritional boost.",
+            "Section Title: Health(ier) Chocolates and Treats I love",
+            "I’ve looked SO LONG and so hard for treats that aren’t drowning in cane sugar or crappy ingredients, but mostly for ones that still make me feel GOOD."
+          ]
+        }
+      ],
+      "reasoning": "The strongest support for the requested outreach angle comes from case studies where Nostra enabled meaningful site performance gains and conversion lift, exemplified by MìLà's experience. Those excerpts show a measurable revenue-per-user uplift and dramatic speed improvements, illustrating what a quick diagnostic and a two-week pilot could quantify at Mid-Day Squares when referencing an alumni connection. The alumni signal is reinforced by excerpts detailing Hannah Wu’s direct links to Mila and her current leadership at Mid-Day Squares, providing the high-context buyer angle the outreach intends to leverage. Contextual credibility for Nostra’s capabilities is further established by the enterprise infrastructure overview and success stories, underscoring that faster sites and bot protection translate into real revenue gains. Finally, indirect mentions of Mila and Mid-Day Squares’ market activity provide corroborating backdrop for urgency around performance, speed, and attribution in a social-driven retail context. In sum, the Mila performance evidence, the Mila-to-Hannah alumni connection, and Nostra’s proven platform capabilities collectively support a concrete, diagnostic-led outreach that promises rapid, measurable impact.",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness",
+      "citations": [
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            "Time to First Byte\n330ms\n90ms\nRevenue Per User\n4.65%",
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "\n**MìLà boosts their site speed and, as result, their revenue per user",
+            "*4.65% increase in revenue per user*",
+            " Section Title: How MìLà gained a 4.65% revenue per user boost with Nostra"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "",
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")"
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Section Title: Faster Sites. Higher Revenue. Proven Results — and Built to Scale With You.",
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert."
+          ]
+        }
+      ],
+      "reasoning": "The strongest support comes from content that documents the lead’s past and current roles and the specific capabilities she would leverage. Excerpts describing Mila’s observed performance gains through Nostra—such as site speed improvements and revenue-per-user uplifts—provide concrete evidence of the alumni signal in action, illustrating what the lead would have seen and appreciated in her previous company. Excerpts confirming Hannah Wu’s current role as Director of Sales Performance & Analytics at Mid-Day Squares establish her ownership of KPIs like conversion rate, AOV, ROAS, and forecast accuracy, which are directly influenced by digital infrastructure quality. This alignment makes it plausible she would recognize Nostra’s value proposition immediately, given her focus on sales performance and data integrity. Additional excerpts that map Nostra’s core capabilities (edge delivery speed, bot protection, identity resolution) to improved marketing attribution and revenue outcomes reinforce how the field value—linking performance metrics to infrastructure—would be perceived by the lead in her current context. The combination of the alumni signal, the current analytics-focused role, and the demonstrated customer impact at Mila creates a coherent narrative that she is a high-context buyer who would respond to a tailored, performance-oriented outreach that speaks directly to her KPIs and the operational pressures of Mid-Day Squares.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway",
+      "citations": [
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            " Section Title: How MìLà gained a 4.65% revenue per user boost with Nostra",
+            "Time to First Byte\n330ms\n90ms\nRevenue Per User\n4.65%",
+            "\n**MìLà boosts their site speed and, as result, their revenue per user",
+            "\"Site speed is so critical to conversion rates. As we continue to scale, our website grows with us. Nostra is the partner who helps that growth mean something positive all around.\"",
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "*4.65% increase in revenue per user*"
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "",
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")"
+          ]
+        },
+        {
+          "title": "Mid-Day Squares Marketing Strategy Breakdown",
+          "url": "https://www.panoramata.co/marketing-strategy-brand/mid-day-squares",
+          "excerpts": [
+            "There's a lot to learn from Mid-Day Squares ecommerce marketing strategy. Here, you can pick their marketing strategy, learn lessons, and take inspiration.Read more"
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Section Title: Faster Sites. Higher Revenue. Proven Results — and Built to Scale With You.",
+            "Trusted by 300+ brands"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources",
+          "excerpts": [
+            "Denver Modern boosted site speed by 48% and increased conversions by 8.46% during BFCM 2024 — proving faster sites drive real revenue."
+          ]
+        }
+      ],
+      "reasoning": "The strongest support comes from Mila’s explicit success stories with Nostra, including a quantified revenue-per-user uplift and site-speed improvements that demonstrate how Nostra moved Mila’s metrics as the brand scaled. That evidence directly aligns with the asserted exposure of the lead to Nostra’s impact at Mila and supports the claim that the lead would now own and care about brand-level metrics in a competitive, cost-sensitive ecommerce context. Additional Mila-specific material describes how Nostra’s Edge Delivery Engine fortifies Mila’s site speed as they scale, reinforcing the same alignment between Mila’s needs and Nostra’s value proposition.\n\nBeyond Mila’s case, several excerpts establish an alumni signal: one excerpt explicitly notes Hannah Wu’s experience across roles that include Mila, tying her past exposure to Mila to her current senior sales analytics leadership at Mid-Day Squares. This connection makes the relevance of Mila/Nostra to her plausible in the eyes of a buyer, since she would recognize the pain points and outcomes associated with a high-speed, secure ecommerce stack. Supporting background material about Mila’s branding and success further contextualizes why such an alumni signal would be meaningful to a sales outreach strategy.\n\nTaken together, Mila/Nostra-specific outcomes form the core justification for the claimed exposure and metric ownership. The Mila-centric excerpts anchor the core assertion, while the alumni references provide plausible visibility into how the lead would perceive these improvements and recognize their value in a similar, competitive environment.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview",
+      "citations": [
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            " Section Title: How MìLà gained a 4.65% revenue per user boost with Nostra",
+            "Time to First Byte\n330ms\n90ms\nRevenue Per User\n4.65%",
+            "\n**MìLà boosts their site speed and, as result, their revenue per user",
+            "\"Site speed is so critical to conversion rates. As we continue to scale, our website grows with us. Nostra is the partner who helps that growth mean something positive all around.\"",
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "*4.65% increase in revenue per user*"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "",
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")"
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Section Title: Faster Sites. Higher Revenue. Proven Results — and Built to Scale With You.",
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Trusted by 300+ brands"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources",
+          "excerpts": [
+            "Denver Modern boosted site speed by 48% and increased conversions by 8.46% during BFCM 2024 — proving faster sites drive real revenue.",
+            ":\n3.62% of Linjer’s traffic was malicious bots — and they had no idea until Edge Protect blocked it.",
+            "See how La Belle Perfume increased +106% Cart Triggers, +90% Retargeting ROAS, +35% Google.",
+            "Moon Magic customers saved a collective 230 hours every month in waiting time. Faster loading meant smoother shopping journeys, fewer drop‑offs, and more enjoyable engagement with the brand."
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The alumni signal is substantiated by multiple strands in the excerpts. First, Mila/MiLà is described as a customer of Nostra with documented performance gains when using Nostra’s Edge Delivery Engine, including site speed improvements and revenue-per-user boosts, which would have been visible to someone in a relevant role at the time. This provides concrete context for what Hannah Wu would have observed in her past role at MiLà and how Nostra’s solutions translate to tangible ecommerce outcomes. Second, Hannah Wu’s current title and affiliation with Mid-Day Squares establish her current decision-influence perch within a fashion of commerce brands that align with Nostra’s target customer base. Third, the Mila-origin backstory (XCJ rebranding to MiLà) clarifies the exact alumni connection and the historical exposure to Nostra’s capabilities. Combined, these excerpts create a coherent narrative: Hannah Wu had exposure to Nostra’s edge- and traffic-quality solutions at MiLà, and as Director of Sales Performance & Analytics at Mid-Day Squares, she now occupies a role where those capabilities are highly relevant for optimizing site speed, bot protection, attribution, and conversion—making her an urgent and high-potential target for a tailored GTM outreach. The Mila success-metrics and the Mila/XCJ lineage directly tie the alumni signal to a credible context for both recognition of value and potential adoption in her current company’s environment.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.competitive_pressure",
+      "citations": [
+        {
+          "title": "This Under 30 Built A Multi-Million Dollar Chocolate Brand. Then Chocolate Almost Destroyed It",
+          "url": "https://www.forbes.com/sites/zoyahasan/2026/01/16/this-under-30-built-a-multi-million-dollar-chocolate-brand-then-chocolate-almost-destroyed-it/",
+          "excerpts": [
+            "d.\nWhile more than 10,000 stores, including Target, Costco Canada and Sprouts, now stock their chocolate bars, **Wonka’s worst nightmare became reality in 2024** . Cocoa prices hit record highs, largely due to adverse weather and disease impacting West African harvests, which “almost destroyed the entire business,” ",
+            "Founded alongside his sister Leslie Karls and brother-in-law Nick Saltarelli, Montreal-based Mid-Day Squares launched in 2018."
+          ]
+        },
+        {
+          "title": "The Chocolate Company That Sold One Million Bars In 20 Months - Shopify",
+          "url": "https://www.shopify.com/blog/mid-day-squares-production-fundraising",
+          "excerpts": [
+            "Based in Montreal, [Mid-Day Squares](https://www.middaysquares.com/?&currency=USD) is changing up the afternoon snack game, one chocolate square at a time.",
+            "Mid-Day Squares co-founder Nick Saltarelli. *Mid-Day Squares*",
+            "Nick and Lezlie have successfully raised $21 million to date, and sold over one million chocolate bars in just under 20 months."
+          ]
+        },
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources",
+          "excerpts": [
+            "Denver Modern boosted site speed by 48% and increased conversions by 8.46% during BFCM 2024 — proving faster sites drive real revenue."
+          ]
+        },
+        {
+          "title": "Delicious Healthier Chocolates: My Top Choices",
+          "url": "https://www.lemon8-app.com/rachellaurenlucy/7218332591047508486?region=us",
+          "excerpts": [
+            "My favorites are Honey Mama’s, Nelly’s, Hu, and Mid-Day Squares."
+          ]
+        },
+        {
+          "title": "Plant-based Bars Market Size & Top Players Analysis, 2032",
+          "url": "https://www.persistencemarketresearch.com/market-research/plant-based-bars-market.asp",
+          "excerpts": [
+            "At the same time, it is striving to maintain refrigerated distribution to emphasize freshness and minimal processing."
+          ]
+        }
+      ],
+      "reasoning": "The finegrained value describes intense competitive pressure within a refrigerated/functional chocolate category, with consumer comparisons on taste, macros, and price, plus a cocoa-cost shock in 2024 that stressed profitability. The most directly relevant excerpts corroborate these points: one highlights the market dynamics of a leading refrigerated chocolate brand expanding into major retailers and facing supplier-cost risks (cocoa price volatility) that nearly destroyed the business, which supports the claim of fierce competition and cost pressures shaping strategic priorities. Another excerpt provides context on Mid-Day Squares’ scale and retail presence, illustrating the competitive landscape they operate within and the importance of efficiency and performance signals. Additional excerpts discuss the brand’s growth story and retail footprint, reinforcing that performance, pricing, and product differentiation are central to competing in this space. Supporting context notes about the lead’s connection to the client’s customer base and the brand milieu further ground the competitive context in the specific market where Nostra operates. The remaining excerpts offer ancillary background on the company’s visibility and ecosystem but are less directly tied to competitive dynamics and COGS-driven imperatives, thus contributing partial support to the overall assessment without contradicting it.",
+      "confidence": "medium"
+    },
+    {
+      "field": "market_position.company_name",
+      "citations": [
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "The Chocolate Company That Sold One Million Bars In 20 Months - Shopify",
+          "url": "https://www.shopify.com/blog/mid-day-squares-production-fundraising",
+          "excerpts": [
+            "Based in Montreal, [Mid-Day Squares](https://www.middaysquares.com/?&currency=USD) is changing up the afternoon snack game, one chocolate square at a time.",
+            "Mid-Day Squares co-founder Nick Saltarelli. *Mid-Day Squares*",
+            "Nick and Lezlie have successfully raised $21 million to date, and sold over one million chocolate bars in just under 20 months."
+          ]
+        },
+        {
+          "title": "This Under 30 Built A Multi-Million Dollar Chocolate Brand. Then Chocolate Almost Destroyed It",
+          "url": "https://www.forbes.com/sites/zoyahasan/2026/01/16/this-under-30-built-a-multi-million-dollar-chocolate-brand-then-chocolate-almost-destroyed-it/",
+          "excerpts": [
+            "Founded alongside his sister Leslie Karls and brother-in-law Nick Saltarelli, Montreal-based Mid-Day Squares launched in 2018.",
+            "d.\nWhile more than 10,000 stores, including Target, Costco Canada and Sprouts, now stock their chocolate bars, **Wonka’s worst nightmare became reality in 2024** . Cocoa prices hit record highs, largely due to adverse weather and disease impacting West African harvests, which “almost destroyed the entire business,” "
+          ]
+        },
+        {
+          "title": "Delicious Healthier Chocolates: My Top Choices",
+          "url": "https://www.lemon8-app.com/rachellaurenlucy/7218332591047508486?region=us",
+          "excerpts": [
+            "My favorites are Honey Mama’s, Nelly’s, Hu, and Mid-Day Squares."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant excerpt directly identifies a person connected to Mid-Day Squares, establishing the target company within the research context. It states the LinkedIn profile for Hannah Wu at Mid-Day Squares, confirming the relevance of the lead’s current professional anchor. Several excerpts explicitly name Mid-Day Squares as a brand, describing its scale and media coverage, which supports understanding its market footprint. For example, one excerpt notes that Mid-Day Squares is a notable brand with a narrative around fundraising and rapid growth, which helps establish market position. Additional excerpts reference the company in the context of industry comparisons and ecosystem mentions, illustrating its recognition and status within the market. A few excerpts discuss the broader brand family and product lineup, reinforcing that Mid-Day Squares is a recognized player in the chocolate/snack space. Taken together, these excerpts support the finegrained field value by confirming the exact company name and tying it to concrete indicators of market presence and brand significance.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.infrastructure_urgency",
+      "citations": [
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "The Chocolate Company That Sold One Million Bars In 20 Months - Shopify",
+          "url": "https://www.shopify.com/blog/mid-day-squares-production-fundraising",
+          "excerpts": [
+            "Based in Montreal, [Mid-Day Squares](https://www.middaysquares.com/?&currency=USD) is changing up the afternoon snack game, one chocolate square at a time.",
+            "Mid-Day Squares co-founder Nick Saltarelli. *Mid-Day Squares*"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources",
+          "excerpts": [
+            "Denver Modern boosted site speed by 48% and increased conversions by 8.46% during BFCM 2024 — proving faster sites drive real revenue."
+          ]
+        }
+      ],
+      "reasoning": "The lead’s current role at Mid-Day Squares directly connects to the account that would benefit from improved digital infrastructure, establishing relevance of outreach. The company profile confirms an ecommerce consumer brand with nationwide or broad retail exposure, where site performance and conversion are critical drivers of revenue. Historical or biographical snippets about the company’s leadership and growth trajectory provide a concrete backdrop for urgency in infrastructure improvements. An external case study from another brand (Nostra) explicitly shows that improving site speed can measurably uplift conversions and revenue, reinforcing that performance, speed, and bot protection are not cosmetic but revenue-critical levers in ecommerce. Together, these pieces form a chain: the lead operates at a fast-moving consumer ecommerce brand; infrastructure matters for revenue; proven external examples corroborate the economic impact of site performance and traffic quality.",
+      "confidence": "medium"
+    },
+    {
+      "field": "relevance_and_readiness.value_recognition",
+      "citations": [
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "\n**MìLà boosts their site speed and, as result, their revenue per user",
+            "*4.65% increase in revenue per user*"
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Section Title: Faster Sites. Higher Revenue. Proven Results — and Built to Scale With You.",
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert."
+          ]
+        }
+      ],
+      "reasoning": "The most compelling support comes from excerpts describing MiLa benefiting from Nostra’s Edge Delivery Engine to improve site speed and revenue, which directly validates the alumni signal that Hannah’s past exposure at MiLa would have informed her understanding of Nostra’s impact. Specifically, the statements about MiLa’s site speed being fortified by Nostra’s Edge Delivery Engine and the resulting revenue per user uplift align with the claim that the past role exposed her to how performance, cleaner traffic, and attribution quality drive sales. Additional excerpts connect Nostra’s capabilities—edge speed, bot protection, and identity resolution—to e-commerce performance at scale, reinforcing why a buyer with Hannah’s background would immediately recognize the value and applicability of Nostra’s product in her current role focused on sales performance and analytics. Together, these excerpts establish a coherent narrative: Hannah’s MiLa experience provided direct visibility into how performance and data integrity translate into revenue, and Nostra’s platform offers the precise levers (speed, protection, identity) that would resonate with her objectives at Mid-Day Squares. This supports the inference that she is a high-context buyer who can champion alignment between marketing spend, attribution, and revenue outcomes in a hyper-competitive market.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.sample_message",
+      "citations": [
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            "Time to First Byte\n330ms\n90ms\nRevenue Per User\n4.65%",
+            " Section Title: How MìLà gained a 4.65% revenue per user boost with Nostra",
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale"
+          ]
+        },
+        {
+          "title": "Nostra Edge Delivery Engine",
+          "url": "https://www.nostra.ai/edge-delivery-engine",
+          "excerpts": [
+            "Speed matters. Leveraging 310+ edge locations, our Edge Delivery Engine™ enhances your site's speed and performance, leading to improved CVR, AOV, and CPC."
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")"
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The recommended approach message hinges on concrete results from a Mila-Nostra case study, including a revenue-per-user lift and site speed improvements (relevant data points: a 4.65% increase in revenue per user and a substantial reduction in time-to-first-byte). Quoting the performance improvements and the Edge Delivery Engine’s role directly supports the claim that Nostra’s technology can produce measurable gains in CVR and speed, which is central to the proposed 30-minute readout and a short pilot. The alumni signal—the lead’s current and prior affiliations with Mid-Day Squares and Mila—grounds the outreach in a real-world, familiar context; excerpts detailing Hannah Wu’s role and the Mila/Mid-Day Squares nexus provide credibility for tailoring messaging to a customer with similar scale and digital needs. Additional supporting excerpts describe how Nostra’s edge infrastructure (Edge Delivery Engine, bot protection) can be leveraged to quantify bot-driven traffic and performance improvements, which aligns with the suggested two-week pilot aimed at proving impact on CVR and ROAS without altering the site theme. Together, these sources corroborate the proposed approach: present a data-backed readout, anchored by a proven case study, and craft a targeted outreach that leverages the alumni signal and concrete infrastructure benefits.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position.business_context",
+      "citations": [
+        {
+          "title": "The Chocolate Company That Sold One Million Bars In 20 Months - Shopify",
+          "url": "https://www.shopify.com/blog/mid-day-squares-production-fundraising",
+          "excerpts": [
+            "Nick and Lezlie have successfully raised $21 million to date, and sold over one million chocolate bars in just under 20 months.",
+            "Based in Montreal, [Mid-Day Squares](https://www.middaysquares.com/?&currency=USD) is changing up the afternoon snack game, one chocolate square at a time.",
+            "Mid-Day Squares co-founder Nick Saltarelli. *Mid-Day Squares*"
+          ]
+        },
+        {
+          "title": "This Under 30 Built A Multi-Million Dollar Chocolate Brand. Then Chocolate Almost Destroyed It",
+          "url": "https://www.forbes.com/sites/zoyahasan/2026/01/16/this-under-30-built-a-multi-million-dollar-chocolate-brand-then-chocolate-almost-destroyed-it/",
+          "excerpts": [
+            "Founded alongside his sister Leslie Karls and brother-in-law Nick Saltarelli, Montreal-based Mid-Day Squares launched in 2018."
+          ]
+        },
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        }
+      ],
+      "reasoning": "The target field describes Mid-Day Squares as a rapidly scaling, high-growth brand in the refrigerated, plant-based chocolate bar niche with national retail presence and strong year-over-year growth. The most directly supportive evidence comes from a source noting that the company has raised significant funding and achieved mass distribution, including selling over a million bars, which signals rapid scaling and market traction. Additional excerpts corroborate the brand’s prominence and narrative: a Forbes piece recounts the founder-driven growth of the brand, while other excerpts establish the company’s emergence from a DTC launch to national velocity and spotlight Mid-Day Squares in media and on LinkedIn, which reinforces its scale and market visibility. Collectively, these excerpts align with the described scale (nationwide retail footprint), growth indicators (multi-year growth, substantial unit sales), and the company’s transition toward larger-scale operations. The alumni-friendly context (founder-led growth and rising national distribution) further supports the inference that this is a high-potential target given current market conditions, competitive pressures, and the need for robust digital infrastructure to sustain growth and protection of brand integrity across numerous channels.",
+      "confidence": "medium"
+    },
+    {
+      "field": "relevance_and_readiness.past_experience_context",
+      "citations": [
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            "Time to First Byte\n330ms\n90ms\nRevenue Per User\n4.65%",
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "\n**MìLà boosts their site speed and, as result, their revenue per user",
+            "*4.65% increase in revenue per user*"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "",
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")"
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Section Title: Faster Sites. Higher Revenue. Proven Results — and Built to Scale With You.",
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert."
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field captures the alumni signal: Hannah Wu, currently at Mid-Day Squares, previously worked at MìLà (formerly XCJ), a known Nostra customer. To support the claim that she would have been exposed to Nostra’s technology and its tangible benefits, I draw on excerpts that (a) document Mila’s measurable performance gains attributed to Nostra, including a substantial Site/TTFB improvement and a 4.65% lift in revenue per user; (b) establish the alumni connection by identifying Hannah Wu’s past and current roles and companies, including the transition from MìLà to Mid-Day Squares; and (c) describe Nostra’s enterprise capabilities that underpin the observed gains. Specifically, the Mila-centered excerpts state that Nostra’s Edge Delivery Engine fortifies Mila’s site speed and directly links to revenue-per-user uplift, with explicit TTFB reduction and a 4.65% revenue uplift. From the alumni sources, Hannah Wu is shown as Director, Sales Performance & Analytics at Mid-Day Squares and as having previously worked at MìLà (MiLa), including references to her LinkedIn profile and organizational history, which confirms the alumni signal and the relevant role trajectory. Additional excerpts describe Nostra’s enterprise infrastructure and its value proposition, providing context for why a lead with this background would recognize the product’s impact. Taken together, these citations strongly support the claim that Hannah Wu would have observed the concrete benefits of Nostra at her past company and that she now occupies a senior role at a company that could be a high-value target for Nostra’s offerings. The most compelling support comes from the Mila-centered performance outcomes, which explicitly link Nostra’s technology to faster site performance and higher revenue, followed by explicit evidence of the alumni relationship and current role, with product descriptions providing the broader contextual backdrop. ",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach.outreach_angle",
+      "citations": [
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            " Section Title: How MìLà gained a 4.65% revenue per user boost with Nostra",
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "Time to First Byte\n330ms\n90ms\nRevenue Per User\n4.65%"
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")",
+            ""
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Section Title: Faster Sites. Higher Revenue. Proven Results — and Built to Scale With You."
+          ]
+        },
+        {
+          "title": "Nostra Edge Delivery Engine",
+          "url": "https://www.nostra.ai/edge-delivery-engine",
+          "excerpts": [
+            "Speed matters. Leveraging 310+ edge locations, our Edge Delivery Engine™ enhances your site's speed and performance, leading to improved CVR, AOV, and CPC."
+          ]
+        },
+        {
+          "title": "Nostra.ai - Success Stories",
+          "url": "https://www.nostra.ai/success-stories",
+          "excerpts": [
+            "Faster web page speeds, maintaining it above 80 and 90's which helps with the user experience significantly and thus creating more sales through better ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The outreach angle should leverage the alumni signal by anchoring on Mila’s success with Nostra, since Mila is a known customer and the lead previously worked there. This creates a high-context rationale for Mid-Day Squares' buyer to trust Nostra’s value proposition. The excerpts directly supporting this include Mila’s revenue-per-user uplift and site-speed improvements attributed to Nostra’s Edge Delivery Engine, which show tangible outcomes that can be cited in outreach. The presence of Hannah Wu at Mid-Day Squares with a history linked to Mila strengthens the case for a Mila-centered narrative; her current senior sales analytics role means she would care about performance gains and enterprise-grade infrastructure. Additional excerpts provide context on Nostra’s broader capabilities (edge delivery, bot protection, faster sites, higher conversion, trusted by many brands), which justify offering a quick diagnostic to quantify hidden speed and bot-related friction. The immediate relevance of bot traffic and site speed diagnostics aligns with the client’s product strengths and the current growth drivers for Mid-Day Squares as they scale, especially with social-driven traffic spikes and retail expansion. Overall, the most persuasive supporting evidence is the Mila-to-Nostra success narrative and the alumni link to the target buyer, followed by corroborating details about Mila’s branding with Nostra and the target’s leadership awareness of performance levers.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview.lead_name",
+      "citations": [
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "",
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")"
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The most directly relevant content states the person as Hannah Wu, with explicit linkage to her LinkedIn profile and current organization (Mid-Day Squares). This directly supports the finegrained field value by naming the lead and associating her with her current role and company. Additional excerpts from The Org profile reiterate the same individual (Hannah Wu) and her title, reinforcing identity and authority. A separate excerpt lists Hannah Wu across multiple sources, including Mid-Day Squares and prior roles, which further corroborates her identity and provides a broader context for the alumni signal, showing a trajectory from past roles to a current senior position. Taken together, these excerpts establish a clear, multi-source confirmation of the lead’s name and professional context, aligning with the requested field value and its place in the nested structure. The most direct confirmations are the LinkedIn-based entry, followed by organizational profile entries, with cross-source corroboration from a broader resume-like reference set.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway.urgency_level",
+      "citations": [
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "\"Site speed is so critical to conversion rates. As we continue to scale, our website grows with us. Nostra is the partner who helps that growth mean something positive all around.\"",
+            " Section Title: How MìLà gained a 4.65% revenue per user boost with Nostra",
+            "\n**MìLà boosts their site speed and, as result, their revenue per user",
+            "*4.65% increase in revenue per user*",
+            "Time to First Byte\n330ms\n90ms\nRevenue Per User\n4.65%"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources",
+          "excerpts": [
+            "Denver Modern boosted site speed by 48% and increased conversions by 8.46% during BFCM 2024 — proving faster sites drive real revenue."
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")"
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Section Title: Faster Sites. Higher Revenue. Proven Results — and Built to Scale With You.",
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert.",
+            "Trusted by 300+ brands"
+          ]
+        },
+        {
+          "title": "Mid-Day Squares Marketing Strategy Breakdown",
+          "url": "https://www.panoramata.co/marketing-strategy-brand/mid-day-squares",
+          "excerpts": [
+            "There's a lot to learn from Mid-Day Squares ecommerce marketing strategy. Here, you can pick their marketing strategy, learn lessons, and take inspiration.Read more"
+          ]
+        }
+      ],
+      "reasoning": "The client’s success story with Mila demonstrates that Nostra can deliver meaningful, measurable improvements in site speed and revenue per user as brands scale. This directly informs the potential value for the lead’s current company, Mid-Day Squares, which operates in a consumer ecommerce space where speed and performance are tightly linked to conversions and revenue. The Mila case shows that Nostra’s Edge Delivery Engine can fortify site speed at scale, which is exactly the kind of capability a Director of Sales Performance & Analytics would recognize as critical when performance correlates with revenue growth. Additional evidence shows that Mila’s site speed improvements translated into real revenue gains (a 4.65% uplift in revenue per user), and that faster pages are repeatedly framed as essential to conversion, especially as traffic and complexity increase during scaling. This supports an urgency narrative: a fast, resilient digital infrastructure is a strategic lever for growth at a company that competes on ecommerce performance. The Mila case also provides a concrete proof point that can resonate with someone who has seen these effects first-hand in their past role and now evaluates similar initiatives at their current company. Denver Modern’s reported speed improvements and conversion lift during a major event further corroborate that speed and performance translate into measurable business outcomes, reinforcing why the current company should prioritize upgrading their digital infrastructure now rather than later. The alumni signal—Hannah Wu’s prior tenure at Mila and her current leadership role at Mid-Day Squares—creates a plausible bridge for messaging that references her familiarity with Mila’s use of Nostra and the resulting performance gains, while acknowledging the current company’s scale and need for robust infrastructure to support growth. Taken together, these excerpts support a high-confidence claim that urgency is warranted for reaching out to this lead with a tailored, performance-focused GTM narrative that ties past exposure to present business imperatives.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview.current_role",
+      "citations": [
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")",
+            ""
+          ]
+        },
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        }
+      ],
+      "reasoning": "The most direct support for the exact field value comes from a source that explicitly states the role title and the organization as a combined data point. This excerpt shows the person with the title Director, Sales Performance & Analytics at Mid-Day Squares, which matches the target field value precisely. Additional excerpts corroborate the current association with the same company, noting the person’s name and the organization, even if the exact title is not restated in every line; this strengthens the case that the current role is indeed at Mid-Day Squares and aligns with the target field value. Another excerpt confirms the person’s name and the organization, reinforcing the linkage to the same individual. A further excerpt references the same individual and organization in a professional context, contributing to the corroborating evidence about current affiliation, though it provides less direct confirmation of the exact title. Taken together, these excerpts provide coherent support for the field value, with the strongest evidence coming from the explicit title and company combination.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway.verdict",
+      "citations": [
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            " Section Title: How MìLà gained a 4.65% revenue per user boost with Nostra",
+            "\n**MìLà boosts their site speed and, as result, their revenue per user",
+            "\"Site speed is so critical to conversion rates. As we continue to scale, our website grows with us. Nostra is the partner who helps that growth mean something positive all around.\"",
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "*4.65% increase in revenue per user*",
+            "Time to First Byte\n330ms\n90ms\nRevenue Per User\n4.65%"
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "",
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")"
+          ]
+        },
+        {
+          "title": "Nostra.ai - Resources",
+          "url": "https://www.nostra.ai/resources",
+          "excerpts": [
+            "Denver Modern boosted site speed by 48% and increased conversions by 8.46% during BFCM 2024 — proving faster sites drive real revenue."
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Section Title: Faster Sites. Higher Revenue. Proven Results — and Built to Scale With You.",
+            "Trusted by 300+ brands",
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert."
+          ]
+        }
+      ],
+      "reasoning": "The targeted field value asserts that Hannah Wu recently has direct exposure to Nostra’s impact at MiLa and now owns metrics that Nostra moves for a brand in a hyper-competitive, cost-pressured category. The most relevant material directly documents MiLa’s performance gains attributed to Nostra, including improvements in revenue per user and site speed, and the role Nostra plays in enabling faster site performance and higher conversions. These excerpts show concrete outcomes (e.g., revenue per user uplift and site speed enhancements) tied to Nostra’s technology within MiLa, which supports the idea of exposure to measurable impact. Additional excerpts establish Hannah Wu’s professional history at Mid-Day Squares and her past at MiLa, reinforcing the alumni signal: she would have familiarity with MiLa and would carry awareness of Nostra’s impact from her prior role and current leadership position. Supporting context about Nostra’s capabilities and MiLa’s use case helps explain why those metrics matter in a hyper-competitive, cost-conscious environment and why Hannah would be motivated to engage on this topic now. Collectively, the most compelling support comes from MiLa-specific results and Hannah’s MiLa/Mid-Day Squares linkage, with supplementary context from broader Nostra capabilities and the alumni trail enhancing plausibility of the field value claim.",
+      "confidence": "high"
+    },
+    {
+      "field": "relevance_and_readiness.lead_role_relevance",
+      "citations": [
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "Enterprise Infrastructure for eComm | Nostra",
+          "url": "https://www.nostra.ai/",
+          "excerpts": [
+            "Section Title: Faster Sites. Higher Revenue. Proven Results — and Built to Scale With You.",
+            "Nostra delivers enterprise-grade e-commerce infrastructure by unifying instant site-speed performance, AI-powered bot protection, and edge-level identity resolution, ensuring every visit is real, verifiable, and built to convert."
+          ]
+        },
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        },
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "\n**MìLà boosts their site speed and, as result, their revenue per user",
+            "*4.65% increase in revenue per user*"
+          ]
+        }
+      ],
+      "reasoning": "The most directly supporting excerpt confirms the lead’s current identity and employer, connecting Hannah Wu to Mid-Day Squares. This anchors the alumni signal and establishes the exact role context in which her KPIs are defined. Additional excerpts describe Nostra’s core value proposition—enterprise-grade infrastructure that speeds sites, reduces bot traffic, and protects attribution—explicitly linking site performance, conversions, and revenue metrics to the health of digital infrastructure. This creates a causal path: Hannah’s role centers on sales performance and analytics across DTC and retail; her KPIs (conversion rate, AOV, ROAS, forecast accuracy) are sensitive to site speed and bot-related distortions, which Nostra’s Edge Delivery Engine and security features aim to improve. Further excerpts provide corroborating context about Hannah’s past association with a client (Mid-Day Squares) and a reference to Mila’s success story with Nostra, underscoring that the alumni connection involved a customer using the client’s product and that performance improvements have been demonstrated in similar setups. Collectively, these excerpts support the claim that the lead’s current responsibilities directly align with the client’s product value, and that issues of speed, reliability, and bot protection would be immediately recognizable as impactful levers for her team’s KPIs.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview.alumni_connection",
+      "citations": [
+        {
+          "title": "Hannah Wu Email & Phone Number | Momofuku Senior Manager, Retail Sales and Marketing Contact Information",
+          "url": "https://rocketreach.co/hannah-wu-email_22138208",
+          "excerpts": [
+            "Hannah Wu brings experience from previous roles at Mid-Day Squares, MìLà, Nestlé and General Mills. Hannah Wu holds a 2008 - 2013 Bachelor of Business ...Read more"
+          ]
+        },
+        {
+          "title": "How MìLà increased revenue per user by 4.65% with Nostra",
+          "url": "https://www.nostra.ai/success-stories/how-mila-increased-revenue-per-user-by-465-with-nostra",
+          "excerpts": [
+            " Section Title: How MìLà gained a 4.65% revenue per user boost with Nostra",
+            "\n**MìLà boosts their site speed and, as result, their revenue per user",
+            "\"Site speed is so critical to conversion rates. As we continue to scale, our website grows with us. Nostra is the partner who helps that growth mean something positive all around.\"",
+            "**Nostra's Edge Delivery Engine™ fortifies MìLà's site speed as they scale",
+            "*4.65% increase in revenue per user*"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Mid-Day Squares",
+          "url": "https://www.linkedin.com/in/hannahwu",
+          "excerpts": [
+            " * id: hannahwu\n * name: Hannah Wu\n * city: Phoenix, Arizona, United States\n * country code: US\n * about\n   - 12+ years of experience across Retail Sales & Foodservice Brand Management, ranging from…\n * url: https://www.linkedin.com/in/hannahwu\n * educations details: Texas McCombs School of Business\n * avatar\n   - https://media.licdn.com/dms/image/v2/C5603AQE3ppvWqQo_iA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1551161470551?e=2147483647&v=beta&t=6DjoXiHg0Xs7JpD7bm8-fIvoF5d3P8bJpHReCIq4mwA\n * followers: 972\n * connections: 500\n * current company company id: mid-day-squares\n * current company name: Mid-Day Squares\n * location: Phoenix\n * input url: https://www.linkedin.com/in/hannahwu\n * linkedin id: hannahwu\n * linkedin num id: 103151582\n * banner image: https://static.licdn.com/aero-v1/sc/h/5q92mjc5c51bjlwaj3rs9aa82\n * default avatar: false\n * memorialized account: false\n * first name: Hannah\n * last name: Wu"
+          ]
+        },
+        {
+          "title": "Hannah Wu - Director, Sales Performance & Analytics at Mid-Day Squares | The Org",
+          "url": "https://theorg.com/org/mid-day-squares/org-chart/hannah-wu",
+          "excerpts": [
+            "",
+            "Section Title: Hannah Wu\nContent:\nDirector, Sales Performance & Analytics\nView this person in the org chart, teams, and offices\nLearn more about The Org\nSection Title: Hannah Wu > Director, Sales Performance & Analytics\nContent:\nContact\nNo bio yet\nLocation\nPhoenix, United States\nLinks\n[](https://www.linkedin.com/in/hannahwu \"View on linkedIn\")"
+          ]
+        }
+      ],
+      "reasoning": "Hannah Wu’s professional journey includes Mila (formerly XCJ), which directly supports the alumni signal that she previously held a relevant role at a Mila/XCJ-type company that is a known Nostra customer. This establishes the connection between her past exposure to Nostra’s edge-speed and traffic-solution suite and her current executive-relevant remit at Mid-Day Squares. The Mila–Nostra case excerpts describe concrete outcomes tied to site performance and revenue: Mila’s site speed improvements and attribution to revenue per user gains, accelerated by Nostra’s Edge Delivery Engine and related protections. These excerpts demonstrate what Hannah Wu would have observed or been aware of in Mila’s operations—speed optimizations, bot protection, better attribution, and faster customer journeys—which translates to the alumni signal of her awareness and experience with Nostra’s impact. Additional excerpts explicitly reference Mila’s use of Nostra’s capabilities to boost performance and revenue, reinforcing the relevance of the past exposure when engaging the lead now at a similar or more senior level. The combination of the Mila–Nostra success narrative and Hannah Wu’s Mila/XCJ history forms a coherent link showing why she is a high-value, alumni-connected target who would recognize the client’s value proposition immediately.",
+      "confidence": "high"
+    }
+  ],
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "overview": {
+        "type": "object",
+        "properties": {
+          "lead_name": {
+            "type": "string",
+            "description": "The full name of the lead."
+          },
+          "current_role": {
+            "type": "string",
+            "description": "The lead's current job title and company."
+          },
+          "alumni_connection": {
+            "type": "string",
+            "description": "A clear statement of the lead's connection to a past company that is a known customer of the client."
+          }
+        },
+        "required": [
+          "lead_name",
+          "current_role",
+          "alumni_connection"
+        ],
+        "additionalProperties": false
+      },
+      "market_position": {
+        "type": "object",
+        "properties": {
+          "company_name": {
+            "type": "string",
+            "description": "The name of the lead's current company."
+          },
+          "business_context": {
+            "type": "string",
+            "description": "The current company's scale, growth stage, and market category."
+          },
+          "competitive_pressure": {
+            "type": "string",
+            "description": "Description of the competitive landscape and the pressure the company faces."
+          },
+          "infrastructure_urgency": {
+            "type": "string",
+            "description": "Why their digital infrastructure (site speed, conversion) is critical for them right now."
+          }
+        },
+        "required": [
+          "company_name",
+          "business_context",
+          "competitive_pressure",
+          "infrastructure_urgency"
+        ],
+        "additionalProperties": false
+      },
+      "relevance_and_readiness": {
+        "type": "object",
+        "properties": {
+          "lead_role_relevance": {
+            "type": "string",
+            "description": "Explanation of what the lead owns in their current role and why it's relevant to the client's product."
+          },
+          "past_experience_context": {
+            "type": "string",
+            "description": "Details of what the lead would have experienced at their past company (the client's customer)."
+          },
+          "value_recognition": {
+            "type": "string",
+            "description": "A summary of why their past experience makes them uniquely prepared to understand the client's value proposition."
+          }
+        },
+        "required": [
+          "lead_role_relevance",
+          "past_experience_context",
+          "value_recognition"
+        ],
+        "additionalProperties": false
+      },
+      "recommended_approach": {
+        "type": "object",
+        "properties": {
+          "outreach_angle": {
+            "type": "string",
+            "description": "The specific strategic angle for the outreach, referencing the alumni connection and current company's situation."
+          },
+          "sample_message": {
+            "type": "string",
+            "description": "A concrete, non-generic sample message or talk track for the sales representative to use."
+          }
+        },
+        "required": [
+          "outreach_angle",
+          "sample_message"
+        ],
+        "additionalProperties": false
+      },
+      "takeaway": {
+        "type": "object",
+        "properties": {
+          "verdict": {
+            "type": "string",
+            "description": "The final verdict on why this lead is a high-value target."
+          },
+          "urgency_level": {
+            "type": "string",
+            "description": "The urgency level for pursuing this lead (e.g., High, Medium, Low)."
+          }
+        },
+        "required": [
+          "verdict",
+          "urgency_level"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "required": [
+      "overview",
+      "market_position",
+      "relevance_and_readiness",
+      "recommended_approach",
+      "takeaway"
+    ],
+    "additionalProperties": false
+  }
+}

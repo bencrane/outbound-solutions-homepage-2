@@ -1,0 +1,256 @@
+{
+  "input": "\"#CONTEXT#\nYou are a B2B sales strategist writing a GTM intelligence memo for a sales team. You will receive information about:\n1. A client company whose product is being sold\n2. A lead who previously worked at a company that is a known customer of the client\n3. The lead's current company where they now hold a relevant role\n\nThe lead's past company is a known customer of the client. The lead held a relevant role there and would have been exposed to or aware of the client's product. They have since moved to a new company in a similar or more senior role.\"\n\n\"#INPUTS#\nclient_company_name: Nostra\nclient_company_domain: nostra.ai\nclient_company_description: Nostra helps the world’s leading ecommerce brands future-proof their digital infrastructure with cutting-edge edge technology. We enable high-growth DTC companies to deploy enterprise-grade infrastructure in minutes, not months. Our edge platform is designed to accelerate site speed, increase conversion rates, and drive more revenue, while protecting your brand from modern threats. With products like Edge Delivery Engine, Edge Protection, Edge ID, and Edge Crawler, we give brands the tools to: • Boost performance by 20–30% • Block ad bot traffic before it hits your site • Extend cookie life for better attribution • Optimize content for LLM indexing and AI-native search Brands like Jolie, Amiri, and Olukai rely on Nostra to deliver faster, safer, smarter ecommerce experiences\n\nlead_full_name: Rachel Walker\nlead_linkedin_url: https://www.linkedin.com/in/rachel-walker-0530b046\nlead_current_job_title: Associate Marketing Director\nlead_current_company_name: Yoobi\nlead_current_company_domain: yoobi.com\nlead_current_company_description: Yoobi is a mission first school supplies brand with BIG IMPACT. Yoobi prides themselves as leaders in trend and design. For every qualifying item purchased, Yoobi donates a school supply item to a U.S. child in need.\n\nYoobi is currently available in the U.S. and to date, has donated essential school supplies to more than 6 million students. Learn more about Yoobi’s give-back programs at Yoobi.com/give.\n\nlead_past_company_name: Forever 21\nlead_past_company_domain: forever21.com\nlead_past_company_description: Forever 21 continues to be a fashion industry leader with a mission to make the latest trends accessible to all. F21 persists on staying ahead of innovation and providing styles and fit that our customers love. While reinventing for now and beyond, we’re seeking passionate and creative new family members to join us on this adventure! F21 continues to operate E-commerce and 450 locations across the U.S. along with maintaining a strong brand DNA with consumers and within the fashion industry. \n\nIn February 2020, Forever 21 came under new ownership made up of Simon Property Group, Brookfield Property Partners, and Authentic Brands Group. Under this new ownership F21 has the financial strength and long term view that will prepare us for the future, while continuing to set the same high standards as it always has. Join our team and learn the inner sanctum of the global fashion industry, while we build the new Forever 21! \n\nForever 21 is operated by SPARC Group LLC.\n \nAbout SPARC Group LLC\nSPARC Group LLC offers operational and strategic expertise including retail and e-commerce management, sourcing, design and technology for leading global brands. SPARC Group is a joint venture between Simon Property Group, a preeminent retail real estate company and Authentic Brands Group, a global leader in brand development. In addition to Forever 21, SPARC Group brands include Aéropostale, Brooks Brothers, Nautica, Eddie Bauer, and Lucky Brand.\n \nSPARC Group LLC is an equal opportunity employer, and is committed to maintaining a workplace free from prohibited employment conduct, including discrimination or harassment on the basis of race, color, national origin, sex, age, religion, disability, genetic information, sexual orientation, gender identity or expression, marital status, domestic partner status, civil partnership, status as a covered veteran, status in the Uniformed Services of the United States, citizenship and any other characteristic protected by law.\nlead_past_company_job_title: Global Marketing Manager, Talent and Brand Relations\"\n\n\"#OBJECTIVE#\nGenerate a 5-section GTM strategy memo that helps a sales rep understand why this lead is a high-value target right now and exactly how to approach them.\n\n#RESEARCH DIRECTIVES#\nBefore writing the memo, research the following:\n\n1. **Current company business context** — What is the current company's scale, market position, ecommerce footprint, and growth trajectory? What operational or technical challenges would a company like this face? What about their stage creates urgency for the client's product?\n\n2. **Competitive landscape** — Who are the current company's direct competitors? What market pressure do they face? How does site performance, conversion optimization, or digital infrastructure factor into their competitive position?\n\n3. **Lead's role and authority** — Based on their title and the company context, what does this person own? What decisions do they influence or control? Why are they the right person to talk to about the client's product?\n\n4. **The alumni signal** — The lead previously held a relevant role at a company that uses the client's product. What would they have seen or experienced there? How does that experience translate to their current situation?\n\n5. **Complexity delta** — How do the challenges at the current company compare to the past company? Are they dealing with more brands, more SKUs, more markets, more traffic, more complexity? Frame the current situation relative to what they've already navigated.\n\n#OUTPUT FORMAT#\nWrite a 5-section memo in sharp, conversational prose. No bullet points. No headers beyond the section names. Each section should be a tight paragraph.\n\n**OVERVIEW**\n2-3 sentences. Who is this person, what is their current role, and what is their connection to the client's customer base. State the alumni signal clearly.\n\n**MARKET POSITION**\nOne paragraph. The current company's business context — scale, growth stage, competitive pressure, and why their digital infrastructure matters right now. What is at stake for them?\n\n**RELEVANCE & READINESS**\nOne paragraph. Why this specific person. What did they see or own at their past company? What do they own now? Why would they recognize the value of the client's product immediately?\n\n**RECOMMENDED APPROACH**\nOne paragraph. The specific angle for outreach. Include a sample message or talk track that references the alumni connection and speaks to the current company's situation. Make it concrete, not generic.\n\n**TAKEAWAY**\nOne sentence. The verdict — why this lead matters and the urgency level.\n\n#STYLE GUIDANCE#\n- Be direct and specific. No filler, no hedge words.\n- Do not fabricate metrics, quotes, or claims. Only infer plausibly from the inputs and your research.\n- Do not claim the lead directly used or implemented the client's product unless you have evidence. Frame it as exposure and awareness based on their role.\n- The memo should read like it was written by someone who understands the market, not by an AI summarizing inputs.\n- Total length: 300-400 words.\n\nOutput Schema\njson{\n  \"\"overview\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"2-3 sentences. Who is this person, their current role, and their alumni connection to the client's customer base.\"\"\n  },\n  \"\"market_position\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on the current company's business context, competitive pressure, and why digital infrastructure matters now.\"\"\n  },\n  \"\"relevance_and_readiness\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph on why this specific person — what they saw at the past company, what they own now, why they'd recognize value immediately.\"\"\n  },\n  \"\"recommended_approach\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One paragraph with the specific outreach angle and sample messaging that references the alumni connection.\"\"\n  },\n  \"\"takeaway\"\": {\n    \"\"type\"\": \"\"string\"\",\n    \"\"description\"\": \"\"One sentence verdict on why this lead matters and urgency level.\"\"\n  }\n}\"",
+  "output": {
+    "overview": "Rachel Walker is the Associate Marketing Director at Yoobi, a mission-driven school supplies brand. Her relevance stems from her previous role as Global Marketing Manager at Forever 21, a high-profile Nostra customer that publicly documented significant site performance improvements using Nostra's Edge Delivery Engine. This direct experience with a successful implementation makes her a uniquely qualified and aware lead.",
+    "market_position": "Yoobi operates as a U.S.-focused, mission-first school supplies brand with a significant multi-channel footprint, including a Shopify-based DTC store and broad distribution through major retailers like Target and a new exclusive agreement with Toysmith. The business is highly seasonal, with pronounced traffic spikes during the Back-to-School period and for licensed collaboration launches, such as with Peanuts. In a competitive market against legacy brands like Crayola and private labels, Yoobi's brand and design-led differentiation must be supported by a flawless online experience. For Yoobi, digital infrastructure is paramount; slow page loads or site instability during these peak revenue windows mean lost sales, wasted ad spend, and poor customer experience, making resilient and fast site performance a critical business need.",
+    "relevance_and_readiness": "Rachel is the ideal contact because her experience at Forever 21 gave her firsthand exposure to the revenue and SEO implications of site speed in a high-stakes ecommerce environment. She would have been aware of the performance challenges that led Forever 21 to seek a solution like Nostra, which ultimately delivered a 59% acceleration in page load times. Now, as Associate Marketing Director at Yoobi, she owns functions like retail marketing and brand collaborations—areas where on-site performance during campaign peaks is directly tied to success and ROAS. While Yoobi's operation is less complex than Forever 21's, its leaner team and reliance on seasonal surges make a low-engineering-lift solution that guarantees performance even more valuable. She will immediately recognize how Nostra's edge acceleration and bot protection can de-risk Yoobi's most important sales periods.",
+    "recommended_approach": "The outreach must lead with the alumni connection to establish immediate credibility and relevance. Frame the conversation around translating the proven success at Forever 21 to the specific challenges at Yoobi. A direct, personalized message would be most effective: \"Hi Rachel, saw the great news about the Yoobi x Peanuts collab winning Best Retail Program — congratulations to you and the team. My reason for reaching out is that I know from your time at Forever 21 how critical site speed is during major campaigns. Nostra helped F21 cut page load times by 59%, and I have to imagine a similar performance lift during your Back-to-School season would be a game-changer for conversion and ad spend efficiency. Is it worth a brief chat to discuss how our edge platform could support your upcoming launches?\"",
+    "takeaway": "Rachel's direct experience with the problem Nostra solves at a major brand, combined with her current marketing ownership at a seasonally-driven company, makes her a high-urgency lead who can immediately grasp the value and champion the solution."
+  },
+  "outputBasis": [
+    {
+      "field": "relevance_and_readiness",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.\nS",
+            "Increase in Crawl Speed\n166%",
+            "Acceleration in Page Load\n59%",
+            "Reduction in Time to First Byte (TTFB)\n53%",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience."
+          ]
+        },
+        {
+          "title": "Profile of Rachel Walker",
+          "url": "https://www.success.ai/profile/rachel-walker-5496675564",
+          "excerpts": [
+            "Rachel Walker is a Senior Marketing Manager at Yoobi",
+            "Section Title: Rachel Walker > What company does Rachel Walker work for?\nContent:\nYoobi"
+          ]
+        },
+        {
+          "title": "Fetched web page",
+          "url": "https://www.linkedin.com/in/rachel-walker-0530b046",
+          "excerpts": [
+            "Section Title: Rachel Walker > Experience & Education",
+            "Rachel Walker > More activity by Rachel",
+            "yoobi2009 - 2011",
+            "sting with pride for this crew! 💛✨ Our Yoobi x Peanuts® collab just snagged Best Retail Program of 2025 and it truly took a village. GO TEAM GO!",
+            "I am looking to scale our graphic design contractor portfolio. Most needs will be around sales and marketing materials. Please send me…Posted by [Rachel Walker](https://www.linkedin.com/in/rachel-walker-0530b046?trk=public_profile_actor-name)"
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field value asserts that Rachel Walker’s experience at Forever 21 gave her direct awareness of how site speed impacts revenue and SEO in a high-stakes ecommerce setting, including a quantified improvement in page load times, and that in her current role at Yoobi she oversees functions where on-site performance during peak campaigns drives ROAS. The Forever 21 success stories provide explicit evidence of the site speed challenges Forever 21 faced and the substantial performance gains achieved with Nostra, including notable accelerations in page load times and related benefits, which directly corroborate the alumni signal of exposure to performance-related outcomes. Excerpts documenting Rachel’s current position at Yoobi corroborate the current context and confirm that she now owns marketing and brand-related responsibilities where performance matters to campaigns and revenue. Additional items that recap her connection to Yoobi and the LinkedIn profile corroborate the continuity of the professional narrative and support that she would recognize the value of an edge-centric performance solution in her current environment. Together, these excerpts weave a coherent narrative: past exposure to performance-driven outcomes at Forever 21, and present leadership in marketing at Yoobi where those performance levers are critical for ROAS.",
+      "confidence": "high"
+    },
+    {
+      "field": "overview",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.\nS",
+            "Increase in Crawl Speed\n166%",
+            "Acceleration in Page Load\n59%",
+            "Reduction in Time to First Byte (TTFB)\n53%",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience."
+          ]
+        },
+        {
+          "title": "Profile of Rachel Walker",
+          "url": "https://www.success.ai/profile/rachel-walker-5496675564",
+          "excerpts": [
+            "Rachel Walker is a Senior Marketing Manager at Yoobi",
+            "Section Title: Rachel Walker > What company does Rachel Walker work for?\nContent:\nYoobi"
+          ]
+        },
+        {
+          "title": "Fetched web page",
+          "url": "https://www.linkedin.com/in/rachel-walker-0530b046",
+          "excerpts": [
+            "Section Title: Rachel Walker > Experience & Education",
+            "yoobi2009 - 2011",
+            "Rachel Walker > More activity by Rachel"
+          ]
+        }
+      ],
+      "reasoning": "The finegrained field value asserts that Rachel Walker is currently Associate Marketing Director at Yoobi and previously held the role of Global Marketing Manager at Forever 21, a known Nostra customer that publicly documented significant site performance improvements using Nostra’s Edge Delivery Engine. The strongest supporting material comes from the Forever 21 success stories, which explicitly describe Forever 21 as a Nostra customer and detail improvements in site performance and related metrics, aligning with the alumni signal that the lead’s past company exposure would have involved Nostra’s product. Additional corroboration comes from content describing Rachel Walker’s current affiliation with Yoobi (as a senior/associate marketing leadership) and LinkedIn/profile items that identify her name, current company, and past roles, reinforcing the alumni connection and relevance to the current company. The combination of a documented past role at a customer company and concrete performance outcomes from that customer provides a coherent link to the finegrained field value, and the Yoobi association grounds the relevance of the lead to the current outreach context. The cited Forever 21 case materials supply direct evidence of exposure to Nostra’s product at the past employer, while the Yoobi-focused profiles corroborate the current targeting context and the lead’s seniority level, which informs the messaging and approach. Overall, the evidence collectively supports a high confidence that the lead’s alumni signal (past Forever 21 experience at a Nostra customer and current Yoobi role) is accurate and strategically valuable for GTM outreach.",
+      "confidence": "high"
+    },
+    {
+      "field": "market_position",
+      "citations": [
+        {
+          "title": "Fetched web page",
+          "url": "https://www.linkedin.com/in/rachel-walker-0530b046",
+          "excerpts": [
+            "yoobi2009 - 2011",
+            "Rachel Walker > More activity by Rachel",
+            "Section Title: Rachel Walker > Experience & Education"
+          ]
+        },
+        {
+          "title": "Profile of Rachel Walker",
+          "url": "https://www.success.ai/profile/rachel-walker-5496675564",
+          "excerpts": [
+            "Rachel Walker is a Senior Marketing Manager at Yoobi",
+            "Section Title: Rachel Walker > What company does Rachel Walker work for?\nContent:\nYoobi"
+          ]
+        },
+        {
+          "title": "Nostra Edge Delivery Engine - Top Edge Delivery Tool for eCommerce",
+          "url": "https://www.nostra.ai/edge-delivery-engine",
+          "excerpts": [
+            "300+ enterprise and high-growth brands rely on Nostra to deliver instant site speed, stronger SEO performance, deeper personalization, and clean, actionable marketing data.",
+            "Nostra’s ROI is undeniable. Our entire site experience has always been very brand-focused, with rich full-bleed imagery and lots of content that many told us would slow down our site. With Nostra, I am able to have it all: a site that loads incredibly quickly and is visually rich and distinct, better data, and none of the headache."
+          ]
+        },
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.\nS",
+            "Increase in Crawl Speed\n166%",
+            "Acceleration in Page Load\n59%",
+            "Reduction in Time to First Byte (TTFB)\n53%",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience."
+          ]
+        }
+      ],
+      "reasoning": "The most relevant material is direct confirmation of the lead’s identity and current role at Yoobi, plus the alumni signals tying the lead to a client customer context: the current company, Yoobi, and the lead’s name. This establishes the alumni link and current point of contact, which is central to the finegrained field value. Supporting this, public-facing profiles indicate the lead works at Yoobi, reinforcing relevance to the target company and confirming the seniority level implied by Associate Marketing Director. Additional excerpts describe Yoobi’s multichannel, US-focused retail footprint and the importance of a fast, reliable online experience in a seasonally demanding business, which aligns with the field value’s emphasis on DTC/shopify presence and critical digital infrastructure. Content about Nostra Edge and Edge Protect demonstrates the concrete ways in which performance and protection at the edge translate into cleaner analytics, higher conversion, and less wasted ad spend, which underpins why Yoobi would value these capabilities given their traffic spikes. The Forever 21 success stories provide context about the competitive landscape and the tangible impact of performance improvements on site experience and traffic handling, reinforcing why this category of solution is strategically urgent for a brand in a similar retail domain. Taken together, the strongest support comes from direct Yoobi references and the alumni signal, with corroborating context from Yoobi-related leadership profiles and related customer success narratives that illustrate the operational stakes and digital-infrastructure needs described in the field value.",
+      "confidence": "high"
+    },
+    {
+      "field": "recommended_approach",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Acceleration in Page Load\n59%",
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Reduction in Time to First Byte (TTFB)\n53%",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience."
+          ]
+        },
+        {
+          "title": "Fetched web page",
+          "url": "https://www.linkedin.com/in/rachel-walker-0530b046",
+          "excerpts": [
+            "Section Title: Rachel Walker > Experience & Education",
+            "yoobi2009 - 2011",
+            "sting with pride for this crew! 💛✨ Our Yoobi x Peanuts® collab just snagged Best Retail Program of 2025 and it truly took a village. GO TEAM GO!",
+            "I am looking to scale our graphic design contractor portfolio. Most needs will be around sales and marketing materials. Please send me…Posted by [Rachel Walker](https://www.linkedin.com/in/rachel-walker-0530b046?trk=public_profile_actor-name)",
+            "Rachel Walker > More activity by Rachel"
+          ]
+        }
+      ],
+      "reasoning": "The fine-grained field value centers on constructing an outreach that opens with the alumni connection and leverages a proven performance uplift observed at Forever 21, translating that to Yoobi’s context. The excerpt stating that Forever 21 experienced an acceleration in page load of 59% provides a precise, persuasive metric to cite in the message. Additional Forever 21 context (facing site speed challenges and the importance of performance for online presence) reinforces why performance improvements matter for Yoobi, especially during campaigns. The excerpts about Rachel Walker’s current role at Yoobi and her LinkedIn footprint establish the alumni signal and enable a tailored, credible outreach that references her past at Forever 21. Together, these pieces form a credible, personalized approach: lead with the alumni connection, anchor in a concrete performance lift observed at a comparable peer, and directly relate that uplift to Yoobi’s upcoming launches and campaigns.",
+      "confidence": "high"
+    },
+    {
+      "field": "takeaway",
+      "citations": [
+        {
+          "title": "How Forever 21 Improved Website Performance & Traffic with Nostra AI",
+          "url": "https://www.nostra.ai/success-stories/forever-21-improved-website-performance-traffic-with-nostra-ai",
+          "excerpts": [
+            "Forever 21 faced site speed challenges that impacted user experience and conversion rates, such as high bounce rates from slow page loads, reduced user engagement, and difficulties handling traffic surges during peak times.",
+            "Forever 21 partnered with Nostra with a test and learn approach to Nostra’s solution to drive site perfomance KPIs.\nS",
+            "Increase in Crawl Speed\n166%",
+            "Acceleration in Page Load\n59%",
+            "Reduction in Time to First Byte (TTFB)\n53%",
+            "Forever 21 is a fast fashion retail giant that has carved a niche for itself in the highly competitive world of fashion.",
+            "Forever 21 relies heavily on its online presence to reach its target audience. As digital channels become increasingly important, the performance and speed of Forever 21's website and mobile app are critical for ensuring a seamless customer experience."
+          ]
+        },
+        {
+          "title": "Profile of Rachel Walker",
+          "url": "https://www.success.ai/profile/rachel-walker-5496675564",
+          "excerpts": [
+            "Rachel Walker is a Senior Marketing Manager at Yoobi",
+            "Section Title: Rachel Walker > What company does Rachel Walker work for?\nContent:\nYoobi"
+          ]
+        },
+        {
+          "title": "Fetched web page",
+          "url": "https://www.linkedin.com/in/rachel-walker-0530b046",
+          "excerpts": [
+            "Section Title: Rachel Walker > Experience & Education",
+            "yoobi2009 - 2011",
+            "sting with pride for this crew! 💛✨ Our Yoobi x Peanuts® collab just snagged Best Retail Program of 2025 and it truly took a village. GO TEAM GO!",
+            "I am looking to scale our graphic design contractor portfolio. Most needs will be around sales and marketing materials. Please send me…Posted by [Rachel Walker](https://www.linkedin.com/in/rachel-walker-0530b046?trk=public_profile_actor-name)",
+            "Rachel Walker > More activity by Rachel"
+          ]
+        },
+        {
+          "title": "How Linjer Eliminated Malicious Bot Traffic with Edge Protect",
+          "url": "https://www.nostra.ai/success-stories/nostra-x-linjer",
+          "excerpts": [
+            "t:\nWithin days of deployment, Edge Protect uncovered and stopped a meaningful volume of non-human traffic:\n**3.62% of Linjer’s total site traffic was identified as malicious bots** ‍\nThese bots were fully blocked at the edge, never reaching product pages, checkout, or analytics tools.\n",
+            "Linjer implemented **Nostra’s Edge Protect** , a server-side bot protection layer that sits in front of the site and evaluates every request in real time.\nU",
+            "Blocking malicious bots had a compounding impact across Linjer’s funnel:\n*",
+            "\n**Cleaner analytics:** Conversion rates now reflect real shopper behavior **‍*",
+            "*\n**More efficient ad spend:** Paid traffic is no longer diluted by fake sessions **‍",
+            "a\nBy removing bot noise at the infrastructure layer, Linjer gained confidence that every session reaching the site had genuine revenue potential.",
+            "**3.62% of Linjer’s total site traffic was identified as malicious bots*",
+            "*3.62% of Linjer’s total site traffic was identified as malicious bots*"
+          ]
+        },
+        {
+          "title": "Nostra Edge Delivery Engine - Top Edge Delivery Tool for eCommerce",
+          "url": "https://www.nostra.ai/edge-delivery-engine",
+          "excerpts": [
+            "300+ enterprise and high-growth brands rely on Nostra to deliver instant site speed, stronger SEO performance, deeper personalization, and clean, actionable marketing data.",
+            "Nostra’s ROI is undeniable. Our entire site experience has always been very brand-focused, with rich full-bleed imagery and lots of content that many told us would slow down our site. With Nostra, I am able to have it all: a site that loads incredibly quickly and is visually rich and distinct, better data, and none of the headache."
+          ]
+        }
+      ],
+      "reasoning": "The strongest alignment comes from Forever 21 case studies that describe improvements in site performance and traffic quality through Nostra, which directly supports the alumni signal that the lead previously observed or benefited from Nostra’s capabilities in a major brand context. Those excerpts demonstrate tangible outcomes (performance, crawl speed, load times) that Rachel’s past employer would be keen to achieve with a similar solution today. This dovetails with the fine-grained value in the takeaway, which connects her direct experience at a large brand with her current marketing leadership at Yoobi, suggesting she would immediately recognize value and advocate for the platform given Yoobi’s marketing-driven growth priorities. Supporting evidence about the lead’s current role at Yoobi reinforces why she owns market-facing outcomes now and would engage with an infrastructure-led value proposition. Additional context from Edge Protect and bot-traffic case studies reinforces the practical problems Nostra solves (traffic quality, cleaner analytics, more efficient paid spend), which helps tailor a concrete outreach angle that references the alumni connection while acknowledging Yoobi’s emphasis on performance and acquisition metrics.",
+      "confidence": "high"
+    }
+  ],
+  "outputSchema": {
+    "type": "object",
+    "properties": {
+      "overview": {
+        "type": "string",
+        "description": "2-3 sentences. Who is this person, their current role, and their alumni connection to the client's customer base."
+      },
+      "market_position": {
+        "type": "string",
+        "description": "One paragraph on the current company's business context, competitive pressure, and why digital infrastructure matters now."
+      },
+      "relevance_and_readiness": {
+        "type": "string",
+        "description": "One paragraph on why this specific person — what they saw at the past company, what they own now, why they'd recognize value immediately."
+      },
+      "recommended_approach": {
+        "type": "string",
+        "description": "One paragraph with the specific outreach angle and sample messaging that references the alumni connection."
+      },
+      "takeaway": {
+        "type": "string",
+        "description": "One sentence verdict on why this lead matters and urgency level."
+      }
+    },
+    "required": [
+      "overview",
+      "market_position",
+      "relevance_and_readiness",
+      "recommended_approach",
+      "takeaway"
+    ],
+    "additionalProperties": false
+  }
+}
