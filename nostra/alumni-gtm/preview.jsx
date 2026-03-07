@@ -547,35 +547,20 @@ export default function AlumniGTMPreview() {
               </div>
               <div className="bg-[#0E0E10] border border-[#1E1E22] rounded overflow-hidden">
                 {/* Table header */}
-                <div className="grid grid-cols-5 gap-2 px-4 py-2 border-b border-[#1E1E22] bg-[#0A0A0B]">
+                <div className="grid grid-cols-4 gap-2 px-4 py-2 border-b border-[#1E1E22] bg-[#0A0A0B]">
                   <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium whitespace-nowrap">Name</div>
                   <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium whitespace-nowrap">Role</div>
                   <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium whitespace-nowrap">Past Co.</div>
                   <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium whitespace-nowrap">Past Role</div>
-                  <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium whitespace-nowrap text-right">GTM Brief</div>
                 </div>
                 {/* Table rows */}
                 {c.leads.map((lead, i) => {
-                  const slug = getLinkedInSlug(lead.person?.linkedin_url);
-                  const hasBrief = (slug && availableBriefs.has(slug)) || lead.gtm_brief;
                   return (
-                    <div key={i} className="grid grid-cols-5 gap-2 px-4 py-3 border-b border-[#1E1E22] last:border-b-0 hover:bg-[#111] transition-colors">
+                    <div key={i} className="grid grid-cols-4 gap-2 px-4 py-3 border-b border-[#1E1E22] last:border-b-0 hover:bg-[#111] transition-colors">
                       <div className="text-sm text-[#ECECEE] font-medium truncate">{lead.person?.full_name}</div>
                       <div className="text-xs text-zinc-500 truncate">{lead.current_company?.cleaned_job_title || lead.current_company?.role}</div>
                       <div className="text-xs text-[#6AADCF] truncate">{lead.prior_company?.name}</div>
                       <div className="text-xs text-zinc-600 truncate">{lead.prior_company?.role}</div>
-                      <div className="text-right">
-                        {hasBrief ? (
-                          <button
-                            onClick={() => openGtmBrief(lead)}
-                            className="text-[11px] px-2.5 py-1 rounded bg-[#101912] border border-[#1a3a1a] text-[#6ECF7A] hover:bg-[#162419] hover:border-[#6ECF7A] transition-colors"
-                          >
-                            View
-                          </button>
-                        ) : (
-                          <span className="text-[11px] text-[#E8798A]">N/A</span>
-                        )}
-                      </div>
                     </div>
                   );
                 })}
