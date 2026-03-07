@@ -434,6 +434,28 @@ export default function AlumniGTMPreview() {
                     </div>
                     {typeof sectionValue === "string" ? (
                       <div className="text-sm text-zinc-300 leading-relaxed">{sectionValue}</div>
+                    ) : Array.isArray(sectionValue) ? (
+                      <div className="flex flex-col gap-3">
+                        {sectionValue.map((item, idx) => (
+                          <div key={idx}>
+                            <div className="text-[10px] tracking-widest text-zinc-600 uppercase mb-1">{idx}</div>
+                            {typeof item === "string" ? (
+                              <div className="text-sm text-zinc-400 leading-relaxed">{item}</div>
+                            ) : typeof item === "object" && item !== null ? (
+                              <div className="text-sm text-zinc-400 leading-relaxed">
+                                {Object.entries(item).map(([k, v]) => (
+                                  <div key={k} className="mb-1">
+                                    <span className="text-zinc-500">{k.replace(/_/g, " ")}: </span>
+                                    <span>{String(v)}</span>
+                                  </div>
+                                ))}
+                              </div>
+                            ) : (
+                              <div className="text-sm text-zinc-400 leading-relaxed">{String(item)}</div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
                     ) : typeof sectionValue === "object" && sectionValue !== null ? (
                       <div className="flex flex-col gap-3">
                         {Object.entries(sectionValue).map(([subKey, subValue]) => (
@@ -441,7 +463,29 @@ export default function AlumniGTMPreview() {
                             <div className="text-[10px] tracking-widest text-zinc-600 uppercase mb-1">
                               {subKey.replace(/_/g, " ")}
                             </div>
-                            <div className="text-sm text-zinc-400 leading-relaxed">{String(subValue)}</div>
+                            {typeof subValue === "string" ? (
+                              <div className="text-sm text-zinc-400 leading-relaxed">{subValue}</div>
+                            ) : Array.isArray(subValue) ? (
+                              <div className="text-sm text-zinc-400 leading-relaxed">
+                                {subValue.map((item, idx) => (
+                                  <div key={idx} className="mb-2 pl-2 border-l border-zinc-800">
+                                    {typeof item === "string" ? item : typeof item === "object" && item !== null ? (
+                                      Object.entries(item).map(([k, v]) => (
+                                        <div key={k}><span className="text-zinc-500">{k.replace(/_/g, " ")}: </span>{String(v)}</div>
+                                      ))
+                                    ) : String(item)}
+                                  </div>
+                                ))}
+                              </div>
+                            ) : typeof subValue === "object" && subValue !== null ? (
+                              <div className="text-sm text-zinc-400 leading-relaxed">
+                                {Object.entries(subValue).map(([k, v]) => (
+                                  <div key={k}><span className="text-zinc-500">{k.replace(/_/g, " ")}: </span>{String(v)}</div>
+                                ))}
+                              </div>
+                            ) : (
+                              <div className="text-sm text-zinc-400 leading-relaxed">{String(subValue)}</div>
+                            )}
                           </div>
                         ))}
                       </div>
