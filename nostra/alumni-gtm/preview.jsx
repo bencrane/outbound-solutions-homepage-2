@@ -270,6 +270,16 @@ export default function AlumniGTMPreview() {
     "kevin reyes",
   ];
 
+  const pinnedCompanies = [
+    "arhaus",
+    "elizabeth arden",
+    "gunner",
+    "h&m",
+    "jacques marie mage",
+    "lovisa",
+    "spanx",
+  ];
+
   const filtered = useMemo(() => {
     if (!data?.leads) return [];
     let list = [...data.leads];
@@ -337,7 +347,18 @@ export default function AlumniGTMPreview() {
         });
       }
     });
-    return Array.from(seen.values()).sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+    const list = Array.from(seen.values());
+    // Sort pinned companies to the top, then alphabetically
+    list.sort((a, b) => {
+      const aName = a.name?.toLowerCase() || "";
+      const bName = b.name?.toLowerCase() || "";
+      const aIsPinned = pinnedCompanies.some(p => aName.includes(p) || p.includes(aName));
+      const bIsPinned = pinnedCompanies.some(p => bName.includes(p) || p.includes(bName));
+      if (aIsPinned && !bIsPinned) return -1;
+      if (!aIsPinned && bIsPinned) return 1;
+      return aName.localeCompare(bName);
+    });
+    return list;
   }, [filtered]);
 
   const customerCounts = useMemo(() => {
