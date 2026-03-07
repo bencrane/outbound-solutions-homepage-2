@@ -258,12 +258,6 @@ export default function AlumniGTMPreview() {
     "priscilla & tiffany art",
     "details",
     "clinicas de salud del pueblo",
-    "arhaus",
-    "elizabeth arden",
-    "gunner",
-    "jacques marie mage",
-    "lovisa",
-    "spanx",
   ];
 
   const pinnedPeople = [
