@@ -215,12 +215,15 @@ export default function NostraProposal() {
           }}>
             <div style={{ fontSize: 13, color: "#777", textTransform: "uppercase", letterSpacing: "1px", fontWeight: 600, marginBottom: 16 }}>Account Details</div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", borderBottom: "1px solid #1e1e1e" }}>
-              <span style={{ color: "#777", fontSize: 14 }}>Bank</span>
-              <span style={{ fontWeight: 600, fontSize: 14 }}>JPMorgan Chase Bank, N.A.</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", borderBottom: "1px solid #1e1e1e" }}>
               <span style={{ color: "#777", fontSize: 14 }}>Account Name</span>
               <span style={{ fontWeight: 600, fontSize: 14 }}>Benjamin Jay Crane</span>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", borderBottom: "1px solid #1e1e1e" }}>
+              <span style={{ color: "#777", fontSize: 14 }}>Account Number</span>
+              <span style={{ fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 8, fontFamily: "'JetBrains Mono', monospace" }}>
+                777879669
+                <button id="copyAccount" className="copy-btn" onClick={() => copyText("777879669", "copyAccount")}>Copy</button>
+              </span>
             </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", borderBottom: "1px solid #1e1e1e" }}>
               <span style={{ color: "#777", fontSize: 14 }}>Routing Number</span>
@@ -229,12 +232,13 @@ export default function NostraProposal() {
                 <button id="copyRouting" className="copy-btn" onClick={() => copyText("021000021", "copyRouting")}>Copy</button>
               </span>
             </div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", borderBottom: "1px solid #1e1e1e" }}>
+              <span style={{ color: "#777", fontSize: 14 }}>Bank</span>
+              <span style={{ fontWeight: 600, fontSize: 14 }}>JPMorgan Chase Bank, N.A.</span>
+            </div>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0" }}>
-              <span style={{ color: "#777", fontSize: 14 }}>Account Number</span>
-              <span style={{ fontWeight: 600, fontSize: 14, display: "flex", alignItems: "center", gap: 8, fontFamily: "'JetBrains Mono', monospace" }}>
-                777879669
-                <button id="copyAccount" className="copy-btn" onClick={() => copyText("777879669", "copyAccount")}>Copy</button>
-              </span>
+              <span style={{ color: "#777", fontSize: 14 }}>Address</span>
+              <span style={{ fontWeight: 600, fontSize: 14 }}>383 Madison Avenue, New York, NY 10179</span>
             </div>
           </div>
 
@@ -253,10 +257,6 @@ export default function NostraProposal() {
             <svg style={{ minWidth: 18 }} width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
             ACH transfers typically arrive within 1-3 business days.
           </div>
-
-          <p style={{ textAlign: "center", fontSize: 13, color: "#777", marginTop: 20 }}>
-            This information has also been sent to {email}
-          </p>
         </div>
       </div>
     );
@@ -301,7 +301,7 @@ export default function NostraProposal() {
         <div style={{ marginBottom: 36 }}>
           <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "1.5px", color: "#555", fontWeight: 600, marginBottom: 16 }}>Overview</div>
           <p style={{ fontSize: 15, color: "#777", lineHeight: 1.75 }}>
-            This agreement covers the <strong style={{ color: "#e8e8e8", fontWeight: 600 }}>full build and delivery</strong> of one Alumni GTM Intelligence system. Client provides customer list (up to 500 accounts) and target job titles. Payment of $10,000 is due upon signature. Dashboard and data are hosted on provider infrastructure for up to one year. 30 days of priority support included post-delivery.
+            This agreement covers the <strong style={{ color: "#e8e8e8", fontWeight: 600 }}>full build and delivery</strong> of one Alumni GTM Intelligence system. Client provides customer list (up to 500 accounts) and target job titles. Dashboard and data are hosted on provider infrastructure for up to one year. 30 days of support included post-delivery. Payment of $10,000 is due upon signature.
           </p>
         </div>
 
@@ -363,7 +363,7 @@ export default function NostraProposal() {
         <div style={{ marginBottom: 36 }}>
           <div style={{ fontSize: 11, textTransform: "uppercase", letterSpacing: "1.5px", color: "#555", fontWeight: 600, marginBottom: 16 }}>Disclosure</div>
           <p style={{ fontSize: 13, color: "#777", lineHeight: 1.75 }}>
-            Deliverables listed above represent the intended scope and may be adjusted by the provider based on data availability and technical feasibility. The final system may differ from what is described. Lead volume depends on the size and profile of the customer list provided.
+            Deliverables listed above represent the intended scope and may be adjusted by the provider based on data availability and technical feasibility. Given that, the appearance of the final delivered product may differ from what is described above. Lead volume depends on the size and profile of the customer list provided.
           </p>
         </div>
 
@@ -415,24 +415,6 @@ export default function NostraProposal() {
                 }}
               />
             </div>
-            <input
-              type="text"
-              placeholder="Title (e.g., CEO, Head of Growth)"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              style={{
-                width: "100%",
-                background: "rgba(255,255,255,0.02)",
-                border: "1px solid #1e1e1e",
-                borderRadius: 8,
-                padding: "12px 14px",
-                color: "#e8e8e8",
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: 14,
-                outline: "none",
-                marginBottom: 12,
-              }}
-            />
             <input
               type="email"
               placeholder="Email address"
