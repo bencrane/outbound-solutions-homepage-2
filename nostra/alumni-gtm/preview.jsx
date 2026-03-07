@@ -261,7 +261,6 @@ export default function AlumniGTMPreview() {
     "arhaus",
     "elizabeth arden",
     "gunner",
-    "h&m",
     "jacques marie mage",
     "lovisa",
     "spanx",
@@ -274,7 +273,7 @@ export default function AlumniGTMPreview() {
     "edward park",
     "gracie pearlman",
     "jennifer porter",
-    "mario moreno sears",
+    "kevin reyes",
   ];
 
   const filtered = useMemo(() => {
@@ -306,8 +305,10 @@ export default function AlumniGTMPreview() {
     }
     // Sort pinned people to the top
     list.sort((a, b) => {
-      const aIsPinned = pinnedPeople.includes(a.person?.full_name?.toLowerCase());
-      const bIsPinned = pinnedPeople.includes(b.person?.full_name?.toLowerCase());
+      const aName = a.person?.full_name?.toLowerCase() || "";
+      const bName = b.person?.full_name?.toLowerCase() || "";
+      const aIsPinned = pinnedPeople.some(p => aName.includes(p) || p.includes(aName));
+      const bIsPinned = pinnedPeople.some(p => bName.includes(p) || p.includes(bName));
       if (aIsPinned && !bIsPinned) return -1;
       if (!aIsPinned && bIsPinned) return 1;
       return 0;
