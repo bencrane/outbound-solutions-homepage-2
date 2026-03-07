@@ -37,6 +37,15 @@ export default function AlumniGTMPreview() {
   };
   const googleAdsRef = useRef(null);
 
+  // Clean up job titles
+  const cleanJobTitle = (title) => {
+    if (!title) return null;
+    const overrides = {
+      "VP of Marketing And Business Development": "VP of Marketing",
+    };
+    return overrides[title] || title;
+  };
+
   // Format revenue range (e.g., "10m-50m" -> "$10M-$50M", or convert storeleads value to range)
   const formatRevenueRange = (range, storeleadsSales) => {
     // If we have the revenue_range from firmographics, format it
@@ -407,7 +416,7 @@ export default function AlumniGTMPreview() {
 
           {c.description && (
             <div className="bg-[#0E0E10] border border-[#1E1E22] rounded p-4 mb-8">
-              <div className="text-[9px] tracking-wider text-[#52525B] uppercase font-semibold mb-2">About</div>
+              <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium mb-2">About</div>
               <p className="text-sm text-zinc-400 leading-relaxed">{c.description}</p>
             </div>
           )}
@@ -420,11 +429,11 @@ export default function AlumniGTMPreview() {
               <div className="bg-[#0E0E10] border border-[#1E1E22] rounded overflow-hidden">
                 {/* Table header */}
                 <div className="grid grid-cols-5 gap-2 px-4 py-2 border-b border-[#1E1E22] bg-[#0A0A0B]">
-                  <div className="text-[9px] tracking-wider text-[#52525B] uppercase font-semibold whitespace-nowrap">Name</div>
-                  <div className="text-[9px] tracking-wider text-[#52525B] uppercase font-semibold whitespace-nowrap">Role</div>
-                  <div className="text-[9px] tracking-wider text-[#52525B] uppercase font-semibold whitespace-nowrap">Past Co.</div>
-                  <div className="text-[9px] tracking-wider text-[#52525B] uppercase font-semibold whitespace-nowrap">Past Role</div>
-                  <div className="text-[9px] tracking-wider text-[#52525B] uppercase font-semibold whitespace-nowrap text-right">GTM Brief</div>
+                  <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium whitespace-nowrap">Name</div>
+                  <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium whitespace-nowrap">Role</div>
+                  <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium whitespace-nowrap">Past Co.</div>
+                  <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium whitespace-nowrap">Past Role</div>
+                  <div className="text-[9px] tracking-wider text-[#666] uppercase font-medium whitespace-nowrap text-right">GTM Brief</div>
                 </div>
                 {/* Table rows */}
                 {c.leads.map((lead, i) => {
@@ -702,22 +711,23 @@ export default function AlumniGTMPreview() {
         </div>
 
         {/* Table Content */}
-        <div className="overflow-x-auto pb-20">
+        <div className="overflow-x-auto pb-20" style={{ WebkitOverflowScrolling: "touch" }}>
+          <div style={{ minWidth: 1100 }}>
           {activeTab === "people" && (
-            <table className="w-full border-collapse table-fixed" style={{ minWidth: 1100 }}>
+            <table className="w-full border-collapse table-fixed" style={{ width: "100%" }}>
               <colgroup>
-                <col style={{ width: "12%" }} />
+                <col style={{ width: "14%" }} />
                 <col style={{ width: "16%" }} />
-                <col style={{ width: "18%" }} />
-                <col style={{ width: "12%" }} />
-                <col style={{ width: "32%" }} />
+                <col style={{ width: "24%" }} />
                 <col style={{ width: "10%" }} />
+                <col style={{ width: "20%" }} />
+                <col style={{ width: "8%" }} />
               </colgroup>
               <thead>
                 <tr className="border-b border-[#1E1E22]">
-                  {["Name", "Current Company", "Current Role", "Prior Company", "Prior Role", "GTM Brief"].map((h, i) => (
-                    <th key={i} className={`py-3 px-3 text-[10px] tracking-widest text-[#52525B] uppercase font-semibold ${
-                      i === 5 ? "text-right" : "text-left"
+                  {["Name", "Current Company", "Current Role", "Prior Co.", "Prior Role", "GTM"].map((h, i) => (
+                    <th key={i} className={`py-3 px-3 text-[10px] tracking-widest text-[#666] uppercase font-medium ${
+                      i === 0 ? "text-left" : "text-center"
                     }`}>
                       {h}
                     </th>
@@ -731,27 +741,27 @@ export default function AlumniGTMPreview() {
                     className="border-b border-[#111113] hover:bg-[#0E0E10] transition-colors group"
                   >
                     <td className="py-4 px-3 align-top">
-                      <div className="text-[13px] font-medium text-[#ECECEE] group-hover:text-white transition-colors">{l.person?.full_name}</div>
+                      <div className="text-[13px] font-medium text-white">{l.person?.full_name}</div>
                     </td>
-                    <td className="py-4 px-3 align-top">
-                      <div className="text-[13px] text-[#A1A1AA] truncate max-w-[180px]" title={l.current_company?.name}>
+                    <td className="py-4 px-3 text-center align-top">
+                      <div className="text-[13px] text-[#999] truncate" title={l.current_company?.name}>
                         {l.current_company?.name}
                       </div>
                     </td>
-                    <td className="py-4 px-3 align-top">
-                      <div className="text-[13px] text-[#52525B] truncate max-w-[200px]" title={l.current_company?.cleaned_job_title || l.current_company?.role}>
-                        {l.current_company?.cleaned_job_title || l.current_company?.role}
+                    <td className="py-4 px-3 text-center align-top">
+                      <div className="text-[13px] text-[#888] truncate" title={cleanJobTitle(l.current_company?.cleaned_job_title || l.current_company?.role)}>
+                        {cleanJobTitle(l.current_company?.cleaned_job_title || l.current_company?.role)}
                       </div>
                     </td>
-                    <td className="py-4 px-3 text-left align-top">
-                      <div className="text-[13px] text-[#6AADCF] font-medium">{l.prior_company?.name}</div>
+                    <td className="py-4 px-3 text-center align-top">
+                      <div className="text-[13px] text-[#4ade80] font-medium">{l.prior_company?.name}</div>
                     </td>
-                    <td className="py-4 px-3 text-left align-top">
-                      <div className="text-[12px] text-[#52525B]">
+                    <td className="py-4 px-3 text-center align-top">
+                      <div className="text-[12px] text-[#888]">
                         {l.prior_company?.cleaned_job_title || l.prior_company?.role}
                       </div>
                     </td>
-                    <td className="py-4 px-3 text-right align-top">
+                    <td className="py-4 px-3 text-center align-top">
                       {(() => {
                         const slug = getLinkedInSlug(l.person?.linkedin_url);
                         const hasBrief = l.gtm_brief || (slug && availableBriefs.has(slug));
@@ -759,7 +769,7 @@ export default function AlumniGTMPreview() {
                           return (
                             <button
                               onClick={(e) => { e.stopPropagation(); openGtmBrief(l); }}
-                              className="text-[11px] px-2.5 py-1 rounded bg-[#0F1619] border border-[#1C3040] text-[#6AADCF] hover:bg-[#162024] hover:border-[#6AADCF] transition-colors"
+                              className="text-[11px] px-2.5 py-1 rounded bg-transparent border border-[#333] text-[#888] hover:text-white hover:border-[#555] transition-colors"
                             >
                               View
                             </button>
@@ -775,22 +785,22 @@ export default function AlumniGTMPreview() {
           )}
 
           {activeTab === "companies" && (
-            <table className="w-full border-collapse table-fixed" style={{ minWidth: 1100 }}>
+            <table className="w-full border-collapse table-fixed" style={{ width: "100%" }}>
               <colgroup>
-                <col style={{ width: "18%" }} />
+                <col style={{ width: "15%" }} />
                 <col style={{ width: "16%" }} />
                 <col style={{ width: "9%" }} />
                 <col style={{ width: "12%" }} />
                 <col style={{ width: "9%" }} />
                 <col style={{ width: "13%" }} />
                 <col style={{ width: "13%" }} />
-                <col style={{ width: "10%" }} />
+                <col style={{ width: "13%" }} />
               </colgroup>
               <thead>
                 <tr className="border-b border-[#1E1E22]">
                   {["Company", "Industry", "Platform", "Revenue", "Size", "Meta Ads", "Google Ads", "Profile"].map((h, i) => (
-                    <th key={i} className={`py-3 px-3 text-[10px] tracking-widest text-[#52525B] uppercase font-semibold whitespace-nowrap ${
-                      i >= 3 ? "text-right" : "text-left"
+                    <th key={i} className={`py-3 px-3 text-[10px] tracking-widest text-[#666] uppercase font-medium whitespace-nowrap ${
+                      i === 0 ? "text-left" : "text-center"
                     }`}>
                       {h}
                     </th>
@@ -805,36 +815,36 @@ export default function AlumniGTMPreview() {
                     className="border-b border-[#111113] hover:bg-[#0E0E10] transition-colors cursor-pointer"
                   >
                     <td className="py-4 px-3">
-                      <div className="text-[13px] font-medium text-[#ECECEE]">{c.name}</div>
+                      <div className="text-[13px] font-medium text-white">{c.name}</div>
                     </td>
-                    <td className="py-4 px-3">
-                      <div className="text-[12px] text-[#52525B] truncate max-w-[140px]">{c.industry}</div>
+                    <td className="py-4 px-3 text-center">
+                      <div className="text-[12px] text-[#888] truncate max-w-[140px] mx-auto">{c.industry}</div>
                     </td>
-                    <td className="py-4 px-3">
-                      <div className="text-[12px] text-[#52525B] capitalize">{c.platform || "—"}</div>
+                    <td className="py-4 px-3 text-center">
+                      <div className="text-[12px] text-[#888] capitalize">{c.platform || "—"}</div>
                     </td>
-                    <td className="py-4 px-3 text-right">
-                      <div className="text-[12px] text-[#52525B]">
+                    <td className="py-4 px-3 text-center">
+                      <div className="text-[12px] text-[#888]">
                         {formatRevenueRange(c.revenue_range, c.estimated_sales)}
                       </div>
                     </td>
-                    <td className="py-4 px-3 text-right">
-                      <div className="text-[12px] text-[#52525B]">{formatSizeRange(c.size_range)}</div>
+                    <td className="py-4 px-3 text-center">
+                      <div className="text-[12px] text-[#888]">{formatSizeRange(c.size_range)}</div>
                     </td>
-                    <td className="py-4 px-3 text-right">
-                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.meta_ads_active ? "bg-[#101912] text-[#6ECF7A]" : "bg-[#1a1a1a] text-[#52525B]"}`}>
-                        {c.meta_ads_active ? "Active" : "Not Detected"}
+                    <td className="py-4 px-3 text-center">
+                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.meta_ads_active ? "bg-[#101912] text-[#4ade80]" : "bg-[#1a1a1a] text-[#666]"}`}>
+                        {c.meta_ads_active ? "Active" : "N/A"}
                       </span>
                     </td>
-                    <td className="py-4 px-3 text-right">
-                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.google_ads_active ? "bg-[#101912] text-[#6ECF7A]" : "bg-[#1a1a1a] text-[#52525B]"}`}>
-                        {c.google_ads_active ? "Active" : "Not Detected"}
+                    <td className="py-4 px-3 text-center">
+                      <span className={`text-[11px] px-2 py-0.5 rounded ${c.google_ads_active ? "bg-[#101912] text-[#4ade80]" : "bg-[#1a1a1a] text-[#666]"}`}>
+                        {c.google_ads_active ? "Active" : "N/A"}
                       </span>
                     </td>
-                    <td className="py-4 px-3 text-right">
+                    <td className="py-4 px-3 text-center">
                       <button
                         onClick={(e) => { e.stopPropagation(); setSelectedCompany(c); }}
-                        className="text-[11px] px-2.5 py-1 rounded bg-[#0F1619] border border-[#1C3040] text-[#6AADCF] hover:bg-[#162024] hover:border-[#6AADCF] transition-colors"
+                        className="text-[11px] px-2.5 py-1 rounded bg-transparent border border-[#333] text-[#888] hover:text-white hover:border-[#555] transition-colors"
                       >
                         View
                       </button>
@@ -844,6 +854,7 @@ export default function AlumniGTMPreview() {
               </tbody>
             </table>
           )}
+          </div>
         </div>
 
       </div>
