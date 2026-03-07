@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Text, Stack, Card } from "@/components/ui";
 import { tokens } from "@/lib/tokens";
 
@@ -88,8 +88,10 @@ function ArrowButton({ direction, onClick, disabled }: { direction: "left" | "ri
 }
 
 export function FitCarousel() {
-  const [startIndex, setStartIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const trackRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const mql = window.matchMedia("(max-width: 768px)");
@@ -102,15 +104,58 @@ export function FitCarousel() {
   const visibleCount = isMobile ? 1 : 3;
   const cardWidth = isMobile ? 280 : 360;
   const gap = 16;
-  const maxIndex = criteria.length - visibleCount;
+  const totalCards = criteria.length;
+
+  // Create extended array: [last few cards] + [all cards] + [first few cards]
+  const extendedCriteria = [
+    ...criteria.slice(-visibleCount),
+    ...criteria,
+    ...criteria.slice(0, visibleCount),
+  ];
+
+  // Offset to account for prepended cards
+  const offset = visibleCount;
+  const displayIndex = currentIndex + offset;
 
   const goLeft = () => {
-    setStartIndex(startIndex <= 0 ? maxIndex : startIndex - 1);
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex(currentIndex - 1);
   };
 
   const goRight = () => {
-    setStartIndex(startIndex >= maxIndex ? 0 : startIndex + 1);
+    if (isTransitioning) return;
+    setIsTransitioning(true);
+    setCurrentIndex(currentIndex + 1);
   };
+
+  // Handle seamless loop reset after transition
+  useEffect(() => {
+    if (!isTransitioning) return;
+
+    const timer = setTimeout(() => {
+      const track = trackRef.current;
+      if (!track) return;
+
+      // If we've moved past the real cards, reset position instantly
+      if (currentIndex >= totalCards) {
+        track.style.transition = "none";
+        setCurrentIndex(0);
+        // Force reflow
+        track.offsetHeight;
+        track.style.transition = "transform 0.3s ease";
+      } else if (currentIndex < 0) {
+        track.style.transition = "none";
+        setCurrentIndex(totalCards - 1);
+        // Force reflow
+        track.offsetHeight;
+        track.style.transition = "transform 0.3s ease";
+      }
+      setIsTransitioning(false);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [currentIndex, isTransitioning, totalCards]);
 
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: tokens.spacing[4] }}>
@@ -121,17 +166,18 @@ export function FitCarousel() {
         }}
       >
         <div
+          ref={trackRef}
           className="fit-carousel-track"
           style={{
             display: "flex",
             gap: `${gap}px`,
-            transform: `translateX(-${startIndex * (cardWidth + gap)}px)`,
+            transform: `translateX(-${displayIndex * (cardWidth + gap)}px)`,
             transition: "transform 0.3s ease",
           }}
         >
-          {criteria.map((item) => (
+          {extendedCriteria.map((item, idx) => (
             <div
-              key={item.label}
+              key={`${item.label}-${idx}`}
               className="fit-carousel-card"
               style={{
                 flexShrink: 0,

@@ -1,0 +1,260 @@
+{
+    "id": "idzmpOuDNK",
+    "urn": "urn:brandfetch:brand:idzmpOuDNK",
+    "name": "Lunos",
+    "fonts": [
+      {
+        "name": "Ppneuemontreal Book",
+        "type": "title",
+        "origin": "custom",
+        "weights": [],
+        "originId": null
+      }
+    ],
+    "links": [
+      {
+        "url": "https://linkedin.com/company/lunos-ai",
+        "name": "linkedin"
+      }
+    ],
+    "logos": [
+      {
+        "tags": [],
+        "type": "other",
+        "theme": null,
+        "formats": [
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/w/820/h/143/idYr-U2OG7.png?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 14873,
+            "width": 820,
+            "format": "png",
+            "height": 143,
+            "background": "transparent"
+          },
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/idYr-U2OG7.svg?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 3238,
+            "width": null,
+            "format": "svg",
+            "height": null,
+            "background": "transparent"
+          }
+        ]
+      },
+      {
+        "tags": [],
+        "type": "icon",
+        "theme": "dark",
+        "formats": [
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/w/400/h/400/theme/dark/icon.jpeg?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 11928,
+            "width": 400,
+            "format": "jpeg",
+            "height": 400,
+            "background": null
+          }
+        ]
+      },
+      {
+        "tags": [],
+        "type": "logo",
+        "theme": "light",
+        "formats": [
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/theme/light/logo.svg?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 3135,
+            "width": null,
+            "format": "svg",
+            "height": null,
+            "background": "transparent"
+          },
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/w/800/h/137/theme/light/logo.png?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 11867,
+            "width": 800,
+            "format": "png",
+            "height": 137,
+            "background": "transparent"
+          }
+        ]
+      },
+      {
+        "tags": [],
+        "type": "logo",
+        "theme": "dark",
+        "formats": [
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/theme/dark/logo.svg?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 3161,
+            "width": null,
+            "format": "svg",
+            "height": null,
+            "background": "transparent"
+          },
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/w/800/h/137/theme/dark/logo.png?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 14689,
+            "width": 800,
+            "format": "png",
+            "height": 137,
+            "background": "transparent"
+          }
+        ]
+      },
+      {
+        "tags": [],
+        "type": "symbol",
+        "theme": "dark",
+        "formats": [
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/theme/dark/symbol.svg?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 1967,
+            "width": null,
+            "format": "svg",
+            "height": null,
+            "background": "transparent"
+          },
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/w/800/h/800/theme/dark/symbol.png?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 39782,
+            "width": 800,
+            "format": "png",
+            "height": 800,
+            "background": "transparent"
+          }
+        ]
+      },
+      {
+        "tags": [],
+        "type": "other",
+        "theme": null,
+        "formats": [
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/id2Zt8L0Nk.svg?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 1959,
+            "width": null,
+            "format": "svg",
+            "height": null,
+            "background": "transparent"
+          },
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/w/800/h/800/id2Zt8L0Nk.png?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 34359,
+            "width": 800,
+            "format": "png",
+            "height": 800,
+            "background": null
+          }
+        ]
+      }
+    ],
+    "colors": [
+      {
+        "hex": "#FF42A0",
+        "type": "accent",
+        "brightness": 113
+      },
+      {
+        "hex": "#010101",
+        "type": "brand",
+        "brightness": 1
+      }
+    ],
+    "domain": "lunos.ai",
+    "images": [
+      {
+        "tags": [],
+        "type": "banner",
+        "formats": [
+          {
+            "src": "https://cdn.brandfetch.io/idzmpOuDNK/w/3168/h/792/idG1ruZVHG.jpeg?c=1bxidfDVNs4pM4EAEt3h4",
+            "size": 269940,
+            "width": 3168,
+            "format": "jpeg",
+            "height": 792,
+            "background": null
+          }
+        ]
+      }
+    ],
+    "isNsfw": false,
+    "claimed": true,
+    "company": {
+      "kind": null,
+      "location": {
+        "city": null,
+        "state": null,
+        "region": null,
+        "country": null,
+        "subregion": null,
+        "countryCode": null
+      },
+      "employees": null,
+      "industries": [
+        {
+          "id": "28",
+          "name": "Computers Electronics and Technology",
+          "slug": "computers-electronics-and-technology",
+          "emoji": "🖥",
+          "score": 0.5615020990371704,
+          "parent": null
+        },
+        {
+          "id": "32",
+          "name": "Computers Electronics and Technology",
+          "slug": "computers-electronics-and-technology",
+          "emoji": "🖥",
+          "score": 0.38929763436317444,
+          "parent": {
+            "id": "28",
+            "name": "Computers Electronics and Technology",
+            "slug": "computers-electronics-and-technology",
+            "emoji": "🖥"
+          }
+        },
+        {
+          "id": "37",
+          "name": "Programming and Developer Software",
+          "slug": "programming-and-developer-software",
+          "emoji": "🖥",
+          "score": 0.32238349318504333,
+          "parent": {
+            "id": "28",
+            "name": "Computers Electronics and Technology",
+            "slug": "computers-electronics-and-technology",
+            "emoji": "🖥"
+          }
+        },
+        {
+          "id": "10",
+          "name": "Business and Consumer Services",
+          "slug": "business-and-consumer-services",
+          "emoji": "📊",
+          "score": 0.17905393242835999,
+          "parent": null
+        },
+        {
+          "id": "30",
+          "name": "Computer Hardware",
+          "slug": "computer-hardware",
+          "emoji": "🖥",
+          "score": 0.1590743362903595,
+          "parent": {
+            "id": "28",
+            "name": "Computers Electronics and Technology",
+            "slug": "computers-electronics-and-technology",
+            "emoji": "🖥"
+          }
+        }
+      ],
+      "foundedYear": null,
+      "financialIdentifiers": {
+        "isin": [],
+        "ticker": []
+      }
+    },
+    "description": "Lunos is the AI partner that manages receivables just like you would. Well, how you would if you worked 24/7, never forgot anything and read every message ever sent to you...",
+    "qualityScore": 0.5,
+    "longDescription": "Lunos is an innovative brand that is set to revolutionize the market with their upcoming AI technology. Scheduled to launch in 2023, Lunos AI is poised to redefine the way we interact with technology. With their cutting-edge advancements in artificial intelligence, Lunos aims to provide users with an intuitive and seamless experience. Driven by a passion for technological excellence, Lunos is committed to delivering products and services that enhance the lives of their customers. Their upcoming AI technology promises to bring a new level of convenience, efficiency, and personalization to everyday tasks. Whether it's automating routine processes or providing intelligent recommendations, Lunos AI will be a game-changer in the world of technology. Stay tuned for the launch of Lunos AI in 2023 and get ready to experience the future of AI technology firsthand. Join the revolution and witness how Lunos is shaping the future of intelligent computing."
+  }

@@ -640,7 +640,7 @@ export default function AlumniGTMPreview() {
 
   return (
     <div className="min-h-screen bg-[#0A0A0B] text-[#A1A1AA] font-sans selection:bg-zinc-800 selection:text-white">
-      <div className="max-w-[1400px] mx-auto px-8 py-12">
+      <div className="max-w-[1600px] mx-auto px-8 py-12">
         
         {/* Header */}
         <div className="mb-10">
@@ -801,7 +801,7 @@ export default function AlumniGTMPreview() {
 
         {/* Table Content */}
         <div className="overflow-x-auto pb-20" style={{ WebkitOverflowScrolling: "touch" }}>
-          <div style={{ minWidth: 1100 }}>
+          <div style={{ minWidth: 1200 }}>
           {activeTab === "people" && (
             <table className="w-full border-collapse table-fixed" style={{ width: "100%" }}>
               <colgroup>
@@ -815,7 +815,7 @@ export default function AlumniGTMPreview() {
               <thead>
                 <tr className="border-b border-[#1E1E22]">
                   {["Name", "Current Company", "Current Role", "Alum Of", "Prior Role", "GTM Brief"].map((h, i) => (
-                    <th key={i} className={`py-3 px-3 text-[10px] tracking-widest text-[#666] uppercase font-medium ${
+                    <th key={i} className={`py-3 px-3 text-[10px] tracking-widest text-[#666] uppercase font-medium whitespace-nowrap ${
                       h === "GTM Brief" ? "text-center" : "text-left"
                     }`}>
                       {h}

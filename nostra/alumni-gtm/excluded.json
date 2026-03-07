@@ -1,0 +1,34 @@
+{
+  "excluded": [
+    {
+      "company": "Florida Blue",
+      "person": "Chloe Morgan",
+      "reason": "Not a fit"
+    },
+    {
+      "company": "Sage Advocacy",
+      "person": "Mary Warren",
+      "reason": "Not a fit"
+    },
+    {
+      "company": "Elisabeth Morrow School",
+      "person": "Jenice Brown",
+      "reason": "Not a fit"
+    },
+    {
+      "company": "Priscilla & Tiffany Art",
+      "person": "Mia Melo",
+      "reason": "Not a fit"
+    },
+    {
+      "company": "Details",
+      "person": "Satoshi Kato",
+      "reason": "HR consulting firm - not ecommerce"
+    },
+    {
+      "company": "Clinicas de Salud del Pueblo",
+      "person": "Young Kwon",
+      "reason": "Not a fit"
+    }
+  ]
+}

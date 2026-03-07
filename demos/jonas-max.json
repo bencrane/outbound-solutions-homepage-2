@@ -1,0 +1,62 @@
+{
+  "carrier": {
+    "name": "JOMAR BULK CARRIERS INC",
+    "dot_number": "461949",
+    "location": "Greenville, SC",
+    "power_units": 10,
+    "drivers": 11,
+    "hazmat": true,
+    "safety_rating": "Satisfactory",
+    "safety_rating_date": "2004"
+  },
+  "summary": {
+    "what_the_data_shows": "This is a 100% hazmat carrier — every single load is placardable — with a zero hazmat out-of-service rate against a 4.4% national average. Zero crashes in the current 24-month window. Zero fatal, zero injury, zero towaway. 43 inspections on 10 trucks gives you ~2.15 inspections per power unit per year — that's a real sample size, not a carrier hiding from weigh stations. 31 of those 43 inspections (72%) came back completely clean. 0.0% driver OOS rate. No enforcement penalties in six years.",
+    "fleet_trajectory": "Started at 5 PUs, grew slowly to 6 → 7 → 8 over many years. Had an unusual spike to 18–20 PUs around 2019–2021, then dropped back to 8, and has now grown to 10 PUs with 11 drivers. The 18–20 PU period looks like a temporary expansion — possibly leased capacity or a subhauler arrangement — that was unwound. Current 10 PUs is the fleet's all-time organic high.",
+    "basics": {
+      "unsafe_driving": "Currently 0.00, and has been 0.00 for ~2 years. Brief low-level blips to 1.14–1.56 around 2017–2018 and 2022, but always returned to zero quickly. This carrier simply doesn't generate Unsafe Driving violations.",
+      "hos_compliance": "Currently 0.00, has been 0.00 since about 2015. Non-issue for a decade.",
+      "driver_fitness": "0.00 for the carrier's entire recorded history. Clean.",
+      "drugs_alcohol": "0.00 across the entire history. Clean.",
+      "vehicle_maintenance": "Historically the carrier's one weak spot — peaked at 9.92–11.72 in 2010–2011, ran in the 5–8 range for years, spiked again to 7.25 in early 2024. But since then it's been on a steady, unbroken decline: 7.25 → 4.91 → 4.10 → 3.51 → 2.84 → 2.43 → 1.70. That 1.70 is the lowest Vehicle Maintenance score in the carrier's entire 15-year recorded history. And the 7.0% vehicle OOS rate versus the 23.2% national average confirms this isn't a data artifact — the improvement is real. They did this while growing the fleet from 8 to 10 trucks. Scores getting better while adding capacity means the operation is actually tightening up.",
+      "hm_compliance": "Not Public — standard for carriers in this size range.",
+      "crash_indicator": "Not Public."
+    },
+    "what_this_means": "This is a clean, improving, small hazmat fleet that's probably overpaying for coverage relative to their actual risk profile. A carrier getting better this consistently across every BASIC — while growing — is a genuinely good risk to write. They may not even know how strong their position is when it comes to negotiating rates. That's the opening.",
+    "watch_items": [
+      "Safety rating is Satisfactory but from 2004 — 21+ years stale. Not unusual for a small carrier, but worth noting.",
+      "Vehicle Maintenance, while at its all-time low, has a history of spiking — that's the one BASIC to keep monitoring.",
+      "The 18–20 PU anomaly period is unexplained; if it was a failed expansion, an underwriter might want context."
+    ]
+  },
+  "inspection_stats": {
+    "total_inspections_24mo": 43,
+    "inspections_without_violations": 31,
+    "inspections_with_violations": 12,
+    "clean_inspection_rate": "72%",
+    "inspections_per_pu_per_year": 2.15,
+    "oos_rates": {
+      "vehicle": { "carrier": "7.0%", "national_avg": "23.2%" },
+      "driver": { "carrier": "0.0%", "national_avg": "6.4%" },
+      "hazmat": { "carrier": "0.0%", "national_avg": "4.4%" }
+    }
+  },
+  "crashes_24mo": {
+    "total": 0,
+    "fatal": 0,
+    "injury": 0,
+    "towaway": 0
+  },
+  "enforcement": {
+    "penalties_6yr": 0,
+    "most_recent_investigation": "11/14/2023 (Compliance Review)"
+  },
+  "vehicle_maintenance_trend": [
+    { "period": "Jan 2024", "score": 7.25, "change": null },
+    { "period": "Mar 2024", "score": 4.91, "change": -2.34 },
+    { "period": "May 2024", "score": 4.10, "change": -0.81 },
+    { "period": "Jul 2024", "score": 3.51, "change": -0.59 },
+    { "period": "Sep 2024", "score": 2.84, "change": -0.67 },
+    { "period": "Nov 2024", "score": 2.43, "change": -0.41 },
+    { "period": "Jan 2025", "score": 1.70, "change": -0.73 }
+  ]
+}

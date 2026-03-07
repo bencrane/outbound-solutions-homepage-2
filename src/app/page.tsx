@@ -64,25 +64,25 @@ function HeroMetrics() {
         <Text variant="caption" color="muted" style={{ fontSize: "12px" }}>Last 90 days</Text>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
-        <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderBottom: `1px solid ${tokens.colors.border.subtle}`, borderRight: `1px solid ${tokens.colors.border.subtle}` }}>
+      <div className="hero-metrics-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+        <div className="hero-metrics-cell" style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderBottom: `1px solid ${tokens.colors.border.subtle}`, borderRight: `1px solid ${tokens.colors.border.subtle}` }}>
           <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>REVENUE ATTRIBUTED</Text>
-          <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>$184k</Text>
+          <Text variant="display" as="div" className="hero-metrics-value" style={{ fontSize: "36px", lineHeight: 1.1 }}>$184k</Text>
           <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[2] }}>+$62k this month</Text>
         </div>
-        <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderBottom: `1px solid ${tokens.colors.border.subtle}` }}>
+        <div className="hero-metrics-cell" style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderBottom: `1px solid ${tokens.colors.border.subtle}` }}>
           <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>PIPELINE</Text>
-          <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>$412k</Text>
+          <Text variant="display" as="div" className="hero-metrics-value" style={{ fontSize: "36px", lineHeight: 1.1 }}>$412k</Text>
           <Text variant="caption" color="muted" style={{ fontSize: "12px", marginTop: tokens.spacing[2] }}>18 deals open</Text>
         </div>
-        <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderRight: `1px solid ${tokens.colors.border.subtle}` }}>
+        <div className="hero-metrics-cell" style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}`, borderRight: `1px solid ${tokens.colors.border.subtle}` }}>
           <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>COST PER MEETING</Text>
-          <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>$127</Text>
+          <Text variant="display" as="div" className="hero-metrics-value" style={{ fontSize: "36px", lineHeight: 1.1 }}>$127</Text>
           <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[2] }}>&darr; from $203</Text>
         </div>
-        <div style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}` }}>
+        <div className="hero-metrics-cell" style={{ padding: `${tokens.spacing[8]} ${tokens.spacing[6]}` }}>
           <Text variant="label" color="muted" style={{ fontSize: "11px", marginBottom: tokens.spacing[2] }}>MEETINGS ATTENDED</Text>
-          <Text variant="display" as="div" style={{ fontSize: "36px", lineHeight: 1.1 }}>38</Text>
+          <Text variant="display" as="div" className="hero-metrics-value" style={{ fontSize: "36px", lineHeight: 1.1 }}>38</Text>
           <Text variant="caption" style={{ color: tokens.colors.accent.success, fontSize: "12px", marginTop: tokens.spacing[2] }}>14 this month</Text>
         </div>
       </div>
@@ -337,8 +337,8 @@ function MethodSection() {
       </Text>
 
       <div style={{ position: "relative" }}>
-        {/* Connecting line */}
         <div
+          className="method-line"
           style={{
             position: "absolute",
             left: "19px",
@@ -353,6 +353,7 @@ function MethodSection() {
           {stages.map((stage, i) => (
             <div
               key={stage.num}
+              className="method-stage"
               style={{
                 display: "grid",
                 gridTemplateColumns: "40px 1fr",
@@ -360,8 +361,8 @@ function MethodSection() {
                 alignItems: "flex-start",
               }}
             >
-              {/* Number node */}
               <div
+                className="method-node"
                 style={{
                   width: 40,
                   height: 40,
@@ -382,9 +383,9 @@ function MethodSection() {
                 {stage.num}
               </div>
 
-              {/* Content */}
               <Card padding="md" style={{ flex: 1 }}>
                 <Stack gap={2}>
+                  <Text variant="label" color="muted" style={{ fontSize: "11px" }}>{stage.num}</Text>
                   <Text variant="title" as="h3" style={{ fontSize: "17px" }}>{stage.title}</Text>
                   <Text variant="body" color="secondary" style={{ fontSize: "14px", lineHeight: 1.6 }}>{stage.description}</Text>
                 </Stack>

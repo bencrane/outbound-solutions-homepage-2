@@ -144,12 +144,33 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 
+  .signals-tabs button {
+    white-space: nowrap;
+  }
+
   .channels-card {
     padding: 24px !important;
+    min-height: auto !important;
+  }
+
+  .channels-card h3 {
+    font-size: 22px !important;
   }
 
   .footer-links {
     display: none !important;
+  }
+
+  .hero-metrics-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .hero-metrics-cell {
+    padding: 20px 16px !important;
+  }
+
+  .hero-metrics-value {
+    font-size: 28px !important;
   }
 
   .cd-padded {
@@ -195,7 +216,7 @@ body {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr !important;
     gap: var(--space-8) !important;
@@ -203,11 +224,34 @@ body {
 
   .hero-section {
     padding-top: 120px !important;
-    padding-bottom: 80px !important;
+    padding-bottom: 60px !important;
   }
 
   .hero-animation {
     display: none !important;
+  }
+
+  .channels-tabs-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .method-stage {
+    grid-template-columns: 1fr !important;
+    gap: var(--space-3) !important;
+  }
+
+  .method-node {
+    display: none !important;
+  }
+
+  .method-line {
+    display: none !important;
+  }
+
+  header {
+    padding-left: var(--space-5) !important;
+    padding-right: var(--space-5) !important;
   }
 }
 

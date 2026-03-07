@@ -61,6 +61,7 @@ export function ChannelsSection() {
 
       {/* Tabs */}
       <div
+        className="channels-tabs-wrap"
         style={{
           display: "flex",
           gap: "4px",
@@ -101,7 +102,7 @@ export function ChannelsSection() {
           border: `1px solid ${tokens.colors.border.subtle}`,
           borderRadius: tokens.radii.lg,
           padding: "48px",
-          height: "360px",
+          minHeight: "360px",
           display: "flex",
           flexDirection: "column",
         }}
