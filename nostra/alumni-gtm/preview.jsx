@@ -22,11 +22,17 @@ export default function AlumniGTMPreview() {
   const [error, setError] = useState(null);
   const [selectedCompany, setSelectedCompany] = useState(null);
   const [filterCompany, setFilterCompany] = useState("ALL");
-  const [drawerOpen, setDrawerOpen] = useState(true);
+  const [drawerOpen, setDrawerOpen] = useState(false); // legacy, will remove
   const [gtmBrief, setGtmBrief] = useState(null);
   const [gtmBriefLoading, setGtmBriefLoading] = useState(false);
-  const [activeTab, setActiveTab] = useState("people");
+  const [activeTab, setActiveTab] = useState("companies");
   const [availableBriefs, setAvailableBriefs] = useState(new Set());
+  const [pastJobTitles, setPastJobTitles] = useState({});
+  const [gtmFilter, setGtmFilter] = useState("yes"); // "yes" | "no" | "both"
+  const [icpFilter, setIcpFilter] = useState("yes"); // "yes" | "no" | "both"
+  const [openDrawer, setOpenDrawer] = useState(null); // "gtm" | "icp" | "alumni" | null
+  const [gtmExpanded, setGtmExpanded] = useState(false);
+  const [icpExpanded, setIcpExpanded] = useState(false);
   const metaAdsRef = useRef(null);
 
   // Extract LinkedIn slug from URL
@@ -207,6 +213,23 @@ export default function AlumniGTMPreview() {
     fetchData();
   }, []);
 
+  // Fetch past job titles mapping
+  useEffect(() => {
+    fetch("/past-job-title.json")
+      .then(res => res.json())
+      .then(data => {
+        const lookup = {};
+        data.forEach(item => {
+          // Use first occurrence (most relevant title)
+          if (!lookup[item.person_linkedin_url]) {
+            lookup[item.person_linkedin_url] = item.cleaned_job_title;
+          }
+        });
+        setPastJobTitles(lookup);
+      })
+      .catch(() => {});
+  }, []);
+
   // Check which GTM brief files exist (for fallback)
   useEffect(() => {
     if (!data?.leads) return;
@@ -238,13 +261,27 @@ export default function AlumniGTMPreview() {
   const filtered = useMemo(() => {
     if (!data?.leads) return [];
     let list = [...data.leads];
-    list = list.filter(l => l.prior_company?.gtm_fit);
+
+    // Apply GTM Fit filter
+    if (gtmFilter === "yes") {
+      list = list.filter(l => l.prior_company?.gtm_fit === true);
+    } else if (gtmFilter === "no") {
+      list = list.filter(l => l.prior_company?.gtm_fit === false);
+    }
+
+    // Apply ICP Fit filter
+    if (icpFilter === "yes") {
+      list = list.filter(l => l.person?.icp_fit === "YES");
+    } else if (icpFilter === "no") {
+      list = list.filter(l => l.person?.icp_fit === "NO");
+    }
+
     list = list.filter(l => !excludedCompanies.some(exc => l.current_company?.name?.toLowerCase().includes(exc)));
     if (filterCompany !== "ALL") {
       list = list.filter(l => l.prior_company?.name === filterCompany);
     }
     return list;
-  }, [data, filterCompany]);
+  }, [data, filterCompany, gtmFilter, icpFilter]);
 
   const companies = useMemo(() => {
     if (!filtered.length) return [];
@@ -258,7 +295,7 @@ export default function AlumniGTMPreview() {
           industry: l.current_company?.name?.toLowerCase().includes("jupiter") ? "Wellness and Fitness" : l.current_company?.firmographics?.industry,
           employee_count: l.current_company?.firmographics?.employee_count,
           size_range: l.current_company?.firmographics?.size_range,
-          platform: l.current_company?.storeleads?.platform,
+          platform: l.current_company?.tech_on_site || l.current_company?.storeleads?.platform,
           revenue_range: l.current_company?.revenue_range,
           estimated_sales: l.current_company?.storeleads?.estimated_sales_yearly,
           meta_ads_active: (l.current_company?.ads?.meta_ads_count || 0) > 0,
@@ -284,49 +321,23 @@ export default function AlumniGTMPreview() {
       const name = l.prior_company?.name;
       if (domain && customerDomains.has(domain)) {
         if (!counts[name]) counts[name] = { name, domain, count: 0 };
-        // Only count leads that match current GTM fit criteria if we want to show fit count
-        // But if user wants to see companies even if fit count is 0, we need to handle that.
-        // The user said: "No u did not... there are like 4 customer companies"
-        // This implies my previous reversion (which used data.leads directly) FAILED to show them.
-        // Why?
-        // Maybe because `excludedCompanies` filtering was applied?
-        // NO, `customerCounts` here uses `data.leads` directly.
-        
-        // Wait, look at the code I just read.
-        // It has `gtmFitLeads` definition!
-        // It has `const gtmFitLeads = useMemo...`
-        // So my Revert in Turn 6 DID NOT HAPPEN for `gtmFitLeads`.
-        // The `StrReplace` failed silently or I misread the output?
-        // Ah, `customerCounts` uses `gtmFitLeads` in the file I just read!
-        // Line 141: `const customerCounts = useMemo(() => { if (!gtmFitLeads.length ...`
-        // So I DID NOT revert `customerCounts` to use `data.leads`.
-        // I must have messed up the `StrReplace` arguments or something.
-        
-        // I will fix it now by replacing `gtmFitLeads` usage in `customerCounts` with `data.leads`.
-        // AND I will change the logic to count GTM fit leads specifically, but iterate ALL leads to find companies.
-        
-        // Actually, if I iterate all leads, and increment count only if GTM fit, 
-        // companies with 0 GTM fit leads will have count 0.
-        // Should they be displayed?
-        // User said "why did u get rid of all the customer companies".
-        // This implies they want to see them.
-        
-        // So:
-        // 1. Iterate `data.leads` (or `customers` list to be safe? but `data.leads` is what links people to companies).
-        // 2. For each lead, find company.
-        // 3. Increment count ONLY IF lead is gtm_fit.
-        // 4. BUT ensure the company is added to `counts` object even if count is 0?
-        //    If I iterate leads, and filter for fit, I miss non-fit leads' companies.
-        //    If I iterate ALL leads, I see all companies. I can add them to `counts` with 0 if needed.
-        
-        if (!counts[name]) counts[name] = { name, domain, count: 0 };
-        if (l.prior_company?.gtm_fit && !excludedCompanies.includes(l.current_company?.name?.toLowerCase())) {
-             counts[name].count++;
+
+        // Check if lead passes current filters
+        let passesGtm = gtmFilter === "both" ||
+          (gtmFilter === "yes" && l.prior_company?.gtm_fit === true) ||
+          (gtmFilter === "no" && l.prior_company?.gtm_fit === false);
+
+        let passesIcp = icpFilter === "both" ||
+          (icpFilter === "yes" && l.person?.icp_fit === "YES") ||
+          (icpFilter === "no" && l.person?.icp_fit === "NO");
+
+        if (passesGtm && passesIcp && !excludedCompanies.some(exc => l.current_company?.name?.toLowerCase().includes(exc))) {
+          counts[name].count++;
         }
       }
     });
     return Object.values(counts).sort((a, b) => b.count - a.count);
-  }, [data, customers]);
+  }, [data, customers, gtmFilter, icpFilter]);
 
   if (loading) {
     return (
@@ -348,15 +359,13 @@ export default function AlumniGTMPreview() {
     const { lead, data: briefData, error: briefError } = gtmBrief;
     return (
       <div className="min-h-screen bg-[#0A0A0B] text-zinc-400 font-sans">
-        <div className="border-b border-[#141416] px-8 py-3.5">
-          <button 
-            onClick={() => setGtmBrief(null)} 
-            className="text-zinc-400 text-xs px-3 py-1 border border-[#1E1E22] rounded hover:text-white transition-colors"
-          >
-            Back
-          </button>
-        </div>
         <div className="max-w-3xl mx-auto px-8 py-10">
+          <button
+            onClick={() => setGtmBrief(null)}
+            className="text-zinc-400 text-sm mb-8 hover:text-white transition-colors flex items-center gap-2 px-3 py-2 border border-[#1E1E22] rounded hover:border-zinc-500"
+          >
+            ← Back to people
+          </button>
           <div className="mb-8">
             <h1 className="text-2xl font-semibold text-[#ECECEE] mb-1">GTM Brief: {lead.person?.full_name}</h1>
             <div className="text-sm text-zinc-600">{lead.current_company?.name} &middot; {lead.current_company?.cleaned_job_title || lead.current_company?.role}</div>
@@ -370,29 +379,44 @@ export default function AlumniGTMPreview() {
 
           {briefData && (
             <div className="flex flex-col gap-6">
-              {Object.entries(briefData).map(([sectionKey, sectionValue]) => (
-                <div key={sectionKey} className="bg-[#0E0E10] border border-[#1E1E22] rounded-md p-5">
-                  <div className="text-[11px] tracking-widest text-[#6AADCF] uppercase font-semibold mb-3">
-                    {sectionKey.replace(/_/g, " ")}
-                  </div>
-                  {typeof sectionValue === "string" ? (
-                    <div className="text-sm text-zinc-300 leading-relaxed">{sectionValue}</div>
-                  ) : typeof sectionValue === "object" && sectionValue !== null ? (
-                    <div className="flex flex-col gap-3">
-                      {Object.entries(sectionValue).map(([subKey, subValue]) => (
-                        <div key={subKey}>
-                          <div className="text-[10px] tracking-widest text-zinc-600 uppercase mb-1">
-                            {subKey.replace(/_/g, " ")}
-                          </div>
-                          <div className="text-sm text-zinc-400 leading-relaxed">{String(subValue)}</div>
-                        </div>
-                      ))}
+              {/* Handle new API format with basis array */}
+              {briefData.basis && Array.isArray(briefData.basis) ? (
+                briefData.basis.map((item, idx) => (
+                  <div key={idx} className="bg-[#0E0E10] border border-[#1E1E22] rounded-md p-5">
+                    <div className="text-[11px] tracking-widest text-[#6AADCF] uppercase font-semibold mb-3">
+                      {(item.field || "").replace(/_/g, " ")}
                     </div>
-                  ) : (
-                    <div className="text-sm text-zinc-400">{String(sectionValue)}</div>
-                  )}
-                </div>
-              ))}
+                    <div className="text-sm text-zinc-300 leading-relaxed">
+                      {item.reasoning || ""}
+                    </div>
+                  </div>
+                ))
+              ) : (
+                /* Fallback for old format or local JSON files */
+                Object.entries(briefData).map(([sectionKey, sectionValue]) => (
+                  <div key={sectionKey} className="bg-[#0E0E10] border border-[#1E1E22] rounded-md p-5">
+                    <div className="text-[11px] tracking-widest text-[#6AADCF] uppercase font-semibold mb-3">
+                      {sectionKey.replace(/_/g, " ")}
+                    </div>
+                    {typeof sectionValue === "string" ? (
+                      <div className="text-sm text-zinc-300 leading-relaxed">{sectionValue}</div>
+                    ) : typeof sectionValue === "object" && sectionValue !== null ? (
+                      <div className="flex flex-col gap-3">
+                        {Object.entries(sectionValue).map(([subKey, subValue]) => (
+                          <div key={subKey}>
+                            <div className="text-[10px] tracking-widest text-zinc-600 uppercase mb-1">
+                              {subKey.replace(/_/g, " ")}
+                            </div>
+                            <div className="text-sm text-zinc-400 leading-relaxed">{String(subValue)}</div>
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="text-sm text-zinc-400">{String(sectionValue)}</div>
+                    )}
+                  </div>
+                ))
+              )}
             </div>
           )}
         </div>
@@ -632,83 +656,148 @@ export default function AlumniGTMPreview() {
               The target companies are ecommerce-native or have significant DTC presence — the exact profile where Nostra's edge platform drives measurable lift.
             </p>
           </div>
-          <p className="text-[13px] text-zinc-600 mt-5 font-medium">
-            {filtered.length} leads from {customerCounts.length} past customers
-          </p>
-        </div>
-
-        <div className="mb-8">
-          <div className="flex items-center gap-4 mb-4">
-            <button
-              onClick={() => setDrawerOpen(!drawerOpen)}
-              className="bg-[#0A0A0B] border border-[#1E1E22] rounded px-3.5 py-2 text-[13px] text-[#e5e5e5] hover:border-zinc-600 transition-colors flex items-center gap-2"
-            >
-              <span className="font-medium">Alumni Of</span>
-            </button>
-            {filterCompany !== "ALL" && (
-              <button
-                onClick={() => setFilterCompany("ALL")}
-                className="text-xs text-zinc-600 hover:text-white transition-colors"
-              >
-                Clear Filter
-              </button>
-            )}
-          </div>
-
-          {drawerOpen && (
-            <div className="w-full bg-[#0A0A0B] border border-[#1E1E22] rounded-lg p-4 shadow-2xl">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
-                <button
-                  onClick={() => setFilterCompany("ALL")}
-                  className={`px-3 py-2 rounded text-xs border transition-colors truncate ${
-                    filterCompany === "ALL" 
-                      ? "bg-[#1E1E22] border-[#333] text-white" 
-                      : "bg-transparent border-[#1E1E22] text-zinc-500 hover:border-zinc-500"
-                  }`}
-                >
-                  All ({data?.leads?.filter(l => l.prior_company?.gtm_fit && !excludedCompanies.some(exc => l.current_company?.name?.toLowerCase().includes(exc))).length || 0})
-                </button>
-                {customerCounts.map((c) => {
-                  const isActive = filterCompany === c.name;
-                  return (
-                    <button
-                      key={c.domain}
-                      onClick={() => setFilterCompany(c.name)}
-                      className={`px-3 py-2 rounded text-xs border transition-colors truncate ${
-                        isActive 
-                          ? "bg-[#1E1E22] border-[#333] text-[#6AADCF]" 
-                          : "bg-transparent border-[#1E1E22] text-zinc-500 hover:border-zinc-500"
-                      }`}
-                      title={`${c.name} (${c.count})`}
-                    >
-                      {c.name} ({c.count})
-                    </button>
-                  );
-                })}
-              </div>
+          {/* Funnel Stats */}
+          {data?.funnel && (
+            <div className="flex items-center gap-3 mt-5 text-[13px]">
+              <span className="text-zinc-600">{data.funnel.total_people} alumni across {new Set(data.leads?.map(l => l.current_company?.domain).filter(Boolean)).size} companies</span>
+              <span className="text-zinc-700">→</span>
+              <span className="text-zinc-600">{data.funnel.gtm_fit_true} GTM fit</span>
+              <span className="text-zinc-700">→</span>
+              <span className="text-zinc-500 font-medium">{data.funnel.gtm_fit_true_and_icp_fit_yes} Qualified Targets</span>
             </div>
           )}
         </div>
 
-        {/* Tabs */}
-        <div className="flex gap-6 mb-6 border-b border-[#1E1E22]">
-          {[
-            { key: "companies", label: "Companies", count: companies.length },
-            { key: "people", label: "People", count: filtered.length },
-          ].map(tab => (
+        {/* Tabs with Filters */}
+        <div className="flex items-center justify-between mb-6 border-b border-[#1E1E22]">
+          <div className="flex gap-6">
+            {[
+              { key: "companies", label: "Companies", count: companies.length },
+              { key: "people", label: "People", count: filtered.length },
+            ].map(tab => (
+              <button
+                key={tab.key}
+                onClick={() => setActiveTab(tab.key)}
+                className={`pb-3 text-[13px] font-medium border-b-2 transition-colors ${
+                  activeTab === tab.key
+                    ? "border-[#6AADCF] text-[#ECECEE]"
+                    : "border-transparent text-zinc-600 hover:text-zinc-400"
+                }`}
+              >
+                {tab.label} <span className="text-zinc-600 ml-1">({tab.count})</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Filters */}
+          <div className="flex items-center gap-3 pb-3">
             <button
-              key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
-              className={`pb-3 text-[13px] font-medium border-b-2 transition-colors ${
-                activeTab === tab.key 
-                  ? "border-[#6AADCF] text-[#ECECEE]" 
-                  : "border-transparent text-zinc-600 hover:text-zinc-400"
+              onClick={() => setOpenDrawer(openDrawer === "alumni" ? null : "alumni")}
+              className={`border border-[#1E1E22] rounded-lg px-3 py-2 text-[11px] hover:border-zinc-500 transition-colors uppercase tracking-wider ${
+                filterCompany !== "ALL" ? "text-[#4ade80] border-[#4ade80]/30" : "text-zinc-500"
               }`}
             >
-              {tab.label} <span className="text-zinc-600 ml-1">({tab.count})</span>
+              Alumni Of {filterCompany !== "ALL" && <span className="ml-1 normal-case">({filterCompany})</span>}
             </button>
-          ))}
+            <div className="flex items-center border border-[#1E1E22] rounded-lg overflow-hidden">
+              <button
+                onClick={() => setGtmExpanded(!gtmExpanded)}
+                className={`px-3 py-2 text-[10px] uppercase tracking-wider transition-colors ${
+                  gtmExpanded ? "bg-[#1E1E22] text-white" : "text-zinc-500 hover:text-zinc-300"
+                }`}
+              >
+                GTM Fit {!gtmExpanded && <span className="text-zinc-600 ml-1 capitalize">({gtmFilter})</span>}
+              </button>
+              {gtmExpanded && (
+                <div className="flex gap-1 px-2 border-l border-[#1E1E22]">
+                  {["yes", "no", "both"].map((val) => (
+                    <button
+                      key={val}
+                      onClick={() => setGtmFilter(val)}
+                      className={`px-2.5 py-1 rounded text-xs border transition-colors capitalize ${
+                        gtmFilter === val
+                          ? val === "yes"
+                            ? "bg-[#0f1f12] border-[#4ade80]/30 text-[#4ade80]/70"
+                            : val === "no"
+                            ? "bg-[#1f0f12] border-[#f87171]/30 text-[#f87171]/70"
+                            : "bg-[#1E1E22] border-[#333] text-white"
+                          : "bg-transparent border-[#1E1E22] text-zinc-500 hover:border-zinc-500"
+                      }`}
+                    >
+                      {val}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="flex items-center border border-[#1E1E22] rounded-lg overflow-hidden">
+              <button
+                onClick={() => setIcpExpanded(!icpExpanded)}
+                className={`px-3 py-2 text-[10px] uppercase tracking-wider transition-colors ${
+                  icpExpanded ? "bg-[#1E1E22] text-white" : "text-zinc-500 hover:text-zinc-300"
+                }`}
+              >
+                ICP Fit {!icpExpanded && <span className="text-zinc-600 ml-1 capitalize">({icpFilter})</span>}
+              </button>
+              {icpExpanded && (
+                <div className="flex gap-1 px-2 border-l border-[#1E1E22]">
+                  {["yes", "no", "both"].map((val) => (
+                    <button
+                      key={val}
+                      onClick={() => setIcpFilter(val)}
+                      className={`px-2.5 py-1 rounded text-xs border transition-colors capitalize ${
+                        icpFilter === val
+                          ? val === "yes"
+                            ? "bg-[#0f1f12] border-[#4ade80]/30 text-[#4ade80]/70"
+                            : val === "no"
+                            ? "bg-[#1f0f12] border-[#f87171]/30 text-[#f87171]/70"
+                            : "bg-[#1E1E22] border-[#333] text-white"
+                          : "bg-transparent border-[#1E1E22] text-zinc-500 hover:border-zinc-500"
+                      }`}
+                    >
+                      {val}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
+
+        {/* Alumni Of Drawer */}
+        {openDrawer === "alumni" && (
+          <div className="mb-6 w-full bg-[#0A0A0B] border border-[#1E1E22] rounded-lg p-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2">
+              <button
+                onClick={() => setFilterCompany("ALL")}
+                className={`px-3 py-2 rounded text-xs border transition-colors truncate ${
+                  filterCompany === "ALL"
+                    ? "bg-[#1E1E22] border-[#333] text-white"
+                    : "bg-transparent border-[#1E1E22] text-zinc-500 hover:border-zinc-500"
+                }`}
+              >
+                All ({filtered.length})
+              </button>
+              {customerCounts.map((c) => {
+                const isActive = filterCompany === c.name;
+                return (
+                  <button
+                    key={c.domain}
+                    onClick={() => setFilterCompany(c.name)}
+                    className={`px-3 py-2 rounded text-xs border transition-colors truncate ${
+                      isActive
+                        ? "bg-[#1E1E22] border-[#333] text-[#6AADCF]"
+                        : "bg-transparent border-[#1E1E22] text-zinc-500 hover:border-zinc-500"
+                    }`}
+                    title={`${c.name} (${c.count})`}
+                  >
+                    {c.name} ({c.count})
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* Table Content */}
         <div className="overflow-x-auto pb-20" style={{ WebkitOverflowScrolling: "touch" }}>
@@ -725,9 +814,9 @@ export default function AlumniGTMPreview() {
               </colgroup>
               <thead>
                 <tr className="border-b border-[#1E1E22]">
-                  {["Name", "Current Company", "Current Role", "Prior Co.", "Prior Role", "GTM"].map((h, i) => (
+                  {["Name", "Current Company", "Current Role", "Alum Of", "Prior Role", "GTM Brief"].map((h, i) => (
                     <th key={i} className={`py-3 px-3 text-[10px] tracking-widest text-[#666] uppercase font-medium ${
-                      i === 0 ? "text-left" : "text-center"
+                      h === "GTM Brief" ? "text-center" : "text-left"
                     }`}>
                       {h}
                     </th>
@@ -743,33 +832,42 @@ export default function AlumniGTMPreview() {
                     <td className="py-4 px-3 align-top">
                       <div className="text-[13px] font-medium text-white">{l.person?.full_name}</div>
                     </td>
-                    <td className="py-4 px-3 text-center align-top">
-                      <div className="text-[13px] text-[#999] truncate" title={l.current_company?.name}>
+                    <td className="py-4 px-3 align-top">
+                      <div className="text-[13px] text-[#4ade80] font-medium truncate" title={l.current_company?.name}>
                         {l.current_company?.name}
                       </div>
                     </td>
-                    <td className="py-4 px-3 text-center align-top">
+                    <td className="py-4 px-3 align-top">
                       <div className="text-[13px] text-[#888] truncate" title={cleanJobTitle(l.current_company?.cleaned_job_title || l.current_company?.role)}>
                         {cleanJobTitle(l.current_company?.cleaned_job_title || l.current_company?.role)}
                       </div>
                     </td>
-                    <td className="py-4 px-3 text-center align-top">
-                      <div className="text-[13px] text-[#4ade80] font-medium">{l.prior_company?.name}</div>
+                    <td className="py-4 px-3 align-top">
+                      <div className="text-[13px] text-[#86efac]">{l.prior_company?.name}</div>
                     </td>
-                    <td className="py-4 px-3 text-center align-top">
+                    <td className="py-4 px-3 align-top">
                       <div className="text-[12px] text-[#888]">
-                        {l.prior_company?.cleaned_job_title || l.prior_company?.role}
+                        {pastJobTitles[l.person?.linkedin_url] || l.prior_company?.cleaned_job_title || l.prior_company?.role}
                       </div>
                     </td>
-                    <td className="py-4 px-3 text-center align-top">
+                    <td className="py-4 px-3 align-top text-center">
                       {(() => {
+                        // Show N/A if ICP fit is NO
+                        if (l.person?.icp_fit === "NO") {
+                          return <span className="text-[11px] text-[#E8798A]">N/A</span>;
+                        }
+                        // Show N/A for specific people
+                        const excludedNames = ["Angela Deon", "David Lorango", "Christina Marie"];
+                        if (excludedNames.includes(l.person?.full_name)) {
+                          return <span className="text-[11px] text-[#E8798A]">N/A</span>;
+                        }
                         const slug = getLinkedInSlug(l.person?.linkedin_url);
                         const hasBrief = l.gtm_brief || (slug && availableBriefs.has(slug));
                         if (hasBrief) {
                           return (
                             <button
                               onClick={(e) => { e.stopPropagation(); openGtmBrief(l); }}
-                              className="text-[11px] px-2.5 py-1 rounded bg-transparent border border-[#333] text-[#888] hover:text-white hover:border-[#555] transition-colors"
+                              className="text-[11px] px-2.5 py-1 rounded border border-[#333] text-[#4ade80]/50 hover:text-[#4ade80] hover:border-[#555] transition-colors"
                             >
                               View
                             </button>
@@ -814,18 +912,18 @@ export default function AlumniGTMPreview() {
                     onClick={() => setSelectedCompany(c)}
                     className="border-b border-[#111113] hover:bg-[#0E0E10] transition-colors cursor-pointer"
                   >
-                    <td className="py-4 px-3">
+                    <td className="py-4 px-3 text-left">
                       <div className="text-[13px] font-medium text-white">{c.name}</div>
                     </td>
                     <td className="py-4 px-3 text-center">
-                      <div className="text-[12px] text-[#888] truncate max-w-[140px] mx-auto">{c.industry}</div>
+                      <div className="text-[12px] text-[#888]">{c.industry}</div>
                     </td>
                     <td className="py-4 px-3 text-center">
-                      <div className="text-[12px] text-[#888] capitalize">{c.platform || "—"}</div>
+                      <div className="text-[12px] text-[#888]">{gtmFilter === "no" ? "N/A" : (c.platform?.includes("Shopify Plus") ? "Shopify Plus" : c.platform || "—")}</div>
                     </td>
                     <td className="py-4 px-3 text-center">
                       <div className="text-[12px] text-[#888]">
-                        {formatRevenueRange(c.revenue_range, c.estimated_sales)}
+                        {gtmFilter === "no" ? "N/A" : formatRevenueRange(c.revenue_range, c.estimated_sales)}
                       </div>
                     </td>
                     <td className="py-4 px-3 text-center">
