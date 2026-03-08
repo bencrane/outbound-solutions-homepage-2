@@ -284,6 +284,9 @@ export default function AlumniGTMPreview({ domain = "nostra.ai", companyName = "
     if (!data?.leads) return [];
     let list = [...data.leads];
 
+    // Exclude people currently at a customer
+    list = list.filter(l => !l.person?.is_at_customer);
+
     // Apply GTM Fit filter
     if (gtmFilter === "yes") {
       list = list.filter(l => l.prior_company?.gtm_fit === true);
