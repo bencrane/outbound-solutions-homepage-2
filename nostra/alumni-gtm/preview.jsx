@@ -15,7 +15,7 @@ const COLORS = {
   error: "#E8798A",
 };
 
-export default function AlumniGTMPreview({ domain = "nostra.ai" }) {
+export default function AlumniGTMPreview({ domain = "nostra.ai", companyName = "Nostra" }) {
   const [data, setData] = useState(null);
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -294,6 +294,8 @@ export default function AlumniGTMPreview({ domain = "nostra.ai" }) {
     // Apply ICP Fit filter
     if (icpFilter === "yes") {
       list = list.filter(l => l.person?.icp_fit === "YES");
+    } else if (icpFilter === "maybe") {
+      list = list.filter(l => l.person?.icp_fit === "MAYBE");
     } else if (icpFilter === "no") {
       list = list.filter(l => l.person?.icp_fit === "NO");
     }
@@ -378,6 +380,7 @@ export default function AlumniGTMPreview({ domain = "nostra.ai" }) {
 
         let passesIcp = icpFilter === "both" ||
           (icpFilter === "yes" && l.person?.icp_fit === "YES") ||
+          (icpFilter === "maybe" && l.person?.icp_fit === "MAYBE") ||
           (icpFilter === "no" && l.person?.icp_fit === "NO");
 
         if (passesGtm && passesIcp && !excludedCompanies.some(exc => l.current_company?.name?.toLowerCase().includes(exc))) {
@@ -724,7 +727,7 @@ export default function AlumniGTMPreview({ domain = "nostra.ai" }) {
         
         {/* Header */}
         <div className="mb-10">
-          <h1 className="text-[28px] font-semibold text-white tracking-tight mb-4">AlumniGTM Intelligence for Nostra</h1>
+          <h1 className="text-[28px] font-semibold text-white tracking-tight mb-4">AlumniGTM Intelligence for {companyName}</h1>
           <div className="max-w-xl space-y-2">
             <p className="text-[13px] text-zinc-500 leading-normal">
               These are executives and senior operators who previously worked at Nostra's current customers — including Jolie, Boarderie, Forever 21, and others — and now hold buying authority at new companies.
@@ -739,7 +742,7 @@ export default function AlumniGTMPreview({ domain = "nostra.ai" }) {
           {/* Funnel Stats */}
           {data?.funnel && (
             <div className="flex items-center gap-3 mt-5 text-[13px]">
-              <span className="text-zinc-600">630 alumni across {new Set(data.leads?.map(l => l.current_company?.domain).filter(Boolean)).size} companies</span>
+              <span className="text-zinc-600">{data.leads?.length || 0} alumni across {new Set(data.leads?.map(l => l.current_company?.domain).filter(Boolean)).size} companies</span>
               <span className="text-zinc-700">→</span>
               <span className="text-zinc-600">{data.funnel.gtm_fit_true} GTM fit</span>
               <span className="text-zinc-700">→</span>
@@ -821,7 +824,7 @@ export default function AlumniGTMPreview({ domain = "nostra.ai" }) {
               </button>
               {icpExpanded && (
                 <div className="flex gap-1 px-2 border-l border-[#1E1E22]">
-                  {["yes", "no", "both"].map((val) => (
+                  {["yes", "maybe", "no", "both"].map((val) => (
                     <button
                       key={val}
                       onClick={() => setIcpFilter(val)}
@@ -829,6 +832,8 @@ export default function AlumniGTMPreview({ domain = "nostra.ai" }) {
                         icpFilter === val
                           ? val === "yes"
                             ? "bg-[#0f1f12] border-[#4ade80]/30 text-[#4ade80]/70"
+                            : val === "maybe"
+                            ? "bg-[#1a1810] border-[#c9a057]/30 text-[#c9a057]/70"
                             : val === "no"
                             ? "bg-[#1f0f12] border-[#f87171]/30 text-[#f87171]/70"
                             : "bg-[#1E1E22] border-[#333] text-white"

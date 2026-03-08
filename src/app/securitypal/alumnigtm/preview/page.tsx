@@ -11,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <AlumniGTMPreview domain="securitypalhq.com" />;
+  return <AlumniGTMPreview domain="securitypalhq.com" companyName="SecurityPal AI" />;
 }
