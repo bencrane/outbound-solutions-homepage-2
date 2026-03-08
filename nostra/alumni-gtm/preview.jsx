@@ -15,7 +15,7 @@ const COLORS = {
   error: "#E8798A",
 };
 
-export default function AlumniGTMPreview() {
+export default function AlumniGTMPreview({ domain = "nostra.ai" }) {
   const [data, setData] = useState(null);
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -186,12 +186,12 @@ export default function AlumniGTMPreview() {
           fetch("https://api.revenueinfra.com/v1/alumni-gtm/leads", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ origin_company_domain: "nostra.ai" }),
+            body: JSON.stringify({ origin_company_domain: domain }),
           }),
           fetch("https://api.revenueinfra.com/read/gtm/dashboard", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ domain: "nostra.ai" }),
+            body: JSON.stringify({ domain }),
           }),
         ]);
 
